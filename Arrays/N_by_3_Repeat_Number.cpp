@@ -1,6 +1,6 @@
 // Logic:  
 // There can be only 2 elements with frequency greater than N/3
-// Using Boyer-Moore's Voting Algorithm
+// Using Boyer-Moore's Voting Algorithm.
 
 
 int Solution::repeatedNumber(const vector<int> &arr) {
