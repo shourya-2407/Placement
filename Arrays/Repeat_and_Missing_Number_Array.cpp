@@ -1,3 +1,5 @@
+//Logic: Simple maths
+
 vector<int> Solution::repeatedNumber(const vector<int> &A) {
     long long int actual_sum;
     long long int actual_sq_sum;
