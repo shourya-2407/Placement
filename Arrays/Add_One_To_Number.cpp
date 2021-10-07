@@ -1,3 +1,5 @@
+//Logic: Brute Force Method
+
 vector<int> Solution::plusOne(vector<int> &A) {
     int carry = 1;
 
