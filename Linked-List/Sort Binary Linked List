@@ -1,0 +1,32 @@
+//Logic:
+// I have simply iterated the Linked List and then deleted (skipped) all the nodes with value 1 and also kept its count 
+// and then after all the 0s I have added all the 1s.
+
+ListNode* Solution::solve(ListNode* A) {
+    int cnt = 0;
+    if(A -> next == NULL)
+        return A;
+    while(A -> val == 1){
+        A = A -> next;
+        cnt++;
+    }
+    ListNode* curr = A -> next;
+    ListNode* prev = A;
+    while(curr != NULL && curr -> next != NULL){
+        if(curr -> val == 1){
+            cnt++;
+            curr = curr -> next;
+            prev -> next = curr;
+        }
+        else{
+            curr = curr -> next;
+            prev = prev -> next;
+        }
+    }
+    while(cnt--){
+        ListNode* tmp = new ListNode(1);
+        curr -> next = tmp;
+        curr = curr -> next;
+    }
+    return A;
+}
