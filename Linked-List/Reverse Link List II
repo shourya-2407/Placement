@@ -1,0 +1,21 @@
+ListNode* Solution::reverseBetween(ListNode* head, int start, int end) {
+    if(!head || start == end) return head;
+    ListNode dummy(0);
+    dummy.next = head;
+    
+    ListNode* prev = &dummy;
+    int pos = 1;
+    while(pos < start){
+        prev = prev -> next;
+        pos++;
+    }
+    auto curr = prev -> next;
+    while(start < end){
+        auto next = curr -> next;
+        curr -> next = next -> next;
+        next -> next = prev -> next;
+        prev -> next = next;
+        start++;
+    }
+    return dummy.next;
+}
