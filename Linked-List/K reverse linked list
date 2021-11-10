@@ -1,0 +1,38 @@
+ListNode* reverseBetween(ListNode* head, int start, int end) {
+    if(!head || start == end) return head;
+    ListNode dummy(0);
+    dummy.next = head;
+    
+    ListNode* prev = &dummy;
+    int pos = 1;
+    while(pos < start){
+        prev = prev -> next;
+        pos++;
+    }
+    auto curr = prev -> next;
+    while(start < end){
+        auto next = curr -> next;
+        curr -> next = next -> next;
+        next -> next = prev -> next;
+        prev -> next = next;
+        start++;
+    }
+    return dummy.next;
+}
+
+ListNode* Solution::reverseList(ListNode* A, int B) {
+    int cnt = 0;
+    ListNode* dummy = A;
+    while(dummy){
+        dummy = dummy -> next;
+        cnt++;
+    }
+    int start = 1;
+    int end;
+    ListNode* tmp = A;
+    while(start <= cnt - B + 1){
+        tmp = reverseBetween(tmp, start,start + B - 1);
+        start += B;
+    }
+    return tmp;
+}
