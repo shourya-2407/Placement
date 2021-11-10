@@ -1,0 +1,39 @@
+//Logic: Firstly find the middle element of the linkedlist
+// Then Reverse the second half of the linkedlist 
+// And then take two pointers, one from the beginning and one from the second half, and check for equality.
+
+int Solution::lPalin(ListNode* A) {
+    ListNode *slow = A; 
+    ListNode *fast = A;   
+
+    if(A -> next == NULL) return 1;
+
+    while(fast != NULL && fast->next != NULL){
+        slow = slow -> next;
+        fast = fast -> next -> next;
+    }
+   // cout << slow -> val << "";
+    //slow = slow -> next;
+    ListNode *prev = NULL;
+    ListNode *curr = slow;
+    ListNode *next;
+
+  //  cout << curr -> val << " ";
+
+    while(curr != NULL){
+        next = curr -> next;
+        curr -> next = prev;
+        prev = curr;
+        curr = next;
+    }
+    slow = prev;
+    fast = A;
+    while(slow != NULL){
+        if(fast -> val != slow -> val){
+            return 0;
+        }
+        slow = slow -> next;
+        fast = fast -> next;
+    }
+    return 1;
+}
