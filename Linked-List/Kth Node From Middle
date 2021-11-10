@@ -1,0 +1,34 @@
+// Logic: Only considered the first half of the list, 
+// and then found N - K ele from beginning 
+
+int rotateRight(ListNode* A, int B) {
+    int cnt = 1;
+    ListNode* tmp = A;
+    while(tmp -> next){
+        tmp = tmp -> next;
+        cnt++;
+    }
+    if(B >= cnt){
+        return -1;
+    }
+    B = cnt - B - 1;
+    int i = 0;
+    ListNode* head = A;
+    while(i < B){
+        head = head -> next;
+        i++;
+    }
+    return head -> val;
+}
+
+int Solution::solve(ListNode* A, int B) {
+    ListNode* slow = A;
+    ListNode* fast = A;
+      
+    while(fast && fast -> next){
+        slow = slow -> next;
+        fast = fast -> next -> next;
+    }
+    slow -> next = NULL;
+    return rotateRight(A, B);
+}
