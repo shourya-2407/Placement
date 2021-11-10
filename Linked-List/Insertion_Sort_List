@@ -1,0 +1,25 @@
+//Logic: If you find a node which has value greater than its next, 
+//then iterate from start and find appropriate position for the next node. 
+
+ListNode* Solution::insertionSortList(ListNode* head) {
+    ListNode* start = new ListNode(0);
+    start -> next = head;
+    ListNode* curr = head, *prev = start;
+    while(curr){
+        if(curr -> next != NULL && curr-> next-> val < curr -> val){
+            //Insertion
+            while(prev -> next && (curr -> next -> val > prev -> next -> val))
+                prev = prev -> next;
+            
+            ListNode* tmp = prev -> next;
+            prev -> next = curr -> next;
+            curr -> next = curr -> next -> next;
+            prev -> next -> next = tmp;
+            prev = start;
+        }
+        else{
+            curr = curr -> next;
+        }
+    }
+    return start->next;
+}
