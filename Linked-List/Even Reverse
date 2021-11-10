@@ -1,0 +1,45 @@
+//Logic: Traverse the list, and store all even values in a vector
+// Reverse the linked list
+// Replace all the even places with the values in vector
+// Reverse the list again
+
+ListNode *reverse(ListNode *head){
+    ListNode *q;
+    q=NULL;
+    while(head!=NULL){
+        ListNode *on=head->next;
+        head->next=q;
+        q=head;
+        head=on;
+    }
+    return q;
+}
+
+ListNode* Solution::solve(ListNode* h){
+    ListNode *p, *q;
+    vector <int> v;
+    int len=0;
+
+    p=h;
+    while(p!=NULL){
+        if(len%2==1){
+            v.push_back(p->val);
+        }
+        len++;
+        p=p->next;
+    }
+    int idx=0;
+    q=reverse(h);
+    p=q;
+
+    if(len%2==1){
+        q=q->next;
+    }
+    while(q!=NULL){
+        q->val=v[idx];
+        idx++;
+        q=q->next->next;
+    }
+    p=reverse(p);
+    return p;
+}
