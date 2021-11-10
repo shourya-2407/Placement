@@ -1,0 +1,22 @@
+ListNode* Solution::mergeTwoLists(ListNode* A, ListNode* B) {
+    ListNode* dummy = new ListNode(0);
+    ListNode* head = dummy;
+    while(A != NULL && B != NULL){
+        if(A-> val < B -> val){
+            dummy -> next = A;
+            A = A -> next;
+        }
+        else{
+            dummy -> next = B;
+            B = B -> next;
+        }
+        dummy = dummy -> next;
+    }
+    if(A){
+        dummy -> next = A;
+    }
+    if(B){
+        dummy -> next = B;
+    }
+    return head -> next;
+}
