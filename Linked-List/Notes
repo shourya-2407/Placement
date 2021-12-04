@@ -1,7 +1,13 @@
-Linked List: Linear DS -> Non-contiguous -> 
+Linked List: Linear DS -> Non-contiguous -> Sequential access.
+It can be used for large lists and for dynamin storage.
 
 struct ListNode{
   int val;
   struct ListNode* next;
+}
+
+struct DoublyLinkedList{
+  int val;
+  struct DoublyLinkedList *next, *prev;
 }
 
