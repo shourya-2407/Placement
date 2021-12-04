@@ -11,3 +11,4 @@ struct DoublyLinkedList{
   struct DoublyLinkedList *next, *prev;
 }
 
+Whenever we want to create a new list or return a new list, then make dummy pointers.
