@@ -1,0 +1,7 @@
+Linked List: Linear DS -> Non-contiguous -> 
+
+struct ListNode{
+  int val;
+  struct ListNode* next;
+}
+
