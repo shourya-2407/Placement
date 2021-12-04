@@ -1,6 +1,6 @@
 //Logic:
 // I have simply iterated the Linked List and then deleted (skipped) all the nodes with value 1 and also kept its count 
-// and then after all the 0s I have added all the 1s.
+// and then appended all the 1s after all the 0s.
 
 ListNode* Solution::solve(ListNode* A) {
     int cnt = 0;
