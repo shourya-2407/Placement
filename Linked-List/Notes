@@ -1,5 +1,5 @@
 Linked List: Linear DS -> Non-contiguous -> Sequential access.
-It can be used for large lists and for dynamin storage.
+It can be used for large lists and for dynamic storage.
 
 struct ListNode{
   int val;
