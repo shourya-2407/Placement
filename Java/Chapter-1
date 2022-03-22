@@ -1,0 +1,9 @@
+The Way JAVA Works: 
+    You'll type a source code file, compile it using the javac compiler, then run the compiled bytecode on a JVM. The JVM translates the bytecode 
+    into something that the underlying machine understands, and runs your program.
+    
+Source Code     --->      Compiler       --->    Output    --->     Virtual Machines
+(code.java)             (code.class)             (Code)             Runs your program
+                      (made up of bytecodes)     (code.java)
+                      
+Java Versions: 
