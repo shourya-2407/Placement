@@ -1,0 +1,74 @@
+Operating Systems: It is the interface between the user and the computer hardware.
+
+Types of OS:
+1. Batch OS:
+    A set of similar jobs are stored in the memory for execution. A job gets assigned to the CPU, only when the 
+  execution of the previous job is done.
+  
+ 2. Multiprogramming OS:
+    The OS selects one process and assigns it to CPU. Whenever the current process needs waiting time, the OS
+  selects other process and in this way the CPU is never kept idle and user gets a feeling of multitasking.
+  
+ 3. Multitasking OS: 
+    It combines the benefits of Multiprogramming and CPU scheduling to perform quick switches between jobs. The 
+   switch is so quick that the user can interact with each program it runs.
+   
+ 4. Time Sharing OS:
+      They require interaction with user to instruct the OS to perform various tasks. The OS responds with an o/p.
+     The instructions are given usually with the keyboard.
+     
+ 5. Real Time OS:
+      Built for dedicated systems to accomplish a specific set of tasks within deadlines.
+      
+
+Threads: 
+- Lightweight process and forms the basic unit for the CPU utilisation.
+- A process can perform more than 1 task at same time by including multiple threads.
+- Has its own program counter, stack and register set.
+- Shares resources with other threads of the same process the code section, the data section, files and signals.
+
+2 types of threads:
+* User threads
+* Kernel threads
+
+Difference b/w 
+
+user level threads                           kernel threads
+
+1. Implemented by users                   1. Implemented by OS
+
+2. OS doesn't recognize                   2. Recognized by OS.
+  user level threads
+
+3. Context switch time is less            3. More
+
+4. Context switch requires                4. Hardware support is needed
+   no hardware support
+ 
+5. If 1 thread performs                   5. Other threads can continue execution.
+    blocking operation then
+    entire process gets blocked
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
