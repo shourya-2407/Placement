@@ -1,1 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+void fun(int i, vector<int> arr, vector<int> a){
+    if(i >= a.size()){
+        if(arr.size() == 0){
+            cout << "#";
+        }
+        for(int k = 0; k < arr.size(); k++){
+            cout << "#"<< arr[k];
+        }
+        cout << "\n";
+        return;
+    }
 
+    arr.push_back(a[i]);
+    fun(i + 1, arr,a);
+    arr.pop_back();
+    fun(i + 1, arr,a);
+}
+
+int main() {
+	//code
+	vector<int> a;
+	a.push_back(3);
+    a.push_back(1);
+	a.push_back(2);
+
+	vector<int> arr;
+	fun(0,arr,a);
+	return 0;
+}
