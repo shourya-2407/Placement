@@ -1,4 +1,6 @@
-   void solve(vector<vector<int>>& result, vector<int> candidates, vector<int>& subsequence, int index, int target){
+// You can use a candidate only once 
+
+  void solve(vector<vector<int>>& result, vector<int> candidates, vector<int>& subsequence, int index, int target){
         if(target == 0){
             result.push_back(subsequence);
             return;
