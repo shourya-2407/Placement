@@ -1,0 +1,15 @@
+  void solve(ArrayList<Integer> arr, ArrayList<Integer> result, int index, int sum){
+        if(index == arr.size()){
+            result.add(sum);
+            return;
+        }
+        solve(arr, result, index + 1, sum);
+        solve(arr, result, index + 1, sum + arr.get(index));
+    }
+    
+    ArrayList<Integer> subsetSums(ArrayList<Integer> arr, int N){
+        ArrayList<Integer> result = new ArrayList<>();
+        solve(arr, result, 0, 0);
+        Collections.sort(result);
+        return result;
+    }
