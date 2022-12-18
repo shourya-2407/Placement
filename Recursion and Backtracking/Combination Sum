@@ -5,17 +5,16 @@ Whenever u want to pass the vector by reference, simply put '&' in the function 
 
 
 void solve(vector<vector<int>>& result, vector<int>& candidates, vector<int>& subsequence, int index, int target){
-    if(index == candidates.size())
-        return;
-    if(target < 0)
-        return;
-    if(target == 0){
-        result.push_back(subsequence);
+    if(index == candidates.size()){
+        if(target == 0)
+            result.push_back(subsequence);
         return;
     }
-    subsequence.push_back(candidates[index]);
-    solve(result, candidates, subsequence, index, target - candidates[index]);
-    subsequence.pop_back();
+    if(candidates[index] <= target){
+        subsequence.push_back(candidates[index]);
+        solve(result, candidates, subsequence, index, target - candidates[index]);
+        subsequence.pop_back();
+    }
     solve(result, candidates, subsequence, index + 1, target);
 }
 
