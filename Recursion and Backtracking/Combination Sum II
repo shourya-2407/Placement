@@ -1,22 +1,23 @@
 // You can use a candidate only once 
 
-void solve(vector<vector<int>>& result, vector<int>& candidates, vector<int>& subsequence, int index, int target){
-    if(index == candidates.size()){
-        if(target == 0)
+    void solve(vector<vector<int>>& result, vector<int>& candidates, vector<int>& subsequence, int index, int target){
+       if(target == 0){
             result.push_back(subsequence);
-        return;
+            return;
+        }
+        for(int i = index; i < candidates.size(); i++){
+            if(i > index && candidates[i] == candidates[i - 1]) continue;
+            if(candidates[i] > target) break;
+            subsequence.push_back(candidates[i]);
+            solve(result, candidates, subsequence, i + 1, target - candidates[i]);
+            subsequence.pop_back();
+        }
     }
-    if(candidates[index] <= target){
-        subsequence.push_back(candidates[index]);
-        solve(result, candidates, subsequence, index, target - candidates[index]);
-        subsequence.pop_back();
-    }
-    solve(result, candidates, subsequence, index + 1, target);
-}
 
-vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-    vector<int> subsequence;
-    vector<vector<int>> result;
-    solve(result,candidates, subsequence, 0, target);
-    return result;
-}
+    vector<vector<int>> combinationSum2(vector<int>& candidates, int target) {
+        vector<int> subsequence;
+        vector<vector<int>> result;
+        sort(candidates.begin(), candidates.end());
+        solve(result,candidates, subsequence, 0, target);
+        return result;
+    }
