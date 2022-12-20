@@ -1,0 +1,21 @@
+    void solve(vector<vector<int>>& result, vector<int> nums, vector<int>& subsequence, int index)  {
+        if(index == nums.size()){
+            result.push_back(subsequence);
+            return;
+        }
+        result.push_back(subsequence);
+        for(int i = index; i < nums.size(); i++){
+            if(i > index && nums[i] == nums[i - 1]) continue;
+            subsequence.push_back(nums[i]);
+            solve(result, nums, subsequence, i + 1);
+            subsequence.pop_back();
+        }
+    }
+
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        vector<vector<int>> result;
+        vector<int> subsequence;
+        sort(nums.begin(), nums.end());
+        solve(result, nums, subsequence, 0);
+        return result;
+    }
