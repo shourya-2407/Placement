@@ -1,0 +1,19 @@
+    void solve(vector<int>& nums, vector<vector<int>>& result, int index){
+        if(index >= nums.size()){
+            result.push_back(nums);
+            return;
+        }
+
+        for(int i = index; i < nums.size(); i++){
+            swap(nums[i], nums[index]);
+            solve(nums, result, index + 1);
+            swap(nums[i], nums[index]);
+        }       
+    }
+
+    vector<vector<int>> permute(vector<int>& nums) {
+        vector<int> subsequence;
+        vector<vector<int>> result;
+        solve(nums, result, 0);
+        return result;
+    }
