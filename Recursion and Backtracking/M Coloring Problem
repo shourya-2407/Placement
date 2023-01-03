@@ -1,0 +1,27 @@
+   bool isSafe(bool graph[101][101], vector<int> vertices, int n, int color, int vertex){
+        for(int i = 0; i < n; i++){
+            if(i != vertex && graph[i][vertex] == true && vertices[i] == color)
+                return false;
+        }
+        return true;
+    }
+    
+    bool solve(bool graph[101][101], vector<int> vertices, int m, int n, int vertex){
+        if(vertex == n)
+            return true;
+
+        for(int i = 1; i <= m; i++){
+            if(isSafe(graph, vertices, n, i, vertex)){ 
+                vertices[vertex] = i;
+                if(solve(graph, vertices, m, n, vertex + 1)) return true;
+                vertices[vertex] = 0;
+            }
+        }
+        return false;
+    }
+    
+    bool graphColoring(bool graph[101][101], int m, int n) {
+        // your code here
+        vector<int> vertices(n,0);
+        return solve(graph, vertices, m, n, 0);
+    }
