@@ -1,0 +1,28 @@
+    bool isPalindrome(string substr, int start, int end){
+        while(start <= end){
+            if(substr[start++] != substr[end--])
+                return false;
+        }
+        return true;
+    }
+    
+    void solve(vector<vector<string>>& result, vector<string>& path, string s, int index){
+        if(s.size() == index){
+            result.push_back(path);
+            return;
+        }
+        for(int i = index; i < s.size(); ++i){
+            if(isPalindrome(s, index, i)) {
+                path.push_back(s.substr(index, i - index + 1));
+                solve(result, path, s, i+1);
+                path.pop_back();
+            }
+        }
+    }
+
+    vector<vector<string>> partition(string s) {
+        vector<vector<string>> result;
+        vector<string> path;
+        solve(result, path, s, 0);
+        return result;
+    }
