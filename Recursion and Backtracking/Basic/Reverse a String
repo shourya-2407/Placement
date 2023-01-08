@@ -1,0 +1,14 @@
+void solve(int start, int end, string& str){
+    if(start >= end)
+        return;
+    swap(str[start], str[end]);
+    solve(start+ 1, end - 1, str);
+}
+
+string reverseWord(string str){
+  //Your code here
+  int start = 0;
+  int end = str.size() - 1;
+  solve(start, end, str);
+  return str;
+}
