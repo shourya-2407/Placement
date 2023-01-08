@@ -1,0 +1,16 @@
+    void solve(long long fact, long long i, long long N, vector<long long>& result){
+        if(fact <= N){
+            result.push_back(fact);
+            fact *= i;
+            solve(fact, i + 1, N, result);
+        } 
+        return;
+    }
+    
+    vector<long long> factorialNumbers(long long N)
+    {
+        // Write Your Code here
+        vector<long long> result;
+        solve(1, 2, N, result);
+        return result;
+    }
