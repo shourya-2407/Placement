@@ -1,0 +1,24 @@
+    bool isValid(int N,int D,int sum)
+    {
+        if(N==0)
+            return true;
+        int dig = N % 10;
+        if(dig == D || dig <= sum)
+            return false;
+        N = N / 10;
+        if(sum == -1)
+            sum = dig;
+        else
+            sum += dig;
+        return isValid(N,D,sum);
+    }
+    
+    vector<int> goodNumbers(int L, int R, int D) {
+        vector<int> ans;
+        for (int i = L; i <= R; i++) {
+            if (isValid(i, D, -1)) {
+                ans.push_back(i);
+            }
+        }
+        return ans;
+    }
