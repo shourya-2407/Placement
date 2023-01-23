@@ -1,0 +1,27 @@
+// Very similar to that of Reverse a stack
+// Just the difference is that in reverse a stack we used to insert at bottom everytime and insert at top if the stack was empty
+// Here we insert at bottom if the element is smaller than the stack top and at top if the element is greater.
+
+void sortedlist(stack<int> &s ,int x)
+{
+    if(s.empty() || x > s.top()){
+        s.push(x);
+    }
+    else{
+        int t = s.top();
+        s.pop();
+        sortedlist(s,x);
+        s.push(t);
+    }
+}
+
+void SortedStack :: sort()
+{
+    if(!s.empty())
+    {
+        int t = s.top();
+        s.pop();
+        sort();
+        sortedlist(s,t);
+    }
+}
