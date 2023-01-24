@@ -1,0 +1,16 @@
+    void solve(int num, string s){
+        if(num == 0){
+            cout << s << " ";
+            return;
+        }
+        solve(num - 1, s + '0');
+        if(s.size() == 0 || s.back() == '0'){
+            solve(num - 1, s + '1');
+        }
+    }
+
+    void generateBinaryStrings(int& num){
+        //Write your code
+        solve(num,"");
+        return ;
+    }
