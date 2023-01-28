@@ -1,0 +1,40 @@
+    bool isPresentinDict(vector<string>& dict, string s, int start, int end){
+        string tmp = s.substr(start, end - start + 1);
+        for(int i = 0; i < dict.size(); i++){
+            if(dict[i].compare(tmp) == 0)
+                return true;
+        }
+        return false;
+    }
+    
+    void solve(vector<string>& dict, vector<vector<string>>& result, vector<string>& path, string s, int index){
+        if(s.size() == index){
+            result.push_back(path);
+            return;
+        }
+        for(int i = index; i < s.size(); ++i){
+            if(isPresentinDict(dict, s, index, i)) {
+                path.push_back(s.substr(index, i - index + 1));
+                solve(dict, result, path, s, i+1);
+                path.pop_back();
+            }
+        }
+    }
+    
+    vector<string> wordBreak(int n, vector<string>& dict, string s)
+    {
+        // code here
+        vector<vector<string>> result;
+        vector<string> path;
+        solve(dict, result, path, s, 0);
+        vector<string> ans;
+        
+        for(int i = 0; i < result.size(); i++){
+            string tmp = "";
+            for(int j = 0; j < result[i].size(); j++){
+                tmp = tmp + result[i][j] + " ";
+            }
+            ans.push_back(tmp.substr(0, tmp.size() - 1));
+        }
+        return ans;
+    }
