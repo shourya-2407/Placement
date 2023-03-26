@@ -1,0 +1,12 @@
+    int evenlyDivides(int N){
+        //code here
+        int tmp = N;
+        int cnt = 0;
+        while(tmp){
+            int dig = tmp % 10;
+            tmp /= 10;
+            if(dig != 0 && N % dig == 0)
+                cnt++;
+        }
+        return cnt;
+    }
