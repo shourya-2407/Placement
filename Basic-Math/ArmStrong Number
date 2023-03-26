@@ -1,0 +1,14 @@
+    string armstrongNumber(int n){
+        // code here
+        int tmp = n;
+        int armNum = 0;
+        while(n){
+            int dig = n % 10;
+            armNum += pow(dig, 3);
+            n /= 10;
+        }
+        if(tmp == armNum)
+            return "Yes";
+        else
+            return "No";
+    }
