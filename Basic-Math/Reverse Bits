@@ -1,0 +1,28 @@
+    vector<int> numToBin(long long X){
+        vector<int> binArr(32, 0);
+        int i = 0;
+        if(X != 0){
+            while(X > 1){
+                int rem = X % 2;
+                X /= 2;
+                binArr[i++] = rem;
+            }
+            binArr[i] = 1;
+        }
+        return binArr;
+    }
+    
+    long long binToNum(vector<int> binArr){
+        long long num = 0;
+        for(int i = 0; i < 32; i++){
+            num += binArr[i]*pow(2,31-i);
+        }
+        return num;
+    }
+    
+    long long reversedBits(long long X) {
+
+        vector<int> binArr = numToBin(X);
+        
+        return binToNum(binArr);
+    }
