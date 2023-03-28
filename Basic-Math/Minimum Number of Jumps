@@ -1,4 +1,6 @@
     
+    Good question to do. 
+    DP Question.
     
     int minJumps(int arr[], int n){
         // Your code here
