@@ -1,0 +1,52 @@
+// Logic: 
+// You have to maintain a variable for min val which can be returned in O(1) time
+// Whenever there is a new element greater than min val you can simply push it or pop it from stack because that doesn't affect your min val.
+// Whenever you have a element less than min val, the min val will get updated and after the pop of this element the min val should be assigned to your previous min
+// Now to assign it to prev min, the pushed ele should be function of prev min.
+// Also there should be some condition to check if the pushed ele is a modified val.
+// So the mod val = 2*val - min ==> Since if the mod val < min, you can always recognise the value was modified.
+
+class Solution{
+    int minEle;
+    stack<int> s;
+    public:
+    
+       int getMin(){
+           if(s.empty())    
+                return -1;
+           return minEle;
+       }
+       
+
+       int pop(){
+            if(s.empty()) 
+                return -1;
+            
+            int val = s.top();
+            s.pop();
+            int top = minEle;
+            
+            if(val < minEle){
+               minEle = 2*minEle - val;
+               return top;
+            }
+            else
+                return val;
+       }
+
+       void push(int x){
+           if(s.empty()){
+               minEle = x;
+               s.push(x);
+               return;
+           }
+           if(x < minEle){
+               s.push(2*x - minEle);
+               minEle = x;
+               
+           }
+            else
+                s.push(x);
+       }
+       
+};
