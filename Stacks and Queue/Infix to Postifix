@@ -1,0 +1,54 @@
+// Logic: 
+// For operands directly add them to the result string
+// In case of operators, if the stack top has lower precendence as compared to the current operator, add it to the stack
+// If the stack has elements with higher precendence then add them to the result string.
+// In the end empty the stack.
+
+
+
+class Solution {
+  public:
+    // Function to convert an infix expression to a postfix expression.
+    int precedence(char ch){
+        if(ch == '^')   return 3;
+        if(ch == '/' || ch == '*') return 2;
+        if(ch == '+' || ch == '-') return 1;
+        else return -1;
+    }
+    
+    string infixToPostfix(string s) {
+        // Your code here
+        
+        stack<char> st;
+        string postfix_exp = "";
+        
+        for(int i = 0; i < s.length(); i++){
+            if((s[i] >= 'a' && s[i] <= 'z') or (s[i] >= 'A' && s[i] <= 'Z') or
+            (s[i] >= '0' && s[i] <= '9')){
+                postfix_exp += s[i];
+            }
+            else if(s[i] == '(')
+                st.push(s[i]);
+            else if(s[i] == ')'){
+                while(st.top() != '('){
+                    postfix_exp += st.top();
+                    st.pop(); 
+                }
+                st.pop();
+            }
+            else{
+                while(!st.empty() and precedence(s[i]) <= precedence(st.top())){
+                    postfix_exp += st.top();
+                    st.pop();
+                }
+                st.push(s[i]);
+            }
+        }
+        while(!st.empty()){
+            postfix_exp += st.top();
+            st.pop();
+        }
+        
+        return postfix_exp;
+    }
+};
