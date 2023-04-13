@@ -1,0 +1,31 @@
+// Logic
+// Read the Prefix expression in reverse order (from right to left)
+// If the symbol is an operand, then push it onto the Stack
+// If the symbol is an operator, then pop two operands from the Stack 
+// Push this string back to stack str = (operand1 + operator + operand2) 
+// At the end stack will have only 1 string i.e resultant string
+
+class Solution {
+  public:
+    string preToInfix(string pre_exp) {
+        // Write your code here
+        stack<string> s;
+
+        for(int i = pre_exp.size() - 1; i >= 0; i--){
+            if((pre_exp[i] >= 'a' && pre_exp[i] <= 'z') or (pre_exp[i] >= 'A' && pre_exp[i] <= 'Z') 
+                or (pre_exp[i] >= '0' && pre_exp[i] <= '9')){
+                string tmp = "";
+                tmp += pre_exp[i];
+                s.push(tmp);
+            }
+            else{
+                string op1 = s.top();
+                s.pop();
+                string op2 = s.top();
+                s.pop();
+                string res = "(" + op1 + pre_exp[i] + op2 + ")";
+                s.push(res);
+            }
+        }
+        return s.top();
+    }
