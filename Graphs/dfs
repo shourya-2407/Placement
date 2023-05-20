@@ -1,0 +1,27 @@
+//Logic: Just keep in mind, DFS is do it now
+         BFS is do it later, because it doesn't start with d.
+
+class Solution {
+  public:
+    // Function to return a list containing the DFS traversal of the graph.
+    void dfs(int node, vector<int> adj[], bool vis[],vector<int>&ans){
+        ans.push_back(node);
+        for(int v : adj[node]){
+            if(vis[v] == false){
+                vis[v] = true;
+                dfs(v, adj, vis, ans);
+            }    
+        }
+    }
+    
+    vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+        // Code here
+        bool vis[V] = {false};
+        vector<int> ans;
+        vis[0] = true;
+        
+        dfs(0, adj, vis, ans);
+        
+        return ans;
+    }
+};
