@@ -1,5 +1,0 @@
-Collections in Java are capable of doing any data operations such as searching, sorting, insertion, manipulation, and deletion.
-
-Single unit of Object ==> Collection 
-
-Root interfaces of collection ==> Java.util.Collection and Java.util.Map
