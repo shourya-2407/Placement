@@ -1,4 +1,8 @@
-    string armstrongNumber(int n){
+Armstrong Number: If the sum of digits raised to the power of number of digits is again equivalent to the number itself, 
+then the number is an armstrong number.
+
+
+string armstrongNumber(int n){
         // code here
         int tmp = n;
         int armNum = 0;
