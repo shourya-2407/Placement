@@ -1,3 +1,6 @@
+LCM = n1*n2/ GCD
+
+
     long long gcdAB(long long A, long long B){
         if(A == B)
             return A;
