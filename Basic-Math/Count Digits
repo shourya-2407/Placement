@@ -1,3 +1,19 @@
+Java:
+class Solution {
+    public int countDigits(int num) {
+        int cnt = 0;
+        int originalNum = num;
+        while(num > 0){
+            cnt = (originalNum %(num % 10) == 0) ? cnt + 1 : cnt;
+            num /= 10;
+        }
+        return cnt;
+    }
+}
+
+
+C++:
+
     int evenlyDivides(int N){
         //code here
         int tmp = N;
