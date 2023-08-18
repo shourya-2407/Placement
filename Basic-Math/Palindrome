@@ -1,17 +1,69 @@
-		string is_palindrome(int n)
-		{
-		    // Code here.
-		    int tmp = n;
-		    int rev = 0;
-		    while(n){
-		        int dig = n % 10;
-		        n /= 10;
-		        rev = rev*10 + dig;
-		    }
-		    
-		    if(rev == tmp){
-		        return "Yes";
-		    }
-		    else
-		        return "No";
-		}
+Java:
+
+1.(More faster)
+public boolean isPalindrome(String s) {
+        if(s.isEmpty()){
+            return true;
+        }
+
+        int start = 0;
+        int end = s.length() - 1;
+        while(start <= end){
+            char currFirst = s.charAt(start);
+            char currLast = s.charAt(end);
+
+            if(!Character.isLetterOrDigit(currFirst)){
+                start++;
+            } else if(!Character.isLetterOrDigit(currLast)){
+                end--;
+            } else{
+                if(Character.toLowerCase(currFirst) != Character.toLowerCase(currLast)){
+                    return false;
+                }
+                start++;
+                end--;
+            }
+        }
+        return true;
+    }
+
+
+
+2.Use of regex(but takes more time)
+
+class Solution {
+    public boolean isPalindrome(String s) {
+        s = s.toLowerCase().replaceAll("[^a-z0-9]", "");
+        int i = 0;
+        int j = s.length() - 1;
+        while(i <= j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+}
+
+
+
+C++:
+	string is_palindrome(int n)
+	{
+	    // Code here.
+	    int tmp = n;
+	    int rev = 0;
+	    while(n){
+		int dig = n % 10;
+		n /= 10;
+		rev = rev*10 + dig;
+	    }
+	    
+	    if(rev == tmp){
+		return "Yes";
+	    }
+	    else
+		return "No";
+	}
