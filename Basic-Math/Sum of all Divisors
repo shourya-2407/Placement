@@ -1,4 +1,29 @@
-    Note: 
+Java: 
+
+In case of finding divisors always iterate from 2 to the square root of the number.
+
+class Solution {
+    public boolean checkPerfectNumber(int num) {
+        int perfectNumber = 1;
+        
+        if(num == 1)    
+            return false;
+
+        for(int i = 2; i <=  Math.sqrt(num); i++){
+            perfectNumber = 
+            (num % i == 0) ? perfectNumber + i  + num/i : perfectNumber ;
+        }
+
+        return perfectNumber == num;
+    }
+
+}
+
+
+
+
+
+Note: 
     For a given number n, every number from 1 to n contributes its presence up to the highest multiple less than n.
    
     Let n = 6,
@@ -11,8 +36,10 @@
     => 4 will occur 1 times in F(4)
     => 5 will occur 1 times in F(5)
     => 6 will occur 1 times in F(6)
-    
-    
+
+
+
+C++:    
     long long sumOfDivisors(int N)
     {
         // Write Your Code here
