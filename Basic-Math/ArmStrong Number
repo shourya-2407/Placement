@@ -1,6 +1,28 @@
 Armstrong Number: If the sum of digits raised to the power of number of digits is again equivalent to the number itself, 
 then the number is an armstrong number.
 
+Java:
+
+class Solution {
+    static String armstrongNumber(int n){
+        // code here
+        int actualNumber = n;
+        int armstrongNumber = 0;
+        
+        while(n != 0){
+            int dig = n % 10;
+            armstrongNumber += Math.pow(dig, 3);
+            n /= 10;
+        }
+        
+        return armstrongNumber == actualNumber ? "Yes" : "No";
+    }
+}
+
+
+
+
+C++:
 
 string armstrongNumber(int n){
         // code here
