@@ -1,0 +1,26 @@
+//Learning: 
+//Identify an occurrence of cycle because of the duplicate value.
+//Use of slow and fast pointer.
+//Flyod's Algorithm
+
+
+class Solution {
+    public int findDuplicate(int[] nums) {
+        int slow = nums[0];
+        int fast = nums[0]; 
+
+        // Do while loop is used because the initial values are same. 
+        // And hence to do a default iteration
+        do {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while(slow!=fast);
+
+        fast = nums[0];
+        while(slow != fast){
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
+    }
+}
