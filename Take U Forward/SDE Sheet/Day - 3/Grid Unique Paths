@@ -16,7 +16,7 @@ class Solution {
 }
 
 
-//Better Solution using DP
+// Better Solution using DP
 class Solution {
     public int uniquePaths(int m, int n) {
         int[][] dp = new int[m][n];
@@ -43,7 +43,12 @@ class Solution {
 }
 
 
-//Optimal Solution using Permutation Combination
+// Optimal Solution using Permutation Combination
+// nCr ==> n is the total number of moves and r is the of choice for either down or right (nCr == nCn-r)
+// so total moves will be count from start to end traversing any 1 path
+// so total moves will be m + n - 2
+// and then number of bottoms will be m - 1
+// so calculate (m+n-2)C(m-1)
 
 class Solution {
     public int uniquePaths(int m, int n) {
