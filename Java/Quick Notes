@@ -1,0 +1,12 @@
+1. javac compiler compiles the java code to bytecode (code.class) and jvm converts this into something the underlying machine understands.
+2. Nearly everything in java is an object.
+3. Java is strongly typed language and compiler won't allow variables to hold data of another type.
+4. Object lives on the Heap. 
+5. Marking a variable public static ==> Global variable.
+6. Marking a variable public staic final => Global constant.
+7
+
+
+what is a jar?
+why is static used?
+why is final used?
