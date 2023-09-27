@@ -4,9 +4,23 @@
 4. Object lives on the Heap. 
 5. Marking a variable public static ==> Global variable.
 6. Marking a variable public staic final => Global constant.
-7
+7. Valid variable in java -> alphanumeric and underscore and dollar.
+8. No object variable --> It is object reference variable.
+9. Person myPerson = new Person()
+    a. allocate space for the reference variable and name it as myPerson
+    b. allocate space for the object on heap
+    c. assign the object to the myPerson variable.
+10. All the object reference variable are of the same size, but the size varies according to the JVM.
+11. Final variable => It can not be re initialised:
+    a. Final variable --> To create constant variable
+    b. Final Method --> To prevent overriding
+    c. Final class --> To prevent inheritance
+12. Static variable => 
+
+
+13. Java is pass by value --> pass by copy of the variable
+14. What happens when the argument is object ==> We pass the copy of remote control(variable that points the object)
 
 
 what is a jar?
-why is static used?
-why is final used?
+
