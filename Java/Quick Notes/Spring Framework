@@ -15,3 +15,5 @@ Java Beans => POJO with some restrictions.
 
 Dependency injection (DI)
 => When class one uses objects of other classes.
+
+Spring actuators: used for monitoring of applications.
