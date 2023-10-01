@@ -1,1 +1,17 @@
+A typical java application has 3 layers:
+  a. Web Layer = controller 
+  b. Business Layer = service
+  c. Data Layer = dao 
 
+AOP -> Aspect-Oriented Programming. where all the cross cutting concerns are grouped together.
+       These aspects are commonly used by many classes.
+
+Plain Old Java Object (POJO) -> not with any restriction
+
+Java Beans => POJO with some restrictions.  
+              1. They should implement serializable
+              2. Fields should be private
+              3. Getter setter and a no-arg consrtuctor should be present, fields should be accessed through these only.
+
+Dependency injection (DI)
+=> When class one uses objects of other classes.
