@@ -1,0 +1,71 @@
+1. Computing Systems : Servers, Database, Cache, Applications, Message queue
+* Components of system Design
+2. Logical Entities: Data, Database, Applications, Cache, Message Queue, Infra, Communication
+3. Tangible Entities: Text/Image, MongoDB/MySQL, Java/Python, Redis, Kafka/RabbitMQ, AWS/Google cloud platform, APIs/RPCs/Messages
+   (Technologies used in above)
+4. Client-Server Architecture: 
+      Client                ==>    Server  (2 tier architecture)
+      (presentation)        <==    (Logic and database)
+Logic on server side => thin client, Logic on client side => thick client.
+Client --> Logic --> Database (3 tier architecture)
+Client --> Load balancer --> Logic --> Cache --> Database (n tier architecture)
+5. When to use what?
+  Thin Client => E commerce sites and streaming applications
+  Thick Client => Gaming apps, video editing apps
+  2 tier => light weight website for small business
+  3 tier => basic library management (lots of data and logic processing required)
+  n tier => large scale systems (gmail, facebook)
+6. Proxies
+    Forward proxy => proxy is on behalf of client
+    Reverse proxy => proxy is on behalf of server
+7. Data and Data flow
+    Business layer => text/vidoes/images
+    Application layer => JSON/XML
+    DB => tables/indexes/lists/trees
+    Network layer => packets
+    Hardware => 0s & 1s
+Data stores => Databases, Queues, Caches, Indexes
+Data flows => APIs, Events, Messages
+Factors for System Design => Type of data, volume of data, consumption/retrieval, security.
+8. Types of Systems => Authorization, Streaming, Transactional, Heavy compute system.
+9. Databases:
+    Relational => has a fixed schema and ACID properties. (Atomicity, Consistency, Isolation, Duarability)
+    Non Relational => 
+    a. key-value stores -> eg-cache
+    b. document based -> eg-mogodb; can support heavy read and write, collections(table) and documents(row), dynamic data flexibility
+    c. column based -> eg-cassandra, hbase, scylla; only cols are required, 
+                       realtime use case music app, columns can be -> users, songs, user_by_liked_song, song_by_user
+    d. Index based(Search DBs) => eg-elastic, solar
+10. Applications
+    Frontend Applications -> render UI elements, handle interactions, collect data, communicate with BE(APIs), render static data 
+    Backend Applications -> expose APIs, house business logic, handle data modeling, interact with data stores, interact with other services
+11.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
