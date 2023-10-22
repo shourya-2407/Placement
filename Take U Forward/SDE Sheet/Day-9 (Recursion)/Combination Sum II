@@ -1,0 +1,32 @@
+class Solution {
+    public void findSubset(int ind, int[] candidates, List<Integer> subList, List<List<Integer>> ans, int target){
+        if(target == 0){
+            ans.add(new ArrayList<>(subList));
+            return;
+        }
+            
+        for(int i = ind; i < candidates.length; i++){
+            if(i != ind && candidates[i] == candidates[i-1]){
+                continue;
+            }
+            if(candidates[i] > target){
+                break;
+            }
+            subList.add(candidates[i]);
+            findSubset(i + 1, candidates, subList, ans, target - candidates[i]);
+            subList.remove(subList.size()-1);
+        }
+   
+    }
+
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> ans = new ArrayList<>();
+
+        Arrays.sort(candidates);
+        findSubset(0, candidates, new ArrayList<>(), ans, target);
+
+        return ans;
+    }
+}
+
+   
