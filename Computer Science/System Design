@@ -48,9 +48,18 @@ Factors for System Design => Type of data, volume of data, consumption/retrieval
       c. Write through strategy -> cache sits in between server and DB. When the application updates data in cache, it has to update data in DB
       d. Write around strategy -> Application talks to Db for write operations and reads data from cache.
       e. Write back strategy -> cache is between application and DB. And all the writes are processed in bulk. It also handles DB downtime.
-
-
-
+12. REST APIs: Representational State transfer.
+    Client server architecture, cacheable, supports layered architecture(i.e each node knows about only the immediate node), 
+    stateless(server/client doesn't save the state of the object, an uniform object is shared), uniform interface(all the apis should be built on same protocol).
+13. State transfer => state of data should be same. 
+    Stateless => server should not store the state of client request.
+14. Http status codes:
+    1xx -> informational      2xx -> success      3xx -> redirected
+    4xx -> client error       5xx -> server error
+15. Message queues:
+    SQS, Kafka, Rabbit MQ.
+    ordered queues -> blocks the further processing of messages, if 1 message fails.
+    unordered queues -> failed messages go into DLQ and other messages get processed.
 
 
 
