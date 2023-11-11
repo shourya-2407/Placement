@@ -1,0 +1,33 @@
+class Solution {
+    public int search(int[] nums, int target) {
+        //Logic GOD
+        int low = 0, high = nums.length - 1;
+
+        while(low <= high){
+            int mid = (low + high) >> 1; // left shift by n means divide by 2^n
+
+            if(nums[mid] == target){
+                return mid;
+            }
+
+            //It is going to happen that either of sides will be sorted (dry run)
+            // left part is sorted
+            if(nums[low] <= nums[mid]){
+                if(target >= nums[low]  && target <= nums[mid]){
+                    high = mid - 1;
+                } else{
+                    low = mid + 1;
+                }
+            } 
+            // right part is sorted
+            else{
+                if(target >= nums[mid]  && target <= nums[high]){
+                    low = mid + 1;
+                } else{
+                    high = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+}
