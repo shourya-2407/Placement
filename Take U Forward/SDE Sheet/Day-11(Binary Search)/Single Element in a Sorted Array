@@ -1,0 +1,21 @@
+class Solution {
+    public int singleNonDuplicate(int[] nums) {
+        int low = 0, high = nums.length - 2;
+      
+        while(low <= high){
+            int mid = (low + high) >> 1; // divides the sum by 2
+
+            // To check the left half
+            // If mid is even then we need to check for mid + 1
+            // If mid is odd then we need to check for mid - 1
+            // So use xor, if mid is even then mid^1 will flip the last bit and make it odd number that is mid + 1
+            // If mid is odd, mid^1 will flip the last bit to make it even number that is mid - 1.
+            if(nums[mid] == nums[mid^1]){
+                low = mid + 1;
+            }else{
+                high = mid - 1;
+            }
+        }
+        return nums[low];
+    }
+}
