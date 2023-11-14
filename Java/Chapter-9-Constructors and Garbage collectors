@@ -1,1 +1,57 @@
+Two areas of memory:
+a. Stack: where method invocations and local variables live
+b. Heap: where Objects and their instance variables live
 
+Methods are stacked: 
+The new thing that's pushed on the stack is the stack frame.
+
+Stack frame -> holds state of the method, line of code executing, value of all local variables.
+
+method at the stack top -> is currently running method for that stack.
+
+If a local variable is a reference to an object:
+Local variable -> goes on the stack.
+Object -> goes in the heap.
+
+Instance variables live on the heap inside the object they belong to.
+They do have default values: 0, 0.0 for numeric primitives, false for booleans, and null for references.
+
+3 Steps of object creation:
+Duck myDuck = new Duck();  // It goes from right to left.
+a. Declare a reference variable 
+b. Create an object 
+c. Link the object and the reference.
+
+Constructor:
+The only way to invoke a constructor is with new keyword followed with the class name.
+If you do not call a constructor for your class, compiler does (The default constructor).
+Constructor runs before you assign the object to a reference variable.
+Constructors are not inherited.
+more than 1 constructors => overloaded constructors. (they must have different argument list or order of arguments)
+Compiler makes a no arg constructor (default constructor) for you only when you declare no constructor.
+Even abstract classes have constructors. Although you can never say new on them.
+
+All constructors in an object's inheritance tree must run when you make a new object.
+
+Super Constructor:
+A call to super() in your constructor puts the superclass constructor on the top of the stack.
+Compiler puts in a call to super() in each of your overloaded constructor if you don't.
+super() must be the first statement in each constructor.
+
+This:
+this is the reference to the current object.
+Use this() to call constructor from another overloaded constructor in the same class.
+It must be the first statement of the constructor.
+
+Every constructor can have a call to this() or super() but never both!
+
+Life and Scope of variables: 
+1. Local variables -> scope is only within the method, lives as long as the stack frame is on the stack.
+2. Instance variables -> Scope is specific to the class, lives as long as the object.
+
+
+Garbage collection: 
+An object becomes eligible for GC when its last live reference disappears.
+
+3 ways to get rid of an object's reference:
+1. Reference 
