@@ -54,4 +54,7 @@ Garbage collection:
 An object becomes eligible for GC when its last live reference disappears.
 
 3 ways to get rid of an object's reference:
-1. Reference 
+1. Reference goes out of scope, permanently. (when the method referencing the object pops out of the stack)
+2. Assign the reference to another object. (so the first object is eligible to GC)
+3. Explicitly set the reference to null.
+
