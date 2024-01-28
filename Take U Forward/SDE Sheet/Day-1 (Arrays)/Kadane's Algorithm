@@ -1,18 +1,20 @@
-class Solution {
+// Logic: 
+// Keep the addition of elemets to get the max sum
+// And there is no point in carrying forward negative sums 
+// So set currsum to 0, whenever it goes below 0
+
+class Solution {    
     public int maxSubArray(int[] nums) {
-        int max = Integer.MIN_VALUE;
-        int sum = 0;
+        int currSum = 0;
+        int maxSum = Integer.MIN_VALUE;
 
         for(int i = 0; i < nums.length; i++){
-            sum += nums[i];
-            max = Math.max(max, sum);
-
-            if(sum < 0){
-                sum = 0;
+            currSum += nums[i];
+            maxSum = Math.max(currSum, maxSum);
+            if(currSum < 0){
+                currSum = 0;
             }
-
         }
-        
-        return max;
+        return maxSum;
     }
 }
