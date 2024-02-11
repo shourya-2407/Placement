@@ -1,0 +1,28 @@
+// Logic: Push the max to the end, with adjacent swaps
+// Time complexity -> O(n2) - avg and worst case   O(n) - best case
+
+class Solution
+{
+    //Function to sort the array using bubble sort algorithm.
+	public static void bubbleSort(int arr[], int n)
+    {
+        //code here
+        int i = n;
+        
+        while(i > 0){
+            int noOfSwaps = 0;
+            for(int j = 1; j < i; j++){
+                if(arr[j - 1] > arr[j]){
+                    int tmp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = tmp;
+                    noOfSwaps++;
+                }
+            }
+            if(noOfSwaps == 0){
+                break;
+            }
+            i--;
+        }
+    }
+}
