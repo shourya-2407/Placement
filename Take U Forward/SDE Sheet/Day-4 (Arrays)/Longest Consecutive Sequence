@@ -1,0 +1,35 @@
+// Logic: 
+// Iterate through the array and store all the elements in a HashSet
+// If a number greater than the current number exists then continue the iteration
+// If the current number is the highest number then iterate through the set until you find the smallest 
+// Compare the max cnt
+
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        int maxCnt = 1;
+        Set<Integer> _set = new HashSet<>();
+
+        if(nums.length == 0){
+            return 0;
+        }
+
+        for(int i = 0; i < nums.length; i++){
+            _set.add(nums[i]);
+        }
+        
+        for(int i = 0; i < nums.length; i++){
+            if(_set.contains(nums[i] + 1)){
+                continue;
+            }
+            else{
+                int tmp = nums[i] - 1;
+                int cnt = 1;
+                while(_set.contains(tmp--)){
+                    cnt++;
+                }
+                maxCnt = Math.max(cnt, maxCnt);
+            }
+        }
+        return maxCnt;
+    }
+}
