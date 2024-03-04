@@ -7,7 +7,15 @@ Properties:
 6. In a non-empty binary tree, if n is the total number of nodes and e is the total number of edges, then e = n-1
 
 Types of Binary Trees: 
+A.Based on number of children
 1. Full Binary Tree -  A Binary Tree is a full binary tree if every node has 0 or 2 children.
 2. Degenerate (or pathological) tree - A Tree where every internal node has one child. Such trees are performance-wise same as linked list.
 3. Skewed Binary Tree - A skewed binary tree is a pathological/degenerate tree in which the tree is either dominated by the left nodes or the right nodes. 
 Thus, there are two types of skewed binary tree: left-skewed binary tree and right-skewed binary tree.
+
+B. Based on completion of levels
+1. Complete Binary Tree - A Binary Tree is a Complete Binary Tree if all the levels are completely filled except possibly the last level 
+and the last level has all keys as left as possible.
+2. Perfect Binary Tree - A Binary tree is a Perfect Binary Tree in which all the internal nodes have two children and 
+all leaf nodes are at the same level. 
+3. Balanced Binary Tree - A binary tree is balanced if the height of the tree is O(Log n) where n is the number of nodes.
