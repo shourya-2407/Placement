@@ -1,0 +1,65 @@
+Relational Database - (MySQL, Oracle database, PostgreSQL, etc)
+Non-Relational databases - (CouchDB, Neo4j, Cassandra, HBase, Amazon DynamoDB, etc)
+
+NoSQL is a right choice if:
+- super-low latency required
+- unstructured data
+- only need to serialise and deserialise data
+- store a massive amount of data
+
+Vertical Scaling -> Scale Up -> adding more CPUs (RAM)
+Horizontal Scaling -> Scale Out -> adding more servers
+
+Load Balancer:
+- It evenly distributes incoming traffic among web servers that are defined in the loan-balanced set
+- Users connect to the public IP of the load balancer directly
+- The load balancer communicates with web servers through private IPs.
+
+Database replication: (Master-Slave DB)
+- All writes/updates happen across master, reads are from slave
+- Better performance, reliability, high availability.
+- If master goes offline, slave is promoted to master
+
+Web Tier -> network of Servers
+Data Tier -> network of DB servers
+
+Read Through Cache
+- If response not present in Cache, then it queries DB and stores the response in cache and then sends to client.
+- Consider using cache, when the data is read frequently and modified infrequently
+
+Cache eviction 
+- Any request to add items to cache might require to remove existing items
+- techniques: LRU (commonly used), FIFO, LIFO, 
+
+Content Delivery Network (CDN)
+- caches static content like images, videos, CSS, javascript files.
+- a CDN server closest to the user will deliver static content
+- The URL's domain is provided by the CDN provider (Amazon CloudFront or Akamai)
+- If content not found in cache, CDN server requests file from origin, i.e. Web server or online storage like S3
+
+Considerations of CDN:
+- Cost => CDN are run by 3rd party providers, they cost for data transfers in and out of CDN
+- Setting up appropriate cache expiry
+- CDN fallback
+- Invalidating CDN files: 
+  • Invalidate the CDN object using APIs provided by CDN vendors.
+  • Use object versioning to serve a different version of the object. 
+
+Stateless Web tier:
+- stores session data in a persistent storage such as relational database or NoSQL.
+- The NoSQL data store is chosen as it is easy to scale
+
+Data centers:
+- GeoDNS can be used to direct traffic to the nearest data center depending on where a user is located.
+- Data synchronization
+
+Message queues
+- supports asynchronous communication
+- producers pushes message on queue and consumer listens it asynchronously
+
+Database Scaling
+- Vertical scaling -> more CPU, more RAM
+- Horizontal scaling ->  sharding(adding more servers)
+Sharding separates large databases into smaller, more easily managed parts called shards.
+
+
