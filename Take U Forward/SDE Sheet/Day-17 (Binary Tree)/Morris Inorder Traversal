@@ -1,0 +1,49 @@
+// Logic: 
+// if the left substree is null -> print the curr
+// if the left subtree is non null ->  find the right most element of the left subtree
+// if the element already has a thread to current -> it means the left subtree is already visited so print the curr and move to right
+// if there's no thread to curr element then create a thread -> and move the left element again.
+
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
+
+        TreeNode curr = root;
+        while(curr != null){
+            if(curr.left == null){
+                ans.add(curr.val);
+                curr = curr.right;
+            } else{
+                TreeNode prev = curr.left;
+                while(prev.right != null && prev.right != curr){
+                    prev = prev.right;
+                }
+                if(prev.right == null){
+                    prev.right = curr;
+                    curr = curr.left;
+                } else{
+                    prev.right = null;
+                    ans.add(curr.val);
+                    curr = curr.right;
+                }
+            } 
+        }
+        return ans;
+    }
+}
