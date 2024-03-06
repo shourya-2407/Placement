@@ -1,14 +1,14 @@
 1. HashTable - 
-  It is similar to HashMap, but is synchronized. (Only 1 thread can access at once)
+   It is similar to HashMap, but is synchronized. (Only 1 thread can access at once)
   
 2. HashMap -
-  It does not provide any order for elements.
-  Allows a null key
-  0(1) lookup and insertion
+   It does not provide any order for elements.
+   Allows a null key
+   0(1) lookup and insertion
 
 3. TreeMap -
-  It stores elements in ordered format.
-  O(log N) lookup and insertion
+   It stores elements in ordered format.
+   O(log N) lookup and insertion
 
 3. LinkedHashMap - 
    Allows a null key
