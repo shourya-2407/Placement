@@ -1,0 +1,28 @@
+1. HashTable - 
+  It is similar to HashMap, but is synchronized. (Only 1 thread can access at once)
+  
+2. HashMap -
+  It does not provide any order for elements.
+  Allows a null key
+  0(1) lookup and insertion
+
+3. TreeMap -
+  It stores elements in ordered format.
+  O(log N) lookup and insertion
+
+3. LinkedHashMap - 
+   Allows a null key
+   Sorted on the basis of insertion order
+   non-synchronized
+
+4. ConcurretHashMap - 
+   Similar to Hashtable, Synchronized, but faster as multiple locks are used
+
+5. HashSet - 
+   Similar to HashMap, but maintains only keys, not pair
+
+6. LinkedHashSet - 
+   Similar to LinkedHashMap, but maintains only keys, not pair
+
+7. TreeSet - 
+   Implements the SortedSet interface, Objects are stored in a sorted and ascending order
