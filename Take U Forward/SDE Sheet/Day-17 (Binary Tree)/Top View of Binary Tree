@@ -1,0 +1,66 @@
+
+
+//User function Template for Java
+
+/*
+class Node{
+    int data;
+    Node left;
+    Node right;
+    Node(int data){
+        this.data = data;
+        left=null;
+        right=null;
+    }
+}
+*/
+class Pair{
+    
+    int hd;
+    Node node;
+    
+    public Pair(Node node, int hd) {
+        this.hd = hd;
+        this.node = node;
+    }
+    
+}
+
+
+class Solution
+{
+    //Function to return a list of nodes visible from the top view 
+    //from left to right in Binary Tree.
+    static ArrayList<Integer> topView(Node root)
+    {
+        // add your code
+        ArrayList<Integer> ans = new ArrayList<>();
+        if(root == null) return ans;
+        
+        Map<Integer, Integer> _map = new TreeMap<>();
+        Queue<Pair> queue = new LinkedList<Pair>();
+        queue.add(new Pair(root, 0));
+        
+        while(!queue.isEmpty()){
+            Pair it = queue.remove();
+            Node tmp = it.node;
+            Integer hd = it.hd;
+            
+            if(!_map.containsKey(hd)){
+                    _map.put(hd, tmp.data);
+                }
+            if(tmp.left != null){
+                queue.add(new Pair(tmp.left, hd - 1));
+            }
+            if(tmp.right != null){
+                queue.add(new Pair(tmp.right, hd + 1));
+            }
+        }
+        
+        for(Map.Entry<Integer, Integer> entry : _map.entrySet()){
+            ans.add(entry.getValue());
+        }
+        
+        return ans;
+    }
+}
