@@ -1,0 +1,36 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean isBalanced(TreeNode root) {
+        if(root == null){
+            return true;
+        }
+       return heightOfBT(root) != -1;
+    }
+
+    int heightOfBT(TreeNode root){
+        if(root == null) return 0;
+
+        int lh = heightOfBT(root.left);
+        int rh = heightOfBT(root.right);
+
+        int isBal = Math.abs(lh - rh);
+
+        if(isBal > 1 || lh == -1 || rh == -1) return -1;
+        
+        return 1 + Math.max(lh, rh);
+    }
+}
