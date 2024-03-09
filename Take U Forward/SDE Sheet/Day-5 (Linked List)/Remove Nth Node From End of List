@@ -14,7 +14,7 @@ class Solution {
             fast = fast.next;
             n--;
         }
-        
+        //logic to remove the first element
         if(fast == null) {
             return head.next;
         }
