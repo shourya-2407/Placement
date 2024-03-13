@@ -1,3 +1,45 @@
+//optimal
+class Solution {
+    public String reverseWords(String s) {
+        StringBuilder result = new StringBuilder();
+        int start = 0;
+        int end = s.length() - 1;
+
+        // Remove leading spaces
+        while (start <= end && s.charAt(start) == ' ') {
+            start++;
+        }
+
+        // Remove trailing spaces
+        while (start <= end && s.charAt(end) == ' ') {
+            end--;
+        }
+
+        // Iterate through the string in reverse
+        while (start <= end) {
+            int wordEnd = end;
+
+            // Find the end of the current word
+            while (start <= wordEnd && s.charAt(wordEnd) != ' ') {
+                wordEnd--;
+            }
+
+            // Append the current word to the result
+            result.append(s.substring(wordEnd + 1, end + 1)).append(' ');
+
+            // Move to the next word
+            while (start <= wordEnd && s.charAt(wordEnd) == ' ') {
+                wordEnd--;
+            }
+            end = wordEnd;
+        }
+
+        // Remove the trailing space and return the result
+        return result.length() > 0 ? result.substring(0, result.length() - 1) : "";
+    }
+}
+
+//easy
 class Solution {
     public String reverseWords(String s) {
         String[] str = s.trim().split("\\s+");
