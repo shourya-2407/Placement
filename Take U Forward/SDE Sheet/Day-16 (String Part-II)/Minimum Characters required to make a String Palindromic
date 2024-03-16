@@ -1,0 +1,27 @@
+// Brute Force - TLE
+public class Solution {
+    public String reverseString(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        sb.reverse();
+        return sb.toString();
+    }
+    
+    public int solve(String s) {
+        String rev = reverseString(s);
+        int j = 0;
+        int n = s.length();
+        
+        for(int i = 0; i < rev.length(); i++){
+            if(rev.charAt(i) == s.charAt(j)){
+                j++;
+            } else{
+                i = i - j;
+                j = 0;
+            }
+            if(j == n){
+                return i - n + 1;
+            }
+        }
+        return n - j;        
+    }
+}
