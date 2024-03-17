@@ -1,1 +1,60 @@
+// DFS
+class Solution {
+    public void dfs(Node node , Node copy , Node[] visited){
+        visited[copy.val] = copy;
 
+        for(Node n : node.neighbors){
+            if(visited[n.val] == null){
+                Node newNode = new Node(n.val);
+                copy.neighbors.add(newNode);
+                dfs(n , newNode , visited);
+            }else{
+                copy.neighbors.add(visited[n.val]);
+            }
+        }
+        
+    }
+    public Node cloneGraph(Node node) {
+        if(node == null) return null; 
+        Node copy = new Node(node.val); 
+        Node[] visited = new Node[101]; 
+        Arrays.fill(visited , null); 
+        dfs(node , copy , visited); 
+        return copy; 
+    }
+}
+
+//BFS
+class Solution {
+    public Node cloneGraph(Node node) {
+        if (node == null) return null;
+
+        Deque<Node> bfs1 = new ArrayDeque<>();
+        bfs1.offer(node);
+       
+        Node nGraph = new Node(node.val);
+        Deque<Node> bfs2 = new ArrayDeque<>();
+        bfs2.offer(nGraph);
+
+        Node[] visited = new Node[101];    
+        visited[node.val] = nGraph;
+
+        while (!bfs1.isEmpty()) {
+            Node prev1 = bfs1.remove();
+            Node prev2 = bfs2.remove();
+
+            for (Node child: prev1.neighbors) {
+                if (visited[child.val] == null) {
+                    Node copy = new Node(child.val);
+                    bfs1.offer(child);
+                    bfs2.offer(copy);
+                    visited[child.val] = copy;
+                    prev2.neighbors.add(copy);
+                } else {
+                    prev2.neighbors.add(visited[child.val]);
+                }
+            }
+        }
+        return nGraph;
+    }
+}
