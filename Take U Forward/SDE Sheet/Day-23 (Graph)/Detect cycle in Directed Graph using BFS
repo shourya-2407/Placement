@@ -1,3 +1,7 @@
+// Logic
+// U cannot use the normal BFS traversal and then visit, it will be misguiding as nodes can be visited before
+// use topological sort -> the topological sort cnt will be different from that of number of nodes
+
 class Solution {
     public boolean canFinish(int nc, int[][] preq) {
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
