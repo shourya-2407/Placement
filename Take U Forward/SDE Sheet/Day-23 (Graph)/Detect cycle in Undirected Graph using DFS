@@ -1,1 +1,37 @@
 
+// Logic
+// DFS -> recursion
+// directed -> normal dfs and maintain parent
+
+class Solution {
+    // Function to detect cycle in an undirected graph.
+    public boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj) {
+        // Code here
+        boolean[] vis = new boolean[V];
+        Arrays.fill(vis, false);
+        
+        for(int i = 0; i < V; i++){
+            if(!vis[i]){
+                if(checkForCycle(i, -1, adj, vis)) return true;
+            }
+        }
+        return false;
+    }
+    
+    private boolean checkForCycle(int node, int parent, ArrayList<ArrayList<Integer>> adj, boolean[] vis){
+        vis[node] = true;
+        
+        for(int child : adj.get(node)){
+            if(!vis[child]){
+                if(checkForCycle(child, node, adj, vis)){ 
+                    return true;
+                }
+            } else if(child != parent){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+}
