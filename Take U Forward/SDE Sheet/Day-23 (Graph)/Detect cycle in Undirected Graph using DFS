@@ -1,7 +1,7 @@
 
 // Logic
 // DFS -> recursion
-// directed -> normal dfs and maintain parent
+// undirected -> normal dfs and maintain parent
 
 class Solution {
     // Function to detect cycle in an undirected graph.
