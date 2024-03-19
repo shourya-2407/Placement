@@ -1,1 +1,47 @@
+//logic
+// u need to maintain a path array to check if the visited node exists in the path
 
+class Solution {
+    public boolean canFinish(int nc, int[][] preq) {
+        List<List<Integer>> adj = new ArrayList<>(nc);
+        for(int i =0; i< nc; i++) adj.add(new ArrayList<>());
+        
+        for(int i=0; i<preq.length; i++){ 
+            int[] p = preq[i];
+            adj.get(p[1]).add(p[0]);
+        }
+
+        return !isCycle(nc, adj);
+    }
+
+    private boolean isCycle(int V, List<List<Integer>> adj){
+        boolean vis[] = new boolean[V];
+        boolean path[] = new boolean[V];
+
+        Arrays.fill(vis, false);
+        Arrays.fill(path, false);
+
+        for(int i = 0; i < V; i++){
+            if(!vis[i]){
+                if(dfs(i, adj, vis, path)) return true;
+            }
+        }
+        return false;    
+    }
+
+    private boolean dfs(int node, List<List<Integer>> adj, boolean[] vis, boolean[] path){
+        vis[node] = true;
+        path[node] = true;
+
+        for(int child: adj.get(node)) {
+            if(!vis[child]) {
+                if(dfs(child, adj, vis, path)) 
+                    return true; 
+            }
+            else if(path[child]) return true; 
+        }
+        
+        path[node] = false;
+        return false;
+    }
+}
