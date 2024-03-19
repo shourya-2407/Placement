@@ -1,0 +1,60 @@
+class Node implements Comparable<Node>
+{
+    int node;
+    int wt;
+    
+    Node(int node,int wt)
+    {
+        this.node=node;
+        this.wt=wt;
+    }
+    public int compareTo(Node node)
+    {
+        return this.wt-node.wt;
+    }
+}
+
+class Solution{
+	static int spanningTree(int V, int E, int edges[][]){
+	    ArrayList<ArrayList<Node>> adj= new ArrayList<ArrayList<Node>>();
+
+	    for(int i=0;i<V;i++) adj.add(new ArrayList<>());
+	    
+	    for(int i=0;i<E;i++)
+	    {
+	        int u=edges[i][0];
+	        int v=edges[i][1];
+	        int w=edges[i][2];
+	        adj.get(u).add(new Node(v,w));
+	        adj.get(v).add(new Node(u,w));
+	    }
+	    
+	    PriorityQueue<Node> pq=new PriorityQueue<Node>();
+	    pq.add(new Node(0,0));
+	    
+	    boolean[] vis=new boolean[V];
+	    int sum=0;
+	    
+	    while(!pq.isEmpty())
+	    {
+	        Node node=pq.poll();
+	        int u=node.node;
+	        int wt=node.wt;
+	        
+	        if(vis[u]) continue;
+	        vis[u]=true;
+	        sum+=wt;
+	        
+	        for(Node n:adj.get(u))
+	        {
+	            if(!vis[n.node])
+	            {
+	                pq.add(new Node(n.node,n.wt));
+	            }
+	        }
+	        
+	    }
+	    return sum;
+	    
+	}
+}
