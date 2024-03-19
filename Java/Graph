@@ -1,6 +1,22 @@
 A Graph is a non-linear data structure consisting of vertices and edges.
 The graph is denoted by G(V, E).
 
+* Shortest Path Algorithm
+
+1. Dijkstra Algorithm: 
+
+2. Bellman Ford Algorithm: 
+
+3. Flyod Warshall Algorithm: 
+
+4. MST using Prim's Algorithm: 
+
+5. MST using Kruskal's Algorithm: 
+
+
+* Minimum Spanning Tree
+A graph which has N nodes, N-1 edges and all nodes are reachable from each other.
+
 
 *Types of Graph:
 
@@ -42,4 +58,3 @@ A graph in which vertex can be divided into two sets such that vertex in each se
 
 13. Weighted Graph
 A graph in which the edges are already specified with suitable weight is known as a weighted graph. 
-
