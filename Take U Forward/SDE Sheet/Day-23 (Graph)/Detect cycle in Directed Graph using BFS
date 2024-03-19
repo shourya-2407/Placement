@@ -1,1 +1,39 @@
+class Solution {
+    public boolean canFinish(int nc, int[][] preq) {
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        for(int i = 0; i < nc; i++) adj.add(new ArrayList<Integer>());
+        
+        int n = preq.length;
+        for(int i = 0; i < n; i++){
+            adj.get(preq[i][0]).add(preq[i][1]);
+        }
 
+        int[] inDeg = new int[nc];
+        for(int i = 0; i < nc; i++){
+            for(int it : adj.get(i)){
+                inDeg[it]++;
+            }
+        }
+
+        Queue<Integer> q = new LinkedList<>();
+        for(int i = 0; i < nc; i++){
+            if(inDeg[i] == 0)
+                q.offer(i);
+        }
+
+        int topoCnt = 0;
+        while(!q.isEmpty()){
+            int tmp = q.poll();
+            topoCnt++;
+
+            for(int child : adj.get(tmp)){
+                inDeg[child]--;
+                if(inDeg[child] == 0){
+                    q.add(child);
+                }
+            }
+        }
+
+        return topoCnt == nc;
+    }
+}
