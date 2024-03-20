@@ -1,0 +1,32 @@
+class Solution {
+    public boolean isBipartite(int[][] graph) {
+        int n = graph.length;
+        int[] color = new int[n];
+        
+        Arrays.fill(color, -1);
+    
+        for(int start = 0; start < n; start++){
+            if (color[start] == -1) {
+                color[start] = 0;
+                if (!dfs(graph, color, start, 0))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean dfs(int[][] graph, int[] color, int curr, int pColor){
+        int newColor = pColor ^ 1;
+
+        for(int neighbor : graph[curr]){
+            if(color[neighbor] == -1){
+                color[neighbor] = newColor;
+                if(!dfs(graph, color, neighbor, newColor)) return false;
+            } else if(color[neighbor] != newColor){
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
