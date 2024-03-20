@@ -17,6 +17,8 @@ The graph is denoted by G(V, E).
 * Minimum Spanning Tree
 A graph which has N nodes, N-1 edges and all nodes are reachable from each other.
 
+* Bipartite Graph
+If you can color the graph with 2 colors, such that no 2 adjacent nodes have the same color
 
 *Types of Graph:
 
