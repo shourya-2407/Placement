@@ -1,0 +1,3 @@
+* How to identify DP?
+-> a. Choice -> overlapping recursion
+   b. Optimal
