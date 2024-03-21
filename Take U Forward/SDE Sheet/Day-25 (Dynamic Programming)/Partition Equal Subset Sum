@@ -1,0 +1,88 @@
+// Recursive solution
+class Solution {
+    private boolean knapSack(int[] nums, int target, int n){
+        if(target == 0) return true;
+        if(n == 0) return false;
+
+        if(nums[n - 1] <= target){
+            return (knapSack(nums, target - nums[n - 1], n - 1) || knapSack(nums, target, n - 1));
+        } 
+        return knapSack(nums, target, n - 1);
+    }
+
+    public boolean canPartition(int[] nums) {
+        int target = 0;
+        for(int ele : nums){
+            target += ele;
+        }
+
+        if(target % 2 == 1) return false;
+        target /= 2;
+        
+        return knapSack(nums, target, nums.length);
+    }
+}
+
+//Recursion using Memoization
+class Solution {
+    private boolean knapSack(int[] nums, int target, int n, boolean[][] dp) {
+        if (target == 0) return true;
+        if (n == 0) return false;
+
+        if (dp[n][target]) return true;
+
+        if (nums[n - 1] <= target) {
+            dp[n][target] = (knapSack(nums, target - nums[n - 1], n - 1, dp) || knapSack(nums, target, n - 1, dp));
+        } else {
+            dp[n][target] = knapSack(nums, target, n - 1, dp);
+        }
+        return dp[n][target];
+    }
+
+    public boolean canPartition(int[] nums) {
+        int n = nums.length;
+        int target = 0;
+        for (int ele : nums) {
+            target += ele;
+        }
+
+        if (target % 2 == 1) return false;
+        target /= 2;
+
+        boolean[][] dp = new boolean[n + 1][target + 1];
+        for (int i = 0; i <= n; i++) dp[i][0] = true;
+
+        return knapSack(nums, target, n, dp);
+    }
+}
+
+//Dynamic Programming
+class Solution {
+    public boolean canPartition(int[] nums) {
+        int n = nums.length;
+        int target = 0;
+        for (int ele : nums) {
+            target += ele;
+        }
+
+        if (target % 2 == 1) return false;
+        target /= 2;
+
+        boolean[][] dp = new boolean[n + 1][target + 1];
+        for (int i = 0; i <= n; i++) dp[i][0] = true;
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= target; j++) {
+                // If the current element can be included in the subset
+                if (nums[i - 1] <= j) {
+                    dp[i][j] = dp[i - 1][j] || dp[i - 1][j - nums[i - 1]];
+                } else {
+                    // If the current element is greater than the target, it cannot be included
+                    dp[i][j] = dp[i - 1][j];
+                }
+            }
+        }
+
+        return dp[n][target];
+    }
+}
