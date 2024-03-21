@@ -32,4 +32,46 @@ class Solution {
     }
 }
 
-//
+//Recursion with Memoisation
+class Solution {
+    public static int countPartitions(int n, int d, int[] arr) {
+        // code here
+        int totalSum = 0;
+        for(int i = 0; i < n; i++){
+            totalSum += arr[i];
+        }
+        
+        if((totalSum + d) % 2 == 1) return 0;
+        int s2 = (totalSum + d)/2;
+        
+        int[][] memo = new int[n + 1][s2 + 1];
+        for(int i = 0; i < n + 1; i++){
+            Arrays.fill(memo[i], -1);
+        }
+        
+        return countSubsets(arr, n, s2, memo);
+    }
+    
+    public static int countSubsets(int[] arr, int n, int target, int[][] memo){
+        if(n == 0){
+            if(target == 0){
+                return 1;
+            }
+            return 0;
+        }
+        
+        if(memo[n][target] != -1) return memo[n][target];
+        
+        int cnt = countSubsets(arr, n - 1, target, memo) % 1000000007;
+        
+        if(arr[n - 1] <= target){
+            cnt += countSubsets(arr, n - 1, target - arr[n - 1], memo) % 1000000007;
+        }
+        
+        memo[n][target] = cnt % 1000000007;
+        
+        return memo[n][target];
+    }
+}
+
+//DP
