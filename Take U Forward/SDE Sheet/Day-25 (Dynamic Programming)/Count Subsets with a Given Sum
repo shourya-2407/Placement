@@ -1,0 +1,21 @@
+// Recursion
+class Solution{
+
+	public int perfectSum(int arr[],int n, int sum) 
+	{ 
+	    // Your code goes here
+	    return subsetSum(arr, n, sum, 0);
+	} 
+	
+	private int subsetSum(int arr[],int n, int sum, int count){
+	    if (n == 0) {
+            if (sum == 0) {
+                count++;
+            }
+            return count;
+        }
+ 
+        return subsetSum(arr, n - 1, sum, count) + subsetSum(arr, n - 1, sum - arr[n - 1],
+                          count);
+	}
+}
