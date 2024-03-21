@@ -20,6 +20,42 @@ class Solution {
     }
 }
 
+//Recursion for DP => this question is similar to partition subsets with given difference
+// +1 - 1 + 2 - 3 ==> (1 + 2) - (1 + 3) -> difference with subsets 
+
+class Solution {
+    public int findTargetSumWays(int[] nums, int target) {
+        int sum = 0;
+        for(int x : nums){
+            sum += x;
+        }
+
+        if((sum + target) % 2 == 1) return 0;
+
+        int n = nums.length;
+        target = (sum + target)/2;
+
+        return countSubsets(nums, n, target);
+    }
+
+    public static int countSubsets(int[] arr, int n, int target){
+        if(n == 0){
+            if(target == 0){
+                return 1;
+            }
+            return 0;
+        }
+        
+        int cnt = countSubsets(arr, n - 1, target) % 1000000007;
+        
+        if(arr[n - 1] <= target){
+            cnt += countSubsets(arr, n - 1, target - arr[n - 1]) % 1000000007;
+        }
+        
+        return cnt % 1000000007;
+    }
+}
+
 // Recursion using memoisation
 
 
