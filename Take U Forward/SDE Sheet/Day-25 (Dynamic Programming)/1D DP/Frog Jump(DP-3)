@@ -1,0 +1,38 @@
+// Recursion
+public class Solution {
+    public static int frogJump(int n, int heights[]) {
+        // Write your code here..
+        return findMinJumps(n - 1, heights);
+    }
+
+    private static int findMinJumps(int n, int heights[]){
+        if(n == 0) return 0;
+        
+        int s1  = Math.abs(heights[n] - heights[n - 1]) + findMinJumps(n - 1, heights);
+        int s2 = Integer.MAX_VALUE;
+        
+        if(n > 1){
+            s2 = Math.abs(heights[n] - heights[n - 2]) + findMinJumps(n - 2, heights);
+        }   
+        return Math.min(s1, s2);
+    }
+}
+
+// DP
+public class Solution {
+    public static int frogJump(int n, int height[]) {
+        // Write your code here..
+        int[] dp = new int[n];
+        dp[0] = 0;
+
+        for(int ind = 1; ind < n; ind++){
+            int jumpTwo = Integer.MAX_VALUE;
+                int jumpOne= dp[ind-1] + Math.abs(height[ind]-height[ind-1]);
+                if(ind>1)
+                    jumpTwo = dp[ind-2] + Math.abs(height[ind]-height[ind-2]);
+                dp[ind]=Math.min(jumpOne, jumpTwo);
+        }
+        
+        return dp[n - 1];
+    }
+}
