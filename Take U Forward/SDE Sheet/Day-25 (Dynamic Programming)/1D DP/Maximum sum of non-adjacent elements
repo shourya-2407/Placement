@@ -1,0 +1,36 @@
+// Recursion
+class Solution {
+    public int rob(int[] nums) {
+        return pickMaxToRob(nums, nums.length - 1);
+    }
+
+    private int pickMaxToRob(int[] nums, int n){
+        if(n == 0) return nums[0];
+
+        int pick = nums[n];
+        if(n > 1)
+            pick += pickMaxToRob(nums, n - 2);
+        int notPick = pickMaxToRob(nums, n - 1);
+
+        return Math.max(pick, notPick);
+    }
+}
+
+// DP
+class Solution {
+    public int rob(int[] nums) {
+        int n = nums.length;
+        int[] dp = new int[n];
+        dp[0] = nums[0];
+
+        for (int i = 1; i < n; i++) {
+            int pick = nums[i];
+            if (i > 1)
+                pick += dp[i - 2];
+            int nonPick = dp[i - 1];
+            dp[i] = Math.max(pick, nonPick);
+        }
+        
+        return dp[n - 1];
+    }
+}
