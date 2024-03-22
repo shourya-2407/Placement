@@ -1,0 +1,30 @@
+// Recursion
+public class Solution {
+    public static int ninjaTraining(int n, int points[][]) {
+        // Write your code here..
+
+        int maxVal = Integer.MIN_VALUE;
+        for(int i = 0; i <= 2; i++){
+            int ans = maxMeritPoints(n, points, i, 0); 
+            maxVal = Math.max(ans, maxVal);
+        }
+    
+        return maxVal;
+    }
+
+    private static int maxMeritPoints(int n, int points[][], int ind, int day){
+        if(day == n){
+            return 0;
+        } 
+        int maxVal = Integer.MIN_VALUE;
+
+        for(int i = 0; i <= 2; i++){
+            if(i != ind){
+                int n1 = points[day][ind] + maxMeritPoints(n, points, i, day + 1); 
+                maxVal = Math.max(n1, maxVal);
+            }
+        }
+
+        return maxVal;
+    }
+}
