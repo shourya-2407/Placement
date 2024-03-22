@@ -1,0 +1,28 @@
+class Solution {
+    public int rob(int[] nums) {
+        int n = nums.length;
+        if(n == 1) return nums[0];
+        
+        int[] nums1 = new int[n - 1];
+        int[] nums2 = new int[n - 1];
+        
+        int j = 0, k = 0;
+        for(int i = 0; i < n; i++){
+            if(i != 0) nums1[j++] = nums[i];
+            if(i != n - 1) nums2[k++] = nums[i];
+        }
+
+        return Math.max(pickMaxToRob(nums1, n - 2), pickMaxToRob(nums2, n - 2));
+    }
+
+    private int pickMaxToRob(int[] nums, int n){
+        if(n == 0) return nums[0];
+
+        int pick = nums[n];
+        if(n > 1)
+            pick += pickMaxToRob(nums, n - 2);
+        int notPick = pickMaxToRob(nums, n - 1);
+
+        return Math.max(pick, notPick);
+    }
+}
