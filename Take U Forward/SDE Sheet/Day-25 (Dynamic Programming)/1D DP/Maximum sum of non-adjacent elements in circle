@@ -1,3 +1,4 @@
+// Recursion
 class Solution {
     public int rob(int[] nums) {
         int n = nums.length;
@@ -24,5 +25,40 @@ class Solution {
         int notPick = pickMaxToRob(nums, n - 1);
 
         return Math.max(pick, notPick);
+    }
+}
+
+// DP
+class Solution {
+    public int rob(int[] nums) {
+        int n = nums.length;
+        if(n == 1) return nums[0];
+
+        int[] nums1 = new int[n - 1];
+        int[] nums2 = new int[n - 1];
+        
+        int j = 0, k = 0;
+        for(int i = 0; i < n; i++){
+            if(i != 0) nums1[j++] = nums[i];
+            if(i != n - 1) nums2[k++] = nums[i];
+        }
+
+        return Math.max(pickMaxToRob(nums1), pickMaxToRob(nums2));
+    }
+
+    public int pickMaxToRob(int[] nums) {
+        int n = nums.length;
+        int[] dp = new int[n];
+        dp[0] = nums[0];
+
+        for (int i = 1; i < n; i++) {
+            int pick = nums[i];
+            if (i > 1)
+                pick += dp[i - 2];
+            int nonPick = dp[i - 1];
+            dp[i] = Math.max(pick, nonPick);
+        }
+        
+        return dp[n - 1];
     }
 }
