@@ -1,0 +1,93 @@
+// Recursion
+class Solution {
+    public int minFallingPathSum(int[][] matrix) {
+        int minVal = Integer.MAX_VALUE;
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        for(int i = 0; i < n; i++){
+            minVal = Math.min(minVal, findMinPath(matrix, 0, i, m, n));
+        }
+
+        return minVal;
+    }
+
+    private int findMinPath(int[][] matrix, int row, int col, int m, int n){
+        if(col < 0 || col >= n){
+            return Integer.MAX_VALUE;
+        }
+        if(row == m - 1){
+            return matrix[row][col];
+        }
+        
+        int below = findMinPath(matrix, row + 1, col, m, n);
+        int dleft = findMinPath(matrix, row + 1, col - 1, m, n);
+        int dright = findMinPath(matrix, row + 1, col + 1, m, n);
+
+
+        return matrix[row][col] + Math.min(below, Math.min(dleft, dright));
+    }
+}
+
+// DP with 2D array
+class Solution {
+    public int minFallingPathSum(int[][] matrix) {
+        int minVal = Integer.MAX_VALUE;
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int[][] dp = new int[m][n];
+        for(int j = 0; j < n; j++){
+            dp[m-1][j] = matrix[m - 1][j];
+        }
+
+        for (int i = m - 2; i >= 0; i--) {
+            for (int j = 0; j < n; j++) {
+                int below = dp[i + 1][j];
+                int dleft = (j > 0) ? dp[i + 1][j - 1] : Integer.MAX_VALUE;
+                int dright = (j < n - 1) ? dp[i + 1][j + 1] : Integer.MAX_VALUE;
+                dp[i][j] = matrix[i][j] + Math.min(below, Math.min(dleft, dright));
+            }
+        }
+
+        for(int j = 0; j < n; j++){
+            minVal = Math.min(minVal, dp[0][j]);
+        }
+
+        return minVal;
+    }
+}
+
+// DP with 1D array
+class Solution {
+    public int minFallingPathSum(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        int[] prev = new int[n];
+        int[] curr;
+        
+        for(int j = 0; j < n; j++){
+            prev[j] = matrix[m - 1][j];
+        }
+
+        for (int i = m - 2; i >= 0; i--) {
+            curr = new int[n];
+            for (int j = 0; j < n; j++) {
+
+                int below = prev[j];
+                int dleft = (j > 0) ? prev[j - 1] : Integer.MAX_VALUE;
+                int dright = (j < n - 1) ? prev[j + 1] : Integer.MAX_VALUE;
+                curr[j] = matrix[i][j] + Math.min(below, Math.min(dleft, dright));
+            }
+            prev = curr;
+        }
+
+        int minVal = Integer.MAX_VALUE;
+        for(int j = 0; j < n; j++){
+            minVal = Math.min(minVal, prev[j]);
+        }
+
+        return minVal;
+    }
+}
