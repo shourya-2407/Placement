@@ -1,0 +1,13 @@
+// Recursion
+public class Solution {
+    public static boolean subsetSumToK(int n, int k, int arr[]){
+        if(n == 0){
+            if(k == 0) return true;
+            return false;
+        }
+        if(arr[n - 1] <= k){
+            return subsetSumToK(n - 1, k - arr[n - 1], arr) || subsetSumToK(n - 1, k, arr);
+        }
+        return subsetSumToK(n - 1, k, arr);
+    }
+}
