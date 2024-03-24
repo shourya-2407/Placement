@@ -1,0 +1,40 @@
+// Recursion
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        return findLIS(nums, 0, -1);
+    }
+
+    public static int findLIS(int[] nums, int curr, int prev){
+        if(curr == nums.length) return 0;
+
+        int take = 0;
+        int nottake = findLIS(nums, curr + 1, prev);
+        if(prev == - 1 || nums[curr] > nums[prev]){
+            take = 1 + findLIS(nums, curr + 1, curr);
+        }
+        
+        return Math.max(take, nottake); 
+
+    }
+}
+
+// DP
+class Solution {
+    public int lengthOfLIS(int[] arr) {
+        int n = arr.length;
+        int[][] dp = new int[n + 1][n + 1];
+
+        for(int ind = n-1; ind >= 0; ind--){
+            for (int prev_index = ind-1; prev_index >=-1; prev_index--){
+                int notTake = 0 + dp[ind+1][prev_index +1];
+                int take = 0;
+    
+                if(prev_index == -1 || arr[ind] > arr[prev_index]){
+                    take = 1 + dp[ind+1][ind+1];
+                }
+                dp[ind][prev_index+1] = Math.max(notTake,take);
+            }
+        }
+        return dp[0][0];
+    }
+}
