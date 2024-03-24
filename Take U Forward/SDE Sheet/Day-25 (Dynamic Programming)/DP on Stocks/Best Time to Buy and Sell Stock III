@@ -1,0 +1,18 @@
+// Recursion
+class Solution {
+    public int maxProfit(int[] prices) {
+        return findWaysToBuyOrSell(prices, 0, true, 2, prices.length);
+    }
+
+    public int findWaysToBuyOrSell(int[] prices, int ind, boolean buy, int cap, int n){
+        if(ind == n) return 0;
+        if(cap == 0) return 0; 
+        int profit = Integer.MIN_VALUE;
+        if(buy){
+            profit = Math.max(-1*prices[ind] + findWaysToBuyOrSell(prices, ind + 1, !buy, cap, n), findWaysToBuyOrSell(prices, ind + 1, buy, cap, n));
+        } else{
+            profit = Math.max(prices[ind] + findWaysToBuyOrSell(prices, ind + 1, !buy, cap - 1, n), findWaysToBuyOrSell(prices, ind + 1, buy, cap, n));
+        }
+        return profit;
+    }
+}
