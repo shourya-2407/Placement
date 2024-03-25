@@ -1,0 +1,54 @@
+// sort the array, change the greater than condition to divisiblity and then apply print LIS algo
+
+class Solution {
+    public List<Integer> largestDivisibleSubset(int[] nums) {
+        int n = nums.length;
+        int[] dp = new int[n];
+        int[] hash = new int[n];
+        int lastIndex = -1;
+        int maxVal = Integer.MIN_VALUE;
+        
+        Arrays.sort(nums); 
+        
+        for(int i = 0; i < n; i++){
+            dp[i] = 1;
+            hash[i] = i;
+            for(int j = 0; j < i; j++){
+                if(nums[i] % nums[j] == 0 && 1 + dp[j] > dp[i]){
+                    hash[i] = j;
+                    dp[i] = 1 + dp[j];
+                }
+            }
+            if(dp[i] > maxVal){
+                lastIndex = i;
+                maxVal = dp[i];
+            }
+        }
+        
+        
+        ArrayList<Integer> ans = new ArrayList<>();
+        ans.add(nums[lastIndex]);
+        
+        while(hash[lastIndex] != lastIndex){
+            lastIndex = hash[lastIndex];
+            ans.add(nums[lastIndex]);
+        }
+ 
+        reverseArrayList(ans);
+        return ans;
+    }
+    
+    public static void reverseArrayList(ArrayList<Integer> list) {
+        int left = 0;
+        int right = list.size() - 1;
+
+        while (left < right) {
+            int temp = list.get(left);
+            list.set(left, list.get(right));
+            list.set(right, temp);
+
+            left++;
+            right--;
+        }
+    }
+}
