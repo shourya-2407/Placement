@@ -1,0 +1,4 @@
+BST 
+=> Left subtree elements should be smaller than the root and the right subtree elements should be greater than root.
+
+Catalan Numbers: The number of BSTs with n nodes
