@@ -1,3 +1,12 @@
 * How to identify DP?
 -> a. Choice -> overlapping recursion
    b. Optimal
+
+* Properties of Dynammic programming strategy
+1. Overlapping subproblems -> sub problems repeated
+2. Optimal substructure -> an optimal solution to a problem contains optimal solutions to subproblems
+
+There are 2 approaches for solving DP problems:
+Top down => memoization
+Bottom up => tabulation
+
