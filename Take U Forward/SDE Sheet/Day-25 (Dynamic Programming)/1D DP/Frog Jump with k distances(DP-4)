@@ -1,6 +1,5 @@
 // Recursion
-public class Solution {
-    public static int minimizeCost(int n, int k, int []height){
+public static int minimizeCost(int n, int k, int []height){
         // Write your code here.
         return findMinCost(n - 1, k, height);
     }
@@ -10,11 +9,8 @@ public class Solution {
             return 0;
         }
         int minCost = Integer.MAX_VALUE;
-        for(int j = 1; j <= k; j++){
-            int currcost = Integer.MAX_VALUE;
-            if(n - j >= 0){
-                currcost = Math.abs(height[n - j] - height[n]) + findMinCost(n - j, k, height);
-            }
+        for(int j = 1; j <= k && n - j >= 0; j++){
+            int currcost = Math.abs(height[n - j] - height[n]) + findMinCost(n - j, k, height);
             minCost = Math.min(minCost, currcost);
         }
         return minCost;
