@@ -1,0 +1,39 @@
+// Logic: if power is even, simply square the number and divide the pow by 2
+// if pow is odd, then multiply once
+
+// optimal
+class Solution
+{
+    public long PowMod(long x, long n, long m)
+    {
+        // Code here
+        long ans = 1;
+        
+        while(n > 0){
+            if(n % 2 == 1){
+                ans = (ans*x) % m;
+                n--;
+            } else{
+                x = (x * x) % m;
+                n /= 2;
+            }
+        }
+        
+        return ans;
+    }
+}
+
+// Brute force
+class Solution
+{
+    public long PowMod(long x, long n, long m)
+    {
+        // Code here
+        long tmp = x;
+        for(int i = 1; i < n; i++){
+            tmp = (tmp*x) % m;
+        }
+        
+        return tmp;
+    }
+}
