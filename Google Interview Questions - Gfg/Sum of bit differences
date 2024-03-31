@@ -1,0 +1,39 @@
+// Logic: All numbers can be represented in 32 bits
+// For the ith position, for all numbers in array calculate the number of zeros and number of ones
+// each one from 1 set will be making a pair with the other from other set
+// so if there are x zeros are y ones, then the total number of pairs will be x*y
+// simple, just cnt the number of 1s, rest will be zeros
+
+// Optimised
+class Solution {
+    long sumBitDifferences(int[] arr, int n) {
+        long total = 0;
+        for(int i = 0; i < 31; i++){
+            long cntOnes = 0;
+            for(int j = 0; j < n; j++){
+                if((arr[j] & (1 << i)) != 0){
+                    cntOnes++;
+                }
+            }
+            total += cntOnes*(n - cntOnes)*2;
+        }
+        
+        return total;
+    }
+}
+
+// Brute force
+class Solution {
+    long sumBitDifferences(int[] arr, int n) {
+        // code here
+        int sum = 0;
+        for(int i = 0; i < n - 1; i++){
+            for(int j = i + 1; j < n; j++){
+                int xor = arr[i]^arr[j];
+                xor = Integer.bitCount(xor);
+                sum += xor*2;
+            }
+        }
+        return sum;
+    }
+}
