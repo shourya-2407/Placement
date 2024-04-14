@@ -1,0 +1,32 @@
+// Learning - how to return new int array, instead of using an variable to store the data.
+
+// Brute Force
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int n = nums.length;
+        for(int i = 0; i < n; i++){
+            for(int j = i + 1; j < n; j++){
+                if(nums[i] + nums[j] == target){
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return new int[]{};
+    }
+}
+
+// Optimal
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> _map = new HashMap<>();
+               
+        for(int i = 0; i < nums.length; i++){
+            int key = target - nums[i];
+            if(_map.containsKey(key)){
+                return new int[]{_map.get(key), i};
+            }
+            _map.put(nums[i], i);
+        }
+        return new int[]{};
+    }
+}
