@@ -1,4 +1,5 @@
 // Learning - how to return new int array, instead of using an variable to store the data.
+// Optimal solution -> obviously using hashmap, you can also reduce the number of iterations in the most optimal approach.
 
 // Brute Force
 class Solution {
@@ -26,6 +27,26 @@ class Solution {
                 return new int[]{_map.get(key), i};
             }
             _map.put(nums[i], i);
+        }
+        return new int[]{};
+    }
+}
+
+
+// More Optimal
+// Iterate till mid way and perform same action at both ends.
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int n = nums.length;
+        int finish = n - 1;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i,j};
+                } else if (nums[finish - i] + nums[finish - j] == target) {
+                    return new int[]{finish - i, finish - j};
+                }
+            }
         }
         return new int[]{};
     }
