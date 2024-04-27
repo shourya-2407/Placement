@@ -1,0 +1,62 @@
+// Logic:
+// 
+
+// Brute force - Recursion
+class Solution {
+    public int maxProfit(int[] prices) {
+       return solve(prices, 0, true);
+    }
+
+    public int solve(int[] prices, int ind, boolean buy){
+        if(ind == prices.length) return 0;
+
+        if(buy){
+            return Math.max(- prices[ind] + solve(prices, ind + 1, !buy), solve(prices, ind + 1, buy));
+        } else{
+            return Math.max(+ prices[ind] + solve(prices, ind + 1, !buy), solve(prices, ind + 1, buy));
+        }
+    }
+}
+
+// Better - Memoisation
+class Solution {
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int[][] dp = new int[n + 1][2];
+        
+        for(int i = 0; i < n + 1; i++){
+            Arrays.fill(dp[i], -1);
+        }
+
+        return solve(prices, 0, 0, dp);
+    }
+
+    public int solve(int[] prices, int ind, int buy, int[][] dp){
+        if(ind == prices.length) return 0;
+        
+        if(dp[ind][buy] != -1) return dp[ind][buy];
+
+        if(buy == 0){
+            dp[ind][buy] = Math.max(- prices[ind] + solve(prices, ind + 1, buy^1, dp), solve(prices, ind + 1, buy, dp));
+        } else{
+            dp[ind][buy] = Math.max(+ prices[ind] + solve(prices, ind + 1, buy^1, dp), solve(prices, ind + 1, buy, dp));
+        }
+
+        return dp[ind][buy];
+    }
+}
+
+// Optimal
+class Solution {
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int maxProfit = 0;
+
+        for(int i = 1; i < n; i++){
+            if(prices[i] > prices[i-1]){
+                maxProfit += (prices[i] - prices[i-1]);
+            }
+        }
+        return maxProfit;
+    }
+}
