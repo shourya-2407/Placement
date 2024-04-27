@@ -1,5 +1,12 @@
-// Logic:
-// 
+// Intuition:
+// consider stock prices [a, b, c, d] (provided that b and d are peaks and a and c are valleys)
+// Why selecting the immediate peak is the optimal choice i.e. (d - a) < (d - c) + (b - a) ? 
+// assume that (d - a) > (d - c) + (b - a) and solve the equation
+// you get b - c < 0 ==> b < c which is incorrect as per the given data.
+// hence proved: (d - a) < (d - c) + (b - a)
+
+// Solution: 
+// simply iterate the array and calculate profit, using immediate peaks.
 
 // Brute force - Recursion
 class Solution {
