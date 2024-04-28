@@ -1,0 +1,24 @@
+Given Problem: 
+Given an array arr[] of size N and an integer K. Find the maximum for each and every contiguous subarray of size K.
+N = 9, K = 3
+arr[] = 1 2 3 1 4 5 2 3 6
+Output: 
+3 3 4 5 5 5 6 
+
+Brute Force Solution: 
+This can be done by finding all the possible subarrays using 2 for loops in O(N2).
+
+Optimal Solution using Sliding Window: 
+Consider a window of size k and you just need to slide the window across the array. 
+That is once the maximum is found in first k elements, remove the first element from the window and add the (k+1)th element in window.
+And then again calculate the maximum using the previous data.
+
+Identification of Sliding Window problems:
+- Given an array/string
+- subarray/substring
+- find maximum/minimum
+- k = window size
+
+Types of Sliding Windows:
+- Fixed size window -> do some calculations with the fixed size of window and find max/min
+- Variable size window -> largest/smallest window subjected to a condition
