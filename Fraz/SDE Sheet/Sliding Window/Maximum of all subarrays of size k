@@ -1,0 +1,37 @@
+class Solution
+{
+    //Function to find maximum of each subarray of size k.
+    static ArrayList <Integer> max_of_subarrays(int arr[], int n, int k)
+    {
+        // Your code here
+        ArrayList<Integer> ans = new ArrayList<>();
+        PriorityQueue<Pair> heap = new PriorityQueue<>((a, b) -> b.value - a.value);
+        
+        for(int i = 0; i < k; i++){
+            heap.offer(new Pair(arr[i], i));
+        }
+        ans.add(heap.peek().value);
+        
+        for(int i = k; i < n; i++){
+            heap.offer(new Pair(arr[i], i));
+            
+            while(heap.peek().index <= i - k){
+                heap.poll();
+            }
+            
+            ans.add(heap.peek().value);
+        }
+        
+        return ans;
+    }
+}
+
+class Pair{
+    int index;
+    int value;
+    
+    Pair(int index, int val){
+        this.index = index;
+        this.value = val;
+    }
+}
