@@ -1,0 +1,19 @@
+class Solution{
+    static long maximumSumSubarray(int K, ArrayList<Integer> arr,int N){
+        // code here
+        long currSum = 0;
+        for(int i = 0; i < K; i++){
+            currSum += arr.get(i);
+        }
+        
+        long maxSum = currSum;
+        for(int i = K; i < N; i++){
+           currSum += arr.get(i);
+           currSum -= arr.get(i - K);
+           
+           maxSum = Math.max(maxSum, currSum);
+        }
+        
+        return maxSum;
+    }
+}
