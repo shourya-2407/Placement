@@ -20,5 +20,13 @@ Identification of Sliding Window problems:
 - k = window size
 
 Types of Sliding Windows:
-- Fixed size window -> do some calculations with the fixed size of window and find max/min
-- Variable size window -> largest/smallest window subjected to a condition
+- Fixed size window
+  Find the size of the window required, say K.
+  Compute the result for 1st window, i.e. include the first K elements of the data structure.
+  Then use a loop to slide the window by 1 and keep computing the result window by window.
+
+- Variable size window 
+  In this type of sliding window problem, we increase our right pointer one by one till our condition is true.  
+  At any step if our condition does not match, we shrink the size of our window by increasing left pointer.
+  Again, when our condition satisfies, we start increasing the right pointer and follow step 1.
+  We follow these steps until we reach to the end of the array.
