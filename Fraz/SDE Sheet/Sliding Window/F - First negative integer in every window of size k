@@ -28,38 +28,39 @@ class Compute {
     }
 }
 
-// Optimal
+// Optimal - Use linkedlist, no need of priority queue as indices will be visited in FIFO manner only
 class Compute {
     
     public long[] printFirstNegativeInteger(long A[], int n, int k)
     {
         List<Long> ans = new ArrayList<>();
-        PriorityQueue<Pair> pq = new PriorityQueue<>((x, y) -> x.ind - y.ind);
+        LinkedList<Integer> pq = new LinkedList<>();
         
         for(int i = 0; i < k; i++){
             if(A[i] < 0){
-                pq.offer(new Pair(i, A[i]));
+                pq.offer(i);
             }
         }
         if(!pq.isEmpty()){
-            ans.add(pq.peek().val);
+            ans.add(A[pq.peek()]);
         } else{
             ans.add(0l);   
         }
        
         for(int i = k; i < n; i++){
             if(A[i] < 0){
-                pq.offer(new Pair(i, A[i]));
+                pq.offer(i);
             }
-            while(!pq.isEmpty() && pq.peek().ind <= i - k){
+            while(!pq.isEmpty() && pq.peek() <= i - k){
                 pq.poll();    
             }
             
             if(!pq.isEmpty()){
-                ans.add(pq.peek().val);
+                ans.add(A[pq.peek()]);
             } else{
                 ans.add(0l);   
-            }   
+            }  
+            
         }
         
         long [] res = new long[ans.size()];
