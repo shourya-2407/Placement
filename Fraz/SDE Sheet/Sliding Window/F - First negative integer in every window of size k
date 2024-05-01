@@ -1,0 +1,73 @@
+// Brute force
+class Compute {
+    
+    public long[] printFirstNegativeInteger(long A[], int n, int k)
+    {
+        List<Long> ans = new ArrayList<>();
+        for(int i = 0; i <= n - k; i++){
+            long isNeg = 0;
+            for(int j = i; j < i + k; j++){
+                if(A[j] < 0){
+                    isNeg = 1;
+                    ans.add(A[j]);
+                    break;
+                }
+            }
+            if(isNeg == 0){
+                ans.add(isNeg);
+            }
+        }
+        
+        long [] res = new long[ans.size()];
+        int i = 0;
+        for(long x : ans){
+            res[i++] = x;
+        }
+        
+        return res;
+    }
+}
+
+// Optimal
+class Compute {
+    
+    public long[] printFirstNegativeInteger(long A[], int n, int k)
+    {
+        List<Long> ans = new ArrayList<>();
+        PriorityQueue<Pair> pq = new PriorityQueue<>((x, y) -> x.ind - y.ind);
+        
+        for(int i = 0; i < k; i++){
+            if(A[i] < 0){
+                pq.offer(new Pair(i, A[i]));
+            }
+        }
+        if(!pq.isEmpty()){
+            ans.add(pq.peek().val);
+        } else{
+            ans.add(0l);   
+        }
+       
+        for(int i = k; i < n; i++){
+            if(A[i] < 0){
+                pq.offer(new Pair(i, A[i]));
+            }
+            while(!pq.isEmpty() && pq.peek().ind <= i - k){
+                pq.poll();    
+            }
+            
+            if(!pq.isEmpty()){
+                ans.add(pq.peek().val);
+            } else{
+                ans.add(0l);   
+            }   
+        }
+        
+        long [] res = new long[ans.size()];
+        int i = 0;
+        for(long x : ans){
+            res[i++] = x;
+        }
+        
+        return res;
+    }
+}
