@@ -1,6 +1,6 @@
 // improvements:
 // variable names are more clarifying
-// used ternary operator over if else
+// used ternary operator over if-else
 class Solution {
      public int minAddToMakeValid(String S) {
         int unmatchedClose = 0, balance = 0;
