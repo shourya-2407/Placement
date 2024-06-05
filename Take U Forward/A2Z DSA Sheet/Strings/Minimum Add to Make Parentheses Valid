@@ -1,7 +1,27 @@
+// improvements:
+// variable names are more clarifying
+// used ternary operator over if else
+class Solution {
+     public int minAddToMakeValid(String S) {
+        int unmatchedClose = 0, balance = 0;
+        
+        for (int i = 0; i < S.length(); ++i) {
+            balance += S.charAt(i) == '(' ? 1 : -1;
+            
+            // It is guaranteed bal >= -1
+            if (balance == -1) {
+                unmatchedClose++;
+                balance++;
+            }
+        }
+
+        return unmatchedClose + balance;
+    }
+}
+
 // using variables
 class Solution {
     public int minAddToMakeValid(String s) {
-        Stack<Character> st = new Stack<>();
         int cnt1 = 0;
         int cnt2 = 0;
 
