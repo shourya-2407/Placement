@@ -1,0 +1,38 @@
+Types of Recurrence Relations:
+1. Linear Recurrence Relations 
+=> T(n) = T(n-1) + n for n > 0 and T(0) = 1 
+=> can be solved using Substitution method.
+
+2. Divide and Conquer Recurrences 
+=> T(n) = 2T(n/2) + cn and T(n) = 2T(n/2) + √n 
+=> solved using Master method.
+
+3. Substitution Recurrences 
+=> T(n) = T(√n) + 1 (can’t be directly solved)
+=> To solve this type of recurrence, substitute n = 2^m as:
+T(2^m) = T(2^m/2) + 1
+Let T(2^m) = S(m),
+S(m) = S(m/2) + 1 //solve using master method
+
+4. Homogeneous Recurrences
+=> right-hand side is equal to zero.
+=> a homogeneous recurrence relation of order k is represented as: a_{n} = f(a_{n-1}, a_{n-2},..., a_{n-k}) and f(n) = 0
+=> 
+
+5. Non-Homogeneous Recurrences
+=> right-hand side is not equal to zero.
+=> a_{n} = f(a_{n-1}, a_{n-2},...,a_{n-k}) + g(n), where g(n) is not dependent on the previous terms
+=> a_{n} = 2*a_{n-1}- a_{n-2} + 3^n   
+
+Ways to Solve Recurrence Relations:
+1. Substitution Method
+T(n) = 2T(n/2) + n
+     <= 2cn/2Log(n/2) + n
+      =  cnLogn – cnLog2 + n
+      =  cnLogn – cn + n
+T(n) <= cnLogn
+
+2. Recurrence Tree Method
+T(n) = T(n/4) + T(n/2) + cn2
+
+3. Master Method
