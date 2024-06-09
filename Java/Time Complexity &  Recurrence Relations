@@ -36,3 +36,9 @@ T(n) <= cnLogn
 T(n) = T(n/4) + T(n/2) + cn2
 
 3. Master Method
+T(n) = aT(n/b) + f(n) where a >= 1 and b > 1
+
+There are the following three cases: 
+If f(n) = O(nc) where c < Logba then T(n) = Θ(nLogba) 
+If f(n) = Θ(nc) where c = Logba then T(n) = Θ(ncLog n) 
+If f(n) = Ω(nc) where c > Logba then T(n) = Θ(f(n)) 
