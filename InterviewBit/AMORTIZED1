@@ -1,0 +1,13 @@
+What is the time complexity of the following code :
+
+        int j = 0;
+        for(int i = 0; i < n; ++i) {
+            while(j < n && arr[i] < arr[j]) {
+                j++;
+            }
+        }
+
+Solution:
+// The outer loop for sure runs for N times --> O(N)
+// The inner loop runs for N times irrespective of i, because it is initialised outside of the first loop
+// So the TC = O(N) + O(N) ==> O(N)
