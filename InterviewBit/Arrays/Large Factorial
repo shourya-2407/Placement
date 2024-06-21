@@ -1,0 +1,29 @@
+public class Solution {
+    
+    public String calculate(int A, String B) {
+        StringBuilder s = new StringBuilder(B);
+
+        int n = s.length() - 1;
+        int carry = 0;
+        while (n >= 0) {
+            int dig = s.charAt(n) - '0';
+            int prod = dig * A + carry;
+            s.setCharAt(n, (char) ((prod % 10) + '0'));
+            carry = prod / 10;
+            n--;
+        }
+
+        while (carry > 0) {
+            s.insert(0, (char) ((carry % 10) + '0'));
+            carry /= 10;
+        }
+
+        return s.toString();
+    }
+
+    public String solve(int A) {
+        if (A == 1) return "1";
+        return calculate(A, solve(A - 1));
+    }
+    
+}
