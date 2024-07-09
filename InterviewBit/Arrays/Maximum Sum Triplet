@@ -1,0 +1,84 @@
+// TC: O(nlogn)
+// SC: O(n)
+public class Solution { 
+    public int solve(ArrayList<Integer> A) {
+        int n = A.size();
+        int maxSum = 0;
+        TreeSet<Integer> leftMax = new TreeSet<>();
+        ArrayList<Integer> rightMax = new ArrayList<>(Collections.nCopies(n, 0));
+
+        int rMax = A.get(n - 1);
+        rightMax.set(n - 1, rMax);
+        for (int i = n - 2; i >= 0; i--) {
+            rMax = Math.max(rMax, A.get(i));
+            rightMax.set(i, rMax);
+        }
+        
+        leftMax.add(A.get(0));
+        for (int i = 1; i < n - 1; i++) {
+            leftMax.add(A.get(i));
+            Integer smallerThanCurrent = leftMax.lower(A.get(i));
+            if (smallerThanCurrent != null && rightMax.get(i + 1) > A.get(i)) {
+                int currSum = smallerThanCurrent + A.get(i) + rightMax.get(i + 1);
+                maxSum = Math.max(maxSum, currSum);
+            }
+        }
+        return maxSum;
+    }
+}
+
+
+// O(N2) 2nd brute force
+public class Solution {
+    public int solve(ArrayList<Integer> A) {
+        int n = A.size();
+        int maxSum = 0;
+
+        for (int i = 1; i < n - 1; i++) {
+            int leftMax = -1;
+            int rightMax = -1;
+
+            for (int j = 0; j < i; j++) {
+                if (A.get(j) < A.get(i) && A.get(j) > leftMax) {
+                    leftMax = A.get(j);
+                }
+            }
+
+            for (int j = i + 1; j < n; j++) {
+                if (A.get(j) > A.get(i) && A.get(j) > rightMax) {
+                    rightMax = A.get(j);
+                }
+            }
+
+            if (leftMax != -1 && rightMax != -1) {
+                int currentSum = leftMax + A.get(i) + rightMax;
+                maxSum = Math.max(maxSum, currentSum);
+            }
+        }
+
+        return maxSum;
+    }
+}
+
+
+// O(N3) brute force
+public class Solution {
+    public int solve(ArrayList<Integer> A) {
+        int n = A.size();
+        int currSum = 0;
+        int maxSum = 0;
+        
+        for(int i = 0; i < n - 2; i++){
+            for(int j = i + 1; j < n - 1; j++){
+                for(int k = j + 1; k < n; k++){
+                    if(A.get(i) < A.get(j) && A.get(j) < A.get(k)){
+                        currSum = A.get(i) + A.get(j) + A.get(k);
+                        maxSum = Math.max(currSum, maxSum);
+                    }            
+                }
+            }
+        }
+        
+        return maxSum;
+    }
+}
