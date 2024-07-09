@@ -1,5 +1,8 @@
+// Adding an element to the TreeSet (leftMax) takes O(logn) time.
+// Finding the lower element (leftMax.lower()) takes O(logn) time.
 // TC: O(nlogn)
 // SC: O(n)
+
 public class Solution { 
     public int solve(ArrayList<Integer> A) {
         int n = A.size();
