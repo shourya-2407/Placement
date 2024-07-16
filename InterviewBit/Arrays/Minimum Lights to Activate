@@ -1,0 +1,31 @@
+// Solution -> Brute force
+// for a set of B elements, find the right most active light
+
+public class Solution {
+    public int solve(ArrayList<Integer> A, int B) {
+        int n = A.size();
+        int noOfLights = 0;
+        int i = 0;
+        
+        while (i < n) {
+            int X = Math.min(i + B - 1, n - 1);
+            boolean light = false;
+            
+            while (X >= i - B + 1 && X >= 0) {
+                if (A.get(X) == 1) {
+                    noOfLights++;
+                    i = X + B;
+                    light = true;
+                    break;
+                }
+                X--;
+            }
+            
+            if (!light) {
+                return -1;
+            }
+        }
+        
+        return noOfLights;
+    }
+}
