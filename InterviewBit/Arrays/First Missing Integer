@@ -1,0 +1,62 @@
+// O(N) approach - editorial
+public class Solution {
+    public int firstMissingPositive(ArrayList<Integer> A) {
+        int n = A.size();
+        int cnt = n - 1;
+        int idx = 0;
+        
+        for(idx = n - 1; idx >= 0; idx--){
+            int num = A.get(idx);
+            if(num < 0){
+                int val = A.get(cnt);
+                A.set(cnt, num);
+                A.set(idx, val);
+                cnt--;
+            }
+        }
+        
+        for(idx = 0; idx <= cnt; idx++){
+            int num = A.get(idx);
+            num = Math.abs(num);
+            
+            if(num > 0 && num <= n){
+                int val = A.get(num - 1);
+                A.set(num - 1, -val);
+            }
+        }
+        
+        for(idx = 0; idx <= cnt; idx++){
+            if(A.get(idx) > 0){
+                return idx + 1;
+            }
+        }
+        
+        return idx + 1;
+    }
+}
+
+
+// O(NLogN) - using sort
+public class Solution {
+    public int firstMissingPositive(ArrayList<Integer> A) {
+        int n = A.size();
+        int i = 0;
+        Collections.sort(A);
+        
+        for(; i < n; i++){
+            if(A.get(i) == 1) break;
+        }
+        
+        if(i == n){
+            return 1;
+        }
+        
+        for(int j = i; j < n - 1; j++){
+            if(A.get(j + 1) != 1 + A.get(j)){
+                return A.get(j) + 1;
+            }
+        }
+        
+        return A.get(n - 1) + 1;
+    }
+}
