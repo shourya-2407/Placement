@@ -1,3 +1,31 @@
+// better understanding
+// place all the elements on their right position. 
+// TC: O(N) -> because you can only place at max N elements and that too only once.
+public class Solution {
+    public int firstMissingPositive(ArrayList<Integer> A) {
+        int n = A.size();
+        
+        for (int idx = 0; idx < n; idx++) {
+            int num = A.get(idx);
+            while (num > 0 && num <= n && A.get(num - 1) != num) {
+                int temp = A.get(num - 1);
+                A.set(num - 1, num);
+                A.set(idx, temp);
+                num = temp;
+            }
+        }
+        
+        for(int idx = 0; idx < n; idx++){
+            if(A.get(idx) != idx + 1){
+                return idx + 1;
+            }
+        }
+        
+        return n + 1;
+    }
+}
+
+
 // O(N) approach - editorial
 public class Solution {
     public int firstMissingPositive(ArrayList<Integer> A) {
