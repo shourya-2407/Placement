@@ -1,16 +1,20 @@
-1. Sliding window pattern
-2. Two pointer pattern
-3. Fast and slow pointer patterns
-4. Merge Interval patterns
-5. Cyclic sort patterns
+1. Sliding window
+2. Two pointer
+3. Fast and slow pointers
+4. Merge Intervals
+5. Cyclic sort
 6. In place reversal of linkedlist
-7. Trees - Breadth first search 
-8. Trees - Depth first search 
+7. Trees - Breadth First Search 
+8. Trees - Depth First Search 
 9. Two Heaps
-10. Subsets pattern
+10. Subsets
 11. Modified Binary Search
 12. Bitwise XOR
-13. Top 'k' elements
+13. Top 'K' elements
 14. K-way merge
 15. 0/1 knapsack (DP)
 16. Topological sort
+17. Island (Matrix Traversal)
+18. Backtracking
+19. Monotonic Stack
+20. Multi-threaded
