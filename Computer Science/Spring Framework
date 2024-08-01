@@ -1,25 +1,38 @@
 * Spring Framework Introduction:
-- Robust
-- Light weight
-- Open source
-- framework of frameworks: provides support to many other frameworks such as Hibernate, Tapestry, EJB, JSF, Struts, etc.
-- an application framework and IOC (Inversion of Control) container for the Java platform.
-- contains several modules like IOC, AOP, DAO, Context, WEB MVC, etc.
+1. An application framework and IOC (Inversion of Control) container for the Java platform.
+2. Robust
+3. POJO Based
+4. Open source
+5. Modular Approach: Even if there are a lot of packages and classes, you only need to worry about the ones you need and ignore the rest.
+6. Integration with existing frameworks such as Hibernate, Tapestry, EJB, JSF, Struts, etc.
+7. Web MVC
+8. Central Exception Handling: provides a handy API for converting technology-specific exceptions 
+(such as those raised by JDBC, Hibernate, or JDO) into consistent, unchecked exceptions.
+9. Light weight: IoC containers are typically lightweight, especially when compared to EJB containers,
+10. contains several modules like IOC, AOP, DAO, Context, WEB MVC, etc.
 
-* Applications of Spring:
-1. POJO Based (pojo are not tied to any framework, any java program can use it)
+* POJO
+Plain Old Java Object (POJO) 
+-> a database entity is represented by POJO.
+-> POJO has the same members as the database entity.
+-> POJO are not tied to any framework, any java program can use it
+-> An ordinary Java object, not bound by any special restriction other than those forced by the Java Language Specification 
+Properties of POJO: 
+- Cannot extend prespecified classes
+- Cannot implement prespecified interfaces
+- Cannot contain prespecified annotations
+- No restriction on access-modifiers of fields
+- Not necessary to include any constructor in it
+- POJO is an object which encapsulates Business Logic
 
-
-
-
-* POJO and Java Beans
-Plain Old Java Object (POJO) -> It is an ordinary Java object, not bound by any special restriction other than those forced by the Java Language Specification 
+* Java Beans
 Java Beans => POJO with some restrictions.  
               1. They should implement serializable
               2. Fields should be private
               3. Getter setter and a no-arg consrtuctor should be present, fields should be accessed through these only.
-The POJO classes are similar to Beans as both are used to define the objects to increase the readability and re-usability. 
 
+The POJO classes are similar to Beans as both are used to define the objects to increase the readability and re-usability.
+All JavaBeans are POJOs but not all POJOs are JavaBeans.
 
 A typical java application has 3 layers:
   a. Web Layer = controller 
