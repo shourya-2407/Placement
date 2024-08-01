@@ -1,3 +1,26 @@
+* Spring Framework Introduction:
+- Robust
+- Light weight
+- Open source
+- framework of frameworks: provides support to many other frameworks such as Hibernate, Tapestry, EJB, JSF, Struts, etc.
+- an application framework and IOC (Inversion of Control) container for the Java platform.
+- contains several modules like IOC, AOP, DAO, Context, WEB MVC, etc.
+
+* Applications of Spring:
+1. POJO Based (pojo are not tied to any framework, any java program can use it)
+
+
+
+
+* POJO and Java Beans
+Plain Old Java Object (POJO) -> It is an ordinary Java object, not bound by any special restriction other than those forced by the Java Language Specification 
+Java Beans => POJO with some restrictions.  
+              1. They should implement serializable
+              2. Fields should be private
+              3. Getter setter and a no-arg consrtuctor should be present, fields should be accessed through these only.
+The POJO classes are similar to Beans as both are used to define the objects to increase the readability and re-usability. 
+
+
 A typical java application has 3 layers:
   a. Web Layer = controller 
   b. Business Layer = service
@@ -6,12 +29,7 @@ A typical java application has 3 layers:
 AOP -> Aspect-Oriented Programming. where all the cross cutting concerns are grouped together.
        These aspects are commonly used by many classes.
 
-Plain Old Java Object (POJO) -> not with any restriction
 
-Java Beans => POJO with some restrictions.  
-              1. They should implement serializable
-              2. Fields should be private
-              3. Getter setter and a no-arg consrtuctor should be present, fields should be accessed through these only.
 
 Dependency injection (DI)
 => When class one uses objects of other classes.
