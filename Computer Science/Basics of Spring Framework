@@ -58,8 +58,3 @@ Helps developer in managing DB connection, exceptions, and accessing persistent 
 * Difference Between Spring DAO vs Spring ORM vs Spring JDBC
 
 * Spring vs. Struts in Java
-
-Dependency injection (DI)
-=> When class one uses objects of other classes.
-
-Spring actuators: used for monitoring of applications.
