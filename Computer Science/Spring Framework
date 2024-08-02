@@ -34,6 +34,25 @@ Java Beans => POJO with some restrictions.
 The POJO classes are similar to Beans as both are used to define the objects to increase the readability and re-usability.
 All JavaBeans are POJOs but not all POJOs are JavaBeans.
 
+Spring Features:
+1. IoC container: 
+2. Data access framework: 
+3. Spring MVC framework: 
+4. Transaction management: 
+5. Spring Web Service: 
+6. JDBC abstraction layer: 
+7. Spring TestContext framework: 
+
+Spring Framework Architecture:
+1. Spring Core Module: 
+2. Spring AOP Module: 
+3. Spring ORM Module: 
+4. Spring Web MVC Module: 
+5. Spring Web Flow Module: 
+6. Spring Web DAO Module: 
+7. Spring Application Context Module: 
+
+
 A typical java application has 3 layers:
   a. Web Layer = controller 
   b. Business Layer = service
