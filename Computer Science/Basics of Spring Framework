@@ -34,7 +34,7 @@ Java Beans => POJO with some restrictions.
 The POJO classes are similar to Beans as both are used to define the objects to increase the readability and re-usability.
 All JavaBeans are POJOs but not all POJOs are JavaBeans.
 
-Spring Features:
+* Spring Features:
 1. IoC container: 
 2. Data access framework: provides persistence APIs like JDBC and Hibernate to store persistence data in DB.
 Helps developer in managing DB connection, exceptions, and accessing persistent data through application.
@@ -44,7 +44,7 @@ Helps developer in managing DB connection, exceptions, and accessing persistent 
 6. JDBC abstraction layer: 
 7. Spring TestContext framework: 
 
-Spring Framework Architecture:
+* Spring Framework Architecture:
 1. Spring Core Module: 
 2. Spring AOP Module: 
 3. Spring ORM Module: 
@@ -53,16 +53,11 @@ Spring Framework Architecture:
 6. Spring Web DAO Module: 
 7. Spring Application Context Module: 
 
+* Core Container, Data Access/Integration, Web, and Miscellaneous
 
-A typical java application has 3 layers:
-  a. Web Layer = controller 
-  b. Business Layer = service
-  c. Data Layer = dao 
+* Difference Between Spring DAO vs Spring ORM vs Spring JDBC
 
-AOP -> Aspect-Oriented Programming. where all the cross cutting concerns are grouped together.
-       These aspects are commonly used by many classes.
-
-
+* Spring vs. Struts in Java
 
 Dependency injection (DI)
 => When class one uses objects of other classes.
