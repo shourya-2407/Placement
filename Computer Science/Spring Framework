@@ -36,7 +36,8 @@ All JavaBeans are POJOs but not all POJOs are JavaBeans.
 
 Spring Features:
 1. IoC container: 
-2. Data access framework: 
+2. Data access framework: provides persistence APIs like JDBC and Hibernate to store persistence data in DB.
+Helps developer in managing DB connection, exceptions, and accessing persistent data through application.
 3. Spring MVC framework: 
 4. Transaction management: 
 5. Spring Web Service: 
