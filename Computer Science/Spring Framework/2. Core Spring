@@ -32,6 +32,8 @@ This is how we can make the code configurable. You have to change only inside th
 
 * Bean Factory
  - BeanFactory interface is the simplest container providing an advanced configuration mechanism to instantiate, configure, and manage the life cycle of beans.
+ - Beans are Java objects that are configured at run-time by Spring IoC Container. 
+ - BeanFactory uses Beans and their dependencies metadata to create and configure them at run-time.
 
 * Application context
 
