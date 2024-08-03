@@ -4,6 +4,7 @@
 - The Container uses Dependency Injection(DI) to manage the components that make up the application.
 - It gets the information about the objects from a configuration file(XML) or Java Code or Java Annotations and Java POJO class. 
 - Inversion Of Control ==> controlling of Java objects and their lifecycle is not done by the developers.
+- BeanFactory and ApplicationContext represent the Spring IoC Containers. 
 
 Implementation of IOC:
 
@@ -35,7 +36,40 @@ This is how we can make the code configurable. You have to change only inside th
  - Beans are Java objects that are configured at run-time by Spring IoC Container. 
  - BeanFactory uses Beans and their dependencies metadata to create and configure them at run-time.
 
+Implementation to configure Bean factory:
+1. Create a POJO class.
+2. Configure the bean in the bean-factory-demo.xml file.
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="student" class="com.gfg.demo.domain.Student">
+        <constructor-arg name="name" value="Tina"/>
+        <constructor-arg name="age" value="21"/>
+    </bean>
+</beans>
+3. write the main class file.
+@SpringBootApplication
+public class DemoApplication 
+{
+  public static void main(String[] args) 
+  {
+    BeanFactory factory = new ClassPathXmlApplicationContext("bean-factory-demo.xml");
+    Student student = (Student) factory.getBean("student");
+    System.out.println(student);
+  }
+}
+
+The program flow is something like this:
+1. The Bean factory reads the XML configuration file and as per the specifications defined in it, it creates the bean of the POJO.
+2. Bean reference asks for the Bean object from the object factory.
+3. Spring object factory hands over the bean to its reference. 
+Here, note that the bean returned by the object factory is of “Object” type, so we have to typecast it into our desired bean.
+
 * Application context
+ApplicationContext is the sub-interface of BeanFactory.
+Provides additional enterprise-specific functionalities:
 
 * Difference Between BeanFactory and ApplicationContext
 
