@@ -8,7 +8,8 @@
 7. Web MVC
 8. Central Exception Handling: provides a handy API for converting technology-specific exceptions 
 (such as those raised by JDBC, Hibernate, or JDO) into consistent, unchecked exceptions.
-9. Light weight: IoC containers are typically lightweight, especially when compared to EJB containers,
+9. Light weight: IoC containers are typically lightweight, especially when compared to EJB containers.
+   It is lightweight as we can inject dependencies as per our need without having to include each of them.
 10. contains several modules like IOC, AOP, DAO, Context, WEB MVC, etc.
 
 * POJO
@@ -36,42 +37,70 @@ All JavaBeans are POJOs but not all POJOs are JavaBeans.
 
 * Spring Features:
 1. IoC container: is the core of Spring Framework. 
-It creates the objects, configures and assembles their dependencies, manages their entire life cycle. 
-Uses DI to manage the components that make up the application.
-
+   It creates the objects, configures and assembles their dependencies, manages their entire life cycle. 
+   Uses DI to manage the components that make up the application.
 2. Data access framework: provides persistence APIs like JDBC and Hibernate to store persistence data in DB.
-Helps developer in managing DB connection, exceptions, and accessing persistent data through application.
+   Helps developer in managing DB connection, exceptions, and accessing persistent data through application.
 
 3. Spring MVC framework: 
-Web Browser -> Front controller --(model)--> Controller --(model)--> View -> Web Browser
-Model: data of appplication. object or collection of object.
-Controller: contains business logic of application. marked by @Controller.
-View: represents provided info in a particular format. JSP+JSTL used to create view page.
-Front Controller:  In Spring Web MVC, the DispatcherServlet class works as the front controller. 
-Responsible to manage the flow of the Spring MVC application.
+   Web Browser -> Front controller --(model)--> Controller --(model)--> View -> Web Browser
+   Model: data of appplication. object or collection of object.
+   Controller: contains business logic of application. marked by @Controller.
+   View: represents provided info in a particular format. JSP+JSTL used to create view page.
+   Front Controller:  In Spring Web MVC, the DispatcherServlet class works as the front controller. 
+   Responsible to manage the flow of the Spring MVC application.
 
+         Request (0)
+           |
+           v
+     Dispatcher Servlet (1)
+       |               ^  \
+       v               |   \
+    Handler Mapping(2) |  ViewResolver (5)
+       |               |     |
+       v               |     v
+    Controller(3)      |    View (6)
+       |               |
+       v               |
+    ModelAndView (4)----
 
-As displayed in the figure, all the incoming request is intercepted by the DispatcherServlet that works as the front controller.
-The DispatcherServlet gets an entry of handler mapping from the XML file and forwards the request to the controller.
-The controller returns an object of ModelAndView.
-The DispatcherServlet checks the entry of view resolver in the XML file and invokes the specified view component.
-
-4. Transaction management: 
-5. Spring Web Service: 
-6. JDBC abstraction layer: 
-7. Spring TestContext framework: 
+   As displayed in the figure, all the incoming request is intercepted by the DispatcherServlet that works as the front controller.
+   The DispatcherServlet gets an entry of handler mapping from the XML file and forwards the request to the controller.
+   The controller returns an object of ModelAndView.
+   The DispatcherServlet checks the entry of view resolver in the XML file and invokes the specified view component.
+4. Transaction management: Helps in handling transaction management of an application without affecting its code.
+5. Spring Web Service: Spring Web Service provides layered-based approaches that are separately managed by XML parsing.
+6. JDBC abstraction layer: Helps the users in handling errors. All SQLExceptions are translated into the DataAccessException class.
+7. Spring TestContext framework: Provides facilities of unit and integration testing for the Spring applications.
 
 * Spring Framework Architecture:
-1. Spring Core Module: 
-2. Spring AOP Module: 
-3. Spring ORM Module: 
-4. Spring Web MVC Module: 
-5. Spring Web Flow Module: 
-6. Spring Web DAO Module: 
-7. Spring Application Context Module: 
+1. Spring Core Module: provides the IoC container.
+   There are two types of implementations of the Spring container: Bean factory and Application context.
+2. Spring AOP Module: AOP breaks down the programs into aspects or concerns. Regular classes annotated with @Aspect annotation.
+   These aspects help in transaction management and logging and failure monitoring of an application.
+3. Spring ORM Module: used for accessing data from databases in an application. Provides APIs for manipulating databases.
+4. Spring Web MVC Module: implements the MVC architecture for creating Web applications. 
+5. Spring Web Flow Module: an extension of the Spring Web MVC module. 
+   Helps in defining XML file or Java Class that manages the workflow between different pages of a Web application.
+6. Spring Web DAO Module: provides DAO support by using data access technologies such as JDBC, Hibernate, or JDO.
+   Multiple implementations are available for each data access technology supported by the Spring framework.
+7. Spring Application Context Module: implements MessageSource interface and provides the messaging functionality to an application.
 
 * Core Container, Data Access/Integration, Web, and Miscellaneous
 
-* Difference Between Spring DAO vs Spring ORM vs Spring JDBC
+* Spring Initializr: 
+  - a Web-based tool that provides simple web UI to generate the Spring Boot project structure 
+    or we can say it builds the skeleton of the Spring-based application.
+  - Helps to select the necessary configuration for their projects which helps you to customize and configure the project requirement 
+    and automatically manage the Spring Boot Dependencies using the Maven repository or Gradle. 
 
-* Spring vs. Struts in Java
+* Difference Between Spring DAO vs Spring ORM vs Spring JDBC
+1. Spring-DAO: is not a spring module. It does not provide interfaces or templates to access the data.
+   Annotate them with @Repository so that exceptions linked to the underlying technology (JDBC, Hibernate, JPA, etc.) 
+   are consistently translated into the proper DataAccessException subclass.
+2. Spring ORM: Spring-ORM is an umbrella module that covers many persistence technologies, namely JPA, JDO, Hibernate and iBatis. 
+   For every individual technology, integration classes are provided by Spring.
+   For each technology, the configuration basically consists in injecting a DataSource bean into some kind of SessionFactory or EntityManagerFactory etc. bean. 
+   For pure JDBC, there's no need for such integration classes (apart from JdbcTemplate), as JDBC only relies on a DataSource.
+3. Spring JDBC: Spring-JDBC provides the JdbcTemplate class, that removes plumbing code and helps you concentrate on the SQL query and parameters. 
+   You just need to configure it with a DataSource. 
