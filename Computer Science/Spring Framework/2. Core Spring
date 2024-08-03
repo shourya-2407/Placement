@@ -1,0 +1,52 @@
+* Inversion of Control
+- Spring IoC (Inversion of Control) Container is the core of Spring Framework. 
+- Creates the objects, configures and assembles their dependencies, manages their entire life cycle. 
+- The Container uses Dependency Injection(DI) to manage the components that make up the application.
+- It gets the information about the objects from a configuration file(XML) or Java Code or Java Annotations and Java POJO class. 
+- Inversion Of Control ==> controlling of Java objects and their lifecycle is not done by the developers.
+
+Implementation of IOC:
+
+//Using runtime polymorphism
+public class Mobile {
+	public static void main(String[] args)
+	{
+		 Sim sim = new Jio();
+		 sim.calling();
+		 sim.data();
+	}
+}
+
+But what will you do if new Sim Vodafone came and we need to change? ==> this is where IOC comes into picture.
+Using ApplicationContext to implement an IoC container. Create an XML file and name the file as “beans.xml“.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	https://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="sim" class="Jio"></bean>
+</beans>
+
+This is how we can make the code configurable. You have to change only inside the beans.xml file.
+
+* Bean Factory
+ - BeanFactory interface is the simplest container providing an advanced configuration mechanism to instantiate, configure, and manage the life cycle of beans.
+
+* Application context
+
+* Difference Between BeanFactory and ApplicationContext
+
+* Dependency Injection
+
+* Difference Between Inversion of Control and Dependency Injection
+
+* Injecting Objects By Constructor Injection
+
+* Setter Injection with Map
+
+* Dependency Injection with Factory Method
+
+* Dependency Injection by Setter Method
+
+* Setter Injection with Non-String Map
