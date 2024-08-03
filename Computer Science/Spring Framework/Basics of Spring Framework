@@ -35,10 +35,23 @@ The POJO classes are similar to Beans as both are used to define the objects to 
 All JavaBeans are POJOs but not all POJOs are JavaBeans.
 
 * Spring Features:
-1. IoC container: 
+1. IoC container: is the core of Spring Framework. 
+It creates the objects, configures and assembles their dependencies, manages their entire life cycle. 
+Uses DI to manage the components that make up the application.
+
 2. Data access framework: provides persistence APIs like JDBC and Hibernate to store persistence data in DB.
 Helps developer in managing DB connection, exceptions, and accessing persistent data through application.
+
 3. Spring MVC framework: 
+Web Browser -> Front controller --(model)--> Controller --(model)--> View -> Web Browser
+Model: data of appplication. object or collection of object.
+Controller: contains business logic of application. marked by @Controller.
+View: represents provided info in a particular format. JSP+JSTL used to create view page.
+Front Controller:  In Spring Web MVC, the DispatcherServlet class works as the front controller. 
+Responsible to manage the flow of the Spring MVC application.
+
+https://static.javatpoint.com/sppages/images/flow-of-spring-web-mvc.png
+
 4. Transaction management: 
 5. Spring Web Service: 
 6. JDBC abstraction layer: 
