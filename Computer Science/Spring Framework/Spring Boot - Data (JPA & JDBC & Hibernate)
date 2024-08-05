@@ -1,12 +1,23 @@
 * Spring JDBC:
 - JDBC (Java Database Connectivity) is an API that defines how a client may access a database
-- Is oriented toward relational databases.
-- JDBC API uses JDBC drivers to connect with the database. 
-- Spring framework provides JDBC templates for JDBC database access.
-- It executes SQL queries.
-- Handles the exception and provides the informative exception messages with the help of 
-  exception classes defined in the org.springframework.dao package.
-- Need to auto-wire the JdbcTemplate and perform the database operations like Create, Retrieve, Update, and Delete.
+- Is oriented toward relational databases and executes SQL queries.
+- Handles the exception.
+- This API consists of classes and interfaces written in Java.
+- It creates channel between your java program and databases.
+
+
+Below are the steps that explains how to connect to Database in Java:
+
+Step 1 – Import the Packages
+Step 2 – Load the drivers using the forName() method => we load the driver’s class file into memory at the runtime.
+Step 3 – After loading the driver, establish connections => Connection con = DriverManager.getConnection(url,user,password)
+Step 4 – Establish a connection using the Connection class object
+Step 5 – Create a statement
+         The JDBCStatement, CallableStatement, and PreparedStatement interfaces define the methods 
+         that enable you to send SQL commands and receive data from your database.
+Step 6 – Execute the query
+Step 7 – Close the connections
+
 
 ~ JDBC consists of two parts as depicted below:
 JDBC interfaces: java.sql / javax.sql packages have classes/interfaces of JDBC API.
