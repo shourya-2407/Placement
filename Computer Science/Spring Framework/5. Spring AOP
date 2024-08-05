@@ -10,13 +10,9 @@ Understanding AOP Concepts
   For example, an aspect for logging can be applied across various methods in different classes.
 - Advice: 
   This is the action taken by an aspect at a particular join point. There are five types of advice:
-- Before: 
-  Executed before the method call.
-- After: 
-  Executed after the method call, regardless of its outcome.
-- AfterReturning: 
-  Executed after the method returns a result, but not if an exception occurs.
-- Around: 
-  Surrounds the method execution, allowing you to control the method execution and its result.
-- AfterThrowing: 
-  Executed if the method throws an exception.
+  
+  a. Before: Executed before the method call.
+  b. After: Executed after the method call, regardless of its outcome.
+  c. AfterReturning: Executed after the method returns a result, but not if an exception occurs.
+  d. Around: Surrounds the method execution, allowing you to control the method execution and its result.
+  e. AfterThrowing: Executed if the method throws an exception.
