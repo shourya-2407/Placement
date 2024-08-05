@@ -6,6 +6,15 @@
 - It executes SQL queries.
 - Handles the exception and provides the informative exception messages with the help of 
   exception classes defined in the org.springframework.dao package.
+- Need to auto-wire the JdbcTemplate and perform the database operations like Create, Retrieve, Update, and Delete.
+
+~ JDBC consists of two parts as depicted below:
+JDBC interfaces: java.sql / javax.sql packages have classes/interfaces of JDBC API.
+JDBC drivers: JDBC Driver allows Java programs to interact with the database.
+
+JDBC Connection Pooling:
+JDBC Connection pooling is a mechanism which makes a database connection as reusable for more than one client.
+When we use DriverManager or DataSource, the connection opened with a DataSource is a non-reusable.
 
 
 * Spring JPA
