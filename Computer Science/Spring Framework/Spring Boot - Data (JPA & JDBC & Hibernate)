@@ -18,14 +18,17 @@ Step 5 – Create a statement
 Step 6 – Execute the query
 Step 7 – Close the connections
 
-
 ~ JDBC consists of two parts as depicted below:
 JDBC interfaces: java.sql / javax.sql packages have classes/interfaces of JDBC API.
 JDBC drivers: JDBC Driver allows Java programs to interact with the database.
 
-JDBC Connection Pooling:
+~ JDBC Connection Pooling:
 JDBC Connection pooling is a mechanism which makes a database connection as reusable for more than one client.
 When we use DriverManager or DataSource, the connection opened with a DataSource is a non-reusable.
+
+~ JDBC Template: 
+
+~ Statements:
 
 
 * Spring JPA
