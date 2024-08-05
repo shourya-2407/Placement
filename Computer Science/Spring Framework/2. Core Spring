@@ -31,7 +31,7 @@ Using ApplicationContext to implement an IoC container. Create an XML file and n
 
 This is how we can make the code configurable. You have to change only inside the beans.xml file.
 
-* Bean Factory
+* Bean Factory (org.springframework.beans)
  - BeanFactory interface is the simplest container providing an advanced configuration mechanism to instantiate, configure, and manage the life cycle of beans.
  - Beans are Java objects that are configured at run-time by Spring IoC Container. 
  - BeanFactory uses Beans and their dependencies metadata to create and configure them at run-time.
@@ -67,22 +67,36 @@ The program flow is something like this:
 3. Spring object factory hands over the bean to its reference. 
 Here, note that the bean returned by the object factory is of “Object” type, so we have to typecast it into our desired bean.
 
-* Application context
+* Application context (org.springframework.context)
 ApplicationContext is the sub-interface of BeanFactory.
 Provides additional enterprise-specific functionalities:
 
-* Difference Between BeanFactory and ApplicationContext
 
 * Dependency Injection
+- Dependency Injection is the main functionality provided by Spring IOC.
+- Responsible for injecting dependencies through either Constructor or Setter methods.
+- IOC emphasizes keeping the Java classes independent of each other and the container frees them from object creation and maintenance.
+- Dependency Injection in Spring also ensures loose coupling between the classes
+- Spring IoC is achieved through Dependency Injection.
+- 2 types of Spring DI:
+  a. Setter DI:
+    public class GFG {
+    	IGeek geek;
+	public void setGeek(IGeek geek)
+	{
+	   this.geek = geek;
+	}
+    }
+  b. Constructor DI:
+    public class GFG {
+    	IGeek geek;
+	GFG(IGeek geek)
+    	{
+        	this.geek = geek;
+    	}	
+    }
 
-* Difference Between Inversion of Control and Dependency Injection
 
-* Injecting Objects By Constructor Injection
+* Singleton and Prototype Bean Scopes in Java Spring: 
 
-* Setter Injection with Map
-
-* Dependency Injection with Factory Method
-
-* Dependency Injection by Setter Method
-
-* Setter Injection with Non-String Map
+* Annotations: 
