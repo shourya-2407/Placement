@@ -6,7 +6,8 @@ Aspect Oriented Programming:
 
 Understanding AOP Concepts
 - Aspect: 
-  The key unit of modularity in AOP, representing a concern that cuts across multiple classes. For example, an aspect for logging can be applied across various methods in different classes.
+  The key unit of modularity in AOP, representing a concern that cuts across multiple classes. 
+  For example, an aspect for logging can be applied across various methods in different classes.
 - Advice: 
   This is the action taken by an aspect at a particular join point. There are five types of advice:
 - Before: 
