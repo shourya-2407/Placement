@@ -27,9 +27,33 @@ JDBC Connection pooling is a mechanism which makes a database connection as reus
 When we use DriverManager or DataSource, the connection opened with a DataSource is a non-reusable.
 
 ~ JDBC Template: 
+- is an application programming interface (API) that defines how a client may access a database.
+- creation and closing of connections
+- running statements and stored procedure calls
+- iterating over the ResultSet and returning results
+
+SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", 1);
+return namedParameterJdbcTemplate.queryForObject(
+  "SELECT FIRST_NAME FROM EMPLOYEE WHERE ID = :id", namedParameters, String.class);
 
 ~ Statements:
+1. Create Statement
+         Statement statement = con.createStatement();
+         String sql = "select * from people";
+         ResultSet result = statement.executeQuery(sql);
 
+2. Prepared Statement: This accepts parameterized SQL queries.
+         PreparedStatement ps = con.prepareStatement(
+                "select name from world.people where age = ?");
+         ps.setInt(1, age);
+         ResultSet result = ps.executeQuery();
+
+3. Callable Statement: Callable Statements are stored procedures which are a group of statements that we compile in the DB.
+         CallableStatement cs = con.prepareCall("{call peopleinfo(?,?)}");
+         cs.setString(1, "Bob");
+         cs.setInt(2, 64);
+         cs.execute();
+         ResultSet result = s.executeQuery("select * from people");
 
 * Spring JPA
 
