@@ -1,0 +1,51 @@
+Disadvantage of spring projects is that configuration is really time-consuming and can be a bit overwhelming for the new developers.
+
+* Features of Spring Boot:
+- Spring Boot is an open-source Java framework used to create a Micro Service.
+- Spring Boot, a module of the Spring framework.
+- facilitates Rapid Application Development (RAD) capabilities.
+- Spring Boot is built on the top of the spring and contains all the features of spring.
+- It allows to avoid heavy configuration of XML which is present in spring.
+  Unlike the Spring MVC Project, in spring boot everything is auto-configured.
+  For eg: If we want to use hibernate(ORM) then we can just add @Table annotation and @Column.
+- It provides easy maintenance and creation of REST end points.
+- It includes embedded Tomcat-server.
+- Deployment is very easy, war and jar file can be easily deployed in the tomcat server.
+
+* Spring Boot Annotations:
+@SpringBootApplication: This annotation is used to mark the main class of a Spring Boot application. 
+It encapsulates @SpringBootConfiguration, @EnableAutoConfiguration, and @ComponentScan annotations with their default attributes.
+
+@SpringBootConfiguration: Class-level annotation. It implies that a class provides Spring Boot application configuration.
+Most Spring Boot Applications use @SpringBootConfiguration via @SpringBootApplication.
+
+@EnableAutoConfiguration: This annotation auto-configures the beans that are present in the classpath
+
+@ComponentScan: tells Spring in which packages you have annotated classes that should be managed by Spring.
+
+@Controller: This annotation provides Spring MVC features. 
+It is used to create Controller classes and simultaneously it handles the HTTP requests.
+
+@RestController: This annotation is used to handle REST APIs such as GET, PUT, POST, DELETE etc. 
+and also used to create RESTful web services using Spring MVC.
+
+@RequestMapping: @RequestMapping(value=" ",method=RequestMapping.GET)
+
+@RequestParam: This annotation is basically used to obtain a parameter from URI.
+  @GetMapping("/authors") 
+  public String getAuthors(@RequestParam(name="authorName") String name){...} 
+
+@PathVariable: This annotation is used to extract the data from the URI path.
+  @GetMapping("/author/{authorName}") 
+  public String getAuthorName(@PathVariable(name = "authorName") String name){...}
+
+@RequestBody: used to convert HTTP requests from incoming JSON format to domain objects directly from request body.
+
+@ResponseBody:  used to convert the domain object into HTTP request in the form of JSON or any other text
+
+@ModelAttribute: refers to model object in Spring MVC. It can be used on methods or method arguments as well.
+  @ModelAttribute("author")
+  public Author author(){...}
+
+
+* Spring Boot Actuators
