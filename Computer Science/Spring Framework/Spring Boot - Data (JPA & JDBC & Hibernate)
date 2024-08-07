@@ -55,8 +55,38 @@ return namedParameterJdbcTemplate.queryForObject(
          cs.execute();
          ResultSet result = s.executeQuery("select * from people");
 
+* Spring ORM: a technique or a Design Pattern used to access a relational database from an object-oriented language.
+ORM covers many persistence technologies:
+1. JPA(Java Persistence API): It acts as a bridge between object-oriented domain models and relational database systems.
+2. JDO(Java Data Objects): It is one of the standard ways to access persistent data in databases, by using POJO.
+3. Hibernate – It is a Java framework that simplifies the development of Java applications to interact with the database.
+
+ORM is the process of persisting any java object directly into a database table.
+JPA is the interface while hibernate is the implementation. 
+
 * Spring JPA
+- provides a specification for persisting, reading, and managing data from your java object to your relational tables in the database.
+- JPA specifies the set of rules and guidelines for developing interfaces that follow standards. 
+- JPA is just guidelines to implement ORM and there is no underlying code for the implementation.
+- Spring Data JPA is not a JPA provider, it is a library/framework that adds an extra layer of abstraction on the top of our JPA provider line Hibernate. 
 
+JPA annotations:
+Modal layer:
+@Entity: This annotation defines that a class can be mapped to a table.
+@Id: This annotation specifies the primary key of the entity.
+@GeneratedValue: This annotation is used to specify the primary key generation strategy to use.
 
+DAO(Data access object) layer:
+@Repository: is a marker for any class that fulfills the role or stereotype of a repository.
+JpaRepository<Employee, Long> JpaRepository is a JPA-specific extension of the Repository.
+
+Service layer:
+@Service: This annotation is used with classes that provide some business functionalities.
+
+Controller layer:
+@RestController: 
+@Autowired: 
+@PostMapping/@GetMapping/@DeleteMapping: This annotation maps HTTP POST/GET/DELETE requests onto specific handler methods.
+A shortcut for @RequestMapping(method = RequestMethod.(POST/GET/DELETE))
 
 * Spring Hibernate
