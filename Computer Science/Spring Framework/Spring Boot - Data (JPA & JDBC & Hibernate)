@@ -90,3 +90,17 @@ Controller layer:
 A shortcut for @RequestMapping(method = RequestMethod.(POST/GET/DELETE))
 
 * Spring Hibernate
+- provides a solution for object relation mapping that use to map object-relational databases to the spring boot application.
+- implements the JPA specification for the persistence data.
+
+How to configure Hibernate using MySQL
+- Add database configuration in the property file.
+- After adding database configuration add JPA (Java Persistence API) configuration.
+#jpa configuration
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.formate_sql=true;
+- Add the dependency for MySQL in the pom.xml file
+- Create an Entity package to create a table in the database.
+- Now add the variables and getter setter methods in the entity file using annotations.
