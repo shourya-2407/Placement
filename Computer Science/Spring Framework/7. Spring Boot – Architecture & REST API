@@ -1,3 +1,23 @@
+* Architecture:
+- follows a layered architecture.
+- The main aim is to remove the XML and annotations-based configuration settings from the application.
+
+Consists of the following four layers:
+Presentation Layer – Authentication & Json Translation
+Business Layer – Business Logic, Validation & Authorization
+Persistence Layer – Storage Logic, responsible for converting business objects to the database row and vice-versa.
+Database Layer – Actual Database
+
+Spring Boot flow architecture: 
+
+1. The Client makes an HTTP request(GET, PUT, POST, etc.)
+2. The HTTP request is forwarded to the Controller. The controller maps the request. 
+   It processes the handles and calls the server logic.
+3. The business logic is performed in the Service layer. 
+   The spring boot performs all the logic over the data of the database which is mapped to the spring boot model class through Java Persistence Library(JPA).
+4. The JSP page is returned as Response from the controller.
+
+
 * RESTful Web Services
 REST stands for REpresentational State Transfer
 
