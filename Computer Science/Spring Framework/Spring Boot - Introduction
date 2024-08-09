@@ -51,3 +51,28 @@ and also used to create RESTful web services using Spring MVC.
 * Spring Boot Actuators
 - Spring Boot provides an actuator dependency that can be used to monitor and manage your Spring Boot application.
 - When we push the application into production, managing it gradually becomes critically important.
+
+Three main features of Spring Boot Actuator:
+1. Endpoints
+- allows us to monitor and interact with the application.
+- Spring Boot provides a number of built-in endpoints.
+- We can also create our own endpoint. 
+- We can enable and disable each endpoint individually
+
+Eg:
+~ actuator:	It provides a hypermedia-based discovery page for the other endpoints. It requires Spring HATEOAS to be on the classpath.	(default = True)
+~ autoconfig:	It is used to display an auto-configuration report showing all 
+auto-configuration candidates and the reason why they 'were' or 'were not' applied.	(default = True)
+~ beans:	It is used to display a complete list of all the Spring beans in your application.	(default = True)
+~ env:	It is used to expose properties from Spring's ConfigurableEnvironment.	(default = True)
+~ health:	It is used to show application health information. (default = False)
+~ info:	It is used to display arbitrary application info.	(default = False)
+~ liquibase:	It is used to show any Liquibase database migrations that have been applied. (default = True)
+~ metrics:	It is used to show metrics information for the current application.	(default = True)
+
+2. Metrics
+Spring Boot Actuator provides dimensional metrics by integrating with the micrometer.
+
+3. Audit
+Spring Boot provides a flexible audit framework that publishes events to an AuditEventRepository.
+
