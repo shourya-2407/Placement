@@ -49,3 +49,5 @@ and also used to create RESTful web services using Spring MVC.
 
 
 * Spring Boot Actuators
+- Spring Boot provides an actuator dependency that can be used to monitor and manage your Spring Boot application.
+- When we push the application into production, managing it gradually becomes critically important.
