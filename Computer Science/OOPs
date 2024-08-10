@@ -3,6 +3,20 @@
 - An object can be defined as a data field that has unique attributes and behavior.
 - Benefits of OOP include code reusability, scalability and efficiency.
 
+Structure of OOP:
+1. classes: user-defined data types that act as the blueprint for individual object.
+2. objects: are instances of a class created with specifically defined data. 
+3. methods: are functions that objects can perform.
+4. attributes: represent the state of an object.
+
+Main principles of OOPs:
+1. Encapsulation: principle states that all imp info is contained inside an object and only select info is exposed.
+2. Abstration: hiding any unnecessary implementation code, reveal internal mechanisms that are relevant for the use of other objects.
+3. Inheritance: Classes can reuse code and properties from other classes. 
+4. Polymorphism: Objects are designed to share behaviors, and they can take on more than one form.
+
+Benefits of OOPs: modularity, reusability, interface description, security, Easily upgradable and scalable.
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 2. Why OOPs?	Link
