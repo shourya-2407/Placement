@@ -1,4 +1,4 @@
-1. What is Object Oriented Programming (OOP)?"
+1. What is Object Oriented Programming (OOP)?
 - A computer programming model that organizes software design around data, or objects, rather than functions and logic.
 - An object can be defined as a data field that has unique attributes and behavior.
 - Benefits of OOP include code reusability, scalability and efficiency.
@@ -38,6 +38,22 @@ Components of Java classes:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 4. What is an Object?	
+- are instances of a class that are created to use the attributes and methods of a class.
+- components: state(fields define state), behaviour(methods define behaviour) and identity(unique name given to object)
+
+Ways to create an object of class:
+1. Using new keyword => Test t = new Test();
+2. Using Class.forName(String className) method => Test obj = (Test)Class.forName("com.p1.Test").newInstance();
+3. Using clone() method
+   Test t1 = new Test();
+   Test t2 = (Test)t1.clone();
+4. Deserialization
+   FileInputStream file = new FileInputStream(filename);
+   ObjectInputStream in = new ObjectInputStream(file);
+   Object obj = in.readObject();
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 5. What are the main features of OOPs?	Link
 6. What is Encapsulation?	Link
 7. What is Abstraction?	Link
