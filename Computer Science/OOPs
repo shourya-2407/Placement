@@ -76,6 +76,38 @@ Ways to create an object of class:
 7. What is Abstraction?	
 - process in which we only show essential details/functionality to the user.
 - Eg: TV remote, it simplifies interaction with TV hiding the complexity between simple buttons.
+- In java, abstraction is achieved by abstract classes and interfaces.
+- One key reason we use abstract concepts is to simplify complexity.
+- Ensures that the classes that extend it have a consistent structure and behavior.
+- Abstract classes and methods enable polymorphism in Java.
+
+~ Abstract class: declared with an abstract keyword.
+~ Abstract methods: method that is declared without implementation.
+~ Abstract class may or may not have all abstract methods.
+~ Abstract method must always be redefined in the subclass, thus making overriding compulsory or making the subclass itself abstract.
+~ Any class that contains one or more abstract methods => must be declared with an abstract keyword.
+~ Cannot directly instantiate abstract classes.
+
+Interface:
+- another way to implement abstraction.
+- can achieve 100% abstraction in Java classes.
+
+1.Class Inheritance (extends):
+Class A
+   ↑
+Class B extends Class A
+
+2. Class Implementation of Interface (implements):
+Interface I
+   ↑
+Class C implements Interface I
+
+3. Interface Inheritance (extends):
+Interface J
+   ↑
+Interface K extends Interface J
+
+
 
 8. What is Polymorphism?	Link
 9. What is Inheritance? What is its purpose?	Link
