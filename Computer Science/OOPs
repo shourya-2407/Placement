@@ -22,9 +22,22 @@ Benefits of OOPs: modularity, reusability, interface description, security, Easi
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+3. What is a Class?	
+- a set of objects which shares common characteristics/behavior and common properties/attributes.
+- a template or blueprint or prototype from which objects are created.
+- Class does not occupy memory.
 
-3. What is a Class?	Link
-4. What is an Object?	Link
+Components of Java classes:
+1. Modifiers: A class can be public or has default(package-private) access.
+2. Class keyword: class keyword is used to create a class.
+3. Class name: The name should begin with a capital letter.
+4. Superclass(if any): A class can only extend (subclass) one parent.
+5. Interfaces(if any): A comma-separated list of interfaces implemented by the class preceded by the keyword implements.
+6. Body: The class body is surrounded by braces, { }.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. What is an Object?	
 5. What are the main features of OOPs?	Link
 6. What is Encapsulation?	Link
 7. What is Abstraction?	Link
