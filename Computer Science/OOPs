@@ -67,11 +67,16 @@ Ways to create an object of class:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 6. What is Encapsulation?	
-
+- wrapping up data and information under a single unit (class).
+- Encapsulation also leads to data abstraction or data hiding.
+- variables are private and getter-setter to access variables.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-7. What is Abstraction?	Link
+7. What is Abstraction?	
+- process in which we only show essential details/functionality to the user.
+- Eg: TV remote, it simplifies interaction with TV hiding the complexity between simple buttons.
+
 8. What is Polymorphism?	Link
 9. What is Inheritance? What is its purpose?	Link
 10. What are access specifiers? What is their significance in OOPs?	Link
