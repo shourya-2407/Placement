@@ -157,7 +157,14 @@ Polymorphism in Java is a concept by which we can perform a single action in dif
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-10. What are access specifiers? What is their significance in OOPs?	Link
+10. What are access specifiers? What is their significance in OOPs?	
+   Types of Access Modifiers in Java:
+   1. Default – No keyword required
+   2. Private
+   3. Protected
+   4. Public
+
+
 11. What are the advantages and disadvantages of OOPs?	Link
 12. What other paradigms of programming exist besides OOPs?	Link
 13. What is the difference between Structured Programming and Object Oriented Programming?	Link
