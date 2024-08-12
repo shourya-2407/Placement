@@ -107,6 +107,7 @@ Interface J
    ↑
 Interface K extends Interface J
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 8. What is Polymorphism?	Link
 
@@ -118,6 +119,7 @@ Interface K extends Interface J
 13. What is the difference between Structured Programming and Object Oriented Programming?	Link
 14. What are some commonly used Object Oriented Programming Languages?	Link
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 15. What are the different types of Polymorphism?	
 a. Compile Time polymorphism: 
