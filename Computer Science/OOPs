@@ -132,7 +132,7 @@ a. Compile Time polymorphism:
       But Java doesn’t support the Operator Overloading. 
 
 b. Run Time polymorphism: 
-   - also known as Dynamic Method Dispatch.
+   - also known as Dynamic Method Dispatch or Late Binding or Dynamic polymorphism.
    - a process in which a function call to the overridden method is resolved at Runtime.
    - Parent a;
      a = new subclass1();
