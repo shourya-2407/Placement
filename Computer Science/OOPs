@@ -133,11 +133,35 @@ a. Compile Time polymorphism:
 
 b. Run Time polymorphism: 
    - also known as Dynamic Method Dispatch or Late Binding or Dynamic polymorphism.
-   - a process in which a function call to the overridden method is resolved at Runtime.
-   - Parent a;
-     a = new subclass1();
-     a.Print(); //method overriding
-     b = new subclass2();
-     b.Print(); //method overriding
-   - Virtual function: 
+
+   1. Function overriding:
+      - when a derived class has a definition for one of the member functions of the base class.
+      - a process in which a function call to the overridden method is resolved at Runtime.
+      - Upcasting => If the reference variable of Parent class refers to the object of Child class. 
+      - Eg: 
+         Parent a;
+         a = new subclass1();
+         a.Print(); //method overriding, subclass1 method invoked
+         b = new subclass2();
+         b.Print(); //method overriding, subclass2 method invoked
+      - since it refers to the subclass object and subclass method overrides the Parent class method, 
+        the subclass method is invoked at runtime.
+      - In C++, keyword “virtual” is used inside a base class.
+
+2. Java Runtime Polymorphism with Data Member:
+   - A method is overridden, not the data members, so runtime polymorphism can't be achieved by data members.
+     class Bike{  
+        int speedlimit=90;  
+     }  
+     
+     class Honda3 extends Bike{  
+         int speedlimit=150;  
+  
+         public static void main(String args[]){  
+           Bike obj=new Honda3();  
+           System.out.println(obj.speedlimit); //90  will get printed
+         }  
+      }
+
+
      
