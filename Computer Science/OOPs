@@ -147,8 +147,8 @@ b. Run Time polymorphism:
       - since it refers to the subclass object and subclass method overrides the Parent class method, 
         the subclass method is invoked at runtime.
       - In C++, keyword “virtual” is used inside a base class.
-
-2. Java Runtime Polymorphism with Data Member:
+   
+  2. Java Runtime Polymorphism with Data Member:
    - A method is overridden, not the data members, so runtime polymorphism can't be achieved by data members.
      class Bike{  
         int speedlimit=90;  
