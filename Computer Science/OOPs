@@ -112,7 +112,49 @@ Interface K extends Interface J
 8. What is Polymorphism?	Link
 
 
-9. What is Inheritance? What is its purpose?	Link
+9. What is Inheritance? What is its purpose?	
+ - a mechanism by which one object can acquire all the properties (i.e. data members) 
+   and behavior (i.e. member functions or methods) of a parent object.
+ - The inherited fields & methods can be used directly, just like any other fields.
+ - Syntax:
+      class Subclass-name extends Superclass-name  
+      {  
+         //methods and fields  
+      }  
+  - Types of inheritance:
+   a. Single inheritance:
+      ClassA
+        ↓
+      ClassB
+
+   b. Multilevel Inheritance:
+      ClassA
+        ↓
+      ClassB
+        ↓
+      ClassC
+
+   c. Hierarchical Inheritance:     
+         ClassA   
+         ↙    ↘
+      ClassB   ClassC
+
+   d. Multiple Inheritance (Through Interfaces):
+      ClassA  ClassB
+        ↘       ↙
+          ClassC
+      Java does not support multiple inheritances with classes, only through Interfaces.
+
+   e. Hybrid Inheritance: 
+           ClassA
+           ↙    ↘
+      ClassB    ClassC
+          ↘       ↙
+           ClassD
+      In Java, we can achieve hybrid inheritance only through Interfaces
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 10. What are access specifiers? What is their significance in OOPs?	Link
 11. What are the advantages and disadvantages of OOPs?	Link
 12. What other paradigms of programming exist besides OOPs?	Link
