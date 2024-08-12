@@ -15,12 +15,12 @@ Main principles of OOPs:
 3. Inheritance: Classes can reuse code and properties from other classes. 
 4. Polymorphism: Objects are designed to share behaviors, and they can take on more than one form.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 2. Why OOPs?	
 Benefits of OOPs: modularity, reusability, interface description, security, Easily upgradable and scalable. And also tell add Q1 to ans.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 3. What is a Class?	
 - a set of objects which shares common characteristics/behavior and common properties/attributes.
@@ -35,7 +35,7 @@ Components of Java classes:
 5. Interfaces(if any): A comma-separated list of interfaces implemented by the class preceded by the keyword implements.
 6. Body: The class body is surrounded by braces, { }.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 4. What is an Object?	
 - are instances of a class that are created to use the attributes and methods of a class.
@@ -52,7 +52,7 @@ Ways to create an object of class:
    ObjectInputStream in = new ObjectInputStream(file);
    Object obj = in.readObject();
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 5. What are the main features of OOPs?	
 => a. Class
@@ -64,14 +64,14 @@ Ways to create an object of class:
    g. Dynamic Binding
    h. Message Passing
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 6. What is Encapsulation?	
 - wrapping up data and information under a single unit (class).
 - Encapsulation also leads to data abstraction or data hiding.
 - variables are private and getter-setter to access variables.
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 7. What is Abstraction?	
 - process in which we only show essential details/functionality to the user.
@@ -107,10 +107,12 @@ Interface J
    ↑
 Interface K extends Interface J
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-8. What is Polymorphism?	Link
+8. What is Polymorphism?	
+Polymorphism in Java is a concept by which we can perform a single action in different ways.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 9. What is Inheritance? What is its purpose?	
  - a mechanism by which one object can acquire all the properties (i.e. data members) 
@@ -153,7 +155,7 @@ Interface K extends Interface J
            ClassD
       In Java, we can achieve hybrid inheritance only through Interfaces
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 10. What are access specifiers? What is their significance in OOPs?	Link
 11. What are the advantages and disadvantages of OOPs?	Link
@@ -161,7 +163,7 @@ Interface K extends Interface J
 13. What is the difference between Structured Programming and Object Oriented Programming?	Link
 14. What are some commonly used Object Oriented Programming Languages?	Link
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 15. What are the different types of Polymorphism?	
 a. Compile Time polymorphism: 
