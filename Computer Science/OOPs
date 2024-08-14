@@ -123,37 +123,6 @@ Polymorphism in Java is a concept by which we can perform a single action in dif
       {  
          //methods and fields  
       }  
-  - Types of inheritance:
-   a. Single inheritance:
-      ClassA
-        ↓
-      ClassB
-
-   b. Multilevel Inheritance:
-      ClassA
-        ↓
-      ClassB
-        ↓
-      ClassC
-
-   c. Hierarchical Inheritance:     
-         ClassA   
-         ↙    ↘
-      ClassB   ClassC
-
-   d. Multiple Inheritance (Through Interfaces):
-      ClassA  ClassB
-        ↘       ↙
-          ClassC
-      Java does not support multiple inheritances with classes, only through Interfaces.
-
-   e. Hybrid Inheritance: 
-           ClassA
-           ↙    ↘
-      ClassB    ClassC
-          ↘       ↙
-           ClassD
-      In Java, we can achieve hybrid inheritance only through Interfaces
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -227,5 +196,87 @@ b. Run Time polymorphism:
          }  
       }
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+16. What is the difference between overloading and overriding?	
+
+Method overloading: compile-time polymorphism, may or may not inheritance, methods must have same name different signature, 
+private and final methods can be overloaded.
+Eg:
+static int add(int a, int b) { return a + b; }
+static int add(int a, int b, int c) { return a + b + c;}
+
+Method overriding: run-time polymorphism, always needs inheritance, methods must have same name & signature,
+private and final methods can't be overridden.
+Eg: 
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating.");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void eat() {
+        System.out.println("Dog is eating.");
+    }
+    void eatAsAnimal() {
+        super.eat();
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+17. Are there any limitations on Inheritance?	
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+18. What different types of inheritance are there?	
+  - Types of inheritance:
+   a. Single inheritance:
+      ClassA
+        ↓
+      ClassB
+
+   b. Multilevel Inheritance:
+      ClassA
+        ↓
+      ClassB
+        ↓
+      ClassC
+
+   c. Hierarchical Inheritance:     
+         ClassA   
+         ↙    ↘
+      ClassB   ClassC
+
+   d. Multiple Inheritance (Through Interfaces):
+      ClassA  ClassB
+        ↘       ↙
+          ClassC
+      Java does not support multiple inheritances with classes, only through Interfaces.
+
+   e. Hybrid Inheritance: 
+           ClassA
+           ↙    ↘
+      ClassB    ClassC
+          ↘       ↙
+           ClassD
+      In Java, we can achieve hybrid inheritance only through Interfaces
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+19. What is an interface?	Link
+20. How is an abstract class different from an interface?	Link
+21. How much memory does a class occupy?	Link
+22. Is it always necessary to create objects from class?	Link
+23. What is the difference between a structure and a class in C++?	Link
+24. What is a Constructor?	Link
+25. What are the various types of constructors in C++?	Link
+26. What is a destructor?	Link
+27. Can we overload the constructor in a class?	Link
+28. Can we overload the destructor in a class?	Link
+29. What is the virtual function?	Link
+30. What is pure virtual function?	
 
      
