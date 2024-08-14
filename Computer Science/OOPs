@@ -276,7 +276,16 @@ class Dog extends Animal {
 26. What is a destructor?	Link
 27. Can we overload the constructor in a class?	Link
 28. Can we overload the destructor in a class?	Link
-29. What is the virtual function?	Link
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+29. What is the virtual function?	
+ Is a member function in the base class that you redefine in a derived class. Declared using the virtual keyword.
+ Used to tell the compiler to perform dynamic linkage or late binding on the function.
+ 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 30. What is pure virtual function?	
 
      
