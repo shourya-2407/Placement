@@ -159,16 +159,29 @@ Polymorphism in Java is a concept by which we can perform a single action in dif
 
 10. What are access specifiers? What is their significance in OOPs?	
    Types of Access Modifiers in Java:
-   1. Default – No keyword required
-   2. Private
-   3. Protected
-   4. Public
+   1. Default – No keyword required, access level is only within the package.
+   2. Private - access level is only within the class.
+   3. Protected - access level of a is within the package and outside the package through child class.
+   4. Public - access level of a public modifier is everywhere.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-11. What are the advantages and disadvantages of OOPs?	Link
-12. What other paradigms of programming exist besides OOPs?	Link
-13. What is the difference between Structured Programming and Object Oriented Programming?	Link
-14. What are some commonly used Object Oriented Programming Languages?	Link
+11. What are the advantages and disadvantages of OOPs?	
+Advantages:
+Modular, Efficient, Scalable, Concurrent(multiple instances co-exist), Reusable, Secure
+
+Disadvantages: 
+Verbose(tend to be larger and more complex), Overhead(programs can incur additional resource usage and execution time)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+12. What other paradigms of programming exist besides OOPs?	
+13. What is the difference between Structured Programming and Object Oriented Programming?	
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+14. What are some commonly used Object Oriented Programming Languages?	
+Python, Java, C++, Javascript, C#, Ruby, PHP, Typescript, Kotlin, R
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
