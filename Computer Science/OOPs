@@ -293,11 +293,53 @@ Interface K extends Interface J
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-24. What is a Constructor?	Link
-25. What are the various types of constructors in C++?	Link
-26. What is a destructor?	Link
-27. Can we overload the constructor in a class?	Link
-28. Can we overload the destructor in a class?	Link
+24. What is a Constructor?	
+- called when an instance of the class is created.
+- At the time of calling constructor, memory for the object is allocated in the memory.
+- used to initialize the object.
+- Java compiler provides a default constructor by default.
+- constructor has same name as class, must have no explicit return type, cannot be abstract, static, final, and synchronized.
+- can have private, protected, public or default constructor in Java.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+25. What are the various types of constructors ?
+   1. Default constructor (no-arg constructor)
+   2. Parameterized constructor
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+26. What is a destructor?	
+- an instance member function that is invoked automatically whenever an object is going to be destroyed. 
+- the last function that is going to be called before an object is destroyed.
+- 
+- Java provides the garbage (a program (thread) that runs on the JVM) collector that works the same as the destructor.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+27. Can we overload the constructor in a class?	
+- Java supports Constructor Overloading in addition to overloading methods.
+
+class Box {
+    double width, height, depth;
+ 
+    Box(double w, double h, double d)
+    {
+        width = w;
+        height = h;
+        depth = d;
+    }
+ 
+    Box() { width = height = depth = 0; }
+
+    Box(double len) { width = height = depth = len; }
+
+    double volume() { return width * height * depth; }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+28. Can we overload the destructor in a class?	
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
