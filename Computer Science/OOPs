@@ -1,4 +1,4 @@
-1. What is Object Oriented Programming (OOP)?
+i1. What is Object Oriented Programming (OOP)?
 - A computer programming model that organizes software design around data, or objects, rather than functions and logic.
 - An object can be defined as a data field that has unique attributes and behavior.
 - Benefits of OOP include code reusability, scalability and efficiency.
@@ -312,7 +312,13 @@ Interface K extends Interface J
 26. What is a destructor?	
 - an instance member function that is invoked automatically whenever an object is going to be destroyed. 
 - the last function that is going to be called before an object is destroyed.
-- 
+- Eg In C++:
+   class Test {
+   public:
+    Test() { cout << "\n Constructor executed"; }
+    ~Test() { cout << "\nDestructor executed"; }
+   };
+
 - Java provides the garbage (a program (thread) that runs on the JVM) collector that works the same as the destructor.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
