@@ -90,22 +90,6 @@ Ways to create an object of class:
 
 Interface:
 - another way to implement abstraction.
-- can achieve 100% abstraction in Java classes.
-
-1.Class Inheritance (extends):
-Class A
-   ↑
-Class B extends Class A
-
-2. Class Implementation of Interface (implements):
-Interface I
-   ↑
-Class C implements Interface I
-
-3. Interface Inheritance (extends):
-Interface J
-   ↑
-Interface K extends Interface J
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -266,8 +250,42 @@ class Dog extends Animal {
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-19. What is an interface?	Link
-20. How is an abstract class different from an interface?	Link
+19. What is an interface?	
+- as an abstract type used to specify the behavior of a class.
+- can achieve 100% abstraction in Java classes.
+
+1.Class Inheritance (extends):
+Class A
+   ↑
+Class B extends Class A
+
+2. Class Implementation of Interface (implements):
+Interface I
+   ↑
+Class C implements Interface I
+
+3. Interface Inheritance (extends):
+Interface J
+   ↑
+Interface K extends Interface J
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+20. How is an abstract class different from an interface?
+
+| Feature                               | Abstract Class                                               | Interface
+|---------------------------------------|--------------------------------------------------------------|------------------------------------------------------------------------
+| Methods                               | Can have abstract and non-abstract methods                   | Can have only abstract methods (Java 8+ has default and static methods) 
+| Multiple Inheritance                  | Doesn't support multiple inheritance                         | Supports multiple inheritance                              
+| Variables                             | Can have final, non-final, static, and non-static variables  | Only static and final variables                           
+| Implementation                        | Can provide implementation for an interface                  | Can't provide implementation for an abstract class         
+| Declaration Keyword                   | `abstract`                                                   | `interface`                                               
+| Inheritance                           | Can extend another class and implement multiple interfaces   | Can extend another interface only                          
+| Extension/Implementation Keyword      | `extends` for extending classes                              | `implements` for implementing interfaces 
+| Member Access Modifiers               | Can have private, protected, and public members              | Members are public by default                              
+| Example                               | public abstract class Shape { public abstract void draw(); } | public interface Drawable { void draw(); }
+
+
 21. How much memory does a class occupy?	Link
 22. Is it always necessary to create objects from class?	Link
 23. What is the difference between a structure and a class in C++?	Link
