@@ -285,10 +285,14 @@ Interface K extends Interface J
 | Member Access Modifiers               | Can have private, protected, and public members              | Members are public by default                              
 | Example                               | public abstract class Shape { public abstract void draw(); } | public interface Drawable { void draw(); }
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 21. How much memory does a class occupy?	Link
 22. Is it always necessary to create objects from class?	Link
 23. What is the difference between a structure and a class in C++?	Link
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 24. What is a Constructor?	Link
 25. What are the various types of constructors in C++?	Link
 26. What is a destructor?	Link
@@ -300,10 +304,43 @@ Interface K extends Interface J
 29. What is the virtual function?	
  Is a member function in the base class that you redefine in a derived class. Declared using the virtual keyword.
  Used to tell the compiler to perform dynamic linkage or late binding on the function.
- 
+
+C++:
+class A {    
+ public:    
+    virtual void display() { cout << "Base class" << endl; }    
+};   
+
+class B:public A {    
+ public:    
+    void display() { cout << "Derived Class" << endl; }    
+};
+
+Java: 
+In Java Every non-static, non-final, and public method is a virtual function.
+A static, final, and private method never be the virtual function, it will not be able to achieve the polymorphism.
+All Java Interfaces are considered virtual functions, as they depend on the implementing classes to provide the method implementation.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 30. What is pure virtual function?	
+A virtual function for which has no implementation is considered as pure virtual function.
+Abstract method in Java is a pure virtual function.
+The "do-nothing" function is known as a pure virtual function.
+
+class Javatpoint {  
+   abstract void show(); //Virtual Function 
+}  
+
+class Training extends Javatpoint {  
+   public void show() { System.out.println("Best Java Training Institute"); }  
+   
+   public static void main(String args[]){ 
+      Javatpoint ob1 = new Training();  
+      ob1.show();  
+   }
+}
+
+Output: Best Java Training Institute
 
      
