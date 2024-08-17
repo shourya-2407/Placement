@@ -1,5 +1,8 @@
 // Adding an element to the TreeSet (leftMax) takes O(logn) time.
 // Finding the lower element (leftMax.lower()) takes O(logn) time.
+// 1 arraylist is used to maintain right most maximum with the help of a variable
+// 1 treeset collection is used to maintain left maximum.
+// why treeset -> because treeset maintains elements in sorted order and insertion and retrieval are fast.
 // TC: O(nlogn)
 // SC: O(n)
 
