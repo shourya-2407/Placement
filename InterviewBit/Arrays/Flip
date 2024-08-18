@@ -1,3 +1,11 @@
+// Logic:
+// First of all always try to simplify the question, try to identify what they are exactly asking for
+// For eg: in question they have asked for the range that when flipped maximises number of ones
+// But there is a lot of hidden math
+// Now consider there are A zeros and B ones and we want a subarray that maximum 0s with less 1s
+// if we want a subarray with more 0s than 1s then we can find maximum subarray by representing '0' as +1 and '1' as -1
+// This can be done in 2 ways either create a separate array with +1s and -1s or do in place math
+
 // optimal 
 public class Solution {
     public ArrayList<Integer> flip(String A) {
