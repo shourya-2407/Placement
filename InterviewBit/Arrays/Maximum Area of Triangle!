@@ -1,0 +1,66 @@
+// Brute force using extra space
+// Use 2 collection of hashmaps to maintain the max and min row of each character for a column
+// Use 2 hashmaps to maintain max and min col of a character, which is irrespective of row, 
+// because a distance of a character from a column is same irrespective of the row.
+// then iterate through all the columns and find max area.
+
+public class Solution {
+    public int solve(ArrayList<String> A) {
+        int rows = A.size();
+        int cols = A.get(0).length();
+        
+        HashMap<Character, Integer>[] maxRow = new HashMap[cols];
+        HashMap<Character, Integer>[] minRow = new HashMap[cols];
+        HashMap<Character, Integer> maxCol = new HashMap<>();
+        HashMap<Character, Integer> minCol = new HashMap<>();
+        
+        for(int i = 0; i < cols; i++){
+            maxRow[i] = new HashMap<>();
+            minRow[i] = new HashMap<>();
+        }
+        
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < cols; j++){
+                Character c = A.get(i).charAt(j);
+                
+                minRow[j].put(c, Math.min(minRow[j].getOrDefault(c, rows), i));
+                maxRow[j].put(c, Math.max(maxRow[j].getOrDefault(c, -1), i));
+                
+                minCol.put(c, Math.min(minCol.getOrDefault(c, cols), j));
+                maxCol.put(c, Math.max(maxCol.getOrDefault(c, -1), j));
+            }
+        }
+        int ans = 0;
+        
+        for (int i = 0; i < cols; i++) {
+            // Considering R & G as base
+            if (maxRow[i].containsKey('r') && maxRow[i].containsKey('g')) {
+                int maxBase = maxRow[i].get('r') - minRow[i].get('g') + 1;
+                maxBase = Math.max(maxBase, maxRow[i].get('g') - minRow[i].get('r') + 1);
+                
+                int maxHeight = Math.max(Math.abs(maxCol.get('b') - i), Math.abs(minCol.get('b') - i)) + 1;
+                ans = Math.max(ans, maxBase * maxHeight);
+            }
+            
+            // Considering R & B as base
+            if (maxRow[i].containsKey('r') && maxRow[i].containsKey('b')) {
+                int maxBase = maxRow[i].get('r') - minRow[i].get('b') + 1;
+                maxBase = Math.max(maxBase, maxRow[i].get('b') - minRow[i].get('r') + 1);
+                
+                int maxHeight = Math.max(Math.abs(maxCol.get('g') - i), Math.abs(minCol.get('g') - i)) + 1;
+                ans = Math.max(ans, maxBase * maxHeight);
+            }
+            
+            // Considering B & G as base
+            if (maxRow[i].containsKey('b') && maxRow[i].containsKey('g')) {
+                int maxBase = maxRow[i].get('b') - minRow[i].get('g') + 1;
+                maxBase = Math.max(maxBase, maxRow[i].get('g') - minRow[i].get('b') + 1);
+                
+                int maxHeight = Math.max(Math.abs(maxCol.get('r') - i), Math.abs(minCol.get('r') - i)) + 1;
+                ans = Math.max(ans, maxBase * maxHeight);
+            }
+        }
+        
+        return (int) Math.ceil(ans / 2.0);
+    }
+}
