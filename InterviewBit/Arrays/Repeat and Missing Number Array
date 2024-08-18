@@ -1,0 +1,32 @@
+// Logic: Easy math but we careful with datatype conversions
+// Do not forget to typecast
+
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public ArrayList<Integer> repeatedNumber(final List<Integer> A) {
+        int n = A.size();
+        
+        long S_n = (long) n * (n + 1) / 2;
+        long S_n2 = (long) n * (n + 1) * (2 * n + 1) / 6;
+        
+        long actualSum = 0;
+        long actualSumSquares = 0;
+        
+        for (int num : A) {
+            actualSum += num;
+            actualSumSquares += (long) num * num;
+        }
+        
+        long xMinusY = S_n - actualSum;  // x - y
+        long xPlusY = (S_n2 - actualSumSquares) / xMinusY;  // x + y
+        
+        long x = (xMinusY + xPlusY) / 2;  // x = missing number
+        long y = xPlusY - x;  // y = repeating number
+        
+        ArrayList<Integer> result = new ArrayList<>();
+        result.add((int) y);  // y = repeating number
+        result.add((int) x);  // x = missing number
+        
+        return result;
+    }
+}
