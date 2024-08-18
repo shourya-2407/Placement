@@ -1,4 +1,4 @@
-// Logic: Easy math but we careful with datatype conversions
+// Logic: Easy math but be careful with datatype conversions
 // Do not forget to typecast
 
 public class Solution {
