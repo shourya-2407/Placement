@@ -1,0 +1,28 @@
+// Logic: Interval problems are very easy and straight forward, you just need to practice more
+
+public class Solution {
+    public ArrayList<Interval> merge(ArrayList<Interval> intervals) {
+        ArrayList<Interval> res = new ArrayList<>();
+        
+        if (intervals == null || intervals.size() == 0) return res;
+        
+        Collections.sort(intervals, (a, b) -> Integer.compare(a.start, b.start));
+        
+        Interval current = intervals.get(0);
+        
+        for (int i = 1; i < intervals.size(); i++) {
+            Interval next = intervals.get(i);
+            
+            if (current.end >= next.start) {
+                current.end = Math.max(current.end, next.end);
+            } else {
+                res.add(current);
+                current = next; 
+            }
+        }
+        
+        res.add(current);
+        
+        return res;
+    }
+}   
