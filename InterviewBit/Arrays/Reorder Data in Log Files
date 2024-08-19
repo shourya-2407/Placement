@@ -1,0 +1,41 @@
+// straight forward question
+// good use of java in built libraries
+
+public class Solution {
+    public ArrayList<String> reorderLogs(ArrayList<String> A) {
+        ArrayList<String> digLogs = new ArrayList<>();
+        ArrayList<String> letLogs = new ArrayList<>();
+        
+        for (String s : A) {
+            String[] split = s.split("-", -2);
+            if (onlyDigits(split[1])) {
+                digLogs.add(s);
+            } else {
+                letLogs.add(s);
+            }
+        }
+        
+        Collections.sort(letLogs, new Comparator<String>() {
+            @Override
+            public int compare(String log1, String log2) {
+                String[] split1 = log1.split("-", 2);
+                String[] split2 = log2.split("-", 2);
+
+                int contentComparison = split1[1].compareTo(split2[1]);
+                
+                if (contentComparison != 0) {
+                    return contentComparison;
+                } else {
+                    return split1[0].compareTo(split2[0]);
+                }
+            }
+        });
+        
+        letLogs.addAll(digLogs);
+        return letLogs;
+    }
+    
+    public boolean onlyDigits(String str) { 
+        return str.matches("[0-9]+"); 
+    } 
+}
