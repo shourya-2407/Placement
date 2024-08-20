@@ -1,0 +1,39 @@
+// interesting problem
+// sort the interval
+// and pick last 2 elements from each interval 
+
+public class Solution {
+
+    public int setIntersection(ArrayList<ArrayList<Integer>> A) {
+
+        int n = A.size();
+
+        Collections.sort(A, (a,b) -> a.get(1) == b.get(1) ? b.get(0) - a.get(0) : a.get(1) - b.get(1));
+
+        int maxEnd = A.get(0).get(1);
+        int secondMaxEnd = maxEnd - 1;
+        int setSize = 2;
+
+        for(int i=1; i<n; i++){
+            int nextStart = A.get(i).get(0);
+            int nextEnd = A.get(i).get(1);
+
+            if(maxEnd >= nextStart && secondMaxEnd >= nextStart){
+                continue;
+            } else if (maxEnd < nextStart && secondMaxEnd < nextStart) {
+                maxEnd = nextEnd;
+                secondMaxEnd = nextEnd - 1;
+                setSize += 2;
+            } else if(secondMaxEnd < nextStart){
+                secondMaxEnd = maxEnd;
+                maxEnd = nextEnd;
+                setSize += 1;
+
+            } 
+        }
+        
+        return setSize;
+
+    }
+
+}
