@@ -1,0 +1,60 @@
+// Better approach
+public class Solution {
+    public int solve(ArrayList<Integer> A, int B) {
+        int min = Integer.MAX_VALUE;
+        for (int i=0;i<A.size();i++) {
+            min = Math.min(min,A.get(i));
+        }
+        int number = min + B;
+        for (int i=0;i<A.size();i++) {
+            if (!(A.get(i) == number 
+            || A.get(i) + B == number || A.get(i) - B == number)) {
+                return 0;
+            }
+        }
+        return 1;
+    }
+}
+
+// O(N) approach
+public class Solution {
+    public int solve(ArrayList<Integer> A, int B) {
+        boolean flg1 = false;
+        boolean flg2 = false;
+        boolean flg3 = false;
+        
+        int ele1 = A.get(0);
+        int ele2 = A.get(0) - B;
+        int ele3 = A.get(0) + B;
+         
+        int N = A.size();
+        int i = 1;
+        for(; i < N; i++){
+            int num = A.get(i);
+            if(num - B != ele1 && num != ele1 && num + B != ele1){
+                break;
+            }
+        }
+        if(i == N) return 1;
+        
+        i = 1;
+        for(; i < N; i++){
+            int num = A.get(i);
+            if(num - B != ele2 && num != ele2 && num + B != ele2){
+                break;
+            }
+        }
+        if(i == N) return 1;
+        
+        i = 1;
+        for(; i < N; i++){
+            int num = A.get(i);
+            if(num - B != ele3 && num != ele3 && num + B != ele3){
+                break;
+            }
+        }
+        if(i == N) return 1;
+        
+        return 0;
+    }
+}
