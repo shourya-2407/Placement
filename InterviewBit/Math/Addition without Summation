@@ -1,0 +1,47 @@
+// Using bitwise operator
+/*
+x + y = S  C  
+0   0   0  0
+0   1   1  0
+1   0   1  0
+1   1   0  1
+this carry gets added to next bit 
+As you can see that sum is simply x^y and carry is x&y 
+but the carry needs to get added to next bit
+And then carry is added to next bit sum
+*/
+
+int addNumbers(int A, int B) {
+    while(B != 0){
+        int sum = A^B;
+        int carry = (A&B)<<1; //carry needs to be added to next bit
+        A = sum;
+        B = carry;
+    }
+    return A;
+}
+
+// negative numbers scenario => optimised
+int addNumbers(int A, int B) {
+    if(B > 0){
+        while(B != 0){
+            A++;
+            B--;
+        }
+    } else if (B < 0){
+        while(B != 0){
+            A--;
+            B++;
+        }
+    }
+    return A;
+}
+
+// won't work in case of negative numbers
+int addNumbers(int A, int B) {
+    while(B != 0){
+        A++;
+        B--;
+    }
+    return A;
+}
