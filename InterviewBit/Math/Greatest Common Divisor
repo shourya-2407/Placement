@@ -1,0 +1,28 @@
+// Learnings: Even if you know the core logic, you still need to think, how to solve it in more optimised manner.
+// Avoid doing the unnecessary steps, like in this case there was no need of comparing A & B
+// Think more about testcases and try those on even if you know the logic
+
+// Most optimised --> Look the second solution to cover the corner case that you missed.
+public class Solution {
+    public int gcd(int A, int B) {
+        if(B == 0) return A;
+        
+        return gcd(B, A % B);
+    }
+}
+
+// So basically for the GCD logic to work A > B
+// But even if A < B, then in the first recursive call that gets reversed.
+// Try it on... 
+// Use some brains ><
+public class Solution {
+    public int gcd(int A, int B) {
+        return (A > B) ? gcdOf2No(A, B) : gcdOf2No(B, A);
+    }
+    
+    private int gcdOf2No(int a, int b){
+        if(b == 0) return a;
+        
+        return gcdOf2No(b, a%b);
+    }
+}
