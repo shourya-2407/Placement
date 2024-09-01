@@ -1,0 +1,52 @@
+// Pretty easy question but you need to be careful about the lossy conversions and overflows
+// Just practice how that is handled.
+
+// Correct Solution
+public class Solution {
+    public int reverse(int A) {
+        long revNum = 0;
+        boolean isNeg = A < 0;
+        
+        if (isNeg) {
+            A = -A;  
+        }
+        
+        while (A != 0) {
+            int dig = A % 10;
+            A = A / 10;
+            revNum = revNum * 10 + dig;
+            
+            // Check if revNum is out of the range of an integer (This is the correct way to check overflow)
+            if (revNum > Integer.MAX_VALUE) {
+                return 0;  // Return 0 in case of overflow
+            }
+        }
+        
+        return (isNeg) ? (int) -revNum : (int) revNum;
+    }
+}
+
+// Incorrect Solution
+public class Solution {
+    public int reverse(int A) {
+        long revNum = 0;
+        boolean isNeg = (A < 0) ? true : false;
+        if(A < 0){
+            A = A*-1;
+        }
+        int maxInt = Integer.MAX_VALUE;
+        
+        while(A != 0){
+            int dig = A%10;
+            A = A/10;
+            revNum = revNum*10 + dig;
+            
+            if((int)revNum > maxInt) return 0; 
+            // Mistake: you are checking for overflow after a lossy conversion.
+            // While type casting long to int, it might have lossy conversion, & thus for overflow, you'll be comparing with incorrect value.
+            
+        }
+        
+        return (isNeg) ? (int)(revNum) * -1 : (int)revNum;        
+    }
+}
