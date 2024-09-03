@@ -1,0 +1,14 @@
+1. Issues with traditional file based system:
+- absence of indexing, super slow, redundancy, inconsistency, unorganised data.
+
+2. Advantages of DBMS:
+- Data sharing, integrity(accuracy, consistency) constraints ensures organised and refined data, controlling redundancy, 
+  provides backup and recovery failure, data security(authentication and encryption).
+
+3. Different languages of DBMS:
+a. Data Definition Language (DDL): commands that define DB. E.g., CREATE, ALTER, DROP, TRUNCATE, RENAME, etc. 
+b. Data Modification Language (DML): manipulate the data present in the database. E.g., SELECT, UPDATE, INSERT, DELETE, etc.
+c. Data Control Languag (DCL): deal with the user permissions and controls of the DB. E.g., GRANT and REVOKE.
+d. Transaction Control Language (TCL): deal with the transaction of the database. E.g., COMMIT, ROLLBACK, and SAVEPOINT.
+
+
