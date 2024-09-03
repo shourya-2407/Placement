@@ -19,12 +19,74 @@ c. Isolation: No other process can change the data while the transaction is runn
 d. Durability: The changes made by a transaction must persist. Data is not lost in cases of a system failure or restart.
 
 5. What is meant by an entity-relationship (E-R) model? Explain the terms Entity, Entity Type, and Entity Set in DBMS.
-- An Entity-Relationship model is a digrammatic approach to design DB, where real world objects are represented as entities 
+- An Entity-Relationship model is a diagrammatic approach to design DB, where real world objects are represented as entities 
   and relationships between them are mentioned.
-- Entity: real-world object having attributes that represent characteristics of that particular object
+- Entity: real-world object having attributes that is distinct based on the values of characteristics/attributes.
   An entity can be of two types :
   Tangible Entity : that exist in the real world physically. Example: Person, car, etc.
   Intangible Entity : that exist only logically and have no physical existence. Example: Bank Account, etc.
+- Entity Type: Collection of entities that have the same attributes. 1 or more related tables in a database represent an entity type.
+- Entity Set: Set of all the entities present in a specific entity type in a database.
+Eg: A table Student has records of Ram, Sham and Kisam with attributes name, class, marks.
+    So collection of entities Ram(E1) and Sham(E2) of the entity type Student forms an Entity Set.
+Entities -> Rectangle
+Relation -> Diamond
+Attributes -> Oval
+
+6. What is Normalization and Denormalization? 
+* Normalization: Technique to remove/reduce redundancy from a table. 
+- Removes row level duplicacy, by introducing unique key constraint.
+- Column level duplicacy can lead to insertion anomaly, deletion anomaly and updation anomaly.
+Observe below table.
+SID	 Sname	 Cid	 Cname	 FID	  Fname	Salary
+1	    RAM	    C1	  DBMS	  F1	  John	30000
+2	    Ravi	  C2	  JAVA	  F2	  Bob	  40000
+3	    Nitin	  C1	  DBMS	  F1	  John	30000
+4	    Amrit	  C1	  DBMS	  F1	  John	30000
+Insertion anomaly: Consider inserting a new course for which no student has enrolled, this cannot be done as SID has to be non-null.
+Deletion anomaly: Consider deleting SID 2 info, which will ultimately delete all the info of course C2.
+Updation anomaly: Consider updating salary of F1 faculty, you'll need to update 3 records which is unnecessary. 
+- So normalization means dividing the above table into 3 different tables, Student, Course and Faculty.
+- Normalization is putting data in multiple tables to avoid redundancy.
+
+Denormalization: combines data and organizes into a single table.
+JOIN operation allows us to create a denormalized form of the data by reversing the normalization. 
+Benefits: 
+1. Faster data read operations.
+2. High data availability.
+3. Data is fetched from single location.
+Challenges: 
+1. Redundant data.
+2. Wastage of memory.
+3. Data inconsistency.
+
+7. Explain the difference between the DELETE and TRUNCATE command in a DBMS.
+Delete -> Deletes rows from a table, can be rolled back, maintains logs hence a bit slow.
+Truncate -> Deletes table, cannot be rolled back, maintains no log hence fast. (it is like DELETE command without where clause)
+DELETE from table_name WHERE col_id == 1; // deletes specific rows
+DELETE from table_name; // will delete all rows from the table.
+TRUNCATE table_name; // deletest entire table.
+
+8. Explain different types of relationships amongst tables in a DBMS.
+1. One to One Relationship
+2. One to Many Relationship
+3. Many to Many Relationship
+4. Self Referencing Relationship 
+
+9. Explain different levels of data abstraction in a DBMS.
+    
+10. What is Data Warehousing?
+  
+11. Explain the difference between a 2-tier and 3-tier architecture in a DBMS.
+
+12. Explain different types of keys in a database.
+
+13. Explain different types of Normalization forms in a DBMS.
+
+14. Explain the difference between intension and extension in a database.
+
+
+
 
 
 
