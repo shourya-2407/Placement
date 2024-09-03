@@ -8,7 +8,13 @@
 3. Different languages of DBMS:
 a. Data Definition Language (DDL): commands that define DB. E.g., CREATE, ALTER, DROP, TRUNCATE, RENAME, etc. 
 b. Data Modification Language (DML): manipulate the data present in the database. E.g., SELECT, UPDATE, INSERT, DELETE, etc.
-c. Data Control Languag (DCL): deal with the user permissions and controls of the DB. E.g., GRANT and REVOKE.
-d. Transaction Control Language (TCL): deal with the transaction of the database. E.g., COMMIT, ROLLBACK, and SAVEPOINT.
+c. Data Control Language (DCL): deal with the user permissions and controls of the DB. E.g., GRANT and REVOKE.
+d. Transaction Control Language (TCL): deal with the transaction of the database. E.g., COMMIT(permanently save changes), ROLLBACK, and SAVEPOINT.
+(SAVEPOINT -> a point from which you can roll back a transaction to a certain point without rolling back the entire transaction)
 
+4. ACID properties:
+a. Atomicity: All the changes to data must be performed successfully or not at all.
+b. Consistency: Data must be consistent before and after a transaction.
+c. Isolated: No other process can change the data while the transaction is running.
+d. Durability: The changes made by a transaction must persist.
 
