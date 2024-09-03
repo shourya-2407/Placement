@@ -15,6 +15,13 @@ d. Transaction Control Language (TCL): deal with the transaction of the database
 4. ACID properties:
 a. Atomicity: All the changes to data must be performed successfully or not at all.
 b. Consistency: Data must be consistent before and after a transaction.
-c. Isolated: No other process can change the data while the transaction is running.
-d. Durability: The changes made by a transaction must persist.
+c. Isolation: No other process can change the data while the transaction is running.
+d. Durability: The changes made by a transaction must persist. Data is not lost in cases of a system failure or restart.
+
+5. What is meant by an entity-relationship (E-R) model? Explain the terms Entity, Entity Type, and Entity Set in DBMS.
+- An Entity-Relationship model is a digrammatic approach to design DB, where real world objects are represented as entities 
+  and relationships between them are mentioned.
+- 
+
+
 
