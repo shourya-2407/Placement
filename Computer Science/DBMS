@@ -3,7 +3,8 @@
 
 2. Advantages of DBMS:
 - Data sharing, integrity(accuracy, consistency) constraints ensures organised and refined data, controlling redundancy, 
-  provides backup and recovery failure, data security(authentication and encryption).
+  provides backup and recovery failure, data security(authentication and encryption), 
+  independence of data(can change structure of data without changing structure of application program).
 
 3. Different languages of DBMS:
 a. Data Definition Language (DDL): commands that define DB. E.g., CREATE, ALTER, DROP, TRUNCATE, RENAME, etc. 
@@ -84,6 +85,18 @@ TRUNCATE table_name; // deletest entire table.
 13. Explain different types of Normalization forms in a DBMS.
 
 14. Explain the difference between intension and extension in a database.
+
+15. What are super, primary, candidate, and foreign keys? 
+EmpID	   Email	              Phone        SSN        Name
+101	  alice@example.com	    1234567890	123-45-6789	  Alice
+102  	bob@example.com	      9876543210	987-65-4321	  Bob
+103	  charlie@example.com	  5556667777	555-66-7777	  Charlie
+
+Super Key: A set of one or more columns that can uniquely identify a row in a table (Eg: {EmpID}, {Email}, {Phone}, {SSN}, {EmpID, Email}, etc)
+Candidate Key: Minimal Super Key that uniquely identifies a row (Eg: {EmpID}, {Email}, {Phone}, {SSN})
+Primary Key: A candidate key with non null constraint.
+Foreign Key: A primary key of some other table.
+
 
 
 
