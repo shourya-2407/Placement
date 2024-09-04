@@ -97,9 +97,53 @@ Candidate Key: Minimal Super Key that uniquely identifies a row (Eg: {EmpID}, {E
 Primary Key: A candidate key with non null constraint.
 Foreign Key: A primary key of some other table.
 
+16. What is the difference between having and where clause? 
+WHERE clause cannot be used with aggregates, but the HAVING clause can.
+we use WHERE prior to GROUP BY and HAVING after GROUP BY. 
+- SELECT Student, Score FROM Marks WHERE Score >=40 // This would select data row by row basis.
+- SELECT Student, SUM(score) AS total FROM Marks GROUP BY Student HAVING total > 70
+
+17. What is Join? 
+used to combine data from two or more tables, based on a common field between them.
+Eg: EnrollNo is the common column
+SELECT StudentCourse.CourseID, Student.StudentName
+       FROM StudentCourse
+       INNER JOIN Student 
+       ON StudentCourse.EnrollNo = Student.EnrollNo
+       ORDER BY StudentCourse.CourseID;
 
 
+18. What is Identity? 
+Identity/GUID(globally unique identifier) -> automatically generates numeric values.
+A start and increment value can be set for Identity.
+Value of GUID cannot be controlled.
+These do not need to be indexed. 
+
+19. What is indexing?
+- technique used to optimize the speed and efficiency of data retrieval operations.
+- Implemented as a data structure (like a B-tree or hash table) that stores a sorted version of the database column's data, 
+  along with pointers to the actual rows in the table.
+- Primary Index: Automatically created for a primary key column.
+- Secondary Index: Additional indexes can be created on other columns to optimize specific queries.
+- Trade-Off: While indexes improve read performance, they can slow down write operations (like INSERT, UPDATE, and DELETE) 
+  because the index itself needs to be updated.
+
+20. What is a view in SQL? How to create a view?
+- A view is a virtual table based on the result-set of an SQL statement. We can create it using CREATE VIEW syntax. 
+- Views can represent a subset of the data contained in a table.
+- a view can limit the degree of exposure of the underlying tables
+Eg: 
+CREATE VIEW view_name AS
+SELECT column_name(s)
+FROM table_name
+WHERE condition
 
 
+21. What is a Trigger? 
+A Trigger is a code associated with insert, update or delete operations. 
+The code is executed automatically whenever the associated query is executed on a table.
+
+22. What is a stored procedure? 
+A stored procedure is like a function that contains a set of operations compiled together.
 
 
