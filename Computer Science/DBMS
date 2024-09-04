@@ -119,16 +119,7 @@ A start and increment value can be set for Identity.
 Value of GUID cannot be controlled.
 These do not need to be indexed. 
 
-19. What is indexing?
-- technique used to optimize the speed and efficiency of data retrieval operations.
-- Implemented as a data structure (like a B-tree or hash table) that stores a sorted version of the database column's data, 
-  along with pointers to the actual rows in the table.
-- Primary Index: Automatically created for a primary key column.
-- Secondary Index: Additional indexes can be created on other columns to optimize specific queries.
-- Trade-Off: While indexes improve read performance, they can slow down write operations (like INSERT, UPDATE, and DELETE) 
-  because the index itself needs to be updated.
-
-20. What is a view in SQL? How to create a view?
+19. What is a view in SQL? How to create a view?
 - A view is a virtual table based on the result-set of an SQL statement. We can create it using CREATE VIEW syntax. 
 - Views can represent a subset of the data contained in a table.
 - a view can limit the degree of exposure of the underlying tables
@@ -138,12 +129,34 @@ SELECT column_name(s)
 FROM table_name
 WHERE condition
 
-
-21. What is a Trigger? 
+20. What is a Trigger? 
 A Trigger is a code associated with insert, update or delete operations. 
 The code is executed automatically whenever the associated query is executed on a table.
 
-22. What is a stored procedure? 
+21. What is a stored procedure? 
 A stored procedure is like a function that contains a set of operations compiled together.
 
+22. What is indexing?
+- technique used to optimize the speed and efficiency of data retrieval operations.
+- Implemented as a data structure (like a B-tree or hash table) that stores a sorted version of the database column's data, 
+  along with pointers to the actual rows in the table.
+- Primary Index: Automatically created for a primary key column.
+- Secondary Index: Additional indexes can be created on other columns to optimize specific queries.
+- Trade-Off: While indexes improve read performance, they can slow down write operations (like INSERT, UPDATE, and DELETE) 
+  because the index itself needs to be updated.
 
+23. What are clustered and non-clustered Indexes? 
+
+24. What is CLAUSE in SQL?
+
+25. What is a Live Lock?
+
+26. What is QBE? 
+
+28. Why are cursors necessary in embedded SQL? 
+
+29. What is the difference between a database schema and a database state?
+State: The collection of information stored in a database at a particular moment in time.
+Schema: The overall design of the database.
+
+30. 
