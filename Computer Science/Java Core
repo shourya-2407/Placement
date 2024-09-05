@@ -126,8 +126,39 @@ method overloading -> methods in same class with same name, but different signat
 method overriding -> methods with same signature and name are overriden from the inherited class.
 
 14. Explain the use of final keyword in variable, method and class.
-    Final keyword => can not be re initialised:
-    a. Final variable --> To create constant variable
-    b. Final Method --> To prevent overriding
+    Final -> non access modifier.
+    a. Final variable --> constant variable, cannot be re-initialised.
+       if no value assigned, can only be assigned by constructor.
+    b. Final Method --> To prevent overriding.
+      constructors cannot be final.
     c. Final class --> To prevent inheritance
+        
+15. Do final, finally and finalize keywords have the same function?
+Final: value becomes fixed.
+Finally: block used to execute important code, this block executes regardless of above conditions. 
+Finalize: used to perform cleanup activity before destroying any object.
+import java.lang.*;
+Eg: 
+public class Demo {
+  protected void finalize() throws Throwable {
+    try { 
+    } catch (Throwable e) { 
+        throw e; 
+    } finally {         //use of finally that always gets executed.
+      super.finalize(); // Calling finalize() of Object class
+    }
+  }
+  public static void main(String[] args) throws Throwable {
+    demo d = new demo();
+    d.finalize(); 
+  }
+}
 
+16. Is it possible that the ‘finally’ block will not be executed? If yes then list the case.
+- If System.exit() is used.
+- fatal errors like Stack overflow, Memory access error, etc.
+
+17. When can you use super keyword?
+-> used to access parent class' data members, constructors, methods when child has overriden them.
+
+18. 
