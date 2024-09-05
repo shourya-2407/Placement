@@ -1,1 +1,133 @@
+1. javac compiler compiles the java code to bytecode (code.class) and jvm converts this into something the underlying machine understands.
+2. Nearly everything in java is an object.
+3. Java is strongly typed language and compiler won't allow variables to hold data of another type.
+4. Object lives on the Heap. 
+5. Marking a variable public static ==> Global variable.
+6. Marking a variable public staic final => Global constant.
+7. Valid variable in java -> alphanumeric and underscore and dollar.
+8. No object variable --> It is object reference variable.
+9. Person myPerson = new Person()
+    a. allocate space for the reference variable and name it as myPerson
+    b. allocate space for the object on heap
+    c. assign the object to the myPerson variable.
+10. All the object reference variable are of the same size, but the size varies according to the JVM.
+11.
+12. Static variable => All instances of the class share the same static variable. 
+13. Java is pass by value --> pass by copy of the variable
+14. What happens when the argument is object ==> We pass the copy of remote control(variable that points the object)
+15. Instance variables get default values when not initialised.
+    integers=0, float=0.0, boolean=false, reference=null
+16. Instance variables = defined at class level, get assigned with default values.
+    Local variables = defined inside the method, cannot use uninitialised local variables.
+17. == operator (compares bits) => refer to single object on heap
+18. .equals() => if 2 objects are equal.
+
+*Inhertitance
+19. IS-A relation, B IS-A C, so class B can extend class C.
+20. HAS-A relation, B HAS-A C, so class B can have an instance variable of class C.
+21. Anything that extends the reference variable can be assigned to the reference variable.
+    Eg: List<String> myList = new ArrayList<>();
+
+*Overriding
+22. You can override the inherited methods.
+23. There is no term like private class, you can use inner class.
+24. A class can be non public, which is inherited only by the classes of same package.
+25. A modifier final -> end of inheritance.
+
+*Polymorphism 
+26. Compile-time polymorphism => ensured by method overloading
+27. Run time polymorphism => ensured by method overriding 
+    Parent a;
+    a = new subclass1();
+    a.Print(); 
+    a = new subclass2();
+    a.Print();
+    // the above print methods were overriden.
+
+28. Abstract classes, the ones that cannot be instantiated. But you can still use them as reference variables.
+29. Abstract classes must be extended, abstract methods must be overriden.
+30. You cannot have an abstract method in a non abstract class.
+31. Non abstract classes are called -> concrete classes.
+32. List<Object> objList = new Object();
+    objList.add(1);
+    int tmp = objList.get(0) // Compilation error.
+    The compiler always looks for reference type and not object type.
+    
+    int tmp = (int) objList.get(0) // This will work.
+
+
+
+
+
+
+
+1. Why is Java a platform independent language?
+- developed to not depend on any hardware or software.
+- compiler compiles the code and then converts it to platform-independent byte code.
+
+2. Why is Java not a pure object oriented language?
+- Java supports primitive data types like int, boolean, char.
+
+3. Difference between Heap and Stack Memory in java. And how java utilizes this.
+Stack Memory: all variables, methods.
+Heap Memory: objects referenced from stack memory.
+
+4. What do you understand by an instance variable and a local variable?
+class Athlete {
+  public String athleteName;  --------  
+  public double athleteSpeed;        | --> instance variables
+  public int athleteAge;      --------
+
+  public void athlete(int name) { // local variable
+    String athleteName;     --------
+    double athleteSpeed;           | -> Local variables
+    int athleteAge = name;   -------
+  }
+}
+
+5. What are the default values assigned to variables and instances in java?
+variables -> no default, compulsory intialisation else compilation error.
+instances -> depends on data type, null for reference, 0 for numeric, false for boolean.
+
+6. What do you mean by data encapsulation?
+concept of hiding data atributes and behaviour in a single unit. 
+helps developer to follow modularity, and ensures security of private properties.
+
+7. Tell us something about JIT compiler.
+
+***8. Can you tell the difference between equals() method and equality operator (==) in Java?
+
+9. How is an infinite loop declared in Java?
+-> for (;;){}
+-> while(true){}
+-> do{
+   }while(true);
+
+10. Briefly explain the concept of constructor overloading
+constructors with different signatures.
+
+11. Define Copy constructor in java.
+// constructor that initialises the new object with old object.
+class InterviewBit{
+   String department;
+   String service;
+   InterviewBit(InterviewBit ib){
+       this.departments = ib.departments;
+       this.services = ib.services;
+   }
+}
+
+12. Can the main method be Overloaded?
+Yes, but only the default one will be called by JVM.
+public static void main(string[] args)
+
+13. Comment on method overloading and overriding by citing relevant examples.
+method overloading -> methods in same class with same name, but different signatures.
+method overriding -> methods with same signature and name are overriden from the inherited class.
+
+14. Explain the use of final keyword in variable, method and class.
+    Final keyword => can not be re initialised:
+    a. Final variable --> To create constant variable
+    b. Final Method --> To prevent overriding
+    c. Final class --> To prevent inheritance
 
