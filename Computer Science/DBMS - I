@@ -78,7 +78,17 @@ Challenges:
   
 11. Explain the difference between a 2-tier and 3-tier architecture in a DBMS.
 
-12. Explain different types of keys in a database.
+12. Explain different types of keys in a database. 
+-> mainly 7 types of keys
+* Candidate Key
+* Super Key
+* Primary Key 
+* Unique Key
+* Alternate Key
+* Foreign Key
+* Composite Key
+
+
 
 13.
 
