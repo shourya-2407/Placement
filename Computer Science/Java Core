@@ -161,4 +161,36 @@ public class Demo {
 17. When can you use super keyword?
 -> used to access parent class' data members, constructors, methods when child has overriden them.
 
-18. 
+18. Why is the main method static in Java?
+Static members belong to the classes, not to an individual object. 
+If it was not static, then each object will have an instance of main method -> not acceptable by JVM. 
+JVM calls the main method based on the class name itself. Not by creating the object.
+There must be only 1 main method in the java program as the execution starts from the main method. 
+
+19. Can the static methods be overloaded? 
+-> Yes! 
+
+20. Can the static methods be overridden?
+Overriding or dynamic polymorphism occurs during the runtime.
+but static methods are loaded and looked up at the compile time statically. Hence, these methods can't be overridden.
+
+21. Difference between static methods, static variables, and static classes in java.
+Static variables & Methods: belongs to class and not to object, gets memory when class is loaded, called directly with the help of class names.
+Eg - Math.max(), .length;
+Static classes: only posssible in case of inner class and inner static class works exactly like other static members.
+
+22. What is the main objective of garbage collection?
+-> frees up the memory space occupied by the unnecessary and unreachable objects by deleting them.
+
+23. What is a ClassLoader?
+- program that belongs to JRE (Java Runtime Environment). 
+- loads the required classes and interfaces to the JVM when required. 
+Example- To get input from the console, we require the scanner class. And the Scanner class is loaded by the ClassLoader.
+
+24. What part of memory - Stack or Heap - is cleaned in garbage collection process?
+-> Heap.
+
+35. What are shallow copy and deep copy in java?
+
+
+
