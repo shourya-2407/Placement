@@ -1,0 +1,10 @@
+CPU -> brain of computer, responsible for executing instructions from programs. Performs operations specified by instructions.
+Eg: Intel Core i7, AMD Ryzen 7.
+
+Core -> an individual processing unit within CPU. Modern CPUs have multiple cores for multi-tasking.
+
+Program -> Set of instructions written in a programming language. 
+
+Process -> Instance of program that is being executed.
+
+
