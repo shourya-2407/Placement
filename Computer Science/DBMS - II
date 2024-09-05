@@ -26,6 +26,13 @@ Sub-query is basically the query that is included inside some other query.
 8. How is the pattern matching done in the SQL?
 
 9. What is a join in the SQL? What are the different types of joins in SQL?
+used to combine data from two or more tables, based on a common field between them.
+Eg: EnrollNo is the common column
+SELECT StudentCourse.CourseID, Student.StudentName
+       FROM StudentCourse
+       INNER JOIN Student 
+       ON StudentCourse.EnrollNo = Student.EnrollNo
+       ORDER BY StudentCourse.CourseID;
 
 10. Explain the Stored Procedure.
 
