@@ -80,12 +80,7 @@ Challenges:
 
 12. Explain different types of keys in a database.
 
-13. Explain the difference between the DELETE and TRUNCATE command in a DBMS.
-Delete -> Deletes rows from a table, can be rolled back, maintains logs hence a bit slow.
-Truncate -> Deletes table, cannot be rolled back, maintains no log hence fast. (it is like DELETE command without where clause)
-DELETE from table_name WHERE col_id == 1; // deletes specific rows
-DELETE from table_name; // will delete all rows from the table.
-TRUNCATE table_name; // deletest entire table.
+13.
 
 14. Explain the difference between intension and extension in a database.
 
