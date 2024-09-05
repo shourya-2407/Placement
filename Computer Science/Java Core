@@ -190,7 +190,17 @@ Example- To get input from the console, we require the scanner class. And the Sc
 24. What part of memory - Stack or Heap - is cleaned in garbage collection process?
 -> Heap.
 
-35. What are shallow copy and deep copy in java?
-
+25. What are shallow copy and deep copy in java?
+* Shallow Copy: //diff ref variable points the same object
+    Rectangle obj1 = new Rectangle(); 
+    Rectangle obj2 = obj1;
+    // if obj1 changes then obj2 also changes
+* Deep Copy: 
+    Rectangle obj3 = new Rectangle();
+    Obj3.length = obj1.length;
+    Obj3.breadth = obj1.breadth;
+  or
+    obj2 = obj1.clone(); 
+    // no impact on obj3 if obj1 changes
 
 
