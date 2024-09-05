@@ -64,18 +64,13 @@ Challenges:
 2. Wastage of memory.
 3. Data inconsistency.
 
-7. Explain the difference between the DELETE and TRUNCATE command in a DBMS.
-Delete -> Deletes rows from a table, can be rolled back, maintains logs hence a bit slow.
-Truncate -> Deletes table, cannot be rolled back, maintains no log hence fast. (it is like DELETE command without where clause)
-DELETE from table_name WHERE col_id == 1; // deletes specific rows
-DELETE from table_name; // will delete all rows from the table.
-TRUNCATE table_name; // deletest entire table.
+7. Explain different types of Normalization forms in a DBMS.
 
 8. Explain different types of relationships amongst tables in a DBMS.
-1. One to One Relationship
-2. One to Many Relationship
-3. Many to Many Relationship
-4. Self Referencing Relationship 
+  1. One to One Relationship
+  2. One to Many Relationship
+  3. Many to Many Relationship
+  4. Self Referencing Relationship 
 
 9. Explain different levels of data abstraction in a DBMS.
     
@@ -85,7 +80,12 @@ TRUNCATE table_name; // deletest entire table.
 
 12. Explain different types of keys in a database.
 
-13. Explain different types of Normalization forms in a DBMS.
+13. Explain the difference between the DELETE and TRUNCATE command in a DBMS.
+Delete -> Deletes rows from a table, can be rolled back, maintains logs hence a bit slow.
+Truncate -> Deletes table, cannot be rolled back, maintains no log hence fast. (it is like DELETE command without where clause)
+DELETE from table_name WHERE col_id == 1; // deletes specific rows
+DELETE from table_name; // will delete all rows from the table.
+TRUNCATE table_name; // deletest entire table.
 
 14. Explain the difference between intension and extension in a database.
 
