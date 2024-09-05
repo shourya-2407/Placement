@@ -110,15 +110,9 @@ Foreign Key: A primary key of some other table.
   GROUP BY LastName
   HAVING COUNT(Orders.OrderID) > 25;
 
-17. What is Join? 
-used to combine data from two or more tables, based on a common field between them.
-Eg: EnrollNo is the common column
-SELECT StudentCourse.CourseID, Student.StudentName
-       FROM StudentCourse
-       INNER JOIN Student 
-       ON StudentCourse.EnrollNo = Student.EnrollNo
-       ORDER BY StudentCourse.CourseID;
-
+17. What is the difference between a database schema and a database state?
+State: The collection of information stored in a database at a particular moment in time.
+Schema: The overall design of the database.
 
 18. What is Identity? 
 Identity/GUID(globally unique identifier) -> automatically generates numeric values.
@@ -162,8 +156,6 @@ A stored procedure is like a function that contains a set of operations compiled
 
 28. Why are cursors necessary in embedded SQL? 
 
-29. What is the difference between a database schema and a database state?
-State: The collection of information stored in a database at a particular moment in time.
-Schema: The overall design of the database.
+29. 
 
 30. 
