@@ -87,14 +87,7 @@ Challenges:
 * Alternate Key
 * Foreign Key
 * Composite Key
-
-
-
-13.
-
-14. Explain the difference between intension and extension in a database.
-
-15. What are super, primary, candidate, and foreign keys? 
+What are super, primary, candidate, and foreign keys? 
 EmpID	   Email	              Phone        SSN        Name
 101	  alice@example.com	    1234567890	123-45-6789	  Alice
 102  	bob@example.com	      9876543210	987-65-4321	  Bob
@@ -104,6 +97,12 @@ Super Key: A set of one or more columns that can uniquely identify a row in a ta
 Candidate Key: Minimal Super Key that uniquely identifies a row (Eg: {EmpID}, {Email}, {Phone}, {SSN})
 Primary Key: The most important candidate key with non null constraint.
 Foreign Key: A primary key of some other table.
+
+13. What integrity rules exist in the DBMS?
+
+14. Explain the difference between intension and extension in a database.
+
+15. 
 
 16. What is the difference between having and where clause? 
 - WHERE clause cannot be used with aggregate functions(MIN(), MAX(), AVG(), SUM(), COUNT()), but the HAVING clause can.
