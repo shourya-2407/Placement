@@ -100,10 +100,15 @@ Primary Key: The most important candidate key with non null constraint.
 Foreign Key: A primary key of some other table.
 
 16. What is the difference between having and where clause? 
-WHERE clause cannot be used with aggregates, but the HAVING clause can.
-we use WHERE prior to GROUP BY and HAVING after GROUP BY. 
-- SELECT Student, Score FROM Marks WHERE Score >=40 // This would select data row by row basis.
-- SELECT Student, SUM(score) AS total FROM Marks GROUP BY Student HAVING total > 70
+- WHERE clause cannot be used with aggregate functions(MIN(), MAX(), AVG(), SUM(), COUNT()), but the HAVING clause can.
+- we use WHERE prior to GROUP BY and HAVING after GROUP BY. 
+- Eg:
+  SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders
+  FROM Orders
+  INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+  WHERE LastName = 'Davolio' OR LastName = 'Fuller'
+  GROUP BY LastName
+  HAVING COUNT(Orders.OrderID) > 25;
 
 17. What is Join? 
 used to combine data from two or more tables, based on a common field between them.
