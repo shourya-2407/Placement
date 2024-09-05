@@ -39,11 +39,13 @@ Attributes -> Oval
 - Removes row level duplicacy, by introducing unique key constraint.
 - Column level duplicacy can lead to insertion anomaly, deletion anomaly and updation anomaly.
 Observe below table.
+
 SID	 Sname	 Cid	 Cname	 FID	  Fname	Salary
 1	    RAM	    C1	  DBMS	  F1	  John	30000
 2	    Ravi	  C2	  JAVA	  F2	  Bob	  40000
 3	    Nitin	  C1	  DBMS	  F1	  John	30000
 4	    Amrit	  C1	  DBMS	  F1	  John	30000
+
 Insertion anomaly: Consider inserting a new course for which no student has enrolled, this cannot be done as SID has to be non-null.
 Deletion anomaly: Consider deleting SID 2 info, which will ultimately delete all the info of course C2.
 Updation anomaly: Consider updating salary of F1 faculty, you'll need to update 3 records which is unnecessary. 
