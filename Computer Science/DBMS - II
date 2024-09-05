@@ -6,12 +6,14 @@ interacts with the relational databases in the form of inserting, deleting and u
 Sub-query is basically the query that is included inside some other query.
 
 3. What is the use of the DROP command and what are the differences between DROP, TRUNCATE and DELETE commands?
-* DROP = DDL command which is used to drop/delete the existing table, database, index, or view.
-        table gets deleted permanently, all the privileges/indexes related to it gets deleted.
-        cannot be rolled back.
-* TRUNCATE = DDL command to delete the data from table, the structure still remains.
-             can be rolled back until commit is made.
-* DELETE = delete specific rows from table and can be rolled back.
+* DROP (DDL) =  deletes permanently the entire table structure, database, index, or view, all the privileges/indexes related to it gets deleted, cannot be rolled back.
+* TRUNCATE (DDL) = deletes data from table, the structure still remains, cannot be rolled back in some databases, maintains no log.
+* DELETE (DML) = delete specific rows from table, can be rolled back, maintains logs hence a bit slow.
+Eg:
+DELETE from table_name WHERE col_id == 1; // deletes specific rows
+DELETE from table_name; // will delete all data, row by row
+TRUNCATE table_name; // deletes all data
+DROP TABLE table_name; // deletes entire table
 
 3. What is the main difference between UNION and UNION ALL?
 
