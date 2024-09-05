@@ -137,8 +137,7 @@ The code is executed automatically whenever the associated query is executed on 
 
 21. What is indexing?
 - technique used to optimize the speed and efficiency of data retrieval operations.
-- Implemented as a data structure (like a B-tree or hash table) that stores a sorted version of the database column's data, 
-  along with pointers to the actual rows in the table.
+- Implemented using B-tree or hash table data structures that stores sorted column values with pointers to the corresponding rows.
 - Primary Index: Automatically created for a primary key column.
 - Secondary Index: Additional indexes can be created on other columns to optimize specific queries.
 - Trade-Off: While indexes improve read performance, they can slow down write operations (like INSERT, UPDATE, and DELETE) 
