@@ -35,7 +35,7 @@ Relation -> Diamond
 Attributes -> Oval
 
 6. What is Normalization and Denormalization? 
-* Normalization: Technique to remove/reduce redundancy from a table. 
+* Normalization: Technique to minimize the redundancy and anomalies by organizing the data into multiple tables. 
 - Removes row level duplicacy, by introducing unique key constraint.
 - Column level duplicacy can lead to insertion anomaly, deletion anomaly and updation anomaly.
 Observe below table.
