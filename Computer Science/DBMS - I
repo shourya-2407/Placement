@@ -99,6 +99,8 @@ Primary Key: The most important candidate key with non null constraint.
 Foreign Key: A primary key of some other table.
 
 13. What integrity rules exist in the DBMS?
+* Entity Integrity: Primary key can never be NULL.
+* Referential Integrity: Foreign key can never be NULL value and it should be the primary key of any other relation.
 
 14. Explain the difference between intension and extension in a database.
 
