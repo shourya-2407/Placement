@@ -111,7 +111,7 @@ Foreign Key: A primary key of some other table.
   HAVING COUNT(Orders.OrderID) > 25;
 
 17. What is the difference between a database schema and a database state?
-State: The collection of information stored in a database at a particular moment in time.
+State: The collection of information stored in a database at a particular instance.
 Schema: The overall design of the database.
 
 18. What is Identity? 
