@@ -23,7 +23,7 @@ d. Durability: The changes made by a transaction must persist. Data is not lost 
 5. What is meant by an entity-relationship (E-R) model? Explain the terms Entity, Entity Type, and Entity Set in DBMS.
 - An Entity-Relationship model is a diagrammatic approach to design DB, where real world objects are represented as entities 
   and relationships between them are mentioned.
-- Entity: real-world object having attributes that is distinct based on the values of characteristics/attributes.
+- Entity: is a real-world object that can be uniquely identified by its attributes.
   An entity can be of two types :
   Tangible Entity : that exist in the real world physically. Example: Person, car, etc.
   Intangible Entity : that exist only logically and have no physical existence. Example: Bank Account, etc.
