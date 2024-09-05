@@ -2,8 +2,7 @@
 SQL = Structured Query Language
 interacts with the relational databases in the form of inserting, deleting and updating/modifying the data in the database.
 
-2. What is the concept of sub-query/inner query in terms of SQL?
-Sub-query is basically the query that is included inside some other query.
+2. What is RDBMS?
 
 3. What is the use of the DROP command and what are the differences between DROP, TRUNCATE and DELETE commands?
 * DROP (DDL) =  deletes permanently the entire table structure, database, index, or view, all the privileges/indexes related to it gets deleted, cannot be rolled back.
@@ -14,8 +13,6 @@ DELETE from table_name WHERE col_id == 1; // deletes specific rows
 DELETE from table_name; // will delete all data, row by row
 TRUNCATE table_name; // deletes all data
 DROP TABLE table_name; // deletes entire table
-
-3. What is the main difference between UNION and UNION ALL?
 
 4. 36. What is a functional dependency in the DBMS?
 
@@ -38,15 +35,33 @@ SELECT StudentCourse.CourseID, Student.StudentName
 
 10. Explain the Stored Procedure.
 
-11. What is RDBMS?
+11. What is conceptual design in dbms?
 
-12.  What is conceptual design in dbms?
+12. Differentiate between logical database design and physical database design. Show how this separation leads to data independence.
 
-13. Differentiate between logical database design and physical database design. Show how this separation leads to data independence.
+13. What are temporary tables? When are they useful?
 
-14. What are temporary tables? When are they useful?
+14. Explain different types of failures that occur in the Oracle database.
 
-15. Explain different types of failures that occur in the Oracle database.
+15. What is the main difference between UNION and UNION ALL?
+* UNION -> combines result-set of 2 or more SELECT statements.
+           UNION selects only distinct values.
+           the SELECT statements must have equal number of columns of same data type in order.
+* UNION ALL -> select duplicate values!
+Eg:
+SELECT City, Country FROM Customers
+WHERE Country='Germany'
+UNION (or UNION ALL)
+SELECT City, Country FROM Suppliers
+WHERE Country='Germany'
+ORDER BY City;
+
+16. What is the concept of sub-query/inner query/nested query in terms of SQL?
+Sub-query is basically the query that is included inside some other query.
+
+17. What is Correlated Subquery in DBMS?
+-> Subquery is executed for each of the rows of the outer query (Just like nested FOR loop)
+Eg: SELECT * from EMP WHERE ‘RIYA’ IN (SELECT Name from DEPT WHERE EMP.EMPID=DEPT.EMPID);
 
 Questions: 
 Q. There is a table where only one row is fully repeated. Write a Query to find the Repeated row.
