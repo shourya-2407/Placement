@@ -134,10 +134,7 @@ WHERE condition
 A Trigger is a code associated with insert, update or delete operations. 
 The code is executed automatically whenever the associated query is executed on a table.
 
-21. What is a stored procedure? 
-A stored procedure is like a function that contains a set of operations compiled together.
-
-22. What is indexing?
+21. What is indexing?
 - technique used to optimize the speed and efficiency of data retrieval operations.
 - Implemented as a data structure (like a B-tree or hash table) that stores a sorted version of the database column's data, 
   along with pointers to the actual rows in the table.
@@ -146,16 +143,16 @@ A stored procedure is like a function that contains a set of operations compiled
 - Trade-Off: While indexes improve read performance, they can slow down write operations (like INSERT, UPDATE, and DELETE) 
   because the index itself needs to be updated.
 
-23. What are clustered and non-clustered Indexes? 
+22. What are clustered and non-clustered Indexes? 
 
-24. What is CLAUSE in SQL?
+23. What is CLAUSE in SQL?
 
-25. What is a Live Lock?
+24. What is a Live Lock?
 
-26. What is QBE? 
+25. What is QBE? 
 
-28. Why are cursors necessary in embedded SQL? 
+26. Why are cursors necessary in embedded SQL? 
 
-29. 
+27. 
 
-30. 
+28. 
