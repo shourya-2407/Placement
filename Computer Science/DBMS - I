@@ -1,5 +1,5 @@
 1. Issues with traditional file based system:
-- absence of indexing, super slow, redundancy, inconsistency, unorganised data.
+- absence of indexing, super slow, high processing time, redundancy, inconsistency, unorganised data.
 
 2. Advantages of DBMS:
 - Data sharing, integrity(accuracy, consistency) constraints ensures organised and refined data, controlling redundancy, 
