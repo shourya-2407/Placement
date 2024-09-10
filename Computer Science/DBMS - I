@@ -7,11 +7,32 @@
   independence of data(can change structure of data without changing structure of application program).
 
 3. Different languages of DBMS:
-a. Data Definition Language (DDL): commands that define DB. E.g., CREATE, ALTER, DROP, TRUNCATE, RENAME, etc. 
-b. Data Modification Language (DML): manipulate the data present in the database. E.g., SELECT, UPDATE, INSERT, DELETE, etc.
-c. Data Control Language (DCL): deal with the user permissions and controls of the DB. E.g., GRANT and REVOKE.
-d. Transaction Control Language (TCL): deal with the transaction of the database. E.g., COMMIT(permanently save changes), ROLLBACK, and SAVEPOINT.
-(SAVEPOINT -> a point from which you can roll back a transaction to a certain point without rolling back the entire transaction)
+a. Data Definition Language (DDL): provides the ability to define, create and modify database objects such as tables, views, indexes, and users. E.g., CREATE, ALTER, DROP, TRUNCATE, RENAME, etc.
+    CREATE -> CREATE TABLE table_name (column1 data_type, column2 data_type, ...);
+    DROP -> DROP TABLE table_name;
+    ALTER -> ALTER TABLE table_name ADD COLUMN column_name data_type;
+    TRUNCATE -> TRUNCATE TABLE table_name;
+    COMMENT -> COMMENT 'comment_text' ON TABLE table_name;  // Add comments to the data dictionary.
+ 
+b. Data Modification Language (DML): used to query, and perform CRUD operations on row-level data from database tables. E.g., SELECT, UPDATE, INSERT, DELETE, etc.
+    INSERT -> INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);
+    UPDATE -> UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
+    DELETE -> DELETE FROM table_name WHERE condition;
+    LOCK -> LOCK TABLE table_name IN lock_mode;
+    CALL -> CALL procedure_name(arguments);
+
+c. Data Query Language (DQL): used to perform queries on data of DB. Gets data based on query and it’s conditions.
+    SELECT -> SELECT column1, column2, ...FROM table_name<br>WHERE condition;
+
+d. Data Control Language (DCL): deal with the user permissions and controls of the DB. E.g., GRANT and REVOKE.
+    GRANT -> GRANT privilege_type [(column_list)] ON [object_type] object_name TO user [WITH GRANT OPTION];
+    REVOKE -> REVOKE [GRANT OPTION FOR] privilege_type [(column_list)] ON [object_type] object_name FROM user [CASCADE];
+    // Removes previously granted privileges from a user account
+
+e. Transaction Control Language (TCL): deal with the transaction of the database. E.g., COMMIT(permanently save changes), ROLLBACK, and SAVEPOINT.
+  COMMIT -> COMMIT;  // Saves all changes made during the transaction.
+  ROLLBACK -> ROLLBACK; // Undoes all changes made during the transaction.
+  SAVEPOINT -> SAVEPOINT savepoint_name; // used to rollback certain operations and not the entire transaction, save point saves the transaction.
 
 4. ACID properties:
 A database transaction having these properties is known as ACID transaction:
