@@ -7,7 +7,7 @@
   independence of data(can change structure of data without changing structure of application program).
 
 3. Different languages of DBMS:
-a. Data Definition Language (DDL): provides the ability to define, create and modify database objects such as tables, views, indexes, and users. E.g., CREATE, ALTER, DROP, TRUNCATE, RENAME, etc.
+a. Data Definition Language (DDL): provides the provision to define, create and modify database objects such as tables, views, indexes, and users. E.g., CREATE, ALTER, DROP, TRUNCATE, RENAME, etc.
     CREATE -> CREATE TABLE table_name (column1 data_type, column2 data_type, ...);
     DROP -> DROP TABLE table_name;
     ALTER -> ALTER TABLE table_name ADD COLUMN column_name data_type;
