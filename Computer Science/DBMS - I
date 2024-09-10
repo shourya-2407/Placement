@@ -37,7 +37,7 @@ e. Transaction Control Language (TCL): deal with the transaction of the database
 4. ACID properties:
 A database transaction having these properties is known as ACID transaction:
 a. Atomicity: All the changes to data must be performed successfully or not at all.
-b. Consistency: Data must be consistent before and after a transaction.
+b. Consistency: Correctness of data, integrity constraints to be maintained. Data must be consistent before and after a transaction.
 c. Isolation: No other process can change the data while the transaction is running.
 d. Durability: The changes made by a transaction must persist. Data is not lost in cases of a system failure or restart.
 
