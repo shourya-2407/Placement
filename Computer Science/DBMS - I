@@ -48,7 +48,7 @@ d. Durability: The changes made by a transaction must persist. Data is not lost 
   An entity can be of two types :
   Tangible Entity : that exist in the real world physically. Example: Person, car, etc.
   Intangible Entity : that exist only logically and have no physical existence. Example: Bank Account, etc.
-- Entity Type: Collection of entities with same attributes. 1 or more related tables in a database represent an entity type.
+- Entity Type: Building block for describing the structure of data.
 - Entity Set: Set of all the entities present in a specific entity type in a database.
 Eg: A table Student has records of Ram, Sham and Kisam with attributes name, class, marks.
     So collection of entities Ram(E1) and Sham(E2) of the entity type Student forms an Entity Set.
