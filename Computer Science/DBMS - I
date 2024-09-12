@@ -120,6 +120,11 @@ Soln -> Since mobile number and emails are independent create 2 separate tables.
   4. Self Referencing Relationship 
 
 9. Explain different levels of data abstraction in a DBMS.
+  * 3 level of abstraction or 3 schema of architecture:
+    View Level <- Logical Level <- Physical Level
+    - View level -> the view that is available to user -> frontend ppl, creates a view using php or java
+    - Logical level -> E-R relationship model (seen as table) -> Database designer
+    - Physical level -> where the data is actually stored, the hard disk details (stored in files) -> Database administrator 
     
 10. What is Data Warehousing?
   
