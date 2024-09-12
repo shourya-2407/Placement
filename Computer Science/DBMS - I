@@ -86,6 +86,12 @@ Challenges:
 3. Data inconsistency.
 
 7. Explain different types of Normalization forms in a DBMS.
+1NF: Each table cell has a single value and columns have unique names.
+2NF: Non-key attributes directly related only to the primary key, and not to other columns.
+3NF: Non-key attributes are independent of each other (built on 2NF).
+BCNF: A stricter 3NF where every determinant is a candidate key, i.e. each non-key attribute is dependent only on the candidate key.
+4NF: Ensures no multi-valued dependencies.
+5NF: Decomposes tables to eliminate redundancy and improve data integrity.
 
 8. Explain different types of relationships amongst tables in a DBMS.
   1. One to One Relationship
