@@ -86,12 +86,32 @@ Challenges:
 3. Data inconsistency.
 
 7. Explain different types of Normalization forms in a DBMS.
-1NF: Each table cell has a single value and columns have unique names.
-2NF: Non-key attributes directly related only to the primary key, and not to other columns.
-3NF: Non-key attributes are independent of each other (built on 2NF).
-BCNF: A stricter 3NF where every determinant is a candidate key, i.e. each non-key attribute is dependent only on the candidate key.
-4NF: Ensures no multi-valued dependencies.
-5NF: Decomposes tables to eliminate redundancy and improve data integrity.
+1NF: No multivalued attributes and columns must have unique names. Resolution->separate rows or cols.
+
+2NF: 1NF + Table should not contain partial dependency. 
+Partial dependency -> proper subset of candidate key determines a non prime attribute.
+Prime attributes -> Attributes that form a candidate key.
+Eg: table cols -> employee id, department id, office location.
+- employee id & department id form a primary key which determines office location.
+- but office location can be alone determined by department id. => partial dependency  //violates 2NF
+Soln => divide the above table into 2 tables -> table1 = employeeid, dept id and table2 = dept id, office location.
+
+3NF: 2NF + No transitive dependency on non prime attributes, i.e. C -> B -> A implies C -> A, this violates 3NF. 
+No non prime should determine non prime (B -> A).
+Eg: table cols: Student id, Student name, Subject id, Subject, Address
+Student id -> Subject id -> Subject <==> Student id -> Subject  // violates 3NF
+Soln => divide table into: table1 = Student id, Student name, Subject id, Address & table2 = Subject id, Subject
+
+BCNF: A stricter 3NF where every determinant is a candidate key, i.e. each non-key attribute is dependent only on the candidatekey/superkey.
+X -> Y  //X should be candidate key or super key.
+Eg: table cols -> student id, subject, professor  // Student -> Professor & Subject -> Professor. // non prime attribute determines another non prime attribute.
+Soln -> divide table into: table1 = Student id, professor id, Address & table2 = professor id, subject, professor
+
+4NF: BCNF + Ensures no multi-valued dependencies.
+Eg: Shourya has 3 mobile numbers and 3 email ids -> so to follow 1NF we'll end up creating 9 rows with each possible combination. // redundant
+Soln -> Since mobile number and emails are independent create 2 separate tables. 1 mapping shourya to email & 1 mapping shourya to mobile.
+
+5NF: Lossless Decomposition of tables to eliminate redundancy and improve data integrity.
 
 8. Explain different types of relationships amongst tables in a DBMS.
   1. One to One Relationship
