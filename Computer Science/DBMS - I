@@ -97,12 +97,12 @@ Eg: table cols -> employee id, department id, office location.
 Soln => divide the above table into 2 tables -> table1 = employeeid, dept id and table2 = dept id, office location.
 
 3NF: 2NF + No transitive dependency on non prime attributes, i.e. C -> B -> A implies C -> A, this violates 3NF. 
-No non prime should determine non prime (B -> A).
 Eg: table cols: Student id, Student name, Subject id, Subject, Address
 Student id -> Subject id -> Subject <==> Student id -> Subject  // violates 3NF
 Soln => divide table into: table1 = Student id, Student name, Subject id, Address & table2 = Subject id, Subject
 
 BCNF: A stricter 3NF where every determinant is a candidate key, i.e. each non-key attribute is dependent only on the candidatekey/superkey.
+No non prime should determine non prime (B -> A).
 X -> Y  //X should be candidate key or super key.
 Eg: table cols -> student id, subject, professor  // Student -> Professor & Subject -> Professor. // non prime attribute determines another non prime attribute.
 Soln -> divide table into: table1 = Student id, professor id, Address & table2 = professor id, subject, professor
@@ -112,6 +112,14 @@ Eg: Shourya has 3 mobile numbers and 3 email ids -> so to follow 1NF we'll end u
 Soln -> Since mobile number and emails are independent create 2 separate tables. 1 mapping shourya to email & 1 mapping shourya to mobile.
 
 5NF: Lossless Decomposition of tables to eliminate redundancy and improve data integrity.
+
+To Sum up:
+1NF -> no multivalued attributes
+2NF -> (A, B) -> C, then A -> C or B -> C, violates 2NF
+3NF -> A -> B -> C, implies A -> C, violates 3NF
+BCNF -> X -> Y, X should be candidate/super key
+4NF -> no multivalued dependencies
+5NF -> no lossless decomposition
 
 8. Explain different types of relationships amongst tables in a DBMS.
   1. One to One Relationship
