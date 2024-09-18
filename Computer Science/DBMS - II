@@ -17,9 +17,14 @@ DROP TABLE table_name; // deletes entire table
 
 4. What is a functional dependency in the DBMS?
 
-7. How can you get the alternate records from the table in the SQL?
+5. What is Static and dynamic SQL?  
 
-8. How is the pattern matching done in the SQL?
+6. What is the difference between CHAR and VARCHAR?
+
+7. Why we cannot use WHERE clause with aggregate functions like HAVING ? 
+The difference between the having and where clause in SQL is that the where clause canNOT be used with aggregates, but the having clause can.
+
+8. Difference between primary key and unique key and why one should use a unique key if it allows only one null ? 
 
 9. What is a join in the SQL? What are the different types of joins in SQL?
 used to combine data from two or more tables, based on a common field between them.
@@ -60,29 +65,23 @@ Sub-query is basically the query that is included inside some other query.
 -> Subquery is executed for each of the rows of the outer query (Just like nested FOR loop)
 Eg: SELECT * from EMP WHERE ‘RIYA’ IN (SELECT Name from DEPT WHERE EMP.EMPID=DEPT.EMPID);
 
-Questions: 
-Q. There is a table where only one row is fully repeated. Write a Query to find the Repeated row.
+18. What’s the difference between materialized and dynamic view? 
 
-Q. Query to find 2nd highest salary of an employee?
-
-Q.Consider the following Employee table. How many rows are there in the result of the following query? 
-How many rows are there in the result of the following query?
-
-Q. Write a trigger to update Emp table such that, If an updation is done in Dep table then salary of all employees of that 
+19. Write a trigger to update Emp table such that, If an updation is done in Dep table then salary of all employees of that 
 department should be incremented by some amount (updation) Assuming Table name are Dept and Emp, trigger can be written as follows
 
-Q. There is a table which contains two columns Student and Marks, you need to find all the students, 
+20. There is a table which contains two columns Student and Marks, you need to find all the students, 
 whose marks are greater than average marks i.e. list of above-average students.
 
-Q.Name the Employee who has the third-highest salary using sub queries.
+21. Name the Employee who has the third-highest salary using sub queries.
 
-Q. Why we cannot use WHERE clause with aggregate functions like HAVING ? 
-The difference between the having and where clause in SQL is that the where clause canNOT be used with aggregates, but the having clause can. 
+22. How can you get the alternate records from the table in the SQL?
 
-Q. Difference between primary key and unique key and why one should use a unique key if it allows only one null ? 
+23. How is the pattern matching done in the SQL?
 
-Q. What’s the difference between materialized and dynamic view? Materialized views
+24. There is a table where only one row is fully repeated. Write a Query to find the Repeated row.
 
-Q. What is embedded and dynamic SQL?  Static or Embedded SQL
+25. Query to find 2nd highest salary of an employee?
 
-Q. What is the difference between CHAR and VARCHAR?
+26. Consider the following Employee table. How many rows are there in the result of the following query? 
+How many rows are there in the result of the following query?
