@@ -2,7 +2,8 @@
 SQL = Structured Query Language
 interacts with the relational databases in the form of inserting, deleting and updating/modifying the data in the database.
 
-2. What is RDBMS?
+2. What is RDBMS? 
+-> is a program used to create, update, and manage relational databases.
 
 3. What is the use of the DROP command and what are the differences between DROP, TRUNCATE and DELETE commands?
 * DROP (DDL) =  deletes permanently the entire table structure, database, index, or view, all the privileges/indexes related to it gets deleted, cannot be rolled back.
@@ -14,11 +15,7 @@ DELETE from table_name; // will delete all data, row by row
 TRUNCATE table_name; // deletes all data
 DROP TABLE table_name; // deletes entire table
 
-4. 36. What is a functional dependency in the DBMS?
-
-5. What is 1NF, 2NF, 3NF, BCNF in the DBMS?
-
-6. What is a CLAUSE in terms of SQL?
+4. What is a functional dependency in the DBMS?
 
 7. How can you get the alternate records from the table in the SQL?
 
