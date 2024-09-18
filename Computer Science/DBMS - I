@@ -142,23 +142,20 @@ BCNF -> X -> Y, X should be candidate/super key
 
 12. Explain different types of keys in a database. 
 -> mainly 7 types of keys
-* Candidate Key
-* Super Key
-* Primary Key 
-* Unique Key
-* Alternate Key
-* Foreign Key
-* Composite Key
+* Super Key: set of one or more columns that can uniquely identify a row in a table (Eg: {EmpID}, {Email}, {Phone}, {SSN}, {EmpID, Email}, etc) 
+// if A is enough to identify the row and B is also enough. then super keys are A, B, AB. (AB is unnecessary)
+* Candidate Key: Minimal Super Key that uniquely identifies a row (Eg: {EmpID}, {Email}, {Phone}, {SSN})
+// if A is enough to identify the row and B is also enough. then candidate keys are A, B. (no AB, as it is unnecessary)
+* Primary Key: The most important candidate key with non null constraint.
+* Unique Key: Unique constraint and might be null.
+* Alternate Key: Candidate keys that are not chosen as primary key.
+* Foreign Key: A primary key of some other table.
+* Composite Key: combination of two or more columns that can uniquely identify each tuple
 What are super, primary, candidate, and foreign keys? 
 EmpID	   Email	              Phone        SSN        Name
 101	  alice@example.com	    1234567890	123-45-6789	  Alice
 102  	bob@example.com	      9876543210	987-65-4321	  Bob
 103	  charlie@example.com	  5556667777	555-66-7777	  Charlie
-
-Super Key: A set of one or more columns that can uniquely identify a row in a table (Eg: {EmpID}, {Email}, {Phone}, {SSN}, {EmpID, Email}, etc)
-Candidate Key: Minimal Super Key that uniquely identifies a row (Eg: {EmpID}, {Email}, {Phone}, {SSN})
-Primary Key: The most important candidate key with non null constraint.
-Foreign Key: A primary key of some other table.
 
 13. What integrity rules exist in the DBMS?
 * Entity Integrity: Primary key can never be NULL.
@@ -171,6 +168,7 @@ Foreign Key: A primary key of some other table.
 16. What is the difference between having and where clause? 
 - WHERE clause cannot be used with aggregate functions(MIN(), MAX(), AVG(), SUM(), COUNT()), but the HAVING clause can.
 - we use WHERE prior to GROUP BY and HAVING after GROUP BY. 
+- HAVING clause can be used only with SELECT statement.
 - Eg:
   SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders
   FROM Orders
