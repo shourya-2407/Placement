@@ -126,7 +126,9 @@ Soln -> Since mobile number and emails are independent create 2 separate tables.
     - Logical level -> E-R relationship model (seen as table) -> Database designer
     - Physical level -> where the data is actually stored, the hard disk details (stored in files) -> Database administrator 
     
-10. What is Data Warehousing?
+10. What is Data Warehousing (Central Repository)?
+-> process of collecting, extracting, transforming, and loading data from multiple sources and storing them in one DB.
+-> data flows from transactional systems and other RDB and is used for data analytics.
   
 11. Explain the difference between a 2-tier and 3-tier architecture in a DBMS.
 
