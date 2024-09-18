@@ -200,6 +200,20 @@ WHERE condition
 20. What is a Trigger? 
 A Trigger is a code associated with insert, update or delete operations. 
 The code is executed automatically whenever the associated query is executed on a table.
+cannot be manually invoked or executed.
+No chance that triggers will receive parameters.
+A transaction cannot be committed or rolled back inside a trigger.
+ 
+Syntax -->
+          CREATE TRIGGER Trigger_Name  
+          [ BEFORE | AFTER ]  [ Insert | Update | Delete]  
+          ON [Table_Name]  
+          [ FOR EACH ROW | FOR EACH COLUMN ]  
+          AS  
+          Set of SQL Statements 
+ 
+Use :-
+Data integrity, Automation, Audit trails, Data validation.
 
 21. What is indexing?
 - technique used to optimize the speed and efficiency of data retrieval operations.
@@ -212,13 +226,27 @@ The code is executed automatically whenever the associated query is executed on 
 22. What are clustered and non-clustered Indexes? 
 
 23. What is CLAUSE in SQL?
+-> forms a specific part of a SQL statement that perform a specific function.
+Eg: FROM, WHERE, GROUP BY, HAVING, ORDER BY, INSERT, UPDATE, DELETE, and JOIN.
 
 24. What is a Live Lock?
 
 25. What is QBE? 
 
 26. Why are cursors necessary in embedded SQL? 
+A cursor in SQL => row pointer, iterate DB rows using the cursor and manipulate data of that row.
 
-27. 
+* Life Cycle of a cursor :-
+1) Declare cursor ---> DECLARE cursor_name CURSOR FOR select_statement;  
+2) Open cursor --->  OPEN cursor_name;  
+3) Fetch current active row using cursor ---> FETCH NEXT FROM cursor INTO variable_list;  
+4) CLOSE cursor_name;  
+5) DEALLOCATE cursor_name;  
 
-28. 
+* 6 methods to access data from the cursor. 
+FIRST -> fetch first row
+LAST -> fetch last row
+NEXT -> fetch data in a forward direction. 
+PRIOR -> fetch data in a backward direction.
+ABSOLUTE N -> fetch the exact nth row.
+RELATIVE N -> fetch the data in an incremental/decremental way. 
