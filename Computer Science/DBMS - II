@@ -56,15 +56,13 @@ GO;
 11. What is conceptual design in dbms?
 -> conceptual data model that describes the main data entities, attributes, relationships, and constraints of a given problem domain.
 
-12. Differentiate between logical database design and physical database design. Show how this separation leads to data independence.
-Logical Database Design: 
-Physical Database Design:  
+12. What are temporary tables? When are they useful?
+-> Exist solely for a particular session, or whose data persists for the duration of the transaction.
+-> Space is not allocated to a temporary table when it is created.
+-> Space will be dynamically allocated for the table as rows are inserted.
+SQL: CREATE GLOBAL TEMPORARY TABLE
 
-13. What are temporary tables? When are they useful?
-
-14. Explain different types of failures that occur in the Oracle database.
-
-15. What is the main difference between UNION and UNION ALL?
+13. What is the main difference between UNION and UNION ALL?
 * UNION -> combines result-set of 2 or more SELECT statements.
            UNION selects only distinct values.
            the SELECT statements must have equal number of columns of same data type in order.
@@ -77,12 +75,36 @@ SELECT City, Country FROM Suppliers
 WHERE Country='Germany'
 ORDER BY City;
 
-16. What is the concept of sub-query/inner query/nested query in terms of SQL?
+14. What is the concept of sub-query/inner query/nested query in terms of SQL?
 Sub-query is basically the query that is included inside some other query.
 
-17. What is Correlated Subquery in DBMS?
+15. What is Correlated Subquery in DBMS?
 -> Subquery is executed for each of the rows of the outer query (Just like nested FOR loop)
 Eg: SELECT * from EMP WHERE ‘RIYA’ IN (SELECT Name from DEPT WHERE EMP.EMPID=DEPT.EMPID);
+
+16. There is a table where only one row is fully repeated. Write a Query to find the Repeated row.
+SELECT *
+FROM table_name
+GROUP BY column1, column2, column3, ..., columnN
+HAVING COUNT(*) > 1;
+
+17. Query to find 2nd highest salary of an employee?
+-> SELECT max(salary) FROM EMPLOYEES WHERE salary IN
+(SELECT salary FROM EMPLOYEEs MINUS SELECT max(salary)
+FROM EMPLOYEES);
+
+-> SELECT MAX(salary) 
+FROM employee 
+WHERE salary < (SELECT MAX(salary) FROM employee);
+
+-> SELECT DISTINCT salary 
+FROM employee 
+ORDER BY salary DESC 
+LIMIT 1 OFFSET 1;
+
+-> SELECT MAX(salary) 
+FROM employees 
+WHERE salary NOT IN (SELECT MAX(salary) FROM employees);
 
 18. Consider the following Employee table. How many rows are there in the result of the following query? 
 How many rows are there in the result of the following query?
@@ -99,6 +121,3 @@ whose marks are greater than average marks i.e. list of above-average students.
 
 23. How is the pattern matching done in the SQL?
 
-24. There is a table where only one row is fully repeated. Write a Query to find the Repeated row.
-
-25. Query to find 2nd highest salary of an employee?
