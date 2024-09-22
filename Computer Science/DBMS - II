@@ -58,7 +58,7 @@ GO;
 
 12. Differentiate between logical database design and physical database design. Show how this separation leads to data independence.
 Logical Database Design: 
-
+Physical Database Design:  
 
 13. What are temporary tables? When are they useful?
 
