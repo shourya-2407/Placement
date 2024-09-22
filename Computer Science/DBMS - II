@@ -168,4 +168,4 @@ WHERE 2 = (SELECT COUNT(DISTINCT(Emp2.Salary))
 -> SELECT EmpId from (SELECT rowno,EmpId from Emp) WHERE mod(rowno,2)=0; // fetch the even numbers
 
 23. How is the pattern matching done in the SQL?
--> 
+-> SELECT * from Emp WHERE name like ‘b%’; 
