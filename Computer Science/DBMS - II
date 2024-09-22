@@ -16,7 +16,12 @@ TRUNCATE table_name; // deletes all data
 DROP TABLE table_name; // deletes entire table
 
 4. What is a functional dependency in the DBMS?
-
+-> Describes the relationship between attributes (columns) in a table.
+a. Trivial functional dependency => X → Y and Y is the subset of X, Eg:{roll_no, name} → name
+b. Non-Trivial functional dependency =>  X → Y and Y is not a subset of X, Eg:{roll_no, name} → age
+c. Multivalued functional dependency => a → {b, c} and no functional dependency between b and c. Eg: roll_no → {name, age}
+d. Transitive functional dependency => a → b & b → c, implies, a → c
+ 
 5. What is Static and dynamic SQL?  
 
 6. What is the difference between CHAR and VARCHAR?
