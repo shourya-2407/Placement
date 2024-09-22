@@ -23,13 +23,19 @@ c. Multivalued functional dependency => a → {b, c} and no functional dependenc
 d. Transitive functional dependency => a → b & b → c, implies, a → c
  
 5. What is Static and dynamic SQL?  
+Static: statements that do not change at runtime, also known as Embedded SQL.
+Dynamic: build SQL statements dynamically at runtime, EXECUTE IMMEDIATE, EXECUTE and PREPARE statements are used.
 
 6. What is the difference between CHAR and VARCHAR?
+- CHAR -> fixed column length, max 255 characters, uses static memory allocation, faster.
+- VARCHAR -> variable column length, max 4000 characters, uses dynamic memory allocation, slower.
 
 7. Why we cannot use WHERE clause with aggregate functions like HAVING ? 
-The difference between the having and where clause in SQL is that the where clause canNOT be used with aggregates, but the having clause can.
+WHERE clause filters rows before aggregation takes place. 
 
-8. Difference between primary key and unique key and why one should use a unique key if it allows only one null ? 
+8. What’s the difference between materialized and dynamic view? 
+- Materialized: Disk-based, updated periodically based upon query.
+- Dynamic: virtual only, runs the query definition each time.
 
 9. What is a join in the SQL? What are the different types of joins in SQL?
 used to combine data from two or more tables, based on a common field between them.
@@ -41,10 +47,18 @@ SELECT StudentCourse.CourseID, Student.StudentName
        ORDER BY StudentCourse.CourseID;
 
 10. Explain the Stored Procedure.
+-> group of SQL statements in the form of a function and has a unique name.
+CREATE PROCEDURE procedure_name
+AS
+sql_statement
+GO;
 
 11. What is conceptual design in dbms?
+-> conceptual data model that describes the main data entities, attributes, relationships, and constraints of a given problem domain.
 
 12. Differentiate between logical database design and physical database design. Show how this separation leads to data independence.
+Logical Database Design: 
+
 
 13. What are temporary tables? When are they useful?
 
@@ -70,7 +84,7 @@ Sub-query is basically the query that is included inside some other query.
 -> Subquery is executed for each of the rows of the outer query (Just like nested FOR loop)
 Eg: SELECT * from EMP WHERE ‘RIYA’ IN (SELECT Name from DEPT WHERE EMP.EMPID=DEPT.EMPID);
 
-18. What’s the difference between materialized and dynamic view? 
+
 
 19. Write a trigger to update Emp table such that, If an updation is done in Dep table then salary of all employees of that 
 department should be incremented by some amount (updation) Assuming Table name are Dept and Emp, trigger can be written as follows
