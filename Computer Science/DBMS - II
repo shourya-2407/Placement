@@ -107,17 +107,65 @@ FROM employees
 WHERE salary NOT IN (SELECT MAX(salary) FROM employees);
 
 18. Consider the following Employee table. How many rows are there in the result of the following query? 
-How many rows are there in the result of the following query?
+Table:
+ID   salary   DeptName 
+1    10000      EC 
+2    40000      EC 
+3    30000      CS 
+4    40000      ME 
+5    50000      ME 
+6    60000      ME 
+7    70000      CS
 
-19. Write a trigger to update Emp table such that, If an updation is done in Dep table then salary of all employees of that 
-department should be incremented by some amount (updation) Assuming Table name are Dept and Emp, trigger can be written as follows
+Query:
+SELECT E.ID
+FROM  Employee E
+WHERE  EXISTS  (SELECT E2.salary
+FROM Employee E2
+WHERE E2.DeptName = 'CS'
+AND   E.salary > E2.salary)
+
+Solution -> 5 rows will be the result of the query as 3000 is the minimum salary of CS Employees and all these rows are greater than 30000. 2 4 5 6 7.
+
+19. Write a trigger to update Emp table such that, If an updation is done in Dept table then salary of all employees of that 
+department should be incremented by some amount (updation) Assuming Table name are Dept and Emp, trigger can be written as follows.
+->
+CREATE TRIGGER UpdateSalaryOnDepChange
+AFTER UPDATE ON Dep
+FOR EACH ROW
+BEGIN
+    -- Increment salary by 5000 for all employees in the updated department
+    UPDATE Employee
+    SET salary = salary + 5000
+    WHERE DeptName = NEW.DeptName;
+END;
 
 20. There is a table which contains two columns Student and Marks, you need to find all the students, 
 whose marks are greater than average marks i.e. list of above-average students.
+SELECT Student, Marks
+FROM StudentTable
+WHERE Marks > (SELECT AVG(Marks) FROM StudentTable);
 
 21. Name the Employee who has the third-highest salary using sub queries.
+-> SELECT name
+FROM Employee
+WHERE salary = (
+    SELECT DISTINCT salary
+    FROM Employee
+    ORDER BY salary DESC
+    LIMIT 1 OFFSET 2
+);
+
+-> SELECT Emp1.Name
+FROM Employee Emp1
+WHERE 2 = (SELECT COUNT(DISTINCT(Emp2.Salary))
+           FROM Employee Emp2
+           WHERE Emp2.Salary > Emp1.Salary
+          )
 
 22. How can you get the alternate records from the table in the SQL?
+-> SELECT EmpId from (SELECT rowno,EmpId from Emp) WHERE mod(rowno,2)=1; // fetch the odd numbers
+-> SELECT EmpId from (SELECT rowno,EmpId from Emp) WHERE mod(rowno,2)=0; // fetch the even numbers
 
 23. How is the pattern matching done in the SQL?
-
+-> 
