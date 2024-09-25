@@ -1,5 +1,5 @@
 * Spring Framework Introduction:
-1. Open-source, robust(developed over years), lightweight, and easy to use framework.
+1. Open-source, builds robust java applications(developed over years), lightweight, and easy to use framework.
 2. Light weight: IoC containers are typically lightweight, especially when compared to EJB containers.
    It is lightweight as we can inject dependencies as per our need without having to include each of them.
 3. Framework of frameworks (Integration with existing frameworks such as Hibernate, Tapestry, EJB, JSF, Struts, etc.)
