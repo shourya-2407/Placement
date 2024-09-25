@@ -1,13 +1,21 @@
-* Spring Framework Introduction:
+* What are the features of Spring Framework?
 1. Open-source, builds robust java applications(developed over years), lightweight, and easy to use framework.
 2. Light weight: IoC containers are typically lightweight, especially when compared to EJB containers.
    It is lightweight as we can inject dependencies as per our need without having to include each of them.
 3. Framework of frameworks (Integration with existing frameworks such as Hibernate, Tapestry, EJB, JSF, Struts, etc.)
 4. An application framework that provides features like IOC(Inversion of Control) container and DI(Dependency Injection) for the Java platform.
-5. Modular Approach: Even if there are a lot of packages and classes, you only need to worry about the ones you need and ignore the rest.
+5. IoC container: is the core of Spring Framework. 
+   It creates the objects, configures and assembles their dependencies, manages their entire life cycle. 
+   Uses DI to manage the components that make up the application.
+6. Modular Approach: Even if there are a lot of packages and classes, you only need to worry about the ones you need and ignore the rest.
    Eg: contains several modules like IOC, AOP, DAO, Context, WEB MVC, etc.
-6. Central Exception Handling: provides a handy API for converting technology-specific exceptions 
+7. Central Exception Handling: provides a handy API for converting technology-specific exceptions 
 (such as those raised by JDBC, Hibernate, or JDO) into consistent, unchecked exceptions.
+8. Data access framework: provides persistence APIs like JDBC and Hibernate to store persistence data in DB.
+   Helps developer in managing DB connection, exceptions, and accessing persistent data through application.
+
+* Spring Configuration:
+Java Annotations, XML configuration files, Java configuration classes, Property sources.
 
 * POJO
 Plain Old Java Object (POJO) 
@@ -33,11 +41,7 @@ The POJO classes are similar to Beans as both are used to define the objects to 
 All JavaBeans are POJOs but not all POJOs are JavaBeans.
 
 * Spring Features:
-1. IoC container: is the core of Spring Framework. 
-   It creates the objects, configures and assembles their dependencies, manages their entire life cycle. 
-   Uses DI to manage the components that make up the application.
-2. Data access framework: provides persistence APIs like JDBC and Hibernate to store persistence data in DB.
-   Helps developer in managing DB connection, exceptions, and accessing persistent data through application.
+
 
 3. Spring MVC framework: 
    Web Browser -> Front controller --(model)--> Controller --(model)--> View -> Web Browser
