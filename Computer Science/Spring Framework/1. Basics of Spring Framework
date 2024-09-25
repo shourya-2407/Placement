@@ -17,6 +17,9 @@
 * Spring Configuration:
 Java Annotations, XML configuration files, Java configuration classes, Property sources.
 
+* Explain Inversion of Control(IoC) and types of IoC containers.
+
+
 * POJO
 Plain Old Java Object (POJO) 
 -> a database entity is represented by POJO.
@@ -39,8 +42,6 @@ Java Beans => POJO with some restrictions.
 
 The POJO classes are similar to Beans as both are used to define the objects to increase the readability and re-usability.
 All JavaBeans are POJOs but not all POJOs are JavaBeans.
-
-* Spring Features:
 
 
 3. Spring MVC framework: 
