@@ -8,7 +8,7 @@
 
 Implementation of IOC:
 
-//Using runtime polymorphism
+// Using runtime polymorphism
 public class Mobile {
 	public static void main(String[] args)
 	{
