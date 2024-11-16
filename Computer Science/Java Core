@@ -1,4 +1,22 @@
-1. Java Basics
+* Java Basics
+
+~ Variables in Java
+- 3 types of variables - Static(1 for all objects of that class), Instance, Local
+- Marking a variable public static ==> Global variable.
+- Marking a variable public staic final => Global constant.
+- Valid variable in java -> alphanumeric and underscore and dollar.
+- No object variable --> It is object reference variable.
+- Person myPerson = new Person()
+    a. allocate space for the reference variable and name it as myPerson
+    b. allocate space for the object on heap
+    c. assign the object to the myPerson variable.
+- All the object reference variable are of the same size, but the size varies according to the JVM.
+- Instance variables get default values when not initialised.
+  integers=0, float=0.0, boolean=false, reference=null
+- Instance variables = defined at class level, get assigned with default values.
+  Local variables = defined inside the method, cannot use uninitialised local variables.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 2. Java OOPs concept
 3. Arrays and Strings
 4. Data Structure
@@ -18,21 +36,11 @@
 2. Nearly everything in java is an object.
 3. Java is strongly typed language and compiler won't allow variables to hold data of another type.
 4. Object lives on the Heap. 
-5. Marking a variable public static ==> Global variable.
-6. Marking a variable public staic final => Global constant.
-7. Valid variable in java -> alphanumeric and underscore and dollar.
-8. No object variable --> It is object reference variable.
-9. Person myPerson = new Person()
-    a. allocate space for the reference variable and name it as myPerson
-    b. allocate space for the object on heap
-    c. assign the object to the myPerson variable.
-10. All the object reference variable are of the same size, but the size varies according to the JVM.
-11. Static variable => All instances of the class share the same static variable. 
+
+
 13. What happens when the argument is object ==> We pass the copy of remote control(variable that points the object)
-14. Instance variables get default values when not initialised.
-    integers=0, float=0.0, boolean=false, reference=null
-15. Instance variables = defined at class level, get assigned with default values.
-    Local variables = defined inside the method, cannot use uninitialised local variables.
+
+
 16. == operator (compares bits) => refer to single object on heap
 17. .equals() => if 2 objects are equal.
 
