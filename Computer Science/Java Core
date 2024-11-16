@@ -1,3 +1,19 @@
+1. Java Basics
+2. Java OOPs concept
+3. Arrays and Strings
+4. Data Structure
+5. File Handling
+6. Object Serialization
+7. Java Threads
+8. Regular Expressions
+9. Socket Programming
+10. Design Patterns
+
+
+
+
+
+
 1. javac compiler compiles the java code to bytecode (code.class) and jvm converts this into something the underlying machine understands.
 2. Nearly everything in java is an object.
 3. Java is strongly typed language and compiler won't allow variables to hold data of another type.
