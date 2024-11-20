@@ -19,18 +19,60 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 2. Java OOPs concept
 
-Encapsulation
+Encapsulation: 
+- combining data members and methods together in form of class.
 
-
-Inheritance:
+In
+heritance:
 - IS-A relation, B IS-A C, so class B can extend class C.
 - HAS-A relation, B HAS-A C, so class B can have an instance variable of class C.
 - public members are inherited and private members are not.
 - Anything that extends the reference variable can be assigned to the reference variable.
     Eg: List<String> myList = new ArrayList<>();
-- 
+
+~ Types of inheritance:
+1. Single Inheritance
+    [Superclass]
+         |
+         v
+     [Subclass]
+
+2. Multilevel Inheritance
+    [Grandparent Class]
+        |
+        v
+    [Parent Class]
+        |
+        v
+   [Child Class]
+
+3. Hierarchical Inheritance (multiple classes inherit from a single superclass.)
+         [Superclass]
+        /            \
+       v              v
+[Subclass 1]     [Subclass 2]
+
+4. Multiple Inheritance (multiple inheritance is not allowed through classes but for interfaces)
+    [Interface 1]  [Interface 2]
+        \                /
+            v         v
+              [Class]
+
+5. Hybrid Inheritance
+    [Superclass]          [Interface 1]
+        |                    |
+        v                    v
+    [Subclass]           [Interface 2]
+           \               /
+              v         v
+                [Class] 
+
+Eg: class Dog extends Mammal implements Animal, Walker {...}
+
 
 Abstraction
+
+
 Polymorphism
 
 
