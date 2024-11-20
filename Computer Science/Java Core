@@ -20,7 +20,16 @@
 2. Java OOPs concept
 
 Encapsulation
-Inheritance
+
+
+Inheritance:
+- IS-A relation, B IS-A C, so class B can extend class C.
+- HAS-A relation, B HAS-A C, so class B can have an instance variable of class C.
+- public members are inherited and private members are not.
+- Anything that extends the reference variable can be assigned to the reference variable.
+    Eg: List<String> myList = new ArrayList<>();
+- 
+
 Abstraction
 Polymorphism
 
