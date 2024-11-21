@@ -58,7 +58,7 @@ heritance:
             v         v
               [Class]
 
-5. Hybrid Inheritance
+5. Hybrid Inheritance (Multiple and Multi level)
     [Superclass]          [Interface 1]
         |                    |
         v                    v
@@ -70,12 +70,18 @@ heritance:
 Eg: class Dog extends Mammal implements Animal, Walker {...}
 
 
-Abstraction
+Abstraction:
+Hiding details and showing essential things to the user.
+Abstraction can be achieved using 2 ways:
+1. Abstract class: 
+
+2. Interface:
+
 
 
 Polymorphism
 
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 3. Arrays and Strings
 4. Data Structure
@@ -87,7 +93,7 @@ Polymorphism
 10. Design Patterns
 
 
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
