@@ -74,6 +74,16 @@ Abstraction:
 Hiding details and showing essential things to the user.
 Abstraction can be achieved using 2 ways:
 1. Abstract class: 
+- Defined with an abstract keyword. 
+- May or may not have all the abstract methods. Some of them can be concrete methods.
+- An abstract method must always be redefined in the subclass, unless the subclass itself is abstract.
+- Abstract classes can not be directly instantiated using new operator.
+- Abstract class can have parameterised constructor and default constructor is always present.
+- Abstract is a java modifier not applicable for variables.
+- We can have an abstract class without any abstract method.
+- There can be final method in an abstract class, but an abstract method can not be declared as final.
+- 
+
 
 2. Interface:
 
