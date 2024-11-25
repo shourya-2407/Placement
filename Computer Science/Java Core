@@ -22,8 +22,7 @@
 Encapsulation: 
 - combining data members and methods together in form of class.
 
-In
-heritance:
+Inheritance:
 - IS-A relation, B IS-A C, so class B can extend class C.
 - HAS-A relation, B HAS-A C, so class B can have an instance variable of class C.
 - public members are inherited and private members are not.
@@ -72,7 +71,9 @@ Eg: class Dog extends Mammal implements Animal, Walker {...}
 
 Abstraction:
 Hiding details and showing essential things to the user.
+
 Abstraction can be achieved using 2 ways:
+
 1. Abstract class: 
 - Defined with an abstract keyword. 
 - May or may not have all the abstract methods. Some of them can be concrete methods.
@@ -80,12 +81,73 @@ Abstraction can be achieved using 2 ways:
 - Abstract classes can not be directly instantiated using new operator.
 - Abstract class can have parameterised constructor and default constructor is always present.
 - Abstract is a java modifier not applicable for variables.
-- We can have an abstract class without any abstract method.
+- We can have an abstract class without any abstract method. This allows us to create classes that cannot be instantiated but can only be inherited. 
 - There can be final method in an abstract class, but an abstract method can not be declared as final.
-- 
+- The abstract keyword for declaring top-level classes (Outer class) as well as inner classes as abstract
+abstract class B {
+    abstract class C {
+        abstract void myAbstractMethod();
+    }
+}
+class D extends B {
+    class E extends C {
+        void myAbstractMethod()
+        { System.out.println("Inside abstract method implementation");}
+    }
+}
+public class Main {
+    public static void main(String args[])
+    {
+        D outer = new D();
+        D.E inner = outer.new E();
+        inner.myAbstractMethod();
+    }
+}
+
+- Observations in the below example:
+1. Abstract class cannot be created, we can have references to abstract class type though.
+2. Abstract class can contain constructors in Java. And a constructor of an abstract class is called when an instance of an inherited class is created.
+3. Abstract classes can also have final methods (methods that cannot be overridden)
+4. We can define static methods in an abstract class that can be called independently without an object.
+
+Eg:
+abstract class Base {
+    Base(){ System.out.println("Base Constructor Called");}
+    abstract void fun();
+    final void finalfun(){System.out.println("Base finalfun() called");}
+    static void staticfun(){System.out.println("Geeks for Geeks");
+}
+
+class Derived extends Base {
+    Derived(){System.out.println("Derived Constructor Called");}
+    void fun(){ System.out.println("Derived fun() called");}
+}
+
+class GFG {
+    public static void main(String args[])
+    {
+        //(1) point
+        Base b = new Derived();
+        b.fun(); //(2) point
+
+        Derived d = new Derived();
+        d.finalfun(); //(3) point
+
+        Base.staticfun();     //(4) point
+        Derived.staticfun();  //(4) point
+    }
+}
+
+Output: 
+Base Constructor Called
+Derived Constructor Called
+Derived fun() called
+Base finalfun() called
 
 
 2. Interface:
+- Provides 100% abstraction
+- 
 
 
 
