@@ -19,10 +19,10 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 2. Java OOPs concept
 
-Encapsulation: 
+* Encapsulation: 
 - combining data members and methods together in form of class.
 
-Inheritance:
+* Inheritance:
 - IS-A relation, B IS-A C, so class B can extend class C.
 - HAS-A relation, B HAS-A C, so class B can have an instance variable of class C.
 - public members are inherited and private members are not.
@@ -69,7 +69,7 @@ Inheritance:
 Eg: class Dog extends Mammal implements Animal, Walker {...}
 
 
-Abstraction:
+* Abstraction:
 Hiding details and showing essential things to the user.
 
 Abstraction can be achieved using 2 ways:
@@ -150,8 +150,17 @@ Base finalfun() called
 - 
 
 
+* Polymorphism
 
-Polymorphism
+
+* Java call by value and call by reference
+
+* Method overloading
+
+* Method overriding
+
+
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
