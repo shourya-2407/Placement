@@ -151,11 +151,26 @@ Base finalfun() called
 
 
 * Polymorphism
+1. Compile Time polymorphism: 
+--> Method overloading
+=> class Helper {
+    static int Multiply(int a, int b)     // Method with 2 integer parameters
+    {
+        return a * b; // Returns product of integer numbers
+    }
+    
+    static double Multiply(double a, double b) // With same name but with 2 double parameters
+    {
+        return a * b; // Returns product of double numbers
+    }
+}
 
+
+2. Run Time polymorphism:
 
 * Java call by value and call by reference
 
-* Method overloading
+
 
 * Method overriding
 
