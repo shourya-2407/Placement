@@ -152,7 +152,12 @@ Base finalfun() called
 
 * Polymorphism
 1. Compile Time polymorphism: 
---> Method overloading
+There are 3 types:
+a. Function Overloading
+b. Operator Overloading
+c. Template 
+
+A. Method overloading (multiple methods with the same name but different parameters)
 => class Helper {
     static int Multiply(int a, int b)     // Method with 2 integer parameters
     {
@@ -165,8 +170,46 @@ Base finalfun() called
     }
 }
 
+B. Operator Overloading (not supported in Java)
+class Complex {
+private:
+    int real, imag;
+
+public:
+    Complex(int r = 0, int i = 0)
+    {
+        real = r;
+        imag = i;
+    }
+    void print() { cout << real << " + i" << imag << endl; }
+    friend Complex operator+(Complex const& c1, Complex const& c2); //The global operator function is made friend of this class so that it can access private members
+};
+
+Complex operator+(Complex const& c1, Complex const& c2) { 
+    return Complex(c1.real + c2.real, c1.imag + c2.imag); 
+}
+
+int main() {
+    Complex c1(10, 5), c2(2, 4);
+    Complex c3 = c1 + c2; // An example call to &quot;operator+&quot;
+    c3.print();
+    return 0;
+}
+
+C. Template class (not supported in java)
+template <typename T> T myMax(T x, T y) { // One function works for all data types. This would work even for user defined types if operator '>' is overloaded
+    return (x > y) ? x : y;
+}
+
+int main() {
+    cout << myMax<int>(3, 7) << endl;  // Call myMax for int
+    cout << myMax<double>(3.0, 7.0) << endl; // call myMax for double
+    cout << myMax<char>('g', 'e') << endl; // call myMax for char
+    return 0;
+}
 
 2. Run Time polymorphism:
+
 
 * Java call by value and call by reference
 
