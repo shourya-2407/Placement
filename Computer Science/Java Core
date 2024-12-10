@@ -208,8 +208,36 @@ int main() {
     return 0;
 }
 
-2. Run Time polymorphism:
+2. Run Time polymorphism (Dynamic Method Dispatch): 
+A function call to the overridden method is resolved at Runtime. 
 
+class Parent {
+    void Print() {  System.out.println("parent class"); }
+}
+
+class subclass1 extends Parent {
+    void Print() { System.out.println("subclass1"); }
+}
+
+class subclass2 extends Parent {
+    void Print() { System.out.println("subclass2"); }
+}
+
+class GFG {
+    public static void main(String[] args)
+    {
+        Parent a; // Creating object of class 1   
+
+        a = new subclass1();
+        a.Print();
+
+        a = new subclass2();
+        a.Print();
+    }
+}
+Output
+subclass1
+subclass2
 
 * Java call by value and call by reference
 
