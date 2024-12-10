@@ -21,6 +21,10 @@
 
 * Encapsulation: 
 - combining data members and methods together in form of class.
+- It hides implementation details from outside access while exposing a public interface.
+- Instance variables are declared private and accessed through public getters and setters.
+- Ensures internal state consistency and data security.
+- It enhances reusability and ease of testing by isolating changes.
 
 * Inheritance:
 - IS-A relation, B IS-A C, so class B can extend class C.
@@ -240,7 +244,6 @@ subclass1
 subclass2
 
 * Java call by value and call by reference
-
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
