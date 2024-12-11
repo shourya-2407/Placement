@@ -151,8 +151,74 @@ Base finalfun() called
 
 2. Interface:
 - Provides 100% abstraction
-- 
+- Could only have abstract methods (methods without a body) and public, static, and final variables by default.
+- It can achieve multiple inheritances.
 
+
+Q. Why use interfaces when we have abstract classes?
+-> The reason is, abstract classes may contain non-final variables, whereas variables in the interface are final, public, and static.
+
+Abstract class:
+abstract class Animal {
+    abstract void makeSound();     // Abstract method (no body)
+
+    void sleep() {            // Concrete method with implementation
+        System.out.println("Sleeping...");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Woof! Woof!");
+    }
+}
+
+public class AbstractClassExample {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.makeSound(); // Outputs: Woof! Woof!
+        dog.sleep();     // Outputs: Sleeping...
+    }
+}
+
+Interface:
+interface Animal {
+    void makeSound();        // Abstract methods (implicitly public and abstract)
+
+    default void sleep() {         // Default method with implementation (introduced in Java 8)
+        System.out.println("Sleeping...");
+    }
+}
+
+class Dog implements Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Woof! Woof!");
+    }
+}
+
+public class InterfaceExample {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.makeSound(); // Outputs: Woof! Woof!
+        dog.sleep();     // Outputs: Sleeping...
+    }
+}
+
+Diff between Abstract class and Interfaces:
+1. Purpose: Abstract classes share behavior among related classes; interfaces define a contract for unrelated classes.  
+2. Inheritance: Abstract classes support single inheritance; interfaces support multiple inheritance.  
+3. Methods: Abstract classes can have abstract and concrete methods; interfaces can only have abstract methods (default and static from Java 8).  
+4. Access Modifiers: Abstract classes allow private, protected, or public methods; interfaces have `public abstract` methods by default.  
+5. Constructors: Abstract classes can have constructors; interfaces cannot.  
+6. Fields: Abstract classes can have instance variables; interfaces only allow `public static final` constants.  
+7. Use Case: Abstract classes are for shared code; interfaces are for enforcing behavior.  
+8. Performance: Abstract classes are slightly faster; interfaces were slower before Java 8 due to dynamic resolution.  
+
+###Summary:  
+Use an abstract class when you need shared code and behavior among related classes. 
+Use an **interface** when you want to define a set of rules that multiple unrelated classes should implement.
 
 * Polymorphism
 1. Compile Time polymorphism: 
