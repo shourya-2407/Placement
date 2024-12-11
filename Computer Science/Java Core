@@ -131,8 +131,8 @@ class GFG {
     public static void main(String args[])
     {
         //(1) point
-        Base b = new Derived();
-        b.fun(); //(2) point
+        Base b = new Derived(); //(2) point
+        b.fun(); 
 
         Derived d = new Derived();
         d.finalfun(); //(3) point
