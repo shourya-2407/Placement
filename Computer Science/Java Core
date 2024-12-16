@@ -309,7 +309,26 @@ Output
 subclass1
 subclass2
 
-* Java call by value and call by reference
+* Erros Vs Exception:
+- Both Errors and Exceptions are the subclasses of java.lang.Throwable class 
+- Errors are usually caused by serious problems that are outside the control of program such as running out of memory or system crash.
+- Erros Eg: OutOfMemoryError, StackOverflowError, NoClassDefFoundError.
+- Cannot recover from some of the errors.
+- Exceptions, are used to handle the errors that can occur during program execution.
+- Exception Eg: NullPointerException, IllegalArgumentException, IOException.
+- Since exceptions can be caught and handled, it is common to include code to handle exceptions.
+- Errors are of Unchecked type. Exceptions can be Checked or Unchecked type.
+
+~ Checked Exceptions: checked by compiler at compile time. cannot be ignored, programmer should handle these exceptions.
+~ Unchecked Exceptions: exceptions that occur at the time of execution. Run-time exceptions.
+
+* Exception handling methods:
+try-catch (handle exceptions), finally (runs regardless of whether an exception is thrown or caught), 
+throw (explicitly raise exceptions), and throws (declare exceptions in method signatures)
+
+* Final vs Finally vs Finalise
+
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
