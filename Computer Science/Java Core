@@ -221,7 +221,7 @@ Use an abstract class when you need shared code and behavior among related class
 Use an **interface** when you want to define a set of rules that multiple unrelated classes should implement.
 
 * Polymorphism
-1. Compile Time polymorphism: 
+1. Compile Time polymorphism:
 There are 3 types:
 a. Function Overloading
 b. Operator Overloading
@@ -281,6 +281,10 @@ int main() {
 
 2. Run Time polymorphism (Dynamic Method Dispatch): 
 A function call to the overridden method is resolved at Runtime. 
+-> Method Overriding
+   - Methods with same signature and name are overriden from the inherited class.
+   - The argument list of the child class should match the parent class
+   - Access modifier of the child class should be less restrictive than the parent class
 
 class Parent {
     void Print() {  System.out.println("parent class"); }
