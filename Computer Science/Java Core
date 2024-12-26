@@ -227,7 +227,7 @@ a. Function Overloading
 b. Operator Overloading
 c. Template 
 
-A. Method overloading (multiple methods with the same name but different parameters) (methods with different method signature) 
+A. Method overloading (multiple methods with the same name but different parameters)
 (method signature is method name and method parameter)
 => class Helper {
     static int Multiply(int a, int b)     // Method with 2 integer parameters
