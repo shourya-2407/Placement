@@ -227,7 +227,8 @@ a. Function Overloading
 b. Operator Overloading
 c. Template 
 
-A. Method overloading (multiple methods with the same name but different parameters)
+A. Method overloading (multiple methods with the same name but different parameters) (methods with different method signature) 
+(method signature is method name and method parameter)
 => class Helper {
     static int Multiply(int a, int b)     // Method with 2 integer parameters
     {
@@ -327,8 +328,9 @@ try-catch (handle exceptions), finally (runs regardless of whether an exception 
 throw (explicitly raise exceptions), and throws (declare exceptions in method signatures)
 
 * Final vs Finally vs Finalise
-
-
+Final: A keyword and access modifier. Final variable becomes constant. Final method cannot be overridden. Final class cannot be inherited.
+Finally: finally block runs even if exception occurs or not.
+Finalize: finalise method performs cleaning activities with respect to object before its destruction.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
