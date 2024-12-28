@@ -336,6 +336,11 @@ Final: A keyword and access modifier. Final variable becomes constant. Final met
 Finally: finally block runs even if exception occurs or not.
 Finalize: finalise method performs cleaning activities with respect to object before its destruction.
 
+* Java Enumeration:
+Java enums -> fixed set of constants or variables that do not tend to change. static and final implicitly.
+
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 3. Arrays and Strings
