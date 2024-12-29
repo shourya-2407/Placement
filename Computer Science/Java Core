@@ -153,7 +153,23 @@ Base finalfun() called
 - Provides 100% abstraction
 - Could only have abstract methods (methods without a body) and public, static, and final variables by default.
 - It can achieve multiple inheritances.
+- Interfaces can be declared as private, protected or transient.
+- Interface by default abstract and public.
+- Variables declared in interfacec are public, static, final by default.
+- Interface variables must be initialized at the time of declaration otherwise compiler will throw an error.
+- Inside any implementation class, you cannot change the variables declared in an interface.
 
+Eg:
+public interface Try{
+    int a = 10; //valid
+    public int b = 10; //valid
+    public static final int c = 10; //valid
+    final int d = 10; //valid
+    static int e = 10; //valid
+    int x; //invalid
+}
+
+Q. What are nested interfaces?
 
 Q. Why use interfaces when we have abstract classes?
 -> The reason is, abstract classes may contain non-final variables, whereas variables in the interface are final, public, and static.
