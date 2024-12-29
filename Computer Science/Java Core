@@ -488,6 +488,109 @@ public static void merge(int[] arr, int left, int mid, int right) {
     }
 }
 
+* Types of Searching algorithm:
+1. Linear Search (Sequentially check each element until the target is found or the end is reached)
+public static int linearSearch(int[] arr, int target) {
+    for (int i = 0; i < arr.length; i++) {
+        if (arr[i] == target) {
+            return i; // Return index of the target
+        }
+    }
+    return -1; // Return -1 if target not found
+}
+
+2. Binary Search (Repeatedly divide the sorted array in half, comparing the target with the middle element, until the target is found or the search space is empty)
+public static int binarySearch(int[] arr, int target) {
+    int low = 0, high = arr.length - 1;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (arr[mid] == target) {
+            return mid; // Target found
+        } else if (arr[mid] < target) {
+            low = mid + 1; // Search in the right half
+        } else {
+            high = mid - 1; // Search in the left half
+        }
+    }
+    return -1; // Target not found
+}
+
+* Operations performed on ArrayList
+add(E e): Appends the specified element to the end of the list.
+add(int index, E element): Inserts the specified element at the specified position in the list.
+get(int index): Returns the element at the specified index.
+set(int index, E element): Replaces the element at the specified index with the specified element.
+remove(int index): Removes the element at the specified position in the list.
+remove(Object o): Removes the first occurrence of the specified element from the list.
+clear(): Removes all elements from the list.
+size(): Returns the number of elements in the list.
+contains(Object o): Checks if the list contains the specified element.
+indexOf(Object o): Returns the index of the first occurrence of the specified element.
+lastIndexOf(Object o): Returns the index of the last occurrence of the specified element.
+isEmpty(): Checks if the list is empty.
+trimToSize(): Reduces the size of the ArrayList to the current number of elements.
+clone(): Creates a shallow copy of the ArrayList.
+toArray(): Converts the ArrayList into an array.
+
+* Java Strings:
+- String is a java object representing a sequence of characters. 
+- java.lang.String class is used to create and manipulate strings.
+- String is immutable in nature.
+
+* Java Strings class implements these interfaces: Serializable, Comparable, Charsequence
+- Serializable: Allows the String object to be serialized, meaning it can be converted into a byte stream, which can then be stored or transmitted.
+- Comparable: Allows String objects to be compared to each other.
+- Charsequence: provides methods for working with character sequences, such as charAt(), length(), and subSequence().
+
+Charsequence is a parent interface to String, StringBuilder, StringBuffer.
+// Run Time polymorphism
+CharSequence cs = null;
+cs = new String("Hello");
+cs = new StringBuilder("Hi");
+cs = new StringBuffer("Bye");
+
+* String vs String Buffer vs String Builder
+
+* String pool
+- Java String pool refers to the collection of Strings which are stored in heap memory.
+- As String objects are immutable in nature, thus string pool came into picture.
+- String pool helps in saving space for Java runtime.
+
+Creating a String:
+1. Using literals (stored in String pool)
+  Eg: 
+        String str = "Java"; // a new string literal created in string pool and is referenced by str
+        String str1 = "Java"; // same literal created above is referenced by str1
+        String str2 = "OOPs";  // a new string literal created in string pool and is referenced by str2
+
+2. Creating a new object on Heap Memory
+  Eg: String str = new String("Java");
+
+| Feature       | ==                                           | .equals()                   | .compareTo()                     |
+|---------------|----------------------------------------------|-----------------------------|----------------------------------|
+| Type          | Operator                                     | Method                      | Method                           |
+| Checks        | Memory reference (or value for primitives)   | Logical equality (content)  | Lexicographical or natural order |
+| Return Type   | boolean                                      | boolean                     | int                              |
+| Usage         | Primitive comparison or reference comparison | Content comparison          | Ordering or sorting              |
+
+String str1 = "Hello"
+String str2 = "Hello"
+String str3 = new String("Hello");
+String str4 = new String("Hello");
+
+str1 == str2 ==> TRUE
+str1.equals(str2) ==> TRUE
+str1 == str3 ==> FALSE
+str3 == str4 ==> FALSE
+str3.equals(str4) ==> TRUE
+str2.equals(str3) ==> TRUE
+str3.compareTo(str4) ==> 0
+
+str1.toUpperCase() //no change as strings are immutable, i.e. str1 will still be "Hello"
+String str5 = str1.toUpperCase() // str5 will be "HELLO"
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 4. Data Structure
 5. File Handling
