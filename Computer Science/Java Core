@@ -611,12 +611,13 @@ String str5 = str1.toUpperCase() // str5 will be "HELLO"
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 4. Data Structure
-5. File Handling
-6. Object Serialization
-7. Java Threads
-8. Regular Expressions
-9. Socket Programming
-10. Design Patterns
+5. Generics in Java 
+6. File Handling
+7. Object Serialization
+8. Java Threads
+9. Regular Expressions
+10. Socket Programming
+11. Design Patterns
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
