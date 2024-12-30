@@ -610,7 +610,121 @@ str1.toUpperCase() //no change as strings are immutable, i.e. str1 will still be
 String str5 = str1.toUpperCase() // str5 will be "HELLO"
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-4. Data Structure
+4. Java Data Structure
+
+### 1. Arrays: A fixed-size container declared at the time of creation to store elements of the same type.
+- Fast access by index.
+- Syntax:
+  int[] arr = new int[5];
+  int[] arr = {1, 2, 3, 4, 5};
+- Advantages: Direct indexing provides O(1) access.
+- Limitations: Fixed size and no direct support for dynamic resizing.
+
+### 2. ArrayList: A resizable array-like data structure provided by `java.util`.
+- Allows dynamic resizing.
+- Supports generics.
+- Provides many utility methods.
+- Syntax:
+  ArrayList<Integer> list = new ArrayList<>();
+  list.add(1);
+  list.remove(0);
+- Time Complexity:
+  - Access: O(1)
+  - Insert/Delete: O(n) (shifting may occur)
+
+### 3. LinkedList: A doubly linked list implementation in Java.
+- Nodes store data and pointers to the next and previous elements.
+- Syntax:
+  LinkedList<String> list = new LinkedList<>();
+  list.add("A");
+  list.addFirst("B");
+  list.addLast("C");
+- Advantages: Efficient insertions/deletions (O(1) if the position is known).
+- Disadvantages: Slower access time compared to arrays (O(n)).
+
+### 4. HashMap: A key-value pair data structure based on a hash table.
+- Allows fast retrieval using keys.
+- Does not guarantee order.
+- Syntax:
+  HashMap<String, Integer> map = new HashMap<>();
+  map.put("Alice", 25);
+  map.get("Alice");
+- Time Complexity:
+  - Average: O(1) for get/put.
+  - Worst: O(n) (in case of hash collisions).
+
+### 5. TreeMap: A key-value pair data structure based on a Red-Black Tree.
+- Keys are sorted in natural order or by a custom comparator.
+- Syntax:
+  TreeMap<String, Integer> map = new TreeMap<>();
+  map.put("Alice", 25);
+  map.firstKey();
+- Time Complexity:
+  - O(log n) for get/put operations.
+
+### 6. Stack: A Last-In-First-Out (LIFO) data structure.
+- Use the `java.util.Stack` class.
+- Syntax:
+  Stack<Integer> stack = new Stack<>();
+  stack.push(1);
+  stack.pop();
+  stack.peek();
+
+- Time Complexity:
+  - Push/Pop: O(1)
+
+### 7. Queue: A First-In-First-Out (FIFO) data structure.
+- Uses `LinkedList` or `PriorityQueue` for implementation.
+- Syntax:
+  Queue<Integer> queue = new LinkedList<>();
+  queue.add(1);
+  queue.poll();
+  queue.peek();
+- Types:
+  - PriorityQueue: Ordered based on priority.
+  - Deque: Double-ended queue allowing insertion/removal at both ends.
+
+### 8. HashSet: A collection for storing unique elements.
+- Based on a hash table.
+- No duplicate elements.
+- Syntax:
+  HashSet<Integer> set = new HashSet<>();
+  set.add(1);
+  set.contains(1);
+- Advantages: Fast lookup and insertion (O(1) average).
+
+### 9. TreeSet: A `Set` implementation based on a Red-Black Tree.
+- Stores elements in sorted order.
+- Syntax:
+  TreeSet<Integer> set = new TreeSet<>();
+  set.add(1);
+  set.first();
+  set.last();
+- Time Complexity:
+  - O(log n) for add/remove/search.
+
+### 10. PriorityQueue: A queue where elements are processed based on priority.
+- By default, natural ordering is used, but a custom comparator can be provided.
+- Syntax:
+  PriorityQueue<Integer> pq = new PriorityQueue<>();
+  pq.add(5);
+  pq.poll(); // Retrieves and removes the head.
+- Time Complexity:
+  - O(log n) for insertion and removal.
+
+### Choosing the Right Data Structure
+| Use Case                              | Recommended Data Structure |
+|---------------------------------------|----------------------------|
+| Random access with fixed size         | Array                      |
+| Dynamic resizing                      | ArrayList                  |
+| Frequent insertions/deletions         | LinkedList                 |
+| Key-value storage                     | HashMap, TreeMap           |
+| Unique elements                       | HashSet, TreeSet           |
+| LIFO operations                       | Stack                      |
+| FIFO operations                       | Queue                      |
+| Priority-based operations             | PriorityQueue              |
+
+
 * Generics in Java 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
