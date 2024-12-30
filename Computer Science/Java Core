@@ -742,7 +742,11 @@ String str5 = str1.toUpperCase() // str5 will be "HELLO"
 to the latest state is serialized but not the static member field.
 
 * Externizable Interface:
-- Similar to serialization but it is capable to offer customized serialization where you get to deciede
+- It extends the Serializable interface and is a part of the java.io package and is used to customize the serialization and deserialization process of objects.
+- It allows complete control over the serialization process by requiring explicit implementation of read and write operations.
+- The class implementing Externalizable must have a public no-argument constructor, as it is used during deserialization.
+- Used when you need precise control over the serialization process.
+- Allows you to serialize only selected fields or perform additional logic during serialization/deserialization.
 
 * Transient Keyword:
 - used as a variable modifier at the time of Serialization process. It avoids the variable to be serialized.
