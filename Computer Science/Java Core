@@ -738,6 +738,16 @@ String str5 = str1.toUpperCase() // str5 will be "HELLO"
 - we need serialization for communication, persistence, deep copy, caching, cross jvm synchronisation.
 - need to implement following interfaces: java.io.Serializable, java.io.Externalizable.
 - If a class implements serializable, then its subclasses are also serializable.
+- Serialization of static member field is ignored in the process of Serialization. Serialization is related to the object's latest state hence only the date associated
+to the latest state is serialized but not the static member field.
+
+* Externizable Interface:
+- Similar to serialization but it is capable to offer customized serialization where you get to deciede
+
+* Transient Keyword:
+- used as a variable modifier at the time of Serialization process. It avoids the variable to be serialized.
+
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
