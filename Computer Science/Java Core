@@ -747,7 +747,9 @@ to the latest state is serialized but not the static member field.
 * Transient Keyword:
 - used as a variable modifier at the time of Serialization process. It avoids the variable to be serialized.
 
-
+* Serial version UID
+Serialized objects get associated with a unique identification number provided by the JVM of the host machine.
+This unique ID is called Serial Version UID.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
