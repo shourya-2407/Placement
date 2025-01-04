@@ -761,7 +761,35 @@ This unique ID is called Serial Version UID.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-8. Regular Expressions
+8. Regular Expressions:
+- Sequence of characters that construct a search pattern.
+
+Eg: ^[a-z0-9_-]{3,15}$
+^: Indicates the start of the string.
+[a-z0-9_-]: This is a character set that allows lowercase alphabets (a-z), digits (0-9), underscores (_), and hyphens (-).
+{3,15}: This specifies that the preceding character set must appear at least 3 times and at most 15 times.
+$: Indicates the end of the string.
+
+Java Regex: API used to define a pattern for searching or manipulating Strings. Used to define constraints on passwords or emails.
+Here are the key methods of the `Matcher` class:
+1. matches(): Checks if the entire input sequence matches the pattern.  
+2. find(): Finds the next subsequence of the input that matches the pattern.  
+3. lookingAt(): Checks if the beginning of the input matches the pattern.  
+4. start(): Returns the start index of the current match.  
+5. end(): Returns the end index (exclusive) of the current match.  
+6. group(): Returns the matched subsequence.  
+7. replaceAll(String replacement): Replaces every match with the given replacement string.  
+8. replaceFirst(String replacement): Replaces the first match with the given replacement string.  
+9. groupCount(): Returns the number of capturing groups in the pattern.  
+10.reset(): Resets the matcher, optionally with a new input sequence.  
+
+
+The top 5 commonly used methods of the `Pattern` class are:
+1. compile(String regex): Compiles the given regular expression into a `Pattern`.  
+2. matcher(CharSequence input): Creates a `Matcher` object for matching the input sequence against the pattern.  
+3. split(CharSequence input): Splits the input sequence into an array using the pattern as the delimiter.  
+4. pattern(): Returns the regular expression as a string.  
+5. flags(): Returns the match flags used to compile the pattern.  
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
