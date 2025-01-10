@@ -794,211 +794,84 @@ The top 5 commonly used methods of the `Pattern` class are:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 9. Socket Programming
+- Used for communication between the application that is running on different JRE. It can be either connection-oriented or connectionless.
+-  
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-10. Design Patterns
+10. Design Patterns ->  a template to solve a problem that occurs in multiple instances while designing a Software Application.
+* Why do we need Design patterns?
+- OOP Solutions
+- Easy to Maintain
+- Efficient
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+* Types of Design Patterns:
 
+A. Creational Design Patterns: focus on how objects are created, ensuring flexibility and reuse.
 
-
-1. javac compiler compiles the java code to bytecode (code.class) and jvm converts this into something the underlying machine understands.
-2. Nearly everything in java is an object.
-3. Java is strongly typed language and compiler won't allow variables to hold data of another type.
-4. Object lives on the Heap. 
-
-
-13. What happens when the argument is object ==> We pass the copy of remote control(variable that points the object)
-
-
-16. == operator (compares bits) => refer to single object on heap
-17. .equals() => if 2 objects are equal.
-
-*Inhertitance
-18. IS-A relation, B IS-A C, so class B can extend class C.
-19. HAS-A relation, B HAS-A C, so class B can have an instance variable of class C.
-20. Anything that extends the reference variable can be assigned to the reference variable.
-    Eg: List<String> myList = new ArrayList<>();
-
-*Overriding
-21. You can override the inherited methods.
-22. There is no term like private class, you can use inner class.
-23. A class can be non public, which is inherited only by the classes of same package.
-24. A modifier final -> end of inheritance.
-
-*Polymorphism 
-25. Compile-time polymorphism => ensured by method overloading
-26. Run time polymorphism => ensured by method overriding 
-    Parent a;
-    a = new subclass1();
-    a.Print(); 
-    a = new subclass2();
-    a.Print();
-    // the above print methods were overriden.
-
-27. Abstract classes, the ones that cannot be instantiated. But you can still use them as reference variables.
-28. Abstract classes must be extended, abstract methods must be overriden.
-29. You cannot have an abstract method in a non abstract class.
-30. Non abstract classes are called -> concrete classes.
-31. List<Object> objList = new Object();
-    objList.add(1);
-    int tmp = objList.get(0) // Compilation error.
-    The compiler always looks for reference type and not object type.
-    
-    int tmp = (int) objList.get(0) // This will work.
-
-
-
-
-
-
-
-1. Why is Java a platform independent language?
-- developed to not depend on any hardware or software.
-- compiler compiles the code and then converts it to platform-independent byte code.
-
-2. Why is Java not a pure object oriented language?
-- Java supports primitive data types like int, boolean, char.
-
-3. Difference between Heap and Stack Memory in java. And how java utilizes this.
-Stack Memory: all variables, methods.
-Heap Memory: objects referenced from stack memory.
-
-4. What do you understand by an instance variable and a local variable?
-class Athlete {
-  public String athleteName;  --------  
-  public double athleteSpeed;        | --> instance variables
-  public int athleteAge;      --------
-
-  public void athlete(int name) { // local variable
-    String athleteName;     --------
-    double athleteSpeed;           | -> Local variables
-    int athleteAge = name;   -------
-  }
-}
-
-5. What are the default values assigned to variables and instances in java?
-variables -> no default, compulsory intialisation else compilation error.
-instances -> depends on data type, null for reference, 0 for numeric, false for boolean.
-
-6. What do you mean by data encapsulation?
-concept of hiding data atributes and behaviour in a single unit. 
-helps developer to follow modularity, and ensures security of private properties.
-
-7. Tell us something about JIT compiler.
-
-***8. Can you tell the difference between equals() method and equality operator (==) in Java?
-
-9. How is an infinite loop declared in Java?
--> for (;;){}
--> while(true){}
--> do{
-   }while(true);
-
-10. Briefly explain the concept of constructor overloading
-constructors with different signatures.
-
-11. Define Copy constructor in java.
-// constructor that initialises the new object with old object.
-class InterviewBit{
-   String department;
-   String service;
-   InterviewBit(InterviewBit ib){
-       this.departments = ib.departments;
-       this.services = ib.services;
-   }
-}
-
-12. Can the main method be Overloaded?
-Yes, but only the default one will be called by JVM.
-public static void main(string[] args)
-
-13. Comment on method overloading and overriding by citing relevant examples.
-method overloading -> methods in same class with same name, but different signatures.
-method overriding -> methods with same signature and name are overriden from the inherited class.
-
-14. Explain the use of final keyword in variable, method and class.
-    Final -> non access modifier.
-    a. Final variable --> constant variable, cannot be re-initialised.
-       if no value assigned, can only be assigned by constructor.
-    b. Final Method --> To prevent overriding.
-      constructors cannot be final.
-    c. Final class --> To prevent inheritance
-        
-15. Do final, finally and finalize keywords have the same function?
-Final: value becomes fixed.
-Finally: block used to execute important code, this block executes regardless of above conditions. 
-Finalize: used to perform cleanup activity before destroying any object.
-import java.lang.*;
-Eg: 
-public class Demo {
-  protected void finalize() throws Throwable {
-    try { 
-    } catch (Throwable e) { 
-        throw e; 
-    } finally {         //use of finally that always gets executed.
-      super.finalize(); // Calling finalize() of Object class
+1. Singleton: define a class has only one instance and provides a global access point to it.  
+    A singleton class is:
+    - Declare a private static variable to hold the single instance of the class.
+    - Make the constructor of the class private, so that no other instances can be created.
+    - Provide a public static method to return the single instance of the class, creating it if necessary.
+    public class Singleton {  
+        private static Singleton instance;  
+        private Singleton() {}  
+        public static synchronized Singleton getInstance() {  
+        if (instance == null) {  
+            instance = new Singleton();  
+        }  
+        return instance;  
+        }  
     }
-  }
-  public static void main(String[] args) throws Throwable {
-    demo d = new demo();
-    d.finalize(); 
-  }
-}
 
-16. Is it possible that the ‘finally’ block will not be executed? If yes then list the case.
-- If System.exit() is used.
-- fatal errors like Stack overflow, Memory access error, etc.
+2. Factory Method: Defines an interface for creating objects but lets subclasses decide which class to instantiate.
+3. Abstract Factory: Provides an interface for creating families of related or dependent objects without specifying their concrete classes.  
+4. Builder: Constructs a complex object step by step and allows customization of the construction process.  
+5. Prototype: Creates new objects by copying an existing object (prototype).  
 
-17. When can you use super keyword?
--> used to access parent class' data members, constructors, methods when child has overriden them.
+- Structural Design Patterns: focus on object composition and simplify the structure by identifying relationships.  
+1. Adapter: Allows incompatible interfaces to work together.  
+2. Bridge: Separates an object’s abstraction from its implementation.  
+3. Composite: Composes objects into tree structures to represent part-whole hierarchies.  
+4. Decorator: Dynamically adds behavior or responsibilities to objects.  
+5. Facade: Provides a simplified interface to a larger body of code.  
+6. Flyweight: Reduces memory usage by sharing objects instead of creating new ones.  
+7. Proxy: Provides a placeholder or surrogate to control access to an object.  
 
-18. Why is the main method static in Java?
-Static members belong to the classes, not to an individual object. 
-If it was not static, then each object will have an instance of main method -> not acceptable by JVM. 
-JVM calls the main method based on the class name itself. Not by creating the object.
-There must be only 1 main method in the java program as the execution starts from the main method. 
+- Behavioral Design Patterns: focus on object interaction and responsibility distribution.  
+1. Chain of Responsibility: Passes requests along a chain of handlers until one handles the request.  
+2. Command: Encapsulates a request as an object, allowing parameterization and queuing.  
+3. Interpreter: Implements a language grammar or syntax.  
+4. Iterator: Provides a way to access elements of a collection sequentially without exposing its underlying structure.  
+5. Mediator: Centralizes communication between objects.  
+6. Memento: Captures and restores an object's state without revealing its implementation.  
+7. Observer: Defines a dependency between objects so that when one changes state, all dependents are notified.  
+8. State: Encapsulates state-specific behavior in separate classes and delegates to the current state.  
+9. Strategy: Defines a family of algorithms and makes them interchangeable.  
+10. Template Method: Defines the skeleton of an algorithm in a base class but allows steps to be overridden in subclasses.  
+11. Visitor: Separates algorithms from object structure by moving the logic into visitor classes.  
 
-19. Can the static methods be overloaded? 
--> Yes! 
+- JEE Design Patterns:
+1. Presentation Tier Patterns:  
+   - Intercepting Filter: Filters requests and responses to perform pre-processing or post-processing.  
+   - Front Controller: Provides a centralized entry point to handle requests.  
+   - View Helper: Separates view-related code from business logic.  
+   - Composite View: Creates views from multiple subviews.  
+   - Service to Worker: Combines Front Controller and View Helper patterns.  
 
-20. Can the static methods be overridden?
-Overriding or dynamic polymorphism occurs during the runtime.
-but static methods are loaded and looked up at the compile time statically. Hence, these methods can't be overridden.
+2. Business Tier Patterns:  
+   - Business Delegate: Reduces coupling between presentation and business tiers.  
+   - Service Locator: Provides a single point of control to locate and retrieve services.  
+   - Session Facade: Simplifies interactions between clients and the business layer.  
+   - Application Service: Centralizes and manages business logic.  
 
-21. Difference between static methods, static variables, and static classes in java.
-Static variables & Methods: belongs to class and not to object, gets memory when class is loaded, called directly with the help of class names.
-Eg - Math.max(), .length;
-Static classes: only posssible in case of inner class and inner static class works exactly like other static members.
+3. Integration Tier Patterns:  
+   - Data Access Object (DAO): Encapsulates database access and operations.  
+   - Service Activator: Processes asynchronous requests.  
 
-22. What is the main objective of garbage collection?
--> frees up the memory space occupied by the unnecessary and unreachable objects by deleting them.
+4. Concurrency Patterns:  
+   - Thread Pool: Manages a pool of threads for resource optimization.  
+   - Work Queue: Processes tasks asynchronously.  
 
-23. What is a ClassLoader?
-- program that belongs to JRE (Java Runtime Environment). 
-- loads the required classes and interfaces to the JVM when required. 
-Example- To get input from the console, we require the scanner class. And the Scanner class is loaded by the ClassLoader.
-
-24. What part of memory - Stack or Heap - is cleaned in garbage collection process?
--> Heap.
-
-25. What are shallow copy and deep copy in java?
-* Shallow Copy: //diff ref variable points the same object
-    Rectangle obj1 = new Rectangle(); 
-    Rectangle obj2 = obj1;
-    // if obj1 changes then obj2 also changes
-* Deep Copy: 
-    Rectangle obj3 = new Rectangle();
-    Obj3.length = obj1.length;
-    Obj3.breadth = obj1.breadth;
-  or
-    obj2 = obj1.clone(); 
-    // no impact on obj3 if obj1 changes
-
-26. Apart from the security aspect, what are the reasons behind making strings immutable in Java?
-String pool -> a storage area in java heap to store string literals.
-
-
-
-
+-------------------------------------------------------------------------------------**THE END**----------------------------------------------------------------------------------------------------------------------
