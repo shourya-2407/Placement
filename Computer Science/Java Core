@@ -785,6 +785,14 @@ Multi Threading: Ability to execute multiple threads within a single process con
 Managing resources within a single program, where threads share the memory and resources.
 Eg: A Team Lead, assigns different teams to work on same project.
 
+* Java Multithreading: 
+- concurrent execution of 2 or more threads to maximise CPU utilisation.
+- single-core: multithreading managed by JVM and OS, the switch between threads to give the illusion of concurrency.
+- multi-core: JVM distributes threads across multiple cores, allowing true parallel execution.
+- Java supports multithreading through its Java.lang.Thread class and Java.lang.Runnable interface.
+- Java program starts main thread starts executing immediately. And the thread executes main method of the program.
+
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 8. Regular Expressions:
