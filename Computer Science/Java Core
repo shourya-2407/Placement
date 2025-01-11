@@ -792,6 +792,18 @@ Eg: A Team Lead, assigns different teams to work on same project.
 - Java supports multithreading through its Java.lang.Thread class and Java.lang.Runnable interface.
 - Java program starts main thread starts executing immediately. And the thread executes main method of the program.
 
+* Create a new Thread:
+Way 1. Extend Thread class. Override the run method and define code. Use start method to initiate the new thread.
+Way 2. Implement Runnable interface. Override the run method and define code. Create a Thread object by passing an instance of new class. 
+       Use start method to initiate the new thread.
+
+Lifecycle of Thread:
+New: created but not yet started.
+Runnable: after start method is called and is waiting for CPU time.
+Running: when it is executing.
+Blocked/Waiting: waiting for another thread to complete.
+Terminated: when finished execution.
+
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
