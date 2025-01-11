@@ -764,6 +764,7 @@ Eg: Intel Core i7, AMD Ryzen 7.
 Core -> an individual processing unit within CPU. Modern CPUs have multiple cores for multi-tasking.
 
 Program -> Set of instructions written in a programming language. 
+Eg: Microsoft Word is a program that allows users to create and edit documents.
 
 Process -> Instance of program that is being executed.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
