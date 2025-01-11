@@ -766,7 +766,25 @@ Core -> an individual processing unit within CPU. Modern CPUs have multiple core
 Program -> Set of instructions written in a programming language. 
 Eg: Microsoft Word is a program that allows users to create and edit documents.
 
-Process -> Instance of program that is being executed.
+Process -> Instance of program that is being executed. When a program runs, the OS creates a process to manage its execution.
+
+Thread -> Smallest unit of execution within a process. A process can have multiple threads, which share the same resources but can run independently.
+Eg: Google chrome uses multiple threads for operating different tabs.
+
+Multi Tasking: Allows OS to run multiple processes simultaneously.
+On single-core, this is done using time slicing and context switching between tasks.
+On multi-core, parallel execution occurs, with tasks distributed across cores.
+The OS scheduler balances the load, ensuring efficient and responsive system performance.
+Managing completely separate programs which may have independent memory spaces & system resources. 
+Eg: Office Manager, assigns different teams to work on different projects.
+
+Time Slicing: divides CPU time into small intervals called time slices or quanta.
+Context Switching: saving the state of currently running process or thread and loading the state of next one to be executed.
+
+Multi Threading: Ability to execute multiple threads within a single process concurrently.
+Managing resources within a single program, where threads share the memory and resources.
+Eg: A Team Lead, assigns different teams to work on same project.
+
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 8. Regular Expressions:
