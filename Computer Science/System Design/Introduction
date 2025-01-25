@@ -3,8 +3,6 @@
 2. Logical Entities: Data, Database, Applications, Cache, Message Queue, Infra, Communication
 3. Tangible Entities: Text/Image, MongoDB/MySQL, Java/Python, Redis, Kafka/RabbitMQ, AWS/Google cloud platform, APIs/RPCs/Messages
    (Technologies used by Logical entities)
-
-
 4. Client-Server Architecture: 
       Client                ==>    Server  (2 tier architecture)
       (presentation)        <==    (Logic and database)
