@@ -33,7 +33,7 @@ Reverse proxy =>
 - anonimity of server.
 - scrubs all incoming traffic before sending it to backend servers.
 - can efficiently distribute load for application using multiple servers.
-- deflates overall impact of Distributed Denial of Service attacks.
+- deflates overall impact of Distributed Denial of Service attacks (attackers flood a server with internet traffic).
 - provides a single configuration point to manage SSL/TSL.
 
 7. Data and Data flow
