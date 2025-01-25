@@ -4,6 +4,7 @@
 2. Logical Entities: Data, Database, Applications, Cache, Message Queue, Infra, Communication
 3. Tangible Entities: Text/Image, MongoDB/MySQL, Java/Python, Redis, Kafka/RabbitMQ, AWS/Google cloud platform, APIs/RPCs/Messages
    (Technologies used by Logical entities)
+
 4. Client-Server Architecture: 
 a. 2 tier architecture
 Client         ==>  Server  
@@ -38,8 +39,8 @@ Reverse proxy =>
 
 If an organisation blocks access to some sites, proxies can be used to bypass them.
 
-7. Data and Data flow
-    Business layer => text/vidoes/images
+6. Data and Data flow
+    Business layer(user level) => text/vidoes/images
     Application layer => JSON/XML
     DB => tables/indexes/lists/trees
     Network layer => packets
@@ -47,6 +48,7 @@ If an organisation blocks access to some sites, proxies can be used to bypass th
 Data stores => Databases, Queues, Caches, Indexes
 Data flows => APIs, Events, Messages
 Factors for System Design => Type of data, volume of data, consumption/retrieval, security.
+
 8. Types of Systems => Authorization, Streaming, Transactional, Heavy compute system.
 9. Databases:
     Relational => has a fixed schema and ACID properties. (Atomicity, Consistency, Isolation, Duarability)
