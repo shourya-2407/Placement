@@ -47,9 +47,10 @@ If an organisation blocks access to some sites, proxies can be used to bypass th
     Hardware => 0s & 1s
 Data stores => Databases, Queues, Caches, Indexes
 Data flows => APIs, Events, Messages
-Factors for System Design => Type of data, volume of data, consumption/retrieval, security.
+Factors for System Design => Type of data, volume of data, consumption/retrieval speed, security.
 
-8. Types of Systems => Authorization, Streaming, Transactional, Heavy compute system.
+7. Types of Systems => Authorization(low volume & high security), Streaming(high volume & high retrieval speed), Transactional(security), Heavy compute system.
+
 9. Databases:
     Relational => has a fixed schema and ACID properties. (Atomicity, Consistency, Isolation, Duarability)
     Non Relational => 
