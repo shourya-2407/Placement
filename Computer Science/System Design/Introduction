@@ -36,6 +36,8 @@ Reverse proxy =>
 - deflates overall impact of Distributed Denial of Service attacks (attackers flood a server with internet traffic).
 - provides a single configuration point to manage SSL/TSL.
 
+If an organisation blocks access to some sites, proxies can be used to bypass them.
+
 7. Data and Data flow
     Business layer => text/vidoes/images
     Application layer => JSON/XML
