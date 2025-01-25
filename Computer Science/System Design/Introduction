@@ -21,9 +21,21 @@ Eg: Large scale systems (gmail, facebook)
 Thin client: Logic on server side. Eg: E-commerce sites, Netflix and other streaming platforms.
 Thick client: Logic on client side. Eg: Gaming apps, Video editing softwares.
 
-6. Proxies
-    Forward proxy => proxy is on behalf of client
-    Reverse proxy => proxy is on behalf of server
+5. Proxies
+Forward proxy => 
+- proxy is on behalf of client.
+- disguises client's IP address.
+- blocks malicious traffic from reaching original web server.
+- improves user experience by caching external site content.
+
+Reverse proxy =>
+- proxy is on behalf of server.
+- anonimity of server.
+- scrubs all incoming traffic before sending it to backend servers.
+- can efficiently distribute load for application using multiple servers.
+- deflates overall impact of Distributed Denial of Service attacks.
+- provides a single configuration point to manage SSL/TSL.
+
 7. Data and Data flow
     Business layer => text/vidoes/images
     Application layer => JSON/XML
