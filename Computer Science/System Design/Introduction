@@ -106,30 +106,3 @@ Asynchronous communication: Continuous exchange of information is not necessary.
 ordered queues -> blocks the further processing of messages, if 1 message fails.
 unordered queues -> failed messages go into DLQ and other messages get processed.
 
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
