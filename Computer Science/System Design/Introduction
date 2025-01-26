@@ -55,7 +55,7 @@ Factors for System Design => Type of data, volume of data, consumption/retrieval
     Relational => has a fixed schema and ACID properties. (Atomicity, Consistency, Isolation, Duarability)
     Non Relational => 
     a. key-value stores -> eg-cache
-    b. document based -> eg-mogodb; can support heavy read and write, collections(table) and documents(row), dynamic data flexibility
+    b. document based -> eg-mogodb; can support heavy read and write, collections(table) and documents(row), dynamic data flexibility, highly scalable, sharding.
     c. column based -> eg-cassandra, hbase, scylla; only cols are required, 
                        realtime use case music app, columns can be -> users, songs, user_by_liked_song, song_by_user
     d. Index based(Search DBs) => eg-elastic, solar
