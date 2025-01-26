@@ -72,7 +72,7 @@ b. Microservice Architecture: separate applications to manage separate functiona
 a. Private APIs => Internal APIs used within a system/company.
 b. Public APIs => Open APIs that can be used without any restrictions.
 c. Partner APIs => Restricted APIs for clients and business partners.
-d. Composite APIs => APIs that combine services and data to streamline tasks
+d. Composite APIs => APIs that combine services and data to streamline tasks, access a set of related functionalities through a single API.
 
 11. Cache:
       Cache invalidation -> using ttl
