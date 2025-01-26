@@ -80,7 +80,7 @@ and making the payment, essentially combining multiple individual API requests i
       Cache invalidation -> using ttl
       Cache eviction -> using algorithms like FIFO(first in first out), LFU(least frequently used), LRU(least recently used).
       Cache Strategy -> 
-      a. Cache aside strategy -> server/application communicates with DB and cache. Cache has no direct access to DB.
+      a. Cache aside strategy -> server/application communicates with DB and cache. Cache has no direct access to DB. System won't go down if cache crashes.
       b. Read through strategy -> cache sits in between server and DB. Data modeling of cache and DB should be similar.
       c. Write through strategy -> cache sits in between server and DB. When the application updates data in cache, it has to update data in DB
       d. Write around strategy -> Application talks to Db for write operations and reads data from cache.
