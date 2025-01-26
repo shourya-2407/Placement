@@ -73,6 +73,8 @@ a. Private APIs => Internal APIs used within a system/company.
 b. Public APIs => Open APIs that can be used without any restrictions.
 c. Partner APIs => Restricted APIs for clients and business partners.
 d. Composite APIs => APIs that combine services and data to streamline tasks, access a set of related functionalities through a single API.
+Eg: Purchasing an item on an online store like Amazon, where a single API call could handle actions like finding the item, adding it to your cart, proceeding to checkout, 
+and making the payment, essentially combining multiple individual API requests into one to streamline the process.
 
 11. Cache:
       Cache invalidation -> using ttl
