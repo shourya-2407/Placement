@@ -88,16 +88,26 @@ and making the payment, essentially combining multiple individual API requests i
 
 13. REST APIs: Representational State transfer.
     Client server architecture, cacheable, supports layered architecture(i.e each node knows about only the immediate node), 
-    stateless(server/client doesn't save the state of the object, an uniform object is shared), uniform interface(all the apis should be built on same protocol).
-14. State transfer => state of data should be same. 
-    Stateless => server should not store the state of client request.
-15. Http status codes:
+    stateless(server/client doesn't save the state of the object, an uniform object is shared), uniform interface(all the apis should be built on same protocol),
+    code on demand (server should send code to client that it should execute on runtime like java applets or javascript).
+
+    State transfer => this refers to state of data is being transfered. 
+    Stateless => server is unknown to the state of client request.
+
+14. Http status codes:
     1xx -> informational      2xx -> success      3xx -> redirected
     4xx -> client error       5xx -> server error
-16. Message queues:
-    SQS, Kafka, Rabbit MQ.
-    ordered queues -> blocks the further processing of messages, if 1 message fails.
-    unordered queues -> failed messages go into DLQ and other messages get processed.
+
+15. Message queues:- SQS, Kafka, Rabbit MQ.
+
+Synchronous communication: Both parties are continuously exchanging information.
+Asynchronous communication: Continuous exchange of information is not necessary.
+
+ordered queues -> blocks the further processing of messages, if 1 message fails.
+unordered queues -> failed messages go into DLQ and other messages get processed.
+
+    
+    
 
 
 
