@@ -51,7 +51,7 @@ Factors for System Design => Type of data, volume of data, consumption/retrieval
 
 7. Types of Systems => Authorization(low volume & high security), Streaming(high volume & high retrieval speed), Transactional(security), Heavy compute system.
 
-9. Databases:
+8. Databases:
     Relational => has a fixed schema and ACID properties. (Atomicity, Consistency, Isolation, Duarability)
     Non Relational => 
     a. key-value stores -> eg-cache
@@ -59,10 +59,12 @@ Factors for System Design => Type of data, volume of data, consumption/retrieval
     c. column based -> eg-cassandra, hbase, scylla; only cols are required, 
                        realtime use case music app, columns can be -> users, songs, user_by_liked_song, song_by_user
     d. Index based(Search DBs) => eg-elastic, solar
-10. Applications
+
+9. Applications
     Frontend Applications -> render UI elements, handle interactions, collect data, communicate with BE(APIs), render static data 
     Backend Applications -> expose APIs, house business logic, handle data modeling, interact with data stores, interact with other services
-11. Cache:
+
+10. Cache:
       Cache invalidation -> using ttl
       Cache eviction -> using algorithms like FIFO(first in first out), LFU(least frequently used), LRU(least recently used).
       Cache Strategy -> 
