@@ -98,15 +98,20 @@ and making the payment, essentially combining multiple individual API requests i
     1xx -> informational      2xx -> success      3xx -> redirected
     4xx -> client error       5xx -> server error
 
-15. Message queues:- SQS, Kafka, Rabbit MQ.
+15. Message queues:- Middlewares used by different parts of a system to communicate asynchronously.
+Eg: SQS, Kafka, Rabbit MQ.
 
-Synchronous communication: Both parties are continuously exchanging information.
+Synchronous communication: Both parties are continuously exchanging information. Data shared in real time.
 Asynchronous communication: Continuous exchange of information is not necessary.
+
+Factors of message queues:
+Ordering: Ordered MQs and Unordered MQs.
+Consumption: One to one and One to many.
 
 ordered queues -> blocks the further processing of messages, if 1 message fails.
 unordered queues -> failed messages go into DLQ and other messages get processed.
 
-
+16. Pub-Sub Messaging:
 
 
 
