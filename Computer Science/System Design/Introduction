@@ -68,6 +68,12 @@ Factors for System Design => Type of data, volume of data, consumption/retrieval
 a. Monolithic Architecture: single application manages all the functionalities.
 b. Microservice Architecture: separate applications to manage separate functionalities.
 
+11. Types of APIs:
+a. Private APIs => Internal APIs used within a system/company.
+b. Public APIs => Open APIs that can be used without any restrictions.
+c. Partner APIs => Restricted APIs for clients and business partners.
+d. Composite APIs => APIs that combine services and data to streamline tasks
+
 11. Cache:
       Cache invalidation -> using ttl
       Cache eviction -> using algorithms like FIFO(first in first out), LFU(least frequently used), LRU(least recently used).
