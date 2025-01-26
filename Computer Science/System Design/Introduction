@@ -85,6 +85,7 @@ and making the payment, essentially combining multiple individual API requests i
       c. Write through strategy -> cache sits in between server and DB. When the application updates data in cache, it has to update data in DB
       d. Write around strategy -> Application talks to Db for write operations and reads data from cache.
       e. Write back strategy -> cache is between application and DB. And all the writes are processed in bulk. It also handles DB downtime.
+
 12. REST APIs: Representational State transfer.
     Client server architecture, cacheable, supports layered architecture(i.e each node knows about only the immediate node), 
     stateless(server/client doesn't save the state of the object, an uniform object is shared), uniform interface(all the apis should be built on same protocol).
