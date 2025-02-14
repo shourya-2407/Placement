@@ -151,7 +151,7 @@ Base finalfun() called
 
 2. Interface:
 - Provides 100% abstraction
-- Could only have abstract methods (methods without a body) and public, static, and final variables by default.
+- Could only have abstract methods (methods without a body).
 - It can achieve multiple inheritances.
 - If a class implements 2 interfaces and they have same methods, then only one implementation is required.
 - Interfaces can be declared as private, protected or transient.
