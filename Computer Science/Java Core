@@ -241,7 +241,7 @@ Use an **interface** when you want to define a set of rules that multiple unrela
 * Polymorphism
 1. Compile Time polymorphism:
 There are 3 types:
-a. Function Overloading
+a. Method Overloading
 b. Operator Overloading
 c. Template 
 
