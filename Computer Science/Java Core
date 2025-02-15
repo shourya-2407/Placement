@@ -27,9 +27,12 @@
 - Improves Code Maintainability: Internal implementation can change without affecting other parts of the application.
 - Enhances Modularity: Each class handles its own data, reducing dependencies and improving reusability.
 
-~ How Does Encapsulation Improve Security?
+Q. How Does Encapsulation Improve Security?
 Encapsulation improves security by restricting direct access to variables and ensuring controlled data modification through methods(e.g., a bank account balance should never be negative).
 It prevents unauthorized changes, maintains data integrity, and makes the code more maintainable.
+
+Q. Can we achieve encapsulation without getters and setters?
+Yes, encapsulation can be achieved without getters and setters by using private variables and constructor-based initialization to ensure data security.
 
 * Inheritance:
 - IS-A relation, B IS-A C, so class B can extend class C.
