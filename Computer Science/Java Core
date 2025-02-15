@@ -31,7 +31,6 @@
 Encapsulation improves security by restricting direct access to variables and ensuring controlled data modification through methods(e.g., a bank account balance should never be negative).
 It prevents unauthorized changes, maintains data integrity, and makes the code more maintainable.
 
-
 * Inheritance:
 - IS-A relation, B IS-A C, so class B can extend class C.
 - HAS-A relation, B HAS-A C, so class B can have an instance variable of class C.
