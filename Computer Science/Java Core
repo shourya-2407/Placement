@@ -156,7 +156,7 @@ Base finalfun() called
 - If a class implements 2 interfaces and they have same methods, then only one implementation is required.
 - Interfaces can be declared as private, protected or transient.
 - Interface by default abstract and public.
-- Variables declared in interfacec are public, static, final by default.
+- Variables declared in interface are public, static, final by default.
 - Interface variables must be initialized at the time of declaration otherwise compiler will throw an error.
 - Inside any implementation class, you cannot change the variables declared in an interface.
 - Variable name conflict can be resolved by Interface name. For instance, Interface A and B have variable x, then access it as A.x nand B.x.
