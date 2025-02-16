@@ -83,6 +83,16 @@ class Counter {
 }
 
 3. Supports Immutability (No Synchronization Needed)
+
+Q. How does Encapsulation relate to Immutable Classes in Java?
+Encapsulation and Immutability are closely related because encapsulation helps enforce immutability by restricting direct modification of fields.
+Steps to Create an Immutable Class:
+1️⃣ Declare the class as final (So it can’t be subclassed).
+2️⃣ Make all fields private and final (So they can't be modified).
+3️⃣ Provide only getters, no setters (No way to change values).
+4️⃣ Initialize fields via a constructor (No external modification).
+5️⃣ Return defensive copies for mutable fields (Prevents modification of internal objects).
+
 final class ImmutableData {
     private final int value;
     public ImmutableData(int value) {
