@@ -34,6 +34,65 @@ It prevents unauthorized changes, maintains data integrity, and makes the code m
 Q. Can we achieve encapsulation without getters and setters?
 Yes, encapsulation can be achieved without getters and setters by using private variables and constructor-based initialization to ensure data security.
 
+Q. Can encapsulation be broken in Java? If yes, how?
+Encapsulation can be broken using Reflection API, which allows access to private fields and methods.
+
+import java.lang.reflect.Field;
+class Secret {
+    private String secretCode = "12345";  // Private field
+}
+
+public class ReflectionDemo {
+    public static void main(String[] args) throws Exception {
+        Secret obj = new Secret();
+        Field field = Secret.class.getDeclaredField("secretCode");
+        field.setAccessible(true);  // Bypasses encapsulation
+        field.set(obj, "Hacked!");
+        System.out.println(field.get(obj));  // Output: Hacked!
+    }
+}
+How to Prevent It?
+1️⃣ Use Security Manager – It can restrict Reflection API access.
+2️⃣ Mark fields as final – This makes it harder to modify using reflection.
+3️⃣ Use sealed classes (Java 15+) – Restricts which classes can extend a class.
+4️⃣ Throw an Exception if Reflection is Used
+
+Q. How does encapsulation improve performance in a multi-threaded application?
+1. Prevents Race Conditions (Thread-Safe Data Access)
+class BankAccount {
+    private double balance;  // Private ensures direct access is not possible
+    public synchronized void deposit(double amount) {  // Thread-safe
+        if (amount > 0) balance += amount;
+    }
+    public synchronized double getBalance() {  // Thread-safe read operation
+        return balance;
+    }
+}
+
+2. Reduces Synchronization Overhead (the extra time and resources used to manage synchronization)
+class Counter {
+    private int count;
+    public void increment() {  // No unnecessary locking
+        synchronized (this) {
+            count++;
+        }
+    }
+    public int getCount() {
+        return count;
+    }
+}
+
+3. Supports Immutability (No Synchronization Needed)
+final class ImmutableData {
+    private final int value;
+    public ImmutableData(int value) {
+        this.value = value;
+    }
+    public int getValue() {
+        return value;
+    }
+}
+
 * Inheritance:
 - IS-A relation, B IS-A C, so class B can extend class C.
 - HAS-A relation, B HAS-A C, so class B can have an instance variable of class C.
