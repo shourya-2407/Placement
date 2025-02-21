@@ -91,7 +91,7 @@ Steps to Create an Immutable Class:
 2️⃣ Make all fields private and final (So they can't be modified).
 3️⃣ Provide only getters, no setters (No way to change values).
 4️⃣ Initialize fields via a constructor (No external modification).
-5️⃣ Return defensive copies for mutable fields (Prevents modification of internal objects).
+5️⃣ Return defensive copies(a new object with the same values) for mutable fields (Prevents modification of internal objects).
 
 final class ImmutableData {
     private final int value;
