@@ -109,6 +109,8 @@ final class ImmutableData {
 - IS-A relation, B IS-A C, so class B can extend class C.
 - HAS-A relation, B HAS-A C, so class B can have an instance variable of class C.
 - public members are inherited and private members are not. Use getter/setter methods or protected access if access is needed.
+- The methods in the subclass override the parent class methods.
+- Constructors are NOT inherited by a subclass.
 - Anything that extends the reference variable can be assigned to the reference variable.
     Eg: List<String> myList = new ArrayList<>();
 
@@ -162,6 +164,50 @@ Eg: class Dog extends Mammal implements Animal, Walker {...}
 | Return Type          | Must be the same (or covariant)                             | Can be different                              
 | Static Methods?      | Cannot override `static` methods (hiding happens instead)   | Can overload `static` methods                 
 | Runtime/Compile-time | Happens at runtime (dynamic binding)                        | Happens at compile-time (static binding) 
+
+Q. Are Constructors Inherited by a Subclass?
+- Constructors are NOT inherited because each class has unique initialization logic.
+- A subclass must call a superclass constructor explicitly using super(), otherwise Java automatically calls the default constructor of the superclass.
+- If the superclass does not have a default constructor, the subclass must explicitly call one of its parameterized constructors.
+- The superclass constructor always executes first to ensure proper initialization.
+
+Q. How Does the super Keyword Work in Java Inheritance?
+- Access Superclass Methods
+- Access Superclass Fields 
+- Call Superclass Constructor (super())
+- Java always calls the default constructor of the parent class.
+- If a superclass only has a parameterized constructor, the subclass must explicitly call it using super(arguments), otherwise a compilation error occurs.
+It is basically an alias for parent class name.
+
+Q. Can a Subclass Override a Static Method from Its Superclass? Why or Why Not?
+- No, a subclass cannot override a static method from its superclass.
+- If a subclass defines a static method with the same signature, it is called method hiding rather than overriding.
+- Static methods belong to the class, not the instance.
+- Method overriding relies on runtime polymorphism (dynamic binding), which does not apply to static methods.
+- Since startEngine() is static, Vehicle.startEngine() is called based on the reference type (Vehicle). 
+- Correct Way to Call a Hidden Static Method is to use the subclass reference: Car.startEngine(); // Output: Car engine started
+
+Eg:
+class Vehicle {
+    static void startEngine() {
+        System.out.println("Vehicle engine started");
+    }
+}
+
+class Car extends Vehicle {
+    static void startEngine() { // This does NOT override the superclass method
+        System.out.println("Car engine started");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle myCar = new Car();
+        myCar.startEngine(); // Calls Vehicle's method, NOT Car's!
+    }
+}
+
+
 
 * Abstraction:
 Hiding details and showing essential things to the user.
