@@ -105,6 +105,7 @@ final class ImmutableData {
 
 * Inheritance:
 - Allows a class to inherit properties and behaviour from another class.
+- Useful for: Code reusability, maintainability, extensibility, establishing relations.
 - IS-A relation, B IS-A C, so class B can extend class C.
 - HAS-A relation, B HAS-A C, so class B can have an instance variable of class C.
 - public members are inherited and private members are not.
