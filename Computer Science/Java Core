@@ -163,8 +163,6 @@ Eg: class Dog extends Mammal implements Animal, Walker {...}
 | Static Methods?      | Cannot override `static` methods (hiding happens instead)   | Can overload `static` methods                 
 | Runtime/Compile-time | Happens at runtime (dynamic binding)                        | Happens at compile-time (static binding) 
 
-
-
 * Abstraction:
 Hiding details and showing essential things to the user.
 
