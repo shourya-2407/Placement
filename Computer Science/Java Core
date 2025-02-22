@@ -151,6 +151,19 @@ final class ImmutableData {
 
 Eg: class Dog extends Mammal implements Animal, Walker {...}
 
+## Difference Between Method Overriding and Method Overloading
+
+| Feature              | Method Overriding                                           | Method Overloading                           
+|----------------------|-------------------------------------------------------------|----------------------------------------------------------------------
+| Definition           | Redefining a method in the subclass                         | Defining multiple methods with the same name but different parameters 
+| Where it happens?    | Between superclass and subclass                             | Within the same class                      
+| Method Signature     | Must have the same method name, return type, and parameters | Must have the same name but different parameter lists 
+| Access Modifier      | Cannot reduce the visibility                                | No restrictions on visibility 
+| Return Type          | Must be the same (or covariant)                             | Can be different                              
+| Static Methods?      | Cannot override `static` methods (hiding happens instead)   | Can overload `static` methods                 
+| Runtime/Compile-time | Happens at runtime (dynamic binding)                        | Happens at compile-time (static binding) 
+
+
 
 * Abstraction:
 Hiding details and showing essential things to the user.
