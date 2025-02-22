@@ -32,7 +32,7 @@ Encapsulation improves security by restricting direct access to variables and en
 It prevents unauthorized changes, maintains data integrity, and makes the code more maintainable.
 
 Q. Can we achieve encapsulation without getters and setters?
-Yes, encapsulation can be achieved without getters and setters by using private variables and constructor-based initialization to ensure data security.
+-> Making fields private, using controlled access methods, constructor injection, and interfaces.
 
 Q. Can encapsulation be broken in Java? If yes, how?
 Encapsulation can be broken using Reflection API, which allows access to private fields and methods.
