@@ -108,7 +108,7 @@ final class ImmutableData {
 - Useful for: Code reusability, maintainability, extensibility, establishing relations.
 - IS-A relation, B IS-A C, so class B can extend class C.
 - HAS-A relation, B HAS-A C, so class B can have an instance variable of class C.
-- public members are inherited and private members are not.
+- public members are inherited and private members are not. Use getter/setter methods or protected access if access is needed.
 - Anything that extends the reference variable can be assigned to the reference variable.
     Eg: List<String> myList = new ArrayList<>();
 
