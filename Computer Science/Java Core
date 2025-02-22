@@ -208,7 +208,7 @@ public class Main {
 }
 
 * Abstraction:
-Hiding details and showing essential things to the user.
+Hiding details and showing essential functionality to the user.
 
 Abstraction can be achieved using 2 ways:
 
@@ -221,6 +221,7 @@ Abstraction can be achieved using 2 ways:
 - Abstract is a java modifier not applicable for variables.
 - We can have an abstract class without any abstract method. This allows us to create classes that cannot be instantiated but can only be inherited. 
 - There can be final method in an abstract class, but an abstract method can not be declared as final.
+- Can an abstract class have final methods? -> Yes, but they cannot be overridden.
 - The abstract keyword for declaring top-level classes (Outer class) as well as inner classes as abstract
 abstract class B {
     abstract class C {
@@ -294,6 +295,8 @@ Base finalfun() called
 - Interface variables must be initialized at the time of declaration otherwise compiler will throw an error.
 - Inside any implementation class, you cannot change the variables declared in an interface.
 - Variable name conflict can be resolved by Interface name. For instance, Interface A and B have variable x, then access it as A.x nand B.x.
+-  Can an interface have constructors? -> No, because interfaces cannot have instance variables.
+- What happens if an interface has two default methods with the same name? -> The class must override the method to resolve conflict.
 
 Eg:
 public interface Try{
@@ -304,6 +307,9 @@ public interface Try{
     static int e = 10; //valid
     int x; //invalid
 }
+
+Q. What happens if a class implements multiple interfaces with the same method signatures?
+✅ The class only provides one implementation of the method.
 
 Q. What are nested interfaces?
 
@@ -357,6 +363,9 @@ public class InterfaceExample {
         dog.sleep();     // Outputs: Sleeping...
     }
 }
+
+Q. How does functional programming use abstraction?
+Q. Role of abstraction in scalable applications?
 
 Diff between Abstract class and Interfaces:
 1. Purpose: Abstract classes share behavior among related classes; interfaces define a contract for unrelated classes.  
