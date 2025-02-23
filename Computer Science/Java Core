@@ -295,7 +295,7 @@ Base finalfun() called
 - Interface variables must be initialized at the time of declaration otherwise compiler will throw an error.
 - Inside any implementation class, you cannot change the variables declared in an interface.
 - Variable name conflict can be resolved by Interface name. For instance, Interface A and B have variable x, then access it as A.x nand B.x.
--  Can an interface have constructors? -> No, because interfaces cannot have instance variables.
+-  Can an interface have constructors? -> No, because interfaces cannot have instance variables. They cannot Be Instantiated and are meant for abstraction.
 - What happens if an interface has two default methods with the same name? -> The class must override the method to resolve conflict.
 
 Eg:
