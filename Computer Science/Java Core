@@ -404,13 +404,12 @@ Use an abstract class when you need shared code and behavior among related class
 Use an **interface** when you want to define a set of rules that multiple unrelated classes should implement.
 
 * Polymorphism
-1. Compile Time polymorphism:
-There are 3 types:
-a. Method Overloading
-b. Operator Overloading
-c. Template 
+- Polymorphism in Java refers to the ability of an object to take many forms.
+- It allows methods to perform different behaviors based on the object that calls them.
 
-A. Method overloading (multiple methods with the same name but different parameters)
+1. Compile Time polymorphism:
+There are 3 types of compile time polymorphism:
+A. Method overloading - multiple methods with the same name but different parameters (different number, type, or order of parameters).
 (method signature is method name and method parameter)
 => class Helper {
     static int Multiply(int a, int b)     // Method with 2 integer parameters
@@ -463,7 +462,7 @@ int main() {
 }
 
 2. Run Time polymorphism (Dynamic Method Dispatch): 
-A function call to the overridden method is resolved at Runtime. 
+A function call to the overridden method is resolved at Runtime. The method that gets executed is determined by the actual object type, not the reference type.
 -> Method Overriding
    - Methods with same signature and name are overriden from the inherited class.
    - The argument list of the child class should match the parent class
@@ -496,6 +495,50 @@ class GFG {
 Output
 subclass1
 subclass2
+
+Q. What happens if we change the access modifier of an overridden method?
+The overridden method cannot have a more restrictive access modifier but can have a broader one.
+class Parent {
+    protected void display() {  // protected method
+        System.out.println("Parent method");
+    }
+}
+class Child extends Parent {
+    @Override
+    public void display() {  // public is less restrictive than protected
+        System.out.println("Child method");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Parent obj = new Child();
+        obj.display();  // Calls Child's display()
+    }
+}
+
+Q. Can you overload a method by changing only the return type? Why or why not?
+No, because the return type is not considered part of the method signature. The compiler cannot distinguish between methods based solely on return type.
+
+Q. Can we override private methods?
+No, private methods are not inherited, so they cannot be overridden. They are only accessible within the class where they are declared.
+
+Q. What is covariant return type in method overriding?
+In Java, an overridden method can return a subtype of the return type in the parent class.
+class Parent {
+    Parent get() { return this; }
+}
+class Child extends Parent {
+    @Override
+    Child get() { return this; } // Covariant return type
+}
+
+Q. How does the JVM handle method dispatch in runtime polymorphism?
+JVM uses vtable (virtual method table) to store addresses of overridden methods. At runtime, the actual method call is resolved using dynamic method dispatch.
+
+Q. What is the role of polymorphism in design patterns?
+Many design patterns use polymorphism, such as:
+Factory Pattern: Uses method overriding to create objects dynamically.
+Strategy Pattern: Uses polymorphism to switch between different algorithms at runtime.
 
 * Erros Vs Exception:
 - Both Errors and Exceptions are the subclasses of java.lang.Throwable class 
