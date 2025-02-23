@@ -309,12 +309,37 @@ public interface Try{
 }
 
 Q. What happens if a class implements multiple interfaces with the same method signatures?
-✅ The class only provides one implementation of the method.
+-> The class only provides one implementation of the method.
 
 Q. What are nested interfaces?
 
 Q. Why use interfaces when we have abstract classes?
--> The reason is, abstract classes may contain non-final variables, whereas variables in the interface are final, public, and static.
+-> The reason is, abstract classes may contain non-final variables, whereas variables in the interface are final, public, and static. Or to get 100% abstraction.
+
+Q. Overriding a Default Method in an Interface
+interface Gadget {
+    default void showDetails() {
+        System.out.println("Gadget Details: Default Implementation");
+    }
+}
+
+class Smartphone implements Gadget {
+    @Override
+    public void showDetails() {
+        System.out.println("Smartphone Details: Overridden Implementation");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Gadget myPhone = new Smartphone();
+        myPhone.showDetails();
+    }
+}
+
+Q. How does functional programming use abstraction?
+
+Q. Role of abstraction in scalable applications?
 
 Abstract class:
 abstract class Animal {
@@ -363,9 +388,6 @@ public class InterfaceExample {
         dog.sleep();     // Outputs: Sleeping...
     }
 }
-
-Q. How does functional programming use abstraction?
-Q. Role of abstraction in scalable applications?
 
 Diff between Abstract class and Interfaces:
 1. Purpose: Abstract classes share behavior among related classes; interfaces define a contract for unrelated classes.  
