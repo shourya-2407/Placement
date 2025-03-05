@@ -2,6 +2,11 @@ March 4th: DSA & Java Core
 
 1️⃣ DSA (Solve 4-5 questions)
 Topics: Arrays & Strings, Linked List Questions:
+Optimisation techniques: 
+1. HashMap: 
+2. Two pointers: Sorted Array or Linked List, searching for pairs or triplets, Maximizing/Minimizing Something, Comparing or Merging Two Lists.
+3. Sliding Window:
+   
 * Easy:
     * Find the second largest element in an array
       
