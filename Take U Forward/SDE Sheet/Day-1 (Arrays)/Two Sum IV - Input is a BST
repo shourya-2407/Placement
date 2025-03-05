@@ -73,3 +73,12 @@ class Solution {
         inorder(root.right, nums);
     }
 }
+
+| Approach                                | TC    | SC   |
+|-----------------------------------------|-------|------|
+| Morris Traversal (Best Space Optimized) | O(N)  | O(1) |
+| Two Pointers + Inorder Array            | O(N)  | O(N) |
+| HashSet (Your Original Approach)        | O(N)  | O(N) |
+| Brute Force (Nested Loops)              | O(N²) | O(N) |
+
+
