@@ -42,3 +42,34 @@ class Solution {
         return inorder(root.left, k, nodeSet) || inorder(root.right, k, nodeSet);
     }
 }
+
+More Better using 2 pointers:
+class Solution {
+    public boolean findTarget(TreeNode root, int k) {
+        ArrayList<Integer> nums = new ArrayList<>();
+
+        inorder(root, nums);
+
+        int left = 0;
+        int right = nums.size() - 1;
+        while(left < right){
+            if(nums.get(left) + nums.get(right) > k){
+                right--;
+            } else if(nums.get(left) + nums.get(right) < k){
+                left++;
+            } else {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void inorder(TreeNode root, List<Integer> nums){
+        if(root == null) return;
+
+        inorder(root.left, nums);
+        nums.add(root.val);
+        inorder(root.right, nums);
+    }
+}
