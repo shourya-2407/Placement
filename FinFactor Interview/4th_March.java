@@ -69,6 +69,54 @@ Optimisation techniques:
    }
    
     * Reverse a linked list (iterative & recursive)
+
+   Brute Force:
+   class Solution {
+    public ListNode reverseList(ListNode head) {
+        ArrayList<Integer> nodeList = new ArrayList<>();
+
+        ListNode newHead = head;
+        while(newHead != null){
+            nodeList.add(newHead.val);
+            newHead = newHead.next;
+        }
+
+        Collections.reverse(nodeList);
+
+        int i = 0;
+        newHead = head;
+        while(newHead != null){
+            newHead.val = nodeList.get(i);
+            i++;
+            newHead = newHead.next;
+        }
+        return head;
+     }
+   }
+
+   Better Brute Force:
+   class Solution {
+    public ListNode reverseList(ListNode head) {
+        
+        if (head == null || head.next == null) return head;
+        
+        ArrayList<ListNode> nodeList = new ArrayList<>();
+
+        while(head != null){
+            nodeList.add(head);
+            head = head.next;
+        }
+
+        for(int i = nodeList.size() - 1; i > 0; i--){
+            nodeList.get(i).next = nodeList.get(i - 1);
+        }
+        nodeList.get(0).next = null;
+
+        return nodeList.get(nodeList.size() - 1);
+     }
+   }
+
+
 * Medium:
     * Two Sum (LeetCode #1)
     * Longest Substring Without Repeating Characters (LeetCode #3)
