@@ -116,6 +116,25 @@ Optimisation techniques:
      }
    }
 
+   Optimised Iterative using 2 pointers:
+   class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode rev = null;
+        ListNode next;
+
+        while(head != null){
+            next = head.next;
+            head.next = rev;
+            rev = head;
+            head = next;
+        }
+
+        return rev;
+    }
+   }
+
+   Optimised recursive:
+
 
 * Medium:
     * Two Sum (LeetCode #1)
