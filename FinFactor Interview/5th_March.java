@@ -7,6 +7,7 @@
 1️⃣ **Maximum Average Subarray I** (LeetCode #643)  --> Done!
 2️⃣ **Longest Substring Without Repeating Characters** (LeetCode #3)  
 3️⃣ **Contains Duplicate II** (LeetCode #219)  --> Done!
+4️⃣ **Longest Subarray of 1's After Deleting One Element** (LeetCode #1493)  -->
 
 
 ### **🟡 Hashing & Two Pointers Problems:**  
