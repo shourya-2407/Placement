@@ -4,13 +4,13 @@
 - **Two Pointers**  
 
 ### **🟢 Sliding Window Problems:**  
-1️⃣ **Maximum Average Subarray I** (LeetCode #643)  
+1️⃣ **Maximum Average Subarray I** (LeetCode #643)  --> Done!
 2️⃣ **Longest Substring Without Repeating Characters** (LeetCode #3)  
-3️⃣ **Contains Duplicate II** (LeetCode #219)  
+3️⃣ **Contains Duplicate II** (LeetCode #219)  --> Done!
 
 
 ### **🟡 Hashing & Two Pointers Problems:**  
-4️⃣ **Two Sum** (LeetCode #1)  
+4️⃣ **Two Sum** (LeetCode #1)  --> Done!
 5️⃣ **Find Target in a BST** (LeetCode #653)  
 6️⃣ **3Sum** (LeetCode #15) *(Optional - Uses Two Pointers & Hashing)*  
 
