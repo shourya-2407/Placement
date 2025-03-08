@@ -27,3 +27,31 @@ class Solution {
         return ans;
     }
 }
+
+// Better brute force using frequency array
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        int m = p.length();
+        List<Integer> ans = new ArrayList<>();
+
+        int[] pFreq = new int[26];
+        for(char ch : p.toCharArray()){
+            pFreq[ch - 'a']++;
+        }
+
+        for(int i = 0; i <= s.length() - m; i++){
+            int[] sFreq = new int[26];
+            for(int j = i; j < i + m; j++){
+                sFreq[s.charAt(j) - 'a']++;
+            }
+            if(Arrays.equals(pFreq, sFreq)) {
+                ans.add(i);
+            }
+        }
+
+        return ans;
+    }
+}
+
+
+// Optimised approach using frequency array and sliding algorithm
