@@ -55,3 +55,32 @@ class Solution {
 
 
 // Optimised approach using frequency array and sliding algorithm
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        List<Integer> ans = new ArrayList<>();
+        int m = p.length();
+        int n = s.length();
+        
+        if (m > n) return ans;
+
+        int[] pFreq = new int[26];
+        int[] sFreq = new int[26];
+        for(int i = 0; i < m; i++){
+            pFreq[p.charAt(i) - 'a']++;
+            sFreq[s.charAt(i) - 'a']++;
+        }
+
+        if(Arrays.equals(pFreq, sFreq)) ans.add(0);
+
+        for(int i = m; i < n; i++){
+            sFreq[s.charAt(i - m) - 'a']--;
+            sFreq[s.charAt(i) - 'a']++;
+
+            if(Arrays.equals(pFreq, sFreq)) {
+                ans.add(i - m + 1);
+            }
+        }
+
+        return ans;
+    }
+}
