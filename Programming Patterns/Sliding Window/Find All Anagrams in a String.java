@@ -1,4 +1,4 @@
-Brute Force:
+//Brute Force:
 class Solution {
 
     public static boolean areAnagrams(String str1, char[] arr2) {
