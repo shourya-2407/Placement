@@ -16,3 +16,23 @@ class Solution {
         return max_length;
     }
 }
+
+// Optimal Solution using sliding window
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        Map<Character, Integer> _map = new HashMap<>();
+        int maxLength = 0;
+        int left = 0;
+
+        for(int right = 0; right < s.length(); right++){
+            if(_map.containsKey(s.charAt(right))){
+                left = Math.max(left, _map.get(s.charAt(right)) + 1);
+            }
+            
+            _map.put(s.charAt(right), right);
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+
+        return maxLength;
+    }
+}
