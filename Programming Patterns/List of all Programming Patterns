@@ -1,6 +1,6 @@
 1. Sliding window
 2. Two pointer
-3. Fast and slow pointers
+3. Fast and slow pointers (Floyd’s Cycle Detection)
 4. Merge Intervals
 5. Cyclic sort
 6. In place reversal of linkedlist
@@ -18,3 +18,21 @@
 18. Backtracking
 19. Monotonic Stack
 20. Multi-threaded
+
+
+
+1. Sliding Window  
+2. Two Pointers  
+3. Fast & Slow Pointers 
+4. Merge Intervals
+5. Kadane’s Algorithm  
+6. Binary Search  
+7. Backtracking  
+8. Recursion and Divide & Conquer  
+9. Dynamic Programming (DP)  
+10. Bit Manipulation  
+11. Graph Traversal (BFS & DFS)  
+12. Topological Sorting  
+13. Trie (Prefix Tree)  
+14. Heap (Priority Queue) for Optimization  
+15. Union-Find (Disjoint Set Union - DSU)
