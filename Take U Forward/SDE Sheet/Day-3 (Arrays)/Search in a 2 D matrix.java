@@ -5,7 +5,7 @@
 // Whenever we find a mid element => what will be the actual row and column value
 // row = mid / m; col = mid % m. m ==> number of rows.
 
-Java:
+// Java:
 public class Solution {
 
     public boolean searchMatrix(int[][] matrix, int target) {
