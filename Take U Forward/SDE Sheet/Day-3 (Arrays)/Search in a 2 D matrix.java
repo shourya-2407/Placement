@@ -1,4 +1,39 @@
-// Approach
+// O(N) Approach
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int i = m - 1;
+
+        for(; i >= 0; i--){
+            if(target >= matrix[i][0]){
+                break;
+            }
+        }
+        if(i == -1) return false;
+
+        int left = 0, right = n - 1;
+
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            int num = matrix[i][mid];
+
+            if (num == target)
+                return true;
+
+            if (num < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return false;
+    }
+}
+
+
+// O(log(m*n)) Optimal Approach
 // The expected time complexity is O(log(m*n))
 // Which is only possible if we flatten this 2D matrix to 1D matrix of size m*n and then apply binary search
 // Now consider we have flattened the matrix.
