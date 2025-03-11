@@ -1,4 +1,4 @@
-*Optimal Solution*
+// *Optimal Solution*
 // LOGIC:
 // each element position = nCr (n = row - 1, r = col - 1)
 // ele = previous ele * (row - col)/(col)
@@ -28,10 +28,9 @@ class Solution {
 }
 
 
-
-*Brute Force*
-Learnings:
-This is how u can handle questions with list of lists.
+// *Brute Force*
+// Learnings:
+// This is how u can handle questions with list of lists.
 
 class Solution {
     public List<List<Integer>> generate(int numRows) {
