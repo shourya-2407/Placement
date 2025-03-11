@@ -3,7 +3,7 @@
 // If you inc the counter for every occurrence of element, reduce every time some other element occurs
 // Logic: If the counter is greater than 1 then the element dominates. so that is the majority element.
 
-Java:
+// Java:
 class Solution {
     public int majorityElement(int[] nums) {
         int max_ele = 0;
