@@ -1,6 +1,6 @@
 //Logic: For a  given day find the min value and the max profit.
 
-Java:
+// Java:
 class Solution {
     public int maxProfit(int[] prices) {
        int min = prices[0];
