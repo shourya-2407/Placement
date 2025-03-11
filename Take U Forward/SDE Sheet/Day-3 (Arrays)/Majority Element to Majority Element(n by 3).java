@@ -1,8 +1,8 @@
 // Algorithm:
-// The first trick lies in identifying that at max there can be only 2 elements that occur more than n/3
+// The first trick lies in identifying that *at max* (1 or 2, so re-verify after finding the elements) there can be only 2 elements that occur more than n/3
 // Next iterate with 2 pointers making sure that they don't point the same element.
 
-Java:
+// Java:
 class Solution {
     public List<Integer> majorityElement(int[] nums) {
         int cnt1 = 0;
