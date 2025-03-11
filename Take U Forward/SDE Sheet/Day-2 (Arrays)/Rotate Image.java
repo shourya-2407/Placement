@@ -1,9 +1,10 @@
-Logic: 
-In order to rotate the matrix by 90 deg
-Transpose the matrix. (rows become columns, columns become rows)
-Reverse the row data
+// Logic: 
+// In order to rotate the matrix by 90 deg
+// Transpose the matrix. (rows become columns, columns become rows)
+// Reverse the row data
 
-Java:
+// Java:
+// Optimal Solution
 class Solution {
     public void rotate(int[][] matrix) {
         int n = matrix.length;
