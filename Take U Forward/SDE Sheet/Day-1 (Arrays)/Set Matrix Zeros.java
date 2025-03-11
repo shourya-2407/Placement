@@ -1,8 +1,8 @@
-Learnings: 
-1. Java Arraylists don't have default values.
-2. Set method for arraylist => public E set(int index, E element)
+// Learnings: 
+// 1. Java Arraylists don't have default values.
+// 2. Set method for arraylist => public E set(int index, E element)
 
-Optimum Solution (Java): 
+// Optimum Solution (Java): 
 class Solution {
     public void setZeroes(int[][] matrix) {
         int col0 = 1;
@@ -38,7 +38,7 @@ class Solution {
 
 
 
-Solution using extra space (Java): 
+// Solution using extra space (Java): 
 class Solution {
     public void setZeroes(int[][] matrix) {
         ArrayList<Integer> zeroRows = new ArrayList<>();
