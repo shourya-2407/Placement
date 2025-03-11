@@ -1,9 +1,9 @@
-Learning: 
-Solution using 2 pointers
+// Learning: 
+// Solution using 2 pointers
+// No need to replace i and j values with zero, because anyways the value later is handled by k and will be over written
 
-Java: 
-Optimised Solution:
-
+// Java: 
+// Optimised Solution:
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int i = m - 1;
@@ -13,11 +13,8 @@ class Solution {
         while(j >= 0){
             if(i >= 0 && nums1[i] > nums2[j]){
                 nums1[k--] = nums1[i--];
-//                nums1[i--] = 0;  no need to replace i and j values with zero, 
-//                                 because anyways the value later is handled by k and will be over written
             } else{
                 nums1[k--] = nums2[j--];
-//                nums2[j--] = 0;
             }
         }
     }
@@ -25,9 +22,8 @@ class Solution {
 
 
 
-Java: 
-Your solution:  (You were close enough sweety!)
-
+// Java: 
+// Your solution:  (You were close enough sweety!)
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int i = m - 1;
