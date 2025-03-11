@@ -1,15 +1,15 @@
-Learnings: 
-Arrays can be sorted from a particular index as well. 
-Arrays.sort(arr, ind1, ind2); (Not used here though due to time complexity, instead used reverse)
+// Learnings: 
+// Arrays can be sorted from a particular index as well. 
+// Arrays.sort(arr, ind1, ind2); (Not used here though due to time complexity, instead used reverse)
 
 
-Algorithm: 
-- Firstly from the behind, find where the ascending gradient is broken.
-- Store the index and find the value that can replace that index.
-- Then sort the array after the index.
+// Algorithm: 
+// - Firstly from the behind, find where the ascending gradient is broken.
+// - Store the index and find the value that can replace that index.
+// - Then sort the array after the index.
 
 
-Java:
+// Java:
 class Solution {
     public void swap(int[] nums, int i, int j) {
         int tmp = nums[i];
