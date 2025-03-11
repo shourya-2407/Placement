@@ -12,7 +12,7 @@ class Solution {
     }
 }
 
-// better solution using Hash Map
+// Better solution using Hash Map
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         int n = nums.length;
