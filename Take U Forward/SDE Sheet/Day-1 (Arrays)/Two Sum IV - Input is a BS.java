@@ -25,7 +25,7 @@ class Solution {
     }
 }
 
-Better Approach:
+// Better Approach:
 class Solution {
     public boolean findTarget(TreeNode root, int k) {
         HashSet<Integer> nodeSet = new HashSet<>();
