@@ -1,4 +1,4 @@
-Brute Force:
+// Brute Force:
 class Solution {
     public boolean findTarget(TreeNode root, int k) {
         ArrayList<Integer> nums = new ArrayList<>();
@@ -43,7 +43,7 @@ class Solution {
     }
 }
 
-More Better using 2 pointers:
+// More Better using 2 pointers:
 class Solution {
     public boolean findTarget(TreeNode root, int k) {
         ArrayList<Integer> nums = new ArrayList<>();
@@ -74,11 +74,12 @@ class Solution {
     }
 }
 
+/*
 | Approach                                | TC    | SC   |
 |-----------------------------------------|-------|------|
 | Morris Traversal (Best Space Optimized) | O(N)  | O(1) |
 | Two Pointers + Inorder Array            | O(N)  | O(N) |
 | HashSet (Your Original Approach)        | O(N)  | O(N) |
 | Brute Force (Nested Loops)              | O(N²) | O(N) |
-
+*/
 
