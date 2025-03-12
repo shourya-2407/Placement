@@ -47,9 +47,8 @@ public class MyApplication {
 }
 
 7. What is Spring Boot CLI and what are its benefits?
-Spring Boot CLI is a command-line interface that allows you to create a spring-based java application using Groovy.
-
-Example: You don’t need to create getter and setter method or access modifier, return statement. If you use the JDBC template, it automatically loads for you.
+Spring Boot CLI is a command-line tool that allows developers to create and run Spring Boot applications using Groovy scripts instead of traditional Java code. 
+It reduces boilerplate code and simplifies the development process by handling configurations automatically.
 
 8. What is Spring Initializer?
 Spring Initializer is a web application that helps you to create an initial spring boot project structure and provides a maven or gradle file to build your code. It solves the problem of setting up a framework when you are starting a project from scratch.
