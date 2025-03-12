@@ -264,11 +264,6 @@ WebSocket (For Web Applications) – A single instance is created per WebSocket 
    The DispatcherServlet gets an entry of handler mapping from the XML file and forwards the request to the controller.
    The controller returns an object of ModelAndView.
    The DispatcherServlet checks the entry of view resolver in the XML file and invokes the specified view component.
-4. Transaction management: Helps in handling transaction management of an application without affecting its code.
-5. Spring Web Service: Spring Web Service provides layered-based approaches that are separately managed by XML parsing.
-6. JDBC abstraction layer: Helps the users in handling errors. All SQLExceptions are translated into the DataAccessException class.
-7. Spring TestContext framework: Provides facilities of unit and integration testing for the Spring applications.
-
 
 * Difference Between Spring DAO vs Spring ORM vs Spring JDBC
 1. Spring-DAO: is not a spring module. It does not provide interfaces or templates to access the data.
