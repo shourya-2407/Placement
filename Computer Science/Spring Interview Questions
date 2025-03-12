@@ -56,6 +56,24 @@ Messaging & Cloud Modules
 16. Spring Messaging – Supports messaging with JMS, RabbitMQ, and Kafka.
 17. Spring Cloud – Helps build scalable, distributed microservices.
 
+* Aspect Oriented Programming:
+- Aims to increase modularity by allowing the separation of cross-cutting concerns.
+- Cross-cutting concerns are aspects of a program that affect multiple parts of the application, 
+  such as logging, security, or transaction management.
+- In AOP, these cross-cutting concerns are modularized into separate units called aspects. 
+
+Understanding AOP Concepts
+- Aspect: 
+  The key unit of modularity in AOP, representing a concern that cuts across multiple classes. 
+  For example, an aspect for logging can be applied across various methods in different classes.
+- Advice: 
+  This is the action taken by an aspect at a particular join point. There are five types of advice:
+  a. Before: Executed before the method call.
+  b. After: Executed after the method call, regardless of its outcome.
+  c. AfterReturning: Executed after the method returns a result, but not if an exception occurs.
+  d. Around: Surrounds the method execution, allowing you to control the method execution and its result.
+  e. AfterThrowing: Executed if the method throws an exception.
+
 * Spring Initializr: 
   - a Web-based tool that provides simple web UI to generate the Spring Boot project structure 
     or we can say it builds the skeleton of the Spring-based application.
