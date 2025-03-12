@@ -1,0 +1,4 @@
+1. What is the Spring framework, and why is it used?
+   - Open-source Java framework used for building enterprise applications.
+   - Provides comprehensive infrastructure support for developing Java applications by handling dependencies, transactions, security, and more.
+   - Key benefits: Dependency Injection, Aspect-Oriented Programming, Transaction Management, Integration Support, Microservices & REST APIs 
