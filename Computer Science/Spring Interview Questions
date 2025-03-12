@@ -184,7 +184,6 @@ All these annotations are automatically detected by Spring if component scanning
 @Repository – A specialization of @Component used for DAO (Data Access Object) beans, with additional exception translation for database operations.
 @Controller – A specialization of @Component used in the web layer to handle HTTP requests in Spring MVC.
 
-
 * What is the difference between @Bean and @Component in Spring?
 @Component:
 Used at the class level to mark a class as a Spring-managed bean.
