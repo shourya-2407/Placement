@@ -1,4 +1,201 @@
 1. What is the Spring framework, and why is it used?
    - Open-source Java framework used for building enterprise applications.
    - Provides comprehensive infrastructure support for developing Java applications by handling dependencies, transactions, security, and more.
-   - Key benefits: Dependency Injection, Aspect-Oriented Programming, Transaction Management, Integration Support, Microservices & REST APIs 
+   - Key benefits: Dependency Injection, Aspect-Oriented Programming, Transaction Management, Integration Support, Microservices & REST APIs
+
+2. What are the main features of the Spring framework?
+Dependency Injection (DI) – Manages object dependencies automatically.
+Aspect-Oriented Programming (AOP) – Helps separate cross-cutting concerns like logging and security.
+Spring MVC – Provides a robust framework for building web applications.
+Spring Boot – Simplifies Spring application setup with auto-configuration and embedded servers.
+Transaction Management – Supports declarative and programmatic transaction handling.
+Spring Security – Provides authentication and authorization for applications.
+Spring Data – Simplifies database operations with JPA, Hibernate, and JDBC support.
+Spring Cloud – Helps in building microservices-based applications.
+Event Handling – Supports application-wide event propagation.
+Spring Integration – Supports integration with messaging platforms like Kafka, RabbitMQ, etc.
+
+3. Explain the different modules in the Spring framework.
+Core Modules
+1. Spring Core – Provides fundamental features like Dependency Injection (DI) and BeanFactory.  
+2. Spring Beans – Manages bean creation, lifecycle, and dependencies.  
+3. Spring Context – Extends the Core module and provides ApplicationContext, internationalization, event propagation, and validation.  
+4. Spring Expression Language (SpEL) – Allows querying and manipulating objects at runtime.  
+
+Web Modules
+5. Spring Web – Provides basic web-oriented features and supports multipart file uploads.
+6. Spring Web MVC – Implements Model-View-Controller (MVC) for building web applications.  
+7. Spring WebFlux – Supports reactive programming for non-blocking web applications.  
+
+Data Access & Integration Modules
+8. Spring JDBC – Simplifies JDBC-based database access.
+9. Spring ORM – Integrates with Hibernate, JPA, and other ORM frameworks.  
+10. Spring Transactions – Supports declarative and programmatic transaction management.  
+11. Spring Data – Simplifies data access with repositories and abstraction layers.  
+
+AOP & Instrumentation Modules
+12. Spring AOP – Provides Aspect-Oriented Programming (AOP) support.  
+13. Spring Aspects – Integrates with AspectJ for advanced AOP features.  
+14. Spring Instrumentation – Supports application monitoring and performance tracking.  
+
+Security Modules
+15. Spring Security – Provides authentication, authorization, and protection against common security threats.  
+
+Messaging & Cloud Modules
+16. Spring Messaging – Supports messaging with JMS, RabbitMQ, and Kafka.
+17. Spring Cloud – Helps build scalable, distributed microservices.
+
+4. What is Dependency Injection (DI) in Spring?
+A design pattern used in the Spring framework to manage object dependencies. Instead of creating objects manually, the Spring container injects dependencies into a class at runtime.  
+DI helps in achieving loose coupling between objects and makes the application more flexible and maintainable. 
+
+Types of Dependency Injection in Spring:
+1. Constructor Injection – Dependencies are injected via a constructor.
+@Component
+public class Car {
+    private Engine engine;
+
+    @Autowired
+    public Car(Engine engine) {
+        this.engine = engine;
+    }
+}
+
+2. Setter Injection – Dependencies are injected using setter methods.
+@Component
+public class Car {
+    private Engine engine;
+
+    @Autowired
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+}
+
+3. Field Injection – Dependencies are injected directly into class fields using annotations.  
+@Component
+public class Car {
+
+    @Autowired
+    private Engine engine;  // Field Injection
+
+    public void start() {
+        engine.run();
+    }
+}
+
+5. What is the Spring Bean lifecycle?
+The Spring Bean lifecycle refers to the sequence of events that occur from the creation to the destruction of a Spring bean. The lifecycle consists of the following phases:  
+
+1. Bean Instantiation – The Spring container creates a bean instance.  
+2. Populating Properties – Dependency Injection (DI) is applied to inject required dependencies.  
+3. Bean Name Aware (Optional) – If a bean implements `BeanNameAware`, Spring provides the bean's name.
+4. Bean Factory Aware (Optional) – If a bean implements `BeanFactoryAware`, it gets access to the BeanFactory.
+5. Pre-Initialization (BeanPostProcessor) – If any `BeanPostProcessor` is registered, its `postProcessBeforeInitialization()` method is called.
+6. Custom Init Method (Optional) – If a bean has a method annotated with `@PostConstruct` or defined in `init-method`, it is executed.
+7. Post-Initialization (BeanPostProcessor) – The `postProcessAfterInitialization()` method of `BeanPostProcessor` is called.
+8. Bean is Ready to Use – The bean is now available for use in the application.
+9. Custom Destroy Method (Optional) – If a bean has a method annotated with `@PreDestroy` or defined in `destroy-method`, it is executed before the bean is destroyed.
+10. Bean Destruction – The Spring container removes the bean instance.
+
+Example of Lifecycle Methods in Spring:
+@Component
+public class MyBean {
+    
+    @PostConstruct
+    public void init() {
+        System.out.println("Bean is going through init.");
+    }
+    
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Bean will be destroyed now.");
+    }
+}
+
+6. What are the different ways to configure a Spring application?
+Spring provides three main ways to configure a Spring application:  
+Java-based and annotation-based configurations are preferred over XML in modern Spring applications.
+
+1. XML-based Configuration – Uses `applicationContext.xml` or other XML files to define beans.  
+Eg:
+<bean id="myBean" class="com.example.MyBean"/>
+
+2. Annotation-based Configuration – Uses annotations like `@Component`, `@Autowired`, `@Bean`, and `@Configuration`.
+Eg:
+@Component
+public class MyBean {
+}
+
+3. Java-based Configuration (Java Config) – Uses Java classes with `@Configuration` and `@Bean` annotations instead of XML.  
+Eg:
+@Configuration
+public class AppConfig {
+    @Bean
+    public MyBean myBean() {
+        return new MyBean();
+    }
+}
+
+7. What is the difference between @Component, @Service, @Repository, and @Controller in Spring?
+All these annotations are automatically detected by Spring if component scanning is enabled (@ComponentScan).
+@Component – A generic annotation used for any Spring bean.
+@Service – A specialization of @Component used for service layer beans.
+@Repository – A specialization of @Component used for DAO (Data Access Object) beans, with additional exception translation for database operations.
+@Controller – A specialization of @Component used in the web layer to handle HTTP requests in Spring MVC.
+
+
+8. What is the difference between @Bean and @Component in Spring?
+@Component:
+Used at the class level to mark a class as a Spring-managed bean.
+Automatically detected by component scanning (@ComponentScan).
+Works with other stereotype annotations like @Service, @Repository, and @Controller.
+Example:
+@Component
+public class Car {
+}
+
+@Bean:
+Used inside a Java configuration class(@Configuration) on method level to define beans.
+Typically used when we don't have access to modify the class source code.
+Does not require component scanning.
+Example:
+@Configuration
+public class AppConfig {
+    @Bean
+    public Car car() {
+        return new Car();
+    }
+}
+
+9. What is the difference between ApplicationContext and BeanFactory in Spring?
+Both are used for managing Spring beans, but ApplicationContext is more feature-rich.
+
+BeanFactory:
+The basic container in Spring that manages bean creation and dependencies.
+Uses lazy initialization (creates beans only when requested).
+Does not support annotation-based features like @ComponentScan and AOP out of the box.
+Example:
+BeanFactory factory = new XmlBeanFactory(new ClassPathResource("beans.xml"));
+
+ApplicationContext:
+A more advanced container that extends BeanFactory.
+Supports eager initialization (creates beans at startup).
+Provides additional features like event handling, internationalization, and AOP support.
+Supports annotation-based configuration (@ComponentScan).
+Example:
+ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+
+Use ApplicationContext for most applications as it provides more features and better performance. BeanFactory is mainly used for lightweight IoC needs, such as in embedded systems.
+
+11. What is the default scope of a Spring bean? What are the different bean scopes in Spring?
+The default scope of a Spring bean is singleton, meaning only one instance of the bean is created and shared across the application.
+
+Different Bean Scopes in Spring:
+Singleton (Default) – A single shared instance is created and used throughout the application. Spring container manages the bean’s lifecycle and keeps it in memory.
+Prototype – A new instance is created every time the bean is requested. Spring does not manage the lifecycle beyond initialization.
+Request (For Web Applications) – A new instance is created per HTTP request.
+Session (For Web Applications) – A new instance is created per HTTP session.
+Application (For Web Applications) – A single instance is created per ServletContext.
+WebSocket (For Web Applications) – A single instance is created per WebSocket session.
+
