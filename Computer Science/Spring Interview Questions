@@ -62,11 +62,88 @@ Messaging & Cloud Modules
   - Helps to select the necessary configuration for their projects which helps you to customize and configure the project requirement 
     and automatically manage the Spring Boot Dependencies using the Maven repository or Gradle. 
 
-* What is Dependency Injection (DI) in Spring?
-A design pattern used in the Spring framework to manage object dependencies. Instead of creating objects manually, the Spring container injects dependencies into a class at runtime.  
-DI helps in achieving loose coupling between objects and makes the application more flexible and maintainable. 
+* Inversion of Control (==> controlling of Java objects and their lifecycle is not done by the developers.)
+- Spring IoC (Inversion of Control) Container is the core of Spring Framework. 
+- Creates the objects, configures and assembles their dependencies, manages their entire life cycle. 
+- The Container uses Dependency Injection(DI) to manage the components that make up the application.
+- It gets the information about the objects from a configuration file(XML) or Java Code or Java Annotations and Java POJO class. 
+- BeanFactory and ApplicationContext represent the Spring IoC Containers. 
 
-Types of Dependency Injection in Spring:
+Implementation of IOC:
+
+* Bean Factory (org.springframework.beans)
+ - BeanFactory interface is the simplest container providing an advanced configuration mechanism to instantiate, configure, and manage the life cycle of beans.
+ - Beans are Java objects that are configured at run-time by Spring IoC Container. 
+ - BeanFactory uses Beans and their dependencies metadata to create and configure them at run-time.
+
+Implementation to configure Bean factory:
+1. Create a POJO class.
+2. Configure the bean in the bean-factory-demo.xml file.
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="student" class="com.gfg.demo.domain.Student">
+        <constructor-arg name="name" value="Tina"/>
+        <constructor-arg name="age" value="21"/>
+    </bean>
+</beans>
+3. write the main class file.
+@SpringBootApplication
+public class DemoApplication 
+{
+  public static void main(String[] args) 
+  {
+    BeanFactory factory = new ClassPathXmlApplicationContext("bean-factory-demo.xml");
+    Student student = (Student) factory.getBean("student");
+    System.out.println(student);
+  }
+}
+
+The program flow is something like this:
+1. The Bean factory reads the XML configuration file and as per the specifications defined in it, it creates the bean of the POJO.
+2. Bean reference asks for the Bean object from the object factory.
+3. Spring object factory hands over the bean to its reference. 
+Here, note that the bean returned by the object factory is of “Object” type, so we have to typecast it into our desired bean.
+
+* Application context (org.springframework.context)
+ApplicationContext is the sub-interface of BeanFactory.
+Provides additional enterprise-specific functionalities:
+
+// Using runtime polymorphism
+public class Mobile {
+	public static void main(String[] args)
+	{
+		 Sim sim = new Jio();
+		 sim.calling();
+		 sim.data();
+	}
+}
+
+But what will you do if new Sim Vodafone came and we need to change? ==> this is where IOC comes into picture.
+Using ApplicationContext to implement an IoC container. Create an XML file and name the file as “beans.xml“.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	https://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean id="sim" class="Jio"></bean>
+</beans>
+
+This is how we can make the code configurable. You have to change only inside the beans.xml file.
+
+* Dependency Injection
+- Dependency Injection is the main functionality provided by Spring IOC.
+- A design pattern used in the Spring framework to manage object dependencies. 
+- Instead of creating objects manually, the Spring container injects dependencies into a class at runtime.  
+- DI helps in achieving loose coupling between objects and makes the application more flexible and maintainable. 
+- Responsible for injecting dependencies through either Constructor or Setter methods.
+- IOC emphasizes keeping the Java classes independent of each other and the container frees them from object creation and maintenance.
+- Dependency Injection in Spring also ensures loose coupling between the classes
+- Spring IoC is achieved through Dependency Injection.
+- Types of Dependency Injection in Spring:
 1. Constructor Injection – Dependencies are injected via a constructor.
 @Component
 public class Car {
@@ -243,7 +320,9 @@ Use ApplicationContext for most applications as it provides more features and be
 * What is the default scope of a Spring bean? What are the different bean scopes in Spring?
 The default scope of a Spring bean is singleton, meaning only one instance of the bean is created and shared across the application.
 
-Different Bean Scopes in Spring:
+* Different Bean Scopes in Spring:
+Bean Scopes: refers to the lifecycle of Bean, it controls the instance creation of the bean and it is managed by the spring container.
+~ 5 scopes of beans:
 Singleton (Default) – A single shared instance is created and used throughout the application. Spring container manages the bean’s lifecycle and keeps it in memory.
 Prototype – A new instance is created every time the bean is requested. Spring does not manage the lifecycle beyond initialization.
 Request (For Web Applications) – A new instance is created per HTTP request.
@@ -251,7 +330,7 @@ Session (For Web Applications) – A new instance is created per HTTP session.
 Application (For Web Applications) – A single instance is created per ServletContext.
 WebSocket (For Web Applications) – A single instance is created per WebSocket session.
 
-3. Spring MVC framework: 
+* Spring MVC framework: 
    Web Browser -> Front controller --(model)--> Controller --(model)--> View -> Web Browser
    Model: data of appplication. object or collection of object.
    Controller: contains business logic of application. marked by @Controller.
