@@ -139,7 +139,3 @@ The primary annotations that Spring Boot offers reside in its org.springframewor
 @SpringBootApplication – used to denote the main class of a Boot Application. This annotation combines @Configuration, @EnableAutoConfiguration, and @ComponentScan annotations with their default attributes.
 
 
-
-
-
-
