@@ -57,3 +57,7 @@ Spring Initializer is a web application that helps you to create an initial spri
 9. What are starter dependencies?
 Spring boot starter is a maven template that contains a collection of all the relevant transitive dependencies that are needed to start a particular functionality.
 Like we need to import spring-boot-starter-web dependency for creating a web application.
+<dependency>
+<groupId> org.springframework.boot</groupId>
+<artifactId> spring-boot-starter-web </artifactId>
+</dependency>
