@@ -154,6 +154,19 @@ public class AppConfig {
     }
 }
 
+* Spring Framework Architecture:
+1. Spring Core Module: provides the IoC container.
+   There are two types of implementations of the Spring container: Bean factory and Application context.
+2. Spring AOP Module: AOP breaks down the programs into aspects or concerns. Regular classes annotated with @Aspect annotation.
+   These aspects help in transaction management and logging and failure monitoring of an application.
+3. Spring ORM Module: used for accessing data from databases in an application. Provides APIs for manipulating databases.
+4. Spring Web MVC Module: implements the MVC architecture for creating Web applications. 
+5. Spring Web Flow Module: an extension of the Spring Web MVC module. 
+   Helps in defining XML file or Java Class that manages the workflow between different pages of a Web application.
+6. Spring Web DAO Module: provides DAO support by using data access technologies such as JDBC, Hibernate, or JDO.
+   Multiple implementations are available for each data access technology supported by the Spring framework.
+7. Spring Application Context Module: implements MessageSource interface and provides the messaging functionality to an application.
+
 * POJO
 Plain Old Java Object (POJO) 
 -> a database entity is represented by POJO.
@@ -276,15 +289,3 @@ WebSocket (For Web Applications) – A single instance is created per WebSocket 
 3. Spring JDBC: Spring-JDBC provides the JdbcTemplate class, that removes plumbing code and helps you concentrate on the SQL query and parameters. 
    You just need to configure it with a DataSource. 
 
-* Spring Framework Architecture:
-1. Spring Core Module: provides the IoC container.
-   There are two types of implementations of the Spring container: Bean factory and Application context.
-2. Spring AOP Module: AOP breaks down the programs into aspects or concerns. Regular classes annotated with @Aspect annotation.
-   These aspects help in transaction management and logging and failure monitoring of an application.
-3. Spring ORM Module: used for accessing data from databases in an application. Provides APIs for manipulating databases.
-4. Spring Web MVC Module: implements the MVC architecture for creating Web applications. 
-5. Spring Web Flow Module: an extension of the Spring Web MVC module. 
-   Helps in defining XML file or Java Class that manages the workflow between different pages of a Web application.
-6. Spring Web DAO Module: provides DAO support by using data access technologies such as JDBC, Hibernate, or JDO.
-   Multiple implementations are available for each data access technology supported by the Spring framework.
-7. Spring Application Context Module: implements MessageSource interface and provides the messaging functionality to an application.
