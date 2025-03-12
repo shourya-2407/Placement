@@ -1,0 +1,59 @@
+1. What is Spring boot?
+A Java-based spring framework used for Rapid Application Development (to build stand-alone microservices). 
+It has extra support of auto-configuration and embedded application servers like tomcat, jetty, etc.
+Provide production-ready features such as metrics, health checks, and externalized configuration.
+Absolutely no requirement for XML configuration.
+
+2. Why Spring Boot over Spring?
+Below are some key points which spring boot offers but spring doesn’t:
+
+Starter POMs: Spring Boot provides pre-configured dependencies (spring-boot-starter-*), reducing manual dependency management.
+Version Management: Automatically manages dependency versions, preventing conflicts.
+Auto Configuration: Automatically configures beans based on dependencies, eliminating manual setup.
+Component Scanning: Scans and registers beans automatically without requiring explicit configuration.
+Embedded Server: Comes with an embedded Tomcat/Jetty server, removing the need for external server setup.
+In-Memory Database: Supports H2, HSQL, and Derby databases for quick prototyping and testing.
+Actuators: Provides production-ready monitoring and health-check APIs (/actuator/health, /actuator/metrics).
+
+3. What is the starter dependency of the Spring boot module?
+Data JPA Starter (spring-boot-starter-data-jpa) – Provides integration with JPA and Hibernate for database operations.
+Test Starter (spring-boot-starter-test) – Includes testing libraries like JUnit, Mockito, and Spring Test.
+Security Starter (spring-boot-starter-security) – Adds Spring Security for authentication and authorization.
+Web Starter (spring-boot-starter-web) – Enables RESTful web applications with Spring MVC and an embedded Tomcat server.
+Mail Starter (spring-boot-starter-mail) – Provides JavaMail support for sending emails.
+Thymeleaf Starter (spring-boot-starter-thymeleaf) – Supports Thymeleaf templating for web applications.
+
+4. How Does Spring Boot Work?
+Spring Boot automatically configures your application based on the dependencies in the project using annotations.
+
+- The entry point is the class with the @SpringBootApplication annotation, which combines @Configuration, @EnableAutoConfiguration, and @ComponentScan.
+- @EnableAutoConfiguration detects dependencies and configures beans automatically.
+- @ComponentScan scans and registers components (@Component, @Service, @Repository, etc.) in the package and sub-packages.
+- The application starts with an embedded server (Tomcat, Jetty, or Undertow) when running a web application.
+
+5. What does the @SpringBootApplication annotation do internally?
+The @SpringBootApplication annotation is equivalent to using @Configuration, @EnableAutoConfiguration, and @ComponentScan with their default attributes. 
+Spring Boot enables the developer to use a single annotation instead of using multiple. 
+But, as we know, Spring provided loosely coupled features that we can use for each annotation as per our project needs.
+
+6. How does a spring boot application get started?
+A Spring Boot application must have a main method. This method serves as an entry point, which invokes the SpringApplication.run method to bootstrap the application.
+@SpringBootApplication 
+public class MyApplication {  
+       public static void main(String[] args) {
+             SpringApplication.run(MyApplication.class);        
+               // other statements     
+       } 
+}
+
+7. What is Spring Boot CLI and what are its benefits?
+Spring Boot CLI is a command-line interface that allows you to create a spring-based java application using Groovy.
+
+Example: You don’t need to create getter and setter method or access modifier, return statement. If you use the JDBC template, it automatically loads for you.
+
+8. What is Spring Initializer?
+Spring Initializer is a web application that helps you to create an initial spring boot project structure and provides a maven or gradle file to build your code. It solves the problem of setting up a framework when you are starting a project from scratch.
+
+9. What are starter dependencies?
+Spring boot starter is a maven template that contains a collection of all the relevant transitive dependencies that are needed to start a particular functionality.
+Like we need to import spring-boot-starter-web dependency for creating a web application.
