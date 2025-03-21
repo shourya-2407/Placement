@@ -1,0 +1,157 @@
+1. Can you give a brief summary of your professional experience?
+I am a Senior Software Engineer at Bajaj Markets with over 2.5 years of experience in backend development. 
+I specialize in designing and implementing high-performance REST APIs and microservices using Spring Boot. 
+My expertise includes AWS services, caching, database optimization and multi-threading. 
+I have worked on projects that aims on improving system scalability and performance. I was also promoted within two years and received the 'Super Achiever Award' for my contributions.
+
+2.  What improvements did you make to system scalability and optimisations in your current role?
+Using DB functions for queries involving multiple tables. Implementing caching (Redis, Spring Cache) and multi-threading to enhance system efficiency. 
+Automating task assignment workflows using AWS EventBridge Scheduler and Redis, reducing manual effort by 85%. 
+Improving system performance by adopting asynchronous processing and database optimizations. 
+Implemented multi-threading and asynchronous processing, increasing system throughput by 25% while maintaining low latency. 
+Ensuring high test coverage (95%+) using JUnit and Mockito to maintain code quality.
+
+3. How did you optimize system performance using multi-threading and caching?  
+A. Multi-threading & Asynchronous Processing
+- Used Java’s ExecutorService and **CompletableFuture for parallel execution, improving throughput by 25%.  
+- Offloaded time-consuming tasks (e.g., bulk data processing, API calls) to asynchronous workers, reducing response time.  
+- Implemented thread pooling to efficiently manage concurrent requests and avoid resource exhaustion.  
+
+B. Caching Mechanisms
+- Used Redis Cache to store frequently accessed data, reducing database hits and improving response times.  
+- Implemented lazy caching & cache expiration policies to ensure fresh data without unnecessary reloads.  
+- Cached authentication tokens and session data to **reduce redundant computations**.  
+
+These optimizations led to faster response times, lower latency, and improved system efficiency.  
+
+4. Demonstrate use of Multi-threading with CompletableFuture (Asynchronous Processing)
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class AsyncProcessingExample {
+    private static final ExecutorService executor = Executors.newFixedThreadPool(10);
+
+    public static void main(String[] args) {
+        CompletableFuture<Void> task1 = CompletableFuture.runAsync(() -> processTask("Task 1"), executor);
+        CompletableFuture<Void> task2 = CompletableFuture.runAsync(() -> processTask("Task 2"), executor);
+        CompletableFuture<Void> task3 = CompletableFuture.runAsync(() -> processTask("Task 3"), executor);
+
+        // Wait for all tasks to complete
+        CompletableFuture.allOf(task1, task2, task3).join();
+        
+        executor.shutdown();
+        System.out.println("All tasks completed!");
+    }
+
+    private static void processTask(String taskName) {
+        System.out.println(taskName + " started by " + Thread.currentThread().getName());
+        try {
+            Thread.sleep(2000);  // Simulating time-consuming task
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(taskName + " completed!");
+    }
+}
+
+5. Explain ExecutorService
+Interface in Java’s java.util.concurrent package that provides a way to manage thread execution. 
+Unlike manually creating and managing threads, it abstracts thread management, allowing us to: 
+Reuse threads via a thread pool.
+Limit the number of concurrent tasks.
+Gracefully shutdown threads when no longer needed.
+
+ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+6. Explain CompletableFuture
+CompletableFuture is an advanced alternative to Future, introduced in Java 8. It Supports asynchronous computation. Avoids blocking by providing callback methods like .thenApply() and .thenAccept().
+Supports chaining of tasks. Can combine multiple asynchronous tasks.
+
+// has return type
+CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> computeSomething());
+
+// void return type
+CompletableFuture<Void> future = CompletableFuture.runAsync(() -> computeSomething(), executor);
+
+.join() waits for a Single task to complete and retrieves the result.
+thenCombine() waits for both futures and merges their results.
+
+7. Can you explain how AWS EventBridge Scheduler and Redis were used for task automation?
+AWS EventBridge Scheduler automatically triggers a job at scheduled intervals.
+The job fetches pending tasks from the database using DB function that ensures better quering from multiple tables.
+Redis (Round-Robin Logic) assigns tasks to available users dynamically.
+Tasks are stored back in the database with assigned users.
+
+8. What was the impact of the interactive frontend interface you built?
+Developed an interactive frontend interface for database visualization & CRUD operations using JDBC templates, which significantly improved data management efficiency.
+
+A. Complex Query Execution
+✅ Problem: Developers had to write complex SQL queries manually.
+✅ Solution: Built an intuitive UI that allowed dynamic query execution with filters and sorting options.
+
+B. Manual Data Modifications
+✅ Problem: Database updates required direct SQL execution, leading to errors.
+✅ Solution: Implemented a CRUD-based UI to view, add, update, and delete records via Spring Boot APIs.
+
+C. Performance Optimization
+✅ Problem: Query execution was slow due to large datasets.
+✅ Solution: Used pagination & indexing to speed up queries. Cached frequently accessed data using Redis.
+
+9. Can you describe your role in designing high-performance REST APIs?
+A. Optimized API Performance
+✅ Used Spring Boot & Spring WebFlux for non-blocking, reactive APIs.
+✅ Implemented caching (Redis, Spring Cache) to reduce redundant DB calls.
+✅ Optimized database queries by using JPA batch processing & indexing.
+
+B. Ensured Scalability & High Availability
+✅ Designed stateless APIs with JWT-based authentication for load-balanced scaling.
+✅ Used AWS API Gateway & Load Balancer to distribute traffic efficiently.
+
+10. What strategies did you use to maintain a 99.98% uptime in your services?
+A. Load Balancing & Auto-scaling
+✅ Used AWS ALB (Application Load Balancer) + Kubernetes HPA (Horizontal Pod Autoscaler) to distribute traffic efficiently.
+
+B. Caching & Database Optimization
+✅ Used Redis caching to reduce DB load by 40%, avoiding performance bottlenecks.
+✅ Optimized database with indexing, query tuning, and batch processing.
+
+C. Real-time Monitoring & Alerting
+✅ Integrated AWS CloudWatch & ELK Stack to track API latencies, errors, and resource utilization.
+✅ Set up alerts to proactively detect and fix issues before they affected uptime.
+
+11. How would you explain microservices architecture to a non-technical person?
+In microservices architecture:
+✅ Each microservice (like the chef, waiter, and cashier) handles a specific business function.
+✅ Services communicate using APIs (just like people talk to coordinate).
+✅ If one service fails, others continue working, ensuring high availability.
+
+Real-world Example: Netflix 🎬
+Netflix uses microservices where:
+- One service handles user authentication.
+- Another fetches movie recommendations.
+- Another handles payments.
+
+12. What are the benefits of using Spring Boot?
+✅ No boilerplate code – Comes with built-in configurations.
+✅ Embedded Tomcat – No need for external servers.
+✅ Auto-configuration – Reduces manual setup for databases, security, etc.
+✅ Microservices-ready – Lightweight & optimized for REST API development.
+
+13. What are the key factors in optimizing database performance?
+1. Indexing for Faster Query Execution
+2. Query Optimization & Joins
+- Used INNER JOIN instead of subqueries for better performance.
+- Optimized queries with SELECT specific columns instead of SELECT *.
+- SELECT u.name, o.order_id FROM users u 
+  JOIN orders o ON u.user_id = o.user_id 
+  WHERE u.email = 'test@example.com';
+3. Caching with Redis
+- Repeated queries on the same data increased DB load.
+- Cached frequently accessed data in Redis to reduce DB hits.
+4. Partitioning, Sharding & Read Replicas for DB Scalability
+Partitioning – divides a single database into smaller logical parts (partitions) but keeps all partitions within the same database server. 
+Eg: CREATE TABLE transactions_2023 PARTITION OF transactions
+    FOR VALUES FROM ('2023-01-01') TO ('2023-12-31');
+Sharding - Splits a large dataset into multiple independent databases (shards), each running on a separate server.
+Read Replicas – Creating readonly copies of the database to distribute traffic.
