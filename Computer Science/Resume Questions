@@ -155,3 +155,30 @@ Eg: CREATE TABLE transactions_2023 PARTITION OF transactions
     FOR VALUES FROM ('2023-01-01') TO ('2023-12-31');
 Sharding - Splits a large dataset into multiple independent databases (shards), each running on a separate server.
 Read Replicas – Creating readonly copies of the database to distribute traffic.
+
+14. What challenges did you face while working with Java Streams, and how did you overcome them?
+✔ Reduced processing time by 50% with parallel streams.
+✔ Made debugging easier with peek().
+✔ Simplified complex data transformations using Collectors.
+
+15. How do you remove a specific element from a list using Java Streams?
+Using filter() to Remove the Element
+List<String> items = List.of("ABC", "FCU", "XYZ", "FCU", "DEF");
+List<String> filteredList = items.stream()
+            .filter(item -> !item.equals("FCU"))  // Remove "FCU"
+            .collect(Collectors.toList());
+
+16. How did you implement an end-to-end bulk data upload system?
+📌 Step 1: User uploads a CSV file to AWS S3.
+📌 Step 2: AWS SNS event, notifying the processing service.
+📌 Step 3: SNS publishes the event to AWS SQS, where a Spring Boot microservice consumes it.
+📌 Step 4: Spring Boot reads data in batches, validates, and stores it in the database.
+📌 Step 5: Failed records are moved to Dead Letter Queue (DLQ) for retries.
+
+17. How did you implement authentication and authorization in your projects?
+I implemented authentication and authorization using JWT (JSON Web Token), Spring Security, and Role-Based Access Control (RBAC) to ensure secure API access.
+
+18. How did you optimize the "Assign To" functionality in your project?
+Optimized the "Assign To" functionality by implementing round-robin task distribution using Redis and AWS EventBridge Scheduler, reducing manual task assignment by 85%.
+
+19. 
