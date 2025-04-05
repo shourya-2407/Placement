@@ -26,6 +26,21 @@ Spring Cloud – Helps in building microservices-based applications.
 Event Handling – Supports application-wide event propagation.
 Spring Integration – Supports integration with messaging platforms like Kafka, RabbitMQ, etc.
 
+* Spring Initializr: 
+  - a Web-based tool that provides simple web UI to generate the Spring Boot project structure 
+    or we can say it builds the skeleton of the Spring-based application.
+  - Helps to select the necessary configuration for their projects which helps you to customize and configure the project requirement 
+    and automatically manage the Spring Boot Dependencies using the Maven repository or Gradle. 
+
+* Java EE 
+- Java/Jakarta Enterprise Edition contains servlets, JSPs, EJB, JMS, RMI, JPA, JAXB, JAX-WS, Web Sockets, etc.
+- Components of Java/Jakarta Enterprise Edition (EE) like EJB, Servlets are complex in nature due to which everyone adapted Spring framework for web applications development.
+- Java EE quit the race against the Spring framework, when Oracle stopped the evolution of Java EE 8, and the community took over it's maintenance via Jakarta EE
+- Since Oracle owns the trademark  for the name "Java", Java EE renamed to Jakarta EE. All the packages are updated with javax.* to jakarta.* namespace change.
+- Spring leverages the servlets, specifications, interfaces and Apis provided by EE. On top of that they build a framework that makes developer life easy based on market trends.
+  For eg: all the extra responsibilities like building DB connections, handling exceptions, handling transactions are handled by Spring.
+- Role of EE in Spring projects is to come up with latest specifications around Java programming language.
+
 * Explain the different modules in the Spring framework.
 Core Modules
 1. Spring Core – Provides fundamental features like Dependency Injection (DI) and BeanFactory.  
@@ -56,22 +71,10 @@ Messaging & Cloud Modules
 16. Spring Messaging – Supports messaging with JMS, RabbitMQ, and Kafka.
 17. Spring Cloud – Helps build scalable, distributed microservices.
 
-* Java EE 
-- Java/Jakarta Enterprise Edition contains servlets, JSPs, EJB, JMS, RMI, JPA, JAXB, JAX-WS, Web Sockets, etc.
-- Components of Java/Jakarta Enterprise Edition (EE) like EJB, Servlets are complex in nature due to which everyone adapted Spring framework for web applications development.
-- Java EE quit the race against the Spring framework, when Oracle stopped the evolution of Java EE 8, and the community took over it's maintenance via Jakarta EE
-- Since Oracle owns the trademark  for the name "Java", Java EE renamed to Jakarta EE. All the packages are updated with javax.* to jakarta.* namespace change.
-- Spring leverages the servlets, specifications, interfaces and Apis provided by EE. On top of that they build a framework that makes developer life easy based on market trends.
-  For eg: all the extra responsibilities like building DB connections, handling exceptions, handling transactions are handled by Spring.
-- Role of EE in Spring projects is to come up with latest specifications around Java programming language.
-
-* Spring Initializr: 
-  - a Web-based tool that provides simple web UI to generate the Spring Boot project structure 
-    or we can say it builds the skeleton of the Spring-based application.
-  - Helps to select the necessary configuration for their projects which helps you to customize and configure the project requirement 
-    and automatically manage the Spring Boot Dependencies using the Maven repository or Gradle. 
-
 * Spring Core 
+- It contains following components:
+  IOC, DI, Beans, Context, SpEL (Spring Expression Language), IOC.
+- 
 
 * Spring AOP
 * Aspect Oriented Programming:
