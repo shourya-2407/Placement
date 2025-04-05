@@ -61,6 +61,8 @@ Messaging & Cloud Modules
 - Components of Java/Jakarta Enterprise Edition (EE) like EJB, Servlets are complex in nature due to which everyone adapted Spring framework for web applications development.
 - Java EE quit the race against the Spring framework, when Oracle stopped the evolution of Java EE 8, and the community took over it's maintenance via Jakarta EE
 - Since Oracle owns the trademark  for the name "Java", Java EE renamed to Jakarta EE. All the packages are updated with javax.* to jakarta.* namespace change.
+- Spring is built on top of EE, it leverages the servlets, JPA specifications present in EE. 
+- Role of EE in Spring projects is to come up with latest specifications around Java programming language.
 
 * Aspect Oriented Programming:
 - Aims to increase modularity by allowing the separation of cross-cutting concerns.
