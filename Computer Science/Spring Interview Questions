@@ -65,6 +65,15 @@ Messaging & Cloud Modules
   For eg: all the extra responsibilities like building DB connections, handling exceptions, handling transactions are handled by Spring.
 - Role of EE in Spring projects is to come up with latest specifications around Java programming language.
 
+* Spring Initializr: 
+  - a Web-based tool that provides simple web UI to generate the Spring Boot project structure 
+    or we can say it builds the skeleton of the Spring-based application.
+  - Helps to select the necessary configuration for their projects which helps you to customize and configure the project requirement 
+    and automatically manage the Spring Boot Dependencies using the Maven repository or Gradle. 
+
+* Spring Core 
+
+* Spring AOP
 * Aspect Oriented Programming:
 - Aims to increase modularity by allowing the separation of cross-cutting concerns.
 - Cross-cutting concerns are aspects of a program that affect multiple parts of the application, 
@@ -83,11 +92,17 @@ Understanding AOP Concepts
   d. Around: Surrounds the method execution, allowing you to control the method execution and its result.
   e. AfterThrowing: Executed if the method throws an exception.
 
-* Spring Initializr: 
-  - a Web-based tool that provides simple web UI to generate the Spring Boot project structure 
-    or we can say it builds the skeleton of the Spring-based application.
-  - Helps to select the necessary configuration for their projects which helps you to customize and configure the project requirement 
-    and automatically manage the Spring Boot Dependencies using the Maven repository or Gradle. 
+* Spring MVC
+
+* Spring Data
+
+* Spring Boot
+
+* Spring Cloud
+
+* Spring Security
+
+
 
 * Inversion of Control (==> controlling of Java objects and their lifecycle is not done by the developers.)
 - Spring IoC (Inversion of Control) Container is the core of Spring Framework. 
