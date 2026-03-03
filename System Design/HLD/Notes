@@ -1,0 +1,25 @@
+Open Systems Interconnnection(OSI) model: It is a 7 layer framwork standardizing computer network communications, 
+  moving from user interface (Layer 7) down to physical cables (Layer 1).  
+7. Application: User interface (HTTP, FTP)
+6. Presentation: Data encryption, formatting and compression.
+5. Session: Manages user session and authentication.
+4. Transport: End to end communication, flow control (TCP).
+3. Network: Routing and logical addressing (IP).
+2. Data link: MAC addressing and error correction.
+1. Physical: Raw data transmission (cables, electricity)
+
+Application layer:
+Client-Server protocol: HTTP, FTP, SMTP, Web-socket(server can also talk to client, used for messaging apps)
+Peer to Peer: Web RTC
+
+CAP Theorem: Desirable property of distributed systems with replicated data.
+  - Consistency, Availability, Parition tolerance.
+  - CA, CP, AP are possible
+  - CAP is not possible, because you cannot have a partition breakage and assure consistency and availability both.
+
+Monolithic Applications: Legacy applications
+  Disadvantages - Tightly coupled, scaling is difficult
+
+Microservices Applications: 
+  Disadvantages - 
+   
