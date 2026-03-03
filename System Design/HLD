@@ -22,4 +22,8 @@ Monolithic Applications: Legacy applications
 
 Microservices Applications: 
   Disadvantages - 
-   
+
+Phases of microservices:
+Decomposition by business capabilities or subdomain
+Database | Communication | Integration
+
