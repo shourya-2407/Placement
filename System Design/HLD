@@ -192,3 +192,249 @@ Now complex queries can be executed on **Read DB**.
 * Efficient joins
 * Scalable read systems
 * Separation of concerns
+
+
+# Scaling a System from 0 Users to 1 Million Users
+
+1. Single Server Architecture
+Architecture: Client → Server (Application + Database on same machine)
+Components: Web / Mobile clients, Application server, Database
+Characteristics: Simple architecture, Easy to develop and deploy, Suitable for early-stage applications
+Problems: Cannot scale with increasing traffic, Single point of failure, Application and database compete for resources
+
+---
+2. Separate Application Server and Database: Next is separating the application logic and database.
+Architecture: Client → Application Server(Handles business logic) → Database Server
+Benefits: Independent scaling of application and database, Better performance, Reduced resource contention
+
+---
+3. Load Balancer with Multiple Application Servers: As traffic increases, a single application server cannot handle all requests.
+Architecture: Client → Load Balancer → Multiple Application Servers → Database
+Load balancer responsibilities: Distributes traffic across servers, Improves availability, Adds security layer, Prevents direct access to internal servers
+Advantages: Handles higher traffic, Fault tolerance, Better resource utilization
+
+---
+4. Database Replication: Database becomes the next bottleneck.
+Architecture: Application Servers → Master DB (Handles write operations) + Slave DBs (Handle read operations)
+Benefits: Improved read scalability, Backup availability, Failover support
+If master fails: A slave can be promoted to master.
+
+---
+5. Caching Layer: Database queries are expensive and slow.
+Architecture: Application Server → Cache → Database
+Benefits: Reduces database load, Faster response time, Improved performance
+Process:
+1. Application checks cache first.
+2. If data exists → return response (cache hit).
+3. If data missing → query database (cache miss).
+4. Store result in cache.
+
+# Cache TTL (Time To Live)
+Cached data is stored temporarily. TTL defines how long cached data remains valid.
+After expiry: Data removed from cache, Next request fetches data from database again.
+
+---
+6. CDN (Content Delivery Network): Users accessing application globally experience latency.
+CDN stores static content closer to users.
+Examples of CDN content: Images, Videos, Static web pages, CSS / JS files
+Benefits: Reduced latency, Reduced server load, Increased performance, Protection from attacks (e.g., DDoS)
+Process:
+1. User request goes to nearest CDN node.
+2. If content available → returned immediately.
+3. If not → fetched from neighbouring CND and then the origin server.
+
+---
+7. Multiple Data Centers: To improve reliability and global performance, deploy infrastructure in multiple data centers.
+Architecture: Client → Load Balancer → Multiple Data Centers
+Each data center contains: Application servers, Databases, Cache
+Benefits: High availability, Disaster recovery, Traffic distributed geographically
+If one data center fails: Traffic can be redirected to another data center.
+
+---
+8. Message Queue (Asynchronous Processing)
+Common technologies: Kafka, RabbitMQ
+Architecture: Producer → Message Queue → Consumers
+Benefits: Asynchronous processing, Faster response time, Fault tolerance, Retry capability
+
+---
+
+# Message Queue Components (RabbitMQ example)
+
+Producer
+Exchange
+Queue
+Consumer
+
+Producer sends message with routing key to exchange.
+
+Exchange decides which queue should receive the message.
+
+Queues store messages.
+
+Consumers process messages.
+
+---
+
+# Types of Exchanges
+
+Direct Exchange
+
+Routing key must match binding key exactly.
+
+Fanout Exchange
+
+Message sent to all queues regardless of routing key.
+
+Topic Exchange
+
+Routing based on pattern matching with wildcards.
+
+Allows flexible routing.
+
+---
+
+# 9. Database Scaling: Database scaling is critical when traffic increases significantly.
+Two main types: 
+Vertical Scaling: Increase hardware capacity of the server.
+Horizontal Scaling
+
+---
+
+# Vertical Scaling
+
+
+Example:
+
+
+Advantages:
+
+* Easy to implement
+* No architectural change
+
+Limitations:
+
+* Hardware limits exist
+* Expensive
+* Single machine dependency
+
+---
+
+# Horizontal Scaling
+
+Add more database nodes.
+
+Example:
+Instead of one database server, use multiple servers.
+
+Benefits:
+
+* Unlimited scaling potential
+* Better fault tolerance
+* Improved performance
+
+---
+
+# Database Sharding
+
+Horizontal scaling is implemented using sharding.
+
+Sharding divides data across multiple databases.
+
+Two types:
+
+Row-based sharding
+Column-based sharding
+
+---
+
+# Row-Based Sharding
+
+Rows distributed across different databases.
+
+Example:
+
+DB1 → rows 1–100
+DB2 → rows 101–200
+
+Or based on key:
+
+Users A–M → DB1
+Users N–Z → DB2
+
+Advantage:
+Better distribution of data.
+
+Problem:
+Joins across shards become difficult.
+
+---
+
+# Column-Based Sharding (Vertical Sharding)
+
+Split table columns into multiple tables.
+
+Example:
+
+Table columns:
+ID | Name | Address | Email | Phone
+
+Split into:
+
+Table1 → ID, Name, Address
+Table2 → ID, Email, Phone
+
+Used when different services need different sets of data.
+
+---
+
+# Challenges in Sharding
+
+Uneven data distribution.
+
+Example:
+If most user names start with certain letters, one shard may become overloaded.
+
+Solution:
+
+* Better hashing strategies
+* Consistent hashing
+
+---
+
+# Final Scalable Architecture
+
+Client
+↓
+CDN
+↓
+Load Balancer
+↓
+Multiple Data Centers
+↓
+Application Servers
+↓
+Cache Layer
+↓
+Database Replication
+↓
+Sharded Databases
+↓
+Message Queue (Async processing)
+
+This architecture allows scaling from zero users to millions of users.
+
+---
+
+# Important Concepts for Interviews
+
+Highly important topics from this architecture:
+
+Load balancer
+Database replication (master–slave)
+Caching
+CDN
+Message queues
+Horizontal vs vertical scaling
+Database sharding
+Multiple data centers
+
