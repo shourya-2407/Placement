@@ -256,185 +256,34 @@ Common technologies: Kafka, RabbitMQ
 Architecture: Producer → Message Queue → Consumers
 Benefits: Asynchronous processing, Faster response time, Fault tolerance, Retry capability
 
----
-
-# Message Queue Components (RabbitMQ example)
-
-Producer
-Exchange
-Queue
-Consumer
-
-Producer sends message with routing key to exchange.
-
-Exchange decides which queue should receive the message.
-
-Queues store messages.
-
-Consumers process messages.
-
----
-
 # Types of Exchanges
-
-Direct Exchange
-
-Routing key must match binding key exactly.
-
-Fanout Exchange
-
-Message sent to all queues regardless of routing key.
-
-Topic Exchange
-
-Routing based on pattern matching with wildcards.
-
-Allows flexible routing.
+Direct Exchange: Routing key must match binding key exactly.
+Fanout Exchange: Message sent to all queues regardless of routing key.
+Topic Exchange: Routing based on pattern matching with wildcards. Allows flexible routing.
 
 ---
-
 # 9. Database Scaling: Database scaling is critical when traffic increases significantly.
 Two main types: 
-Vertical Scaling: Increase hardware capacity of the server.
-Horizontal Scaling
+Vertical Scaling: 
+Increase hardware capacity of the server.
+Advantages: Easy to implement, No architectural change
+Limitations: Hardware limits exist, Expensive, Single machine dependency
+
+Horizontal Scaling: Add more database nodes. Instead of one database server, use multiple servers.
+Benefits: Unlimited scaling potential, Better fault tolerance, Improved performance
 
 ---
-
-# Vertical Scaling
-
-
-Example:
-
-
-Advantages:
-
-* Easy to implement
-* No architectural change
-
-Limitations:
-
-* Hardware limits exist
-* Expensive
-* Single machine dependency
-
----
-
-# Horizontal Scaling
-
-Add more database nodes.
-
-Example:
-Instead of one database server, use multiple servers.
-
-Benefits:
-
-* Unlimited scaling potential
-* Better fault tolerance
-* Improved performance
-
----
-
 # Database Sharding
-
 Horizontal scaling is implemented using sharding.
-
 Sharding divides data across multiple databases.
-
 Two types:
+# Row-Based Sharding: Rows distributed across different databases.
+Example: DB1 → rows 1–100, DB2 → rows 101–200
+Problem: Joins across shards become difficult.
 
-Row-based sharding
-Column-based sharding
-
----
-
-# Row-Based Sharding
-
-Rows distributed across different databases.
-
-Example:
-
-DB1 → rows 1–100
-DB2 → rows 101–200
-
-Or based on key:
-
-Users A–M → DB1
-Users N–Z → DB2
-
-Advantage:
-Better distribution of data.
-
-Problem:
-Joins across shards become difficult.
-
----
-
-# Column-Based Sharding (Vertical Sharding)
-
-Split table columns into multiple tables.
-
-Example:
-
-Table columns:
-ID | Name | Address | Email | Phone
-
-Split into:
-
-Table1 → ID, Name, Address
-Table2 → ID, Email, Phone
-
+# Column-Based Sharding (Vertical Sharding): Split table columns into multiple tables.
 Used when different services need different sets of data.
 
----
-
 # Challenges in Sharding
-
 Uneven data distribution.
-
-Example:
-If most user names start with certain letters, one shard may become overloaded.
-
-Solution:
-
-* Better hashing strategies
-* Consistent hashing
-
----
-
-# Final Scalable Architecture
-
-Client
-↓
-CDN
-↓
-Load Balancer
-↓
-Multiple Data Centers
-↓
-Application Servers
-↓
-Cache Layer
-↓
-Database Replication
-↓
-Sharded Databases
-↓
-Message Queue (Async processing)
-
-This architecture allows scaling from zero users to millions of users.
-
----
-
-# Important Concepts for Interviews
-
-Highly important topics from this architecture:
-
-Load balancer
-Database replication (master–slave)
-Caching
-CDN
-Message queues
-Horizontal vs vertical scaling
-Database sharding
-Multiple data centers
 
