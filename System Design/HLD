@@ -24,6 +24,171 @@ Microservices Applications:
   Disadvantages - 
 
 Phases of microservices:
-Decomposition by business capabilities or subdomain
-Database | Communication | Integration
+Decomposition by business capabilities or subdomain (also called as DDD: design driven by domain)
+Database per service or a shared DB
+Communication: API or eventing
+Integration
 
+Microservices Design Patterns
+
+1. Strangler Pattern: Used for gradual migration from monolith to microservices.
+You cannot convert the entire monolithic application to microservices at once.
+Reasons:
+* Risk of breaking the system
+* Huge codebase
+* Production traffic cannot be stopped
+---
+## Solution: Strangler Pattern - Introduce a **controller or routing layer** that decides where the traffic should go:
+## How It Works
+1. Initially all traffic goes to the **monolith**.
+2. Slowly implement some functionality as **microservices**.
+3. Route a **small percentage of traffic** to microservices.
+4. As confidence increases gradually increase the percentage from 10% to 100%
+5. Once all functionality is migrated, Monolith can be completely removed.
+---
+## Advantages
+* Safe migration
+* Easy rollback
+* Gradual refactoring
+* Production stability maintained
+
+---
+
+# 2. Database Management in Microservices
+
+Two approaches:
+
+1. **Shared Database**: Multiple services share the same database.
+### Advantages
+1. Easy **JOIN queries**
+2. Easy **transaction management**
+3. ACID properties easy to maintain
+### Disadvantages
+1. Hard to scale individual services
+2. Schema changes affect multiple services
+3. Tight coupling between services
+4. Teams must coordinate database changes
+
+2. **Database per Service**: Each microservice owns its own database.
+A service cannot directly access another service’s database.
+### Advantages
+1. Independent scaling
+2. Technology flexibility (SQL, NoSQL etc.)
+3. Independent schema changes
+4. Better service isolation
+---
+### Disadvantages
+1. Hard to perform distributed transactions
+2. Hard to perform joins across services
+These problems lead to:
+**Saga Pattern**
+**CQRS Pattern**
+
+2. Saga Pattern
+## Why Saga Is Needed: 
+In Microservices, each service has its own database. If one request touches multiple databases, ACID transaction cannot be applied across them.
+
+## Example Problem: Customer places an order.
+
+Steps: 1. Order created, 2. Inventory updated, 3. Payment processed
+Scenario:
+* Order updated → Success
+* Inventory updated → Success
+* Payment failed
+
+Now what? --> We must **rollback previous operations**.
+
+---
+## Saga Solution
+Saga = **Sequence of local transactions**
+Each service performs a local transaction and publishes an event.
+---
+## Saga Flow
+Example:
+1. Order service updates its DB
+2. Emits Order Created event
+Inventory service listens to event:
+3. Inventory updated
+4. Emits **Inventory Updated event**
+Payment service:
+5. Attempts payment
+If payment fails:
+* Payment service emits **Compensation Event**
+---
+## Compensation Transactions
+Compensation events reverse previous operations.
+Payment failed →
+Inventory rollback →
+Order rollback.
+
+## Saga Implementation Approaches
+
+### 1. Choreography: Services communicate through events. No central controller. Each service listens to events and performs its work.
+Flow: Service1 → Event → Service2 → Event → Service3
+
+### 2. Orchestration: A central orchestrator service manages the workflow.
+Flow: Orchestrator
+         ↓
+Service1, Service2, Service3
+
+If any service fails: Orchestrator triggers rollback.
+
+---
+
+## Interview Example (Saga)
+
+Example scenario: User A sends ₹10 to User B.
+Microservices:
+1. Balance Service
+2. Payment Service
+Steps:
+1. Deduct ₹10 from user A
+2. Record payment transaction
+If step 2 fails:
+Saga triggers compensation →
+Balance service adds back ₹10.
+
+
+3. CQRS Pattern
+CQRS = Command Query Responsibility Segregation
+
+Separates:
+* Write operations
+* Read operations
+---
+## Commands: Commands modify data
+* Create
+* Update
+* Delete
+---
+## Queries: Queries only read data
+* Select operations
+---
+## Why CQRS Is Needed
+In microservices with separate databases, performing joins across services is difficult.
+Example:
+Service A → DB1
+Service B → DB2
+Joining tables across DBs is complex.
+---
+## CQRS Solution
+Create a separate read database.
+Architecture:
+Write DBs (Microservices)
+        ↓
+Event Updates
+        ↓
+Read DB (Query Database)
+
+---
+## How It Works
+1. Services perform CRUD operations on their own databases.
+2. Events are published whenever data changes.
+3. Read database listens to events and updates itself.
+Now complex queries can be executed on **Read DB**.
+---
+## Benefits
+* Fast queries
+* Efficient joins
+* Scalable read systems
+* Separation of concerns
