@@ -264,8 +264,7 @@ Topic Exchange: Routing based on pattern matching with wildcards. Allows flexibl
 ---
 # 9. Database Scaling: Database scaling is critical when traffic increases significantly.
 Two main types: 
-Vertical Scaling: 
-Increase hardware capacity of the server.
+Vertical Scaling: Increase hardware capacity of the server.
 Advantages: Easy to implement, No architectural change
 Limitations: Hardware limits exist, Expensive, Single machine dependency
 
@@ -286,4 +285,83 @@ Used when different services need different sets of data.
 
 # Challenges in Sharding
 Uneven data distribution.
+
+# Consistent Hashing
+Consistent hashing is used to distribute requests or data across multiple servers in a way that minimizes data movement when servers are added or removed.
+It is commonly used in load balancers, distributed databases, caching systems, and sharding.
+This becomes important when systems scale and servers are dynamic (servers can be added or removed).
+
+---
+# 1. What is Hashing: Hashing converts an input value into a fixed-length numeric value using a hash function.
+Example: Input key Shouryaa → Apply hash function → produces numeric value → Output 14321
+Hash functions take inputs of arbitrary length and produce fixed-length outputs.
+
+---
+# 2. Mod Hashing: After generating a hash value, we map it to available servers using modulus.
+Example: Servers = 3 → Hash(key) % 3 → Possible outputs:0, 1, 2
+
+These correspond to server indexes.
+Example mapping: Hash("Rahul") % 3 → Server 2, Hash("Shivam") % 3 → Server 1
+This distributes requests across servers.
+
+---
+# 3. Problem with Mod Hashing: Mod hashing works well only when the number of servers is fixed. 
+Problem arises when servers change dynamically. Because the modulus changed, most keys map to different servers. 
+Example: Key → Server1 (Previously) ==> Key → Server3 (After adding server)
+
+This causes a major rebalancing issue.
+# Rebalancing Problem: If millions of database entries exist, almost all entries must be moved to new servers. 
+Rebalancing millions of records is expensive and inefficient.
+This is why normal hashing is not suitable for distributed systems with dynamic nodes.
+
+---
+# 4. Purpose of Consistent Hashing: Consistent hashing solves the rebalancing problem.
+Goal: When servers are added or removed, only a small portion of data should move.
+Expected rebalancing: 1 / number_of_servers of total keys.
+
+---
+# 5. Hash Ring Concept: Consistent hashing uses a circular structure called a hash ring.
+
+Example ring range: 0 → 359, Servers are placed on the ring using hash values.
+Example: Server1 → position 20, Server2 → position 120, Server3 → position 250
+Keys are also hashed to positions on the ring.
+ 
+# Assigning Keys to Servers
+Rule: Move clockwise on the ring to find the first server.
+Example: Key hash → 90, Clockwise search finds: Server2 at 120, So key is assigned to Server2.
+Another example: Key hash → 260, Clockwise search finds: Server1 at 20, So Server1 handles the request.
+
+# Adding a New Server: Suppose a new server is added at position 150.
+Only keys between: Server2 → Server3 need to move. All other keys remain unchanged.
+This significantly reduces rebalancing.
+
+# Removing a Server
+If a server fails or is removed: Its keys are reassigned to the next server in clockwise direction.
+Example: Server2 removed, Keys handled by Server2 move to Server3, Only those keys move, not all keys.
+
+# Load Distribution Problem: If servers are placed randomly on the ring, distribution may be uneven.
+Example: Server placement: Server1 at 20, Server2 at 30, Server3 at 200
+Server3 may receive much larger traffic.
+This leads to imbalance.
+
+# Virtual Nodes: To fix uneven distribution, virtual nodes are introduced. 
+Instead of placing each server once on the ring, each server is replicated multiple times.
+Example: Server1 → positions 20, 100, 220; Server2 → positions 40, 140, 300;  Server3 → positions 60, 180, 260
+Now traffic distribution becomes more balanced. Each physical server owns multiple positions on the ring.
+Benefits: Better load balancing. Improved distribution. Less hotspot formation
+
+# Where Consistent Hashing is Used: Load balancers, Distributed caching systems, Database sharding, Distributed storage systems
+Examples of real systems: Amazon Dynamo, Apache Cassandra, Redis Cluster, Content Delivery Networks
+
+# Key Benefits: Minimal rebalancing when servers change, Handles dynamic infrastructure, Improves load distribution, Scales easily with new nodes
+
+---
+# Key Interview Points
+Normal hashing problem: massive rebalancing when nodes change.
+Consistent hashing solution: only small portion of keys move.
+Hash ring concept: keys assigned using clockwise lookup.
+Virtual nodes: used to improve load balancing.
+Used in load balancing, caching, distributed databases, and sharding systems.
+
+
 
